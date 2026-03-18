@@ -35,12 +35,6 @@ header {
   width: 100%;
 }
 
-.navbar {
-  background-color: #333333;
-  width: 100%;
-  height: 100px;
-}
-
 /* BANNER */
 .banner-container {
   grid-area: banner;
