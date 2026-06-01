@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tài khoản | Vane Vietnam</title>
+  <title>Đăng nhập | Vane Vietnam</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
   <link rel="stylesheet" href="src/css/base.css?v=7" />
   <link rel="stylesheet" href="src/css/output.css?v=7" />
@@ -16,42 +16,42 @@
   <main>
     <section class="pt-40 pb-5 bg-white border-b border-gold">
       <div class="max-w-8xl mx-auto px-8">
-        <nav class="mb-2"><ol class="flex items-center gap-2 font-ui text-[20px] tracking-wider text-muted"><li><a href="index.html" class="text-silver hover:text-primary transition-colors">Trang Chủ</a></li><li class="text-silver">/</li><li class="text-primary">Tài khoản</li></ol></nav> 
+        <nav class="mb-2"><ol class="flex items-center gap-2 font-ui text-[20px] tracking-wider text-muted"><li><a href="index.html" class="text-silver hover:text-primary transition-colors">Trang Chủ</a></li><li class="text-silver">/</li><li class="text-primary">Đăng nhập</li></ol></nav>
         <h1 class="font-serif text-2xl md:text-3xl text-primary text-center bold">TRẢI NGHIỆM HOÀN MỸ CÙNG VANE VIETNAM</h1>
       </div>
     </section>
-    <section class=" max-w-5xl mx-auto rounded-xl py-10 md:py-8">
+    <section class=" max-w-5xl mx-auto rounded-xl py-16 md:py-8">
             <!-- Sửa grid thành grid-cols-1 md:grid-cols-[4fr_6fr] để trên mobile không bị bóp méo form -->
             <div class=" overflow-hidden grid grid-cols-1 md:grid-cols-2 md:[grid-template-columns:4fr_6fr] min-h-[400px] rounded-xl gap-2">
           <!-- ẢNH -->
         <div class="h-full relative">
         <img
-          src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_paris_-_bo_messika_fiery_13240_w.webp"
-          alt="Đăng ký"
+          src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_collection_shoot_-_2026_-_collection_moderniste_-_boucles_d_oreilles_14682_-_yg_-_outfit_femme_-_1_1_mathieu_rainaud.webp"
+          alt="Đăng nhập"
           class="w-full h-full object-cover"
         >
         </div>
         <!-- FORM -->
-          <div class="bg-white p-3 md:p-5">
-            <h2 class="font-serif text-2xl text-primary mb-2">TÀI KHOẢN CỦA TÔI</h2>
-             <form class="space-y-5">
-              <div>
-                <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Họ và Tên</label>
-                <input type="text" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
-              </div>
+          <div class="bg-white p-8 md:p-10">
+            <h2 class="font-serif text-2xl text-primary mb-6">ĐĂNG NHẬP</h2>
+            <form class="space-y-5">
               <div>
                 <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Số điện thoại</label>
                 <input type="tel" pattern="^\+?[0-9]{7,15}$" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
               </div>
               <div>
-                <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Email</label>
-                <input type="email" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
-              </div>
-              <div>
                 <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Mật Khẩu</label>
                 <input type="password" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
               </div>
-              <button type="submit" class="btn-primary w-full justify-center cursor-pointer">CHỈNH SỬA</button>
+              <div class="flex items-center justify-between">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" class="accent-gold">
+                  <span class="font-ui text-[12px] text-charcoal">Ghi nhớ</span>
+                </label>
+                <a href="resetpw1.html" class="font-ui text-[12px] text-gold hover:text-black transition-colors">Quên mật khẩu?</a>
+              </div>
+              <button type="submit" class="btn-primary w-full justify-center cursor-pointer">Đăng Nhập</button>
+              <p class="font-ui text-[12px] italic tracking-wider text-charcoal block text-center"> Bạn chưa có tài khoản?<a href="signup.html" class="underline"> Tạo tài khoản ngay</a></p>
             </form>
           </div>
       </div>
