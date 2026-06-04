@@ -137,4 +137,5 @@ $(async function () {
   } finally {
     hideLoader();
   }
+
 });

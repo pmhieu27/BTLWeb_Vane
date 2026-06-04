@@ -154,14 +154,18 @@ $(function () {
             // Nếu mua ngay: Chỉ xóa token mua ngay, giữ nguyên giỏ hàng persistent
             sessionStorage.removeItem("buyNowItem");
         } else {
-            // Nếu mua từ giỏ hàng: Tiến hành làm sạch giỏ hàng hệ thống
-            if (typeof window.VaneCart !== "undefined") {
-                window.VaneCart.clear();
+            // SỬA LỖI 1: Bọc try-catch bảo hiểm, nếu xóa giỏ hàng lỗi thì vẫn bỏ qua để ưu tiên nhảy trang
+            try {
+                if (typeof window.VaneCart !== "undefined" && typeof window.VaneCart.clear === "function") {
+                    window.VaneCart.clearCart();
+                }
+            } catch (error) {
+                console.error("Lỗi xóa giỏ hàng ngầm đã được bỏ qua để chạy lệnh chuyển trang:", error);
             }
         }
 
-        // Điều hướng trực tiếp sang trang thông báo thành công luxury của bạn
-        window.location.href = "payment-success.html";
+        // SỬA LỖI 2: Đổi từ dấu gạch dưới thành dấu gạch nối "payment-success.html" chuẩn xác theo file của bồ
+        window.location.href = "payment_success.html";
     }
 
     // =================================
@@ -179,7 +183,7 @@ $(function () {
             const cardModal = document.getElementById("cardPaymentModal");
             if (cardModal) cardModal.showModal();
         } 
-        // TRƯỜNG HỢP B: THANH TOÁN QR -> GIẢ LẬP ĐỢI QUÉT 5 GIÂY RỒI TỰ CHUYỂN TRANG
+        // TRƯỜNG HỢP B: THANH TOÁN QR -> ĐẾM NGƯỢC 5 GIÂY XỊN MỊN RỒI TỰ CHUYỂN TRANG
         else {
             updateQrAmount();
             const qrModal = document.getElementById("qrPaymentModal");
@@ -187,19 +191,31 @@ $(function () {
             if (qrModal) {
                 qrModal.showModal();
 
-                // Đếm ngược đúng 5 giây, đóng popup và tự chuyển sang trang thành công
-                setTimeout(function () {
-                    qrModal.close();
-                    completeOrder();
-                }, 5000);
+                let secondsLeft = 5;
+                // Nếu trong modal QR của bồ có thẻ <span id="countdownText"></span> thì nó sẽ tự nhảy số lùi cực pro
+                $("#countdownText").text(secondsLeft); 
+
+                const qrInterval = setInterval(function () {
+                    secondsLeft--;
+                    $("#countdownText").text(secondsLeft);
+
+                    if (secondsLeft <= 0) {
+                        clearInterval(qrInterval);
+                        qrModal.close();
+                        completeOrder();
+                    }
+                }, 1000);
             }
         }
     });
 
     // =================================
-    // XÁC NHẬN THANH TOÁN THẺ (BẤM SUBMIT LÀ QUA TRANG LUÔN)
+    // XÁC NHẬN THANH TOÁN THẺ
     // =================================
-    $("#confirmCardPayment").on("click", function () {
+    // SỬA LỖI 3: Thêm tham số (e) và e.preventDefault() để xích cổ hiện tượng tự reload trang ngầm của form
+    $("#confirmCardPayment").on("click", function (e) {
+        e.preventDefault(); 
+
         const cardNumber = $("#cardNumber").val().trim();
 
         if (!cardNumber) {
@@ -215,14 +231,15 @@ $(function () {
         const cardModal = document.getElementById("cardPaymentModal");
         if (cardModal) cardModal.close();
 
-        // Đáp ứng yêu cầu: Ấn xác nhận thành công là chuyển thẳng sang trang success
+        // Ấn xác nhận thành công là bốc đầu qua trang success luôn
         completeOrder();
     });
 
     // =================================
     // ĐÓNG POPUP THỦ CÔNG
     // =================================
-    $(".close-modal").on("click", function () {
+    $(".close-modal").on("click", function (e) {
+        e.preventDefault();
         $(this).closest("dialog")[0].close();
     });
 

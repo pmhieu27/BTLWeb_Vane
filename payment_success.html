@@ -14,7 +14,6 @@
   <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center"><div class="font-logo text-2xl tracking-[0.4em]">VANE</div></div>
   
   <div id="component-header" class="relative z-50"></div>
-  <section class="pt-32 bg-white border-b border-gold"></section>
   
   <main id="luxuryStage" class="relative w-full h-screen min-h-[600px] overflow-hidden">
     
@@ -22,26 +21,27 @@
       <img 
         src="https://www.messika.com/media-cms/06%20Messika%20-%20Collection%20Shoot%20-%202026%20-%20Collection%20Moderniste%20-%20Still%20Life%20-%201%EF%80%A21%20-%20No%20Logo%20%C2%A9%EF%B8%8FOlivia%20Haudry-1200x1200.jpg?2026-02-11T10:52:38.071Z"
         class="w-full h-full object-cover brightness-[0.6]"
+      >
+      <div class="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
     </div>
 
     <div id="successPopup" class="absolute inset-0 flex items-center justify-center z-30 hidden">
       <div id="popupOverlay" class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-700 backdrop-blur-xs"></div>
 
-      <div id="popupContent" class=" rounded-full bg-white/95 border border-gold/30 w-full max-w-sm p-10 text-center shadow-2xl rounded-sm transform translate-y-8 opacity-0 transition-all duration-700 ease-out z-10">
+      <div id="popupContent" class="relative bg-white/95 border border-gold/30 w-full max-w-md p-12 text-center shadow-2xl rounded-sm transform translate-y-8 opacity-0 transition-all duration-700 ease-out z-10">
         
-        <div class="font-logo font-bold text-[20px] ]">Vane VietNam</div>
+        <div class="font-logo font-bold text-4xl tracking-[0.2em] text-gold mb-6 select-none pl-[0.5em]">Vane</div>
         
-        <p class="font-sans text-[12px] text-base text-charcoal leading-relaxed mb-8 px-2 font-medium">
+        <p class="font-serif text-[25px] text-charcoal leading-relaxed mb-10 font-medium tracking-wide">
           Cảm ơn bạn đã đồng hành cùng <br>
-          <span class="tracking-widest text-primary block mt-1">VANE VIETNAM</span>
+          <span class="tracking-widest text-primary block mt-2 text-[20px] font-semibold uppercase">Vane Vietnam</span>
         </p>
 
-        <a href="index.html" class=" font-ui btn-outline block w-full text-center py-4 font-medium uppercase tracking-[0.2em] text-[12px]">
+        <a href="index.html" class="font-ui btn-outline block w-full text-center py-4 font-medium uppercase tracking-[0.2em] text-[11px]">
           Tiếp tục mua sắm
         </a>
       </div>
     </div>
-
   </main>
 
   <div id="component-footer"></div>
@@ -113,7 +113,7 @@
           $('#popupContent').removeClass('translate-y-8 opacity-0').addClass('translate-y-0 opacity-100');
         }, 50);
 
-      }, 900);
+      },500);
 
     });
   </script>
