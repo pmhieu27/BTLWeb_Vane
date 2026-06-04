@@ -35,6 +35,7 @@ $(function () {
         '<img src="' + p.images[0] + '" alt="' + p.name_vi + '" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">' +
         '<div class="absolute bottom-0 inset-x-0 p-3 flex justify-center gap-2 translate-y-full group-hover:translate-y-0 transition-transform duration-400">' +
           '<button class="add-to-cart-btn bg-primary text-white font-ui text-[9px] uppercase tracking-wider px-4 py-2 hover:bg-gold transition-colors cursor-pointer" data-id="' + p.id + '">Thêm Giỏ</button>' +
+          '<button class="buy-now-btn btn-secondary text-primary font-ui text-[9px] uppercase tracking-wider px-4 py-2 hover:bg-gold hover:text-white transition-colors cursor-pointer" data-id="' + p.id + '">Mua Ngay</button>' +
           '<button class="toggle-wishlist-btn bg-white text-primary font-ui text-[9px] uppercase tracking-wider px-3 py-2 hover:text-gold transition-colors cursor-pointer" data-id="' + p.id + '">' +
             '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' +
           '</button>' +
@@ -186,6 +187,22 @@ $(function () {
   // Filter group collapse
   $(document).on("click", ".filter-group-title", function () {
     $(this).closest(".filter-group").toggleClass("collapsed");
+  });
+
+  // Product card actions
+  $(document).on("click", ".add-to-cart-btn, .buy-now-btn", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var id = parseInt($(this).attr("data-id"), 10);
+    var product = allProducts.find(function (p) { return p.id === id; });
+    if (!product || typeof window.VaneCart === "undefined") return;
+
+    window.VaneCart.addToCart(product, null, 1);
+
+    if ($(this).hasClass("buy-now-btn")) {
+      window.location.href = "checkout.html";
+    }
   });
 
   // Mobile filter drawer
