@@ -2343,6 +2343,11 @@ video {
     padding-right: 5rem;
   }
 
+  .md\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
   .md\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -2368,9 +2373,9 @@ video {
     padding-bottom: 9rem;
   }
 
-  .md\:py-44 {
-    padding-top: 11rem;
-    padding-bottom: 11rem;
+  .md\:py-7 {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
   }
 
   .md\:py-10 {
@@ -2514,6 +2519,11 @@ video {
 
   .lg\:self-start {
     align-self: flex-start;
+  }
+
+  .lg\:px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 
   .lg\:px-24 {
