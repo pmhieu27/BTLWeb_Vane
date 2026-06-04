@@ -1,0 +1,93 @@
+/* ===== HEADER & NAVIGATION ===== */
+
+/* --- Header States --- */
+.header-transparent {
+  background-color: transparent;
+  color: #FFFFFF;
+}
+
+.header-transparent:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.header-transparent #top-bar,
+.header-transparent #nav-bar {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.header-scrolled {
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #0A0A0A;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.header-scrolled #top-bar,
+.header-scrolled #nav-bar {
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+/* --- Sidebar Menu Overlay --- */
+.sidebar-menu-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s;
+}
+
+.sidebar-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar-menu-content {
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sidebar-menu-overlay.active .sidebar-menu-content {
+  transform: translateX(0);
+}
+
+/* --- Menu & Search Overlay Active States --- */
+#search-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* --- Breadcrumb --- */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.75rem;
+  color: #888888;
+  padding: 1rem 0;
+}
+
+.breadcrumb a {
+  color: #888888;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: #C9A96E;
+}
+
+.breadcrumb-separator {
+  color: #C6C6C6;
+  font-size: 0.65rem;
+}
+
+.breadcrumb-current {
+  color: #0A0A0A;
+  font-weight: 500;
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quên mật khẩu| Vane Vietnam</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+  <link rel="stylesheet" href="src/css/base.css?v=7" />
+  <link rel="stylesheet" href="src/css/output.css?v=7" />
+  <link rel="stylesheet" href="src/css/custom.css?v=7" />
+</head>
+<body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
+
+  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center"><div class="font-logo text-2xl tracking-[0.4em]">VANE</div></div>
+ <div id="component-header"></div>
+  <main>
+    <section class="pt-40 pb-5 bg-white border-b border-gold">
+      <div class="max-w-8xl mx-auto px-8">
+        <nav class="mb-2"><ol class="flex items-center gap-2 font-ui text-[20px] tracking-wider text-muted"><li><a href="index.html" class="text-silver hover:text-primary transition-colors">Trang Chủ</a></li><li class="text-silver">/</li><li class="text-primary">Quên mật khẩu</li></ol></nav>
+        <h1 class="font-serif text-2xl md:text-3xl text-primary text-center bold">TRẢI NGHIỆM HOÀN MỸ CÙNG VANE VIETNAM</h1>
+      </div>
+    </section>
+    <section class=" max-w-5xl mx-auto rounded-xl py-16 md:py-8">
+            <!-- Sửa grid thành grid-cols-1 md:grid-cols-[4fr_6fr] để trên mobile không bị bóp méo form -->
+            <div class=" overflow-hidden grid grid-cols-1 md:grid-cols-2 md:[grid-template-columns:4fr_6fr] min-h-[400px] rounded-xl gap-2">
+          <!-- ẢNH -->
+        <div class="h-full relative">
+        <img
+          src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_collection_shoot_-_2026_-_collection_moderniste_-_boucles_d_oreilles_14682_-_yg_-_outfit_femme_-_1_1_mathieu_rainaud.webp"
+          alt="Quên mật khẩu"
+          class="w-full h-full object-cover"
+        >
+        </div>
+        <!-- FORM -->
+          <div class="bg-white p-8 md:p-10 flex flex-col justify-center">
+            <h2 class="font-serif text-2xl text-primary mb-6">Quên mật khẩu</h2>
+            <form id="forgotForm" class="space-y-5">
+              <div>
+                <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Điền số điện thoại của bạn</label>
+                <input id="forgotPhone" type="tel" pattern="^\+?[0-9]{7,15}$" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
+              </div>
+              <div class="flex gap-5">
+                <button type="button" class="btn-primary w-full justify-center cursor-pointer"><a href="login.html">Quay lại</a></button>
+                <button type="submit" class="btn-primary w-full justify-center cursor-pointer">Tiếp theo</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="component-footer"></div>
+  <footer class="bg-primary"><div class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"><p class="font-ui text-[9px] text-white/20">© 2025 Vane Vietnam</p><div class="flex gap-6"><a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors">Bảo Mật</a><a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors">Điều Khoản</a></div></div></footer>
+  <div id="component-cart-overlay"></div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="src/js/app.js?v=8"></script>
+  <script src="src/js/pages/auth.js?v=8"></script>
+</body>
+</html>

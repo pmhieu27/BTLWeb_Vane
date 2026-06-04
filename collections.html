@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bộ Sưu Tập | Vane Vietnam</title>
+  <meta name="description" content="Khám phá bộ sưu tập trang sức cao cấp Vane Vietnam — nhẫn, dây chuyền, vòng tay, hoa tai." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+  <link rel="stylesheet" href="src/css/base.css?v=7" />
+  <link rel="stylesheet" href="src/css/output.css?v=7" />
+  <link rel="stylesheet" href="src/css/custom.css?v=7" />
+</head>
+<body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
+
+  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center">
+    <div class="font-logo text-2xl tracking-[0.4em]">VANE</div>
+  </div>
+
+  <div id="component-header"></div>
+
+  <main>
+
+    <!-- ══════════ BREADCRUMB + PAGE TITLE ══════════ -->
+    <section class="pt-40 pb-16 bg-white border-b border-silver-light/50">
+      <div class="max-w-6xl mx-auto px-8">
+        <!-- Breadcrumb -->
+        <nav class="mb-8">
+          <ol class="flex items-center gap-2 font-ui text-[10px] tracking-wider text-muted">
+            <li><a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a></li>
+            <li class="text-silver">/</li>
+            <li id="breadcrumb-current" class="text-primary">Bộ Sưu Tập</li>
+          </ol>
+        </nav>
+        <!-- Title row -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-3">Bộ Sưu Tập</p>
+            <h1 id="collection-title" class="font-serif text-4xl md:text-5xl text-primary">Tất Cả Sản Phẩm</h1>
+          </div>
+          <p id="product-count" class="font-ui text-[11px] text-muted">Đang tải...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ TOOLBAR ══════════ -->
+    <section class="sticky top-[60px] z-30 bg-white/90 backdrop-blur-md border-b border-silver-light/50">
+      <div class="max-w-6xl mx-auto px-8 py-3 flex items-center justify-between gap-4">
+        <!-- Filter toggle (mobile) -->
+        <button id="filter-toggle-btn" class="md:hidden flex items-center gap-2 font-ui text-[11px] uppercase tracking-wider text-primary cursor-pointer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+          Bộ Lọc
+        </button>
+
+        <!-- Category pills (desktop) -->
+        <div class="hidden md:flex items-center gap-2" id="category-pills">
+          <button class="filter-pill active" data-category="all">Tất Cả</button>
+          <button class="filter-pill" data-category="rings">Nhẫn</button>
+          <button class="filter-pill" data-category="necklaces">Dây Chuyền</button>
+          <button class="filter-pill" data-category="bracelets">Vòng Tay</button>
+          <button class="filter-pill" data-category="earrings">Hoa Tai</button>
+        </div>
+
+        <!-- Sort -->
+        <div class="flex items-center gap-3">
+          <label class="font-ui text-[10px] text-muted uppercase tracking-wider hidden sm:block">Sắp xếp</label>
+          <select id="sort-select" class="bg-transparent border border-silver-light/60 font-ui text-[11px] px-3 py-2 text-charcoal cursor-pointer focus:outline-none focus:border-gold transition-colors">
+            <option value="default">Mặc định</option>
+            <option value="price-asc">Giá: Thấp → Cao</option>
+            <option value="price-desc">Giá: Cao → Thấp</option>
+            <option value="name">Tên A → Z</option>
+            <option value="new">Mới nhất</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ PRODUCT GRID + SIDEBAR ══════════ -->
+    <section class="bg-ivory py-12 md:py-16">
+      <div class="max-w-6xl mx-auto px-8">
+        <div class="flex gap-10">
+
+          <!-- SIDEBAR FILTERS (desktop) -->
+          <aside id="filter-sidebar" class="hidden md:block w-56 shrink-0">
+            <div class="filter-panel">
+
+              <!-- Danh mục -->
+              <div class="filter-group">
+                <div class="filter-group-title">
+                  Danh Mục
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="filter-group-content">
+                  <label class="filter-checkbox"><input type="checkbox" value="rings"> Nhẫn</label>
+                  <label class="filter-checkbox"><input type="checkbox" value="necklaces"> Dây Chuyền</label>
+                  <label class="filter-checkbox"><input type="checkbox" value="bracelets"> Vòng Tay</label>
+                  <label class="filter-checkbox"><input type="checkbox" value="earrings"> Hoa Tai</label>
+                </div>
+              </div>
+
+              <!-- Chất liệu -->
+              <div class="filter-group">
+                <div class="filter-group-title">
+                  Chất Liệu
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="filter-group-content">
+                  <label class="filter-checkbox"><input type="checkbox" value="Vàng 18K"> Vàng 18K</label>
+                  <label class="filter-checkbox"><input type="checkbox" value="Vàng trắng 18K"> Vàng trắng 18K</label>
+                  <label class="filter-checkbox"><input type="checkbox" value="Bạc 925"> Bạc 925</label>
+                </div>
+              </div>
+
+              <!-- Khoảng giá -->
+              <div class="filter-group">
+                <div class="filter-group-title">
+                  Khoảng Giá
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="filter-group-content">
+                  <div class="price-range-slider">
+                    <input type="range" id="price-range" min="0" max="50000000" value="50000000" step="1000000">
+                    <div class="flex justify-between font-ui text-[10px] text-muted mt-2">
+                      <span>0₫</span>
+                      <span id="price-range-value">50.000.000₫</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trạng thái -->
+              <div class="filter-group">
+                <div class="filter-group-title">
+                  Trạng Thái
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="filter-group-content">
+                  <label class="filter-checkbox"><input type="checkbox" value="new"> Hàng mới</label>
+                  <label class="filter-checkbox"><input type="checkbox" value="sale"> Đang giảm giá</label>
+                  <label class="filter-checkbox"><input type="checkbox" value="bestseller"> Bán chạy</label>
+                </div>
+              </div>
+
+              <!-- Reset -->
+              <button id="filter-reset" class="mt-6 w-full py-2.5 font-ui text-[10px] uppercase tracking-widest text-muted border border-silver-light hover:text-primary hover:border-charcoal transition-colors cursor-pointer">
+                Xóa Bộ Lọc
+              </button>
+            </div>
+          </aside>
+
+          <!-- PRODUCT GRID -->
+          <div class="flex-1">
+            <div id="products-grid" class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              <!-- Skeleton loading (8 items) -->
+              <div class="flex flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
+              <div class="flex flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
+              <div class="hidden lg:flex lg:flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
+              <div class="flex flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
+              <div class="flex flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
+              <div class="hidden lg:flex lg:flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
+            </div>
+
+            <!-- Empty state -->
+            <div id="products-empty" class="hidden text-center py-20">
+              <p class="font-serif text-2xl text-muted mb-3">Không tìm thấy sản phẩm</p>
+              <p class="font-ui text-sm text-muted/60">Vui lòng thử lại với bộ lọc khác.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ MOBILE FILTER DRAWER ══════════ -->
+    <div id="mobile-filter-overlay" class="fixed inset-0 z-100 bg-black/50 backdrop-blur-sm opacity-0 invisible transition-all duration-300 [&.active]:opacity-100 [&.active]:visible md:hidden">
+      <div id="mobile-filter-panel" class="fixed bottom-0 left-0 right-0 bg-white max-h-[85vh] overflow-y-auto px-6 py-8 translate-y-full transition-transform duration-400 in-[.active]:translate-y-0" style="border-radius:1rem 1rem 0 0;">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="font-serif text-xl text-primary">Bộ Lọc</h3>
+          <button id="mobile-filter-close" class="text-2xl text-muted hover:text-primary cursor-pointer">&times;</button>
+        </div>
+
+        <!-- Same filter groups as sidebar -->
+        <div class="filter-group">
+          <div class="filter-group-title">Danh Mục <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="filter-group-content">
+            <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="rings"> Nhẫn</label>
+            <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="necklaces"> Dây Chuyền</label>
+            <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="bracelets"> Vòng Tay</label>
+            <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="earrings"> Hoa Tai</label>
+          </div>
+        </div>
+
+        <button id="mobile-filter-apply" class="mt-8 w-full py-3 bg-primary text-white font-ui text-[11px] uppercase tracking-widest hover:bg-charcoal transition-colors cursor-pointer">
+          Áp Dụng Bộ Lọc
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="component-footer"></div>
+
+  <footer class="bg-primary">
+    <div class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="font-ui text-[9px] text-white/20 tracking-wide">© 2025 Vane Vietnam</p>
+      <div class="flex gap-6">
+        <a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide">Bảo Mật</a>
+        <a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide">Điều Khoản</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="component-cart-overlay"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="src/js/app.js?v=8"></script>
+</body>
+</html>

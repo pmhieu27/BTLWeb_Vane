@@ -1,0 +1,56 @@
+<!-- Cart Overlay Backdrop -->
+<div id="cart-overlay-backdrop" class="cart-overlay-backdrop"></div>
+
+<!-- Cart Overlay Panel -->
+<div id="cart-overlay" class="cart-overlay">
+  <!-- Header -->
+  <div class="cart-overlay-header">
+    <h3 class="font-serif text-2xl text-primary">Giỏ Hàng</h3>
+    <button id="cart-close" class="text-2xl text-muted hover:text-primary transition-colors cursor-pointer">&times;</button>
+  </div>
+
+  <!-- Body (scrollable) -->
+  <div class="cart-overlay-body" id="cart-items-container">
+    <!-- Empty State (shown when cart is empty) -->
+    <div id="cart-empty-state" class="cart-empty">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C6C6C6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mb-4">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <p class="font-serif text-xl text-charcoal mb-2">Giỏ hàng trống</p>
+      <p class="font-ui text-sm text-muted mb-6">Hãy khám phá bộ sưu tập của chúng tôi</p>
+      <a href="collections.html" class="btn-primary text-[11px]" data-no-transition>Mua Sắm Ngay</a>
+    </div>
+
+    <!-- Cart Items (populated by JS) -->
+    <div id="cart-items-list" class="hidden">
+      <!-- Each cart item will be rendered here by cart.js -->
+    </div>
+  </div>
+
+  <!-- Footer (shown only when cart has items) -->
+  <div id="cart-overlay-footer" class="cart-overlay-footer hidden">
+    <div class="flex justify-between items-center mb-2 font-ui text-sm text-muted">
+      <span>Tạm tính</span>
+      <span id="cart-subtotal">0₫</span>
+    </div>
+    <div class="flex justify-between items-center mb-4 font-ui text-sm text-muted">
+      <span>Phí vận chuyển</span>
+      <span class="text-gold">Miễn phí</span>
+    </div>
+    <div class="flex justify-between items-center mb-6 font-serif text-xl text-primary">
+      <span>Tổng cộng</span>
+      <span id="cart-total" class="text-gold">0₫</span>
+    </div>
+    <a href="checkout.html" class="btn-primary w-full text-center text-[11px] mb-3">
+      Thanh Toán
+    </a>
+    <button id="cart-continue-shopping" class="btn-outline w-full text-center text-[11px]">
+      Tiếp Tục Mua Sắm
+    </button>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container" class="toast-container"></div>

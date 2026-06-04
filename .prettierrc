@@ -1,0 +1,5 @@
+{
+    "plugin": [
+        "prettier-plugin-tailwindcss"
+    ]
+}

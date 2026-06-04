@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chi Tiết Sản Phẩm | Vane Vietnam</title>
+  <meta name="description" content="Chi tiết sản phẩm trang sức Vane Vietnam." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+  <link rel="stylesheet" href="src/css/base.css?v=7" />
+  <link rel="stylesheet" href="src/css/output.css?v=7" />
+  <link rel="stylesheet" href="src/css/custom.css?v=7" />
+</head>
+<body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
+
+  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center">
+    <div class="font-logo text-2xl tracking-[0.4em]">VANE</div>
+  </div>
+
+  <div id="component-header"></div>
+
+  <main>
+
+    <!-- ══════════ BREADCRUMB ══════════ -->
+    <section class="pt-40 pb-6 bg-white">
+      <div class="max-w-6xl mx-auto px-8">
+        <nav>
+          <ol class="flex items-center gap-2 font-ui text-[10px] tracking-wider text-muted">
+            <li><a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a></li>
+            <li class="text-silver">/</li>
+            <li><a href="collections.html" class="hover:text-primary transition-colors">Bộ Sưu Tập</a></li>
+            <li class="text-silver">/</li>
+            <li id="breadcrumb-product" class="text-primary">Đang tải...</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ══════════ PRODUCT DETAIL ══════════ -->
+    <section class="bg-white pb-20">
+      <div class="max-w-6xl mx-auto px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+
+          <!-- IMAGES -->
+          <div id="product-gallery" class="space-y-4">
+            <div class="overflow-hidden bg-ivory">
+              <img id="main-product-img" src="https://placehold.co/800x1000/e8e2da/A68B5B?text=Loading" alt="Sản phẩm" class="w-full aspect-[3/4] object-cover transition-transform duration-500 cursor-zoom-in hover:scale-110">
+            </div>
+            <div id="product-thumbnails" class="grid grid-cols-4 gap-3">
+              <!-- Thumbnails rendered by JS -->
+            </div>
+          </div>
+
+          <!-- INFO -->
+          <div id="product-info" class="lg:sticky lg:top-32 lg:self-start py-6 lg:py-12">
+
+            <!-- Category badge -->
+            <p id="product-category" class="font-ui text-[10px] tracking-[0.3em] uppercase text-gold mb-4">—</p>
+
+            <!-- Name -->
+            <h1 id="product-name" class="font-serif text-3xl md:text-4xl text-primary mb-4">Đang tải...</h1>
+
+            <!-- Price -->
+            <div id="product-price" class="flex items-baseline gap-3 mb-8">
+              <span class="font-serif text-2xl text-primary">—</span>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-10 h-px bg-gold/30 mb-8"></div>
+
+            <!-- Description -->
+            <p id="product-description" class="text-muted text-sm leading-relaxed mb-10">Đang tải thông tin sản phẩm...</p>
+
+            <!-- Material & Gemstone -->
+            <div id="product-meta" class="grid grid-cols-2 gap-4 mb-10">
+              <div>
+                <p class="font-ui text-[9px] uppercase tracking-widest text-muted mb-1">Chất Liệu</p>
+                <p id="product-material" class="font-ui text-sm text-primary">—</p>
+              </div>
+              <div>
+                <p class="font-ui text-[9px] uppercase tracking-widest text-muted mb-1">Đá Quý</p>
+                <p id="product-gemstone" class="font-ui text-sm text-primary">—</p>
+              </div>
+            </div>
+
+            <!-- Size selector -->
+            <div id="size-selector" class="mb-10 hidden">
+              <p class="font-ui text-[10px] uppercase tracking-widest text-charcoal mb-3">Kích Cỡ</p>
+              <div id="size-options" class="flex flex-wrap gap-2">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+
+            <!-- Quantity -->
+            <div class="mb-10">
+              <p class="font-ui text-[10px] uppercase tracking-widest text-charcoal mb-3">Số Lượng</p>
+              <div class="inline-flex items-center border border-silver-light">
+                <button id="qty-minus" class="w-10 h-10 flex items-center justify-center text-muted hover:text-primary transition-colors cursor-pointer">−</button>
+                <input type="number" id="qty-input" value="1" min="1" max="10" class="w-12 h-10 text-center font-ui text-sm text-primary border-x border-silver-light bg-transparent">
+                <button id="qty-plus" class="w-10 h-10 flex items-center justify-center text-muted hover:text-primary transition-colors cursor-pointer">+</button>
+              </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 mb-8">
+              <button id="add-to-cart-detail" class="btn-primary flex-1 justify-center cursor-pointer">Thêm Vào Giỏ Hàng</button>
+              <button id="toggle-wishlist-detail" class="btn-outline flex items-center justify-center gap-2 px-6 cursor-pointer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                Yêu Thích
+              </button>
+            </div>
+
+            <!-- Extra info accordion -->
+            <div class="border-t border-silver-light pt-6 space-y-0">
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  Giao Hàng & Đổi Trả
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <p>Miễn phí giao hàng toàn quốc cho đơn hàng trên 10.000.000₫. Đổi trả trong vòng 30 ngày nếu sản phẩm chưa qua sử dụng.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  Bảo Hành
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="accordion-content">
+                  <p>Bảo hành trọn đời cho tất cả sản phẩm Vane Vietnam. Bao gồm dịch vụ đánh bóng, chỉnh size miễn phí.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ SẢN PHẨM LIÊN QUAN ══════════ -->
+    <section class="bg-ivory py-20 md:py-28">
+      <div class="max-w-6xl mx-auto px-8">
+        <div class="text-center mb-14" data-reveal="scale">
+          <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-3">Gợi Ý</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-primary">Sản Phẩm Tương Tự</h2>
+        </div>
+        <div id="related-products" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="component-footer"></div>
+
+  <footer class="bg-primary">
+    <div class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="font-ui text-[9px] text-white/20 tracking-wide">© 2025 Vane Vietnam</p>
+      <div class="flex gap-6">
+        <a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide">Bảo Mật</a>
+        <a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide">Điều Khoản</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="component-cart-overlay"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="src/js/app.js?v=8"></script>
+</body>
+</html>

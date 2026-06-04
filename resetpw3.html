@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quên mật khẩu| Vane Vietnam</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+  <link rel="stylesheet" href="src/css/base.css?v=7" />
+  <link rel="stylesheet" href="src/css/output.css?v=7" />
+  <link rel="stylesheet" href="src/css/custom.css?v=7" />
+</head>
+<body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
+
+  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center"><div class="font-logo text-2xl tracking-[0.4em]">VANE</div></div>
+ <div id="component-header"></div>
+  <main>
+    <section class="pt-40 pb-5 bg-white border-b border-gold">
+      <div class="max-w-8xl mx-auto px-8">
+        <nav class="mb-2"><ol class="flex items-center gap-2 font-ui text-[20px] tracking-wider text-muted"><li><a href="index.html" class="text-silver hover:text-primary transition-colors">Trang Chủ</a></li><li class="text-silver">/</li><li class="text-primary">Quên mật khẩu</li></ol></nav>
+        <h1 class="font-serif text-2xl md:text-3xl text-primary text-center bold">TRẢI NGHIỆM HOÀN MỸ CÙNG VANE VIETNAM</h1>
+      </div>
+    </section>
+    <section class=" max-w-5xl mx-auto rounded-xl py-16 md:py-8">
+            <!-- Sửa grid thành grid-cols-1 md:grid-cols-[4fr_6fr] để trên mobile không bị bóp méo form -->
+            <div class=" overflow-hidden grid grid-cols-1 md:grid-cols-2 md:[grid-template-columns:4fr_6fr] min-h-[400px] rounded-xl gap-2">
+          <!-- ẢNH -->
+        <div class="h-full relative">
+        <img
+          src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_outfit_1_1_-_boucles_d_oreilles_cr_oles_move_romane_pm_06689_pg.webp"
+        >
+        </div>
+        <!-- FORM -->
+          <div class="bg-white p-8 md:p-10 flex flex-col justify-center">
+            <h2 class="font-serif text-2xl text-primary mb-6">Quên mật khẩu</h2>
+            <form id="resetPasswordForm" class="space-y-5">
+
+            <div>
+            <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Mật Khẩu Mới</label>
+            <div class="relative w-full">
+              <input 
+                id="newPassword" 
+                type="password" 
+                class="w-full bg-ivory border border-silver-light pl-4 pr-12 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors"
+              >
+              <button type="button" id="toggleNewPassword" class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer select-none focus:outline-none group">
+                <svg id="eyeNewOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-charcoal group-hover:text-gold transition-colors">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+                <svg id="eyeNewClose" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-charcoal group-hover:text-gold transition-colors hidden">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Xác Nhận Mật Khẩu</label>
+            <div class="relative w-full">
+              <input 
+                id="confirmPassword" 
+                type="password" 
+                class="w-full bg-ivory border border-silver-light pl-4 pr-12 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors"
+              >
+              <button type="button" id="toggleConfirmPassword" class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer select-none focus:outline-none group">
+                <svg id="eyeConfirmOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-charcoal group-hover:text-gold transition-colors">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+                <svg id="eyeConfirmClose" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-charcoal group-hover:text-gold transition-colors hidden">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                </svg>
+              </button>
+            </div>
+          </div>
+              <div class="flex gap-5">
+                <button type="button" class="btn-primary w-full justify-center cursor-pointer"><a href="resetpw2.html">Quay lại</a></button>
+                <button type="submit" class="btn-primary w-full justify-center cursor-pointer">Hoàn thành</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="component-footer"></div>
+  <footer class="bg-primary"><div class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"><p class="font-ui text-[9px] text-white/20">© 2025 Vane Vietnam</p><div class="flex gap-6"><a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors">Bảo Mật</a><a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors">Điều Khoản</a></div></div></footer>
+  <div id="component-cart-overlay"></div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="src/js/app.js?v=8"></script>
+  <script src="src/js/pages/auth.js?v=8"></script>
+</body>
+</html>

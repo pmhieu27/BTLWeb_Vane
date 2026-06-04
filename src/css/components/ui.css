@@ -1,0 +1,245 @@
+/* ===== UI COMPONENTS ===== */
+/* Tabs, Toast, Accordion, Buttons, Marquee, Testimonials, Stepper, Scrollbar, Loader */
+
+/* --- Section Divider --- */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #E8D5B0);
+}
+
+.section-divider::after {
+  background: linear-gradient(to left, transparent, #E8D5B0);
+}
+
+.section-divider .divider-icon {
+  width: 6px;
+  height: 6px;
+  background-color: #C9A96E;
+  transform: rotate(45deg);
+  margin: 0 1rem;
+  flex-shrink: 0;
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #FAF8F5; }
+::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #A68B5B; }
+
+/* --- Loader --- */
+#loader {
+  background: #FFFFFF;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#loader.opacity-0 { pointer-events: none; }
+
+/* --- Tab Component --- */
+.tab-nav { display: flex; border-bottom: 1px solid #F0F0F0; gap: 0; }
+.tab-btn {
+  font-family: "Montserrat", sans-serif; font-size: 0.75rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.1em; padding: 1rem 1.5rem;
+  color: #888888; border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease; cursor: pointer; white-space: nowrap;
+}
+.tab-btn:hover { color: #0A0A0A; }
+.tab-btn.active { color: #0A0A0A; border-bottom-color: #C9A96E; }
+.tab-content { display: none; padding: 1.5rem 0; }
+.tab-content.active { display: block; }
+
+/* --- Toast Notifications --- */
+@keyframes toastSlideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes toastSlideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+.toast-container {
+  position: fixed; top: 1.5rem; right: 1.5rem; z-index: 130;
+  display: flex; flex-direction: column; gap: 0.75rem; pointer-events: none;
+}
+.toast {
+  display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem;
+  background-color: #FFFFFF; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-left: 3px solid #C9A96E; font-family: "Montserrat", sans-serif;
+  font-size: 0.8125rem; color: #0A0A0A; pointer-events: auto;
+  animation: toastSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); max-width: 360px;
+}
+.toast.toast-removing { animation: toastSlideOut 0.3s ease forwards; }
+.toast.toast-success { border-left-color: #48BB78; }
+.toast.toast-error { border-left-color: #E53E3E; }
+.toast.toast-info { border-left-color: #C9A96E; }
+
+/* --- Brand Marquee --- */
+@keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; animation: marqueeScroll 30s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-item {
+  display: inline-flex; align-items: center; gap: 2rem; padding: 0 2rem;
+  font-family: "Montserrat", sans-serif; font-size: 0.75rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.25em; color: #888888;
+}
+.marquee-dot { width: 4px; height: 4px; border-radius: 50%; background-color: #C9A96E; flex-shrink: 0; }
+
+/* --- Accordion / FAQ --- */
+.accordion-item { border-bottom: 2px solid rgb(201 169 110 / 1); }
+.accordion-trigger {
+  display: flex; justify-content: space-between; align-items: center; width: 100%;
+  padding: 1.25rem 0; font-family: "Montserrat", sans-serif; font-size: 1rem;
+  font-weight: 500; color: #0A0A0A; text-align: left; cursor: pointer; transition: color 0.2s ease;
+}
+.accordion-trigger:hover { color: #C9A96E; }
+.accordion-trigger svg { transition: transform 0.3s ease; flex-shrink: 0; color: #888888; }
+.accordion-item.active .accordion-trigger svg { transform: rotate(180deg); }
+.accordion-content {
+  display: none; padding-bottom: 1.25rem; font-family: "Inter", sans-serif;
+  font-size: 1rem; line-height: 1.7; color: #888888;
+}
+.accordion-item.active .accordion-content { display: block; }
+
+/* --- Primary Button --- */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  font-family: "Montserrat", sans-serif; font-size: 0.75rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.15em; padding: 1rem 2.5rem;
+  background-color: #C9A96E; color: #FFFFFF; border: 1px solid #C9A96E;
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  cursor: pointer; position: relative; overflow: hidden;
+}
+.btn-primary:hover {
+  background-color: #A68B5B; border-color: #A68B5B;
+  box-shadow: 0 4px 20px rgba(201, 169, 110, 0.3);
+  transform: translateY(-1px);
+}
+
+/* --- Outline Button --- */
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  font-family: "Montserrat", sans-serif; font-size: 0.75rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.15em; padding: 1rem 2.5rem;
+  background-color: transparent; color: #0A0A0A; border: 1px solid #0A0A0A;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background-color: #0A0A0A; color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Gold Outline Button --- */
+.btn-gold-outline {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  font-family: "Montserrat", sans-serif; font-size: 0.75rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.15em; padding: 1rem 2.5rem;
+  background-color: transparent; color: #C9A96E; border: 1px solid #C9A96E;
+  transition: all 0.4s ease; cursor: pointer;
+}
+.btn-gold-outline:hover {
+  background-color: #C9A96E; color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(201, 169, 110, 0.25);
+  transform: translateY(-1px);
+}
+
+/* --- White Button (for dark backgrounds) --- */
+.btn-white {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  font-family: "Montserrat", sans-serif; font-size: 0.75rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.15em; padding: 1rem 2.5rem;
+  background-color: transparent; color: #FFFFFF; border: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.4s ease; cursor: pointer;
+}
+.btn-white:hover {
+  background-color: #FFFFFF; color: #0A0A0A;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+
+/* --- Testimonial Slider --- */
+.testimonial-slider { position: relative; overflow: hidden; }
+.testimonial-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.testimonial-slide { min-width: 100%; padding: 0 2rem; }
+.testimonial-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem; }
+.testimonial-dot {
+  width: 8px; height: 8px; border-radius: 50%; background-color: #E0E0E0;
+  cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.testimonial-dot.active { background-color: #C9A96E; transform: scale(1.25); }
+
+/* --- Stepper (Checkout / Process) --- */
+.stepper { display: flex; align-items: center; justify-content: center; gap: 0; }
+.stepper-step { display: flex; align-items: center; gap: 0.75rem; }
+.stepper-number {
+  width: 36px; height: 36px; border-radius: 50%; border: 2px solid #E0E0E0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Montserrat", sans-serif; font-size: 0.8125rem; font-weight: 600;
+  color: #888888; transition: all 0.3s ease;
+}
+.stepper-step.active .stepper-number,
+.stepper-step.completed .stepper-number { border-color: #C9A96E; background-color: #C9A96E; color: #FFFFFF; }
+.stepper-label {
+  font-family: "Montserrat", sans-serif; font-size: 0.75rem; font-weight: 500;
+  color: #888888; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.stepper-step.active .stepper-label { color: #0A0A0A; }
+.stepper-line { width: 60px; height: 2px; background-color: #E0E0E0; margin: 0 0.5rem; }
+.stepper-step.completed + .stepper-line { background-color: #C9A96E; }
+
+/* --- Filter Pills --- */
+.filter-pill {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 1rem;
+  color: #888888;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.filter-pill:hover {
+  color: #0A0A0A;
+}
+.filter-pill.active {
+  color: #0A0A0A;
+  border-color: #0A0A0A;
+}
+
+/* --- Skeleton Loading --- */
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #e8e2da 25%, #f0ebe3 50%, #e8e2da 75%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+  border-radius: 2px;
+}
+
+/* --- Btn Shine Effect --- */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s ease;
+}
+.btn-shine:hover::after {
+  left: 100%;
+}

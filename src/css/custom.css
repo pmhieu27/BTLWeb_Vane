@@ -1,0 +1,12 @@
+/* ===== CUSTOM STYLES — MASTER FILE ===== */
+/* Vane Vietnam — Luxury Jewelry Website */
+/* Each component is in its own file under components/ */
+
+@import "./components/animations.css";
+@import "./components/luxury-effects.css";
+@import "./components/header.css";
+@import "./components/products.css";
+@import "./components/cart.css";
+@import "./components/filters.css";
+@import "./components/forms.css";
+@import "./components/ui.css";
