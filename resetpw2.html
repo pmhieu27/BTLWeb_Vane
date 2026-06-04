@@ -11,7 +11,7 @@
 </head>
 <body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
 
-  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center sjustify-center"><div class="font-logo text-2xl tracking-[0.4em]">VANE</div></div>
+  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center"><div class="font-logo text-2xl tracking-[0.4em]">VANE</div></div>
  <div id="component-header"></div>
   <main>
     <section class="pt-40 pb-5 bg-white border-b border-gold">
@@ -32,16 +32,16 @@
         >
         </div>
         <!-- FORM -->
-          <div class="bg-white p-8 md:p-10 flex flex-col justify-center">
+          <div id="otpForm" class="bg-white p-8 md:p-10 flex flex-col justify-center">
             <h2 class="font-serif text-2xl text-primary mb-6">Quên mật khẩu</h2>
-            <form class="space-y-5">
+            <form id="resetPasswordForm" class="space-y-5">
               <div>
                 <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Nhập mã OTP từ điện thoại</label>
-                <input type="text" pattern="[0-9]" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
+                <input id="otpInput" type="text" pattern="[0-9]*" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
               </div>
               <div class="flex gap-5">
                 <button type="button" class="btn-primary w-full justify-center cursor-pointer"><a href="resetpw1.html">Quay lại</a></button>
-                <button type="submit" class="btn-primary w-full justify-center cursor-pointer"><a href="resetpw3.html">Tiếp theo</a></button>
+                <button type="submit" class="btn-primary w-full justify-center cursor-pointer">Tiếp theo</button>
               </div>
             </form>
           </div>
@@ -54,5 +54,6 @@
   <div id="component-cart-overlay"></div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="src/js/app.js?v=8"></script>
+  <script src="src/js/pages/auth.js?v=8"></script>
 </body>
 </html>

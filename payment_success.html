@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Đơn hàng thành công | Vane Vietnam</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+  <link rel="stylesheet" href="src/css/base.css?v=7" />
+  <link rel="stylesheet" href="src/css/output.css?v=7" />
+  <link rel="stylesheet" href="src/css/custom.css?v=7" />
+</head>
+<body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
+
+  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center"><div class="font-logo text-2xl tracking-[0.4em]">VANE</div></div>
+  
+  <div id="component-header" class="relative z-50"></div>
+  
+  <main id="luxuryStage" class="relative w-full h-screen min-h-[600px] overflow-hidden">
+    
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="https://www.messika.com/media-cms/06%20Messika%20-%20Collection%20Shoot%20-%202026%20-%20Collection%20Moderniste%20-%20Still%20Life%20-%201%EF%80%A21%20-%20No%20Logo%20%C2%A9%EF%B8%8FOlivia%20Haudry-1200x1200.jpg?2026-02-11T10:52:38.071Z"
+        class="w-full h-full object-cover brightness-[0.6]"
+      >
+      <div class="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
+    </div>
+
+    <div id="successPopup" class="absolute inset-0 flex items-center justify-center z-30 hidden">
+      <div id="popupOverlay" class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-700 backdrop-blur-xs"></div>
+
+      <div id="popupContent" class="relative bg-white/95 border border-gold/30 w-full max-w-md p-12 text-center shadow-2xl rounded-sm transform translate-y-8 opacity-0 transition-all duration-700 ease-out z-10">
+        
+        <div class="font-logo font-bold text-4xl tracking-[0.2em] text-gold mb-6 select-none pl-[0.5em]">Vane</div>
+        
+        <p class="font-serif text-[25px] text-charcoal leading-relaxed mb-10 font-medium tracking-wide">
+          Cảm ơn bạn đã đồng hành cùng <br>
+          <span class="tracking-widest text-primary block mt-2 text-[20px] font-semibold uppercase">Vane Vietnam</span>
+        </p>
+
+        <a href="index.html" class="font-ui btn-outline block w-full text-center py-4 font-medium uppercase tracking-[0.2em] text-[11px]">
+          Tiếp tục mua sắm
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <div id="component-footer"></div>
+  <footer class="bg-primary"><div class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"><p class="font-ui text-[9px] text-white/20">© 2025 Vane Vietnam</p><div class="flex gap-6"><a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors">Bảo Mật</a><a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors">Điều Khoản</a></div></div></footer>
+  <div id="component-cart-overlay"></div>
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="src/js/app.js?v=8"></script>
+
+  <script>
+    $(document).ready(function() {
+      
+      // 1. HIỆU ỨNG JQUERY: Tạo hạt bụi lấp lánh nhẹ nhàng trên nền ảnh
+      function createLuxurySparkles() {
+        const $stage = $('#luxuryStage');
+        const sparkleCount = 15; 
+
+        for (let i = 0; i < sparkleCount; i++) {
+          const size = Math.random() * 4 + 2; 
+          const startLeft = Math.random() * 100;
+          const startTop = Math.random() * 60 + 30; 
+          const opacity = Math.random() * 0.5 + 0.2;
+
+          const $sparkle = $('<div class="absolute rounded-full pointer-events-none"></div>').css({
+            'width': size + 'px',
+            'height': size + 'px',
+            'left': startLeft + '%',
+            'top': startTop + '%',
+            'background': 'linear-gradient(135deg, #FFE58F 0%, #D4AF37 100%)',
+            'box-shadow': '0 0 6px rgba(212, 175, 55, 0.8)',
+            'opacity': 0,
+            'z-index': 1
+          }).appendTo($stage);
+
+          function animateSparkle($el) {
+            const animDuration = Math.random() * 3000 + 3000; 
+            const moveUp = parseFloat($el.css('top')) - (Math.random() * 60 + 20);
+            const moveSide = parseFloat($el.css('left')) + (Math.random() * 40 - 20);
+
+            $el.animate({
+              top: moveUp + 'px',
+              opacity: opacity
+            }, animDuration / 2, 'linear')
+            .animate({
+              opacity: 0
+            }, animDuration / 2, 'linear', function() {
+              $el.css({
+                'top': (Math.random() * 50 + 40) + '%',
+                'left': (Math.random() * 100) + '%'
+              });
+              animateSparkle($el);
+            });
+          }
+
+          animateSparkle($sparkle);
+        }
+      }
+
+      // 2. ĐIỀU PHỐI ĐIỆN ẢNH: Đợi loader biến mất xong xuôi (900ms) rồi mới bung hiệu ứng
+      setTimeout(function() {
+        createLuxurySparkles();
+
+        // Kích hoạt hiển thị khung popup
+        $('#successPopup').removeClass('hidden');
+        
+        // Tạo hiệu ứng trượt đẩy nhẹ lên sang trọng cho Popup nội dung
+        setTimeout(function() {
+          $('#popupOverlay').addClass('opacity-100');
+          $('#popupContent').removeClass('translate-y-8 opacity-0').addClass('translate-y-0 opacity-100');
+        }, 50);
+
+      },500);
+
+    });
+  </script>
+</body>
+</html>
