@@ -9,7 +9,7 @@
     "originalPrice": null,
     "material": "Vàng trắng 18K",
     "gemstone": "Kim cương",
-    "images": ["https://placehold.co/600x800/FAF8F5/C9A96E?text=Ring+1", "https://placehold.co/600x800/f5f0eb/A68B5B?text=Ring+1b"],
+    "images": ["src/images/product-ring.png", "src/images/product-ring.png"],
     "isNew": true,
     "isBestSeller": false,
     "sizes": ["6", "7", "8", "9", "10"]
@@ -24,7 +24,7 @@
     "originalPrice": null,
     "material": "Vàng 18K",
     "gemstone": "Ngọc trai",
-    "images": ["https://placehold.co/600x800/FAF8F5/C9A96E?text=Necklace+1", "https://placehold.co/600x800/f5f0eb/A68B5B?text=Necklace+1b"],
+    "images": ["src/images/product-necklace.png", "src/images/product-necklace.png"],
     "isNew": true,
     "isBestSeller": true,
     "sizes": ["42cm", "45cm", "50cm"]
@@ -39,7 +39,7 @@
     "originalPrice": 42000000,
     "material": "Vàng trắng 18K",
     "gemstone": "Sapphire",
-    "images": ["https://placehold.co/600x800/FAF8F5/C9A96E?text=Bracelet+1", "https://placehold.co/600x800/f5f0eb/A68B5B?text=Bracelet+1b"],
+    "images": ["src/images/product-bracelet.png", "src/images/product-bracelet.png"],
     "isNew": true,
     "isBestSeller": false,
     "sizes": ["16cm", "18cm", "20cm"]
@@ -54,7 +54,7 @@
     "originalPrice": null,
     "material": "Vàng 18K",
     "gemstone": "Kim cương",
-    "images": ["https://placehold.co/600x800/FAF8F5/C9A96E?text=Earrings+1", "https://placehold.co/600x800/f5f0eb/A68B5B?text=Earrings+1b"],
+    "images": ["src/images/product-earrings.png", "src/images/product-earrings.png"],
     "isNew": true,
     "isBestSeller": true,
     "sizes": []
@@ -69,7 +69,7 @@
     "originalPrice": null,
     "material": "Vàng 18K",
     "gemstone": null,
-    "images": ["https://placehold.co/600x800/FAF8F5/C9A96E?text=Ring+2", "https://placehold.co/600x800/f5f0eb/A68B5B?text=Ring+2b"],
+    "images": ["src/images/product-ring.png", "src/images/product-ring.png"],
     "isNew": false,
     "isBestSeller": true,
     "sizes": ["6", "7", "8", "9", "10", "11"]
@@ -84,7 +84,7 @@
     "originalPrice": 26000000,
     "material": "Vàng 18K",
     "gemstone": null,
-    "images": ["https://placehold.co/600x800/FAF8F5/C9A96E?text=Necklace+2", "https://placehold.co/600x800/f5f0eb/A68B5B?text=Necklace+2b"],
+    "images": ["src/images/product-necklace.png", "src/images/product-necklace.png"],
     "isNew": false,
     "isBestSeller": false,
     "sizes": ["40cm", "45cm"]
@@ -99,7 +99,7 @@
     "originalPrice": null,
     "material": "Bạc 925",
     "gemstone": null,
-    "images": ["https://placehold.co/600x800/FAF8F5/C9A96E?text=Bracelet+2", "https://placehold.co/600x800/f5f0eb/A68B5B?text=Bracelet+2b"],
+    "images": ["src/images/product-bracelet.png", "src/images/product-bracelet.png"],
     "isNew": true,
     "isBestSeller": false,
     "sizes": ["16cm", "18cm"]
@@ -114,7 +114,7 @@
     "originalPrice": null,
     "material": "Vàng trắng 18K",
     "gemstone": "Ngọc trai",
-    "images": ["https://placehold.co/600x800/FAF8F5/C9A96E?text=Earrings+2", "https://placehold.co/600x800/f5f0eb/A68B5B?text=Earrings+2b"],
+    "images": ["src/images/product-earrings.png", "src/images/product-earrings.png"],
     "isNew": true,
     "isBestSeller": false,
     "sizes": []
