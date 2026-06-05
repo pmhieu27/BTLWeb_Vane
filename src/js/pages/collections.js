@@ -17,7 +17,7 @@ $(function () {
     rings: {
       quote: '"Biểu tượng của tình yêu vĩnh cửu."',
       img1: "src/images/product-ring-50.png",
-      img2: "src/images/product-ring-51.png"
+      img2: "src/images/product-ring-51.png",
     },
     necklaces: {
       quote: '"Vẻ đẹp tỏa sáng trên xương quai xanh."',
@@ -51,6 +51,7 @@ $(function () {
       
       // Thay ruột dữ liệu chữ và ảnh tương ứng danh mục
       $("#lookbook-quote").text(data.quote);
+      $("#lookbook-bottom-desc").text(data.desc);
       $("#lookbook-img-1").attr("src", data.img1);
       $("#lookbook-img-2").attr("src", data.img2);
       
@@ -61,6 +62,7 @@ $(function () {
       // Nếu chọn "Tất Cả" hoặc trang "Sản Phẩm Mới" -> Ẩn banner ảnh, hiện hàng tiêu đề trơn gọn gàng
       $lookbookBanner.css("display", "none");
       $plainTitleRow.css("display", "flex");
+      $("#lookbook-bottom-desc").text("Khám phá những thiết kế tinh xảo của VANE, được chế tác tỉ mỉ để tôn vinh nét đẹp thanh lịch trường tồn.");
     }
   }
 
@@ -82,12 +84,13 @@ $(function () {
         '<img src="' + p.images[0] + '" alt="' + p.name_vi + '" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">' +
         (p.images[1] ? '<img src="' + p.images[1] + '" alt="' + p.name_vi + '" class="product-img-secondary absolute inset-0 w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">' : '') +
        '<div class="absolute bottom-0 inset-x-0 p-3 flex justify-center gap-2 translate-y-full group-hover:translate-y-0 transition-transform duration-400">' +
-        '<button class="add-to-cart-btn bg-primary text-white font-ui text-[9px] uppercase tracking-wider px-4 py-2 hover:bg-gold transition-colors cursor-pointer flex items-center justify-center" data-id="' + p.id + '">' +
-          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' +
-        '</button>' +
-        '<button class="toggle-wishlist-btn bg-white text-primary font-ui text-[9px] uppercase tracking-wider px-3 py-2 hover:text-gold transition-colors cursor-pointer" data-id="' + p.id + '">' +
-          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' +
-        '</button>' +
+        // CHỈ SỬA ĐOẠN NÀY: Thay các class cũ bằng class "diamond-btn"
+'<button class="diamond-btn add-to-cart-btn" data-id="' + p.id + '">' +
+  '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>' +
+'</button>' +
+'<button class="diamond-btn toggle-wishlist-btn" data-id="' + p.id + '">' +
+  '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' +
+'</button>' +
         '</div>' +
       '</div>' +
       '<p class="font-ui text-[10px] uppercase tracking-wider text-gold mb-1">' + (p.category === "rings" ? "Nhẫn" : p.category === "necklaces" ? "Dây Chuyền" : p.category === "bracelets" ? "Vòng Tay" : "Hoa Tai") + '</p>' +
@@ -126,21 +129,20 @@ $(function () {
     var statuses = [];
     var maxPrice = parseInt($("#price-range").val()) || 50000000;
 
-    // Category pills ở trên top
+    // Category pills
     var activePill = $(".filter-pill.active").attr("data-category");
     if (activePill && activePill !== "all") {
       categories.push(activePill);
     }
 
-    // Quét toàn bộ Checkbox (gộp cả sidebar PC lẫn Drawer Mobile)
-    $("#filter-sidebar .filter-group, #mobile-filter-panel .filter-group").each(function () {
-      var title = $(this).find(".filter-group-title").text().trim().toLowerCase();
-      
+    // Sidebar checkboxes
+    $("#filter-sidebar .filter-group").each(function () {
+      var title = $(this).find(".filter-group-title").text().trim();
       $(this).find("input:checked").each(function () {
         var val = $(this).val();
-        if (title.includes("danh mục")) categories.push(val);
-        else if (title.includes("chất liệu")) materials.push(val);
-        else if (title.includes("trạng thái")) statuses.push(val);
+        if (title.includes("Danh Mục")) categories.push(val);
+        else if (title.includes("Chất Liệu")) materials.push(val);
+        else if (title.includes("Trạng Thái")) statuses.push(val);
       });
     });
 
@@ -175,7 +177,7 @@ $(function () {
       if (sort === "price-desc") return b.price - a.price;
       if (sort === "name") return a.name_vi.localeCompare(b.name_vi);
       if (sort === "new") return (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0);
-      return a.id - b.id;
+      return 0;
     });
   }
 
@@ -209,41 +211,44 @@ $(function () {
       document.title = "Bộ Sưu Tập | Vane Vietnam";
     }
 
+    // Điều khiển nạp dữ liệu hình ảnh/quote tương thích danh mục
     updateLookbookContent(currentCat);
   }
 
   // --- Events ---
 
-  // Category pills click switching
+  // Category pills click realtime switching
   $(document).on("click", ".filter-pill", function () {
     $(".filter-pill").removeClass("active");
     $(this).addClass("active");
     
     var selectedCategory = $(this).attr("data-category");
+    
     if (selectedCategory === "all") {
       updatePageTitle(null);
     } else {
       updatePageTitle(selectedCategory);
     }
+
     applyFilters();
   });
 
-  // Lắng nghe thay đổi của TẤT CẢ các checkbox (bao gồm cả PC lẫn Mobile)
-  $(document).on("change", "input[type='checkbox']", applyFilters);
+  // Sidebar checkboxes
+  $(document).on("change", "#filter-sidebar input[type='checkbox']", applyFilters);
 
-  // Price range slider thay đổi giá
+  // Price range
   $(document).on("input", "#price-range", function () {
     var val = parseInt($(this).val());
     $("#price-range-value").text(formatPrice(val));
     applyFilters();
   });
 
-  // Thay đổi kiểu sắp xếp (Sort)
+  // Sort
   $(document).on("change", "#sort-select", applyFilters);
 
-  // Nhấn nút xóa bộ lọc (Reset)
+  // Reset
   $(document).on("click", "#filter-reset", function () {
-    $("input[type='checkbox']").prop("checked", false);
+    $("#filter-sidebar input[type='checkbox']").prop("checked", false);
     $("#price-range").val(50000000);
     $("#price-range-value").text("50.000.000₫");
     $(".filter-pill").removeClass("active");
@@ -252,12 +257,12 @@ $(function () {
     applyFilters();
   });
 
-  // Đóng/Mở cụm bộ lọc
+  // Filter group collapse
   $(document).on("click", ".filter-group-title", function () {
     $(this).closest(".filter-group").toggleClass("collapsed");
   });
 
-  // Click nút Thêm vào giỏ hàng
+  // Product card actions
   $(document).on("click", ".add-to-cart-btn", function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -269,7 +274,7 @@ $(function () {
     window.VaneCart.addToCart(product, null, 1);
   });
 
-  // Mobile filter drawer (Đóng mở túi lọc trên điện thoại)
+  // Mobile filter drawer
   $(document).on("click", "#filter-toggle-btn", function () {
     $("#mobile-filter-overlay").addClass("active");
     $("body").css("overflow", "hidden");
@@ -285,7 +290,7 @@ $(function () {
     }
   });
 
-  // --- Init: Gọi Ajax nạp dữ liệu từ products.json ---
+  // --- Init: Fetch products ---
   $.getJSON("src/data/products.json")
     .done(function (data) {
       allProducts = data;

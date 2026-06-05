@@ -291,22 +291,119 @@
 .btn-shine:hover::after {
   left: 100%;
 }
-/* Trạng thái mặc định: Giấu sợi dây nét vẽ uốn lượn */
 .vane-zigzag-btn .zigzag-line {
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
-  /* Thay đổi cubic-bezier thành LINEAR để tốc độ đều tăm tắp, mượt mà, KHÔNG bị khựng ở góc cua */
   transition: stroke-dashoffset 1.2s linear;
 }
 
-/* KHI HOVER: Nét vẽ lướt mượt mà, liên tục từ Trái -> Phải -> Trái -> Phải */
 .vane-zigzag-btn:hover .zigzag-line {
   stroke-dashoffset: 0;
 }
 
-/* Khi nhả chuột: Nét vẽ rụt về gọn gàng */
 .vane-zigzag-btn:not(:hover) .zigzag-line {
   stroke-dashoffset: 600;
-  /* Khi nhả chuột cũng dùng linear để nó rụt về êm ái */
   transition: stroke-dashoffset 0.4s linear; 
+}
+/* --- PHOM NÚT BẤM VIỀN KIM CƯƠNG LẤP LÁNH - BẢN THU NHỎ TINH TẾ --- */
+.diamond-btn {
+  width: 28px !important;  /* Thu nhỏ từ 36px xuống 28px */
+  height: 28px !important; /* Thu nhỏ từ 36px xuống 28px */
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+  cursor: pointer;
+  position: relative;
+  background: none !important;
+  z-index: 1;
+  
+  /* Giữ bo góc nhẹ (hoặc đổi thành 50% nếu bạn muốn thu thành hình tròn xíu xiu) */
+  border-radius: 6px !important; 
+}
+
+/* LỚP NỀN XOAY TẠO HIỆU ỨNG GLITTER CHẠY VÒNG QUANH */
+.diamond-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 6px !important;
+  padding: 1px; /* Vuốt mảnh đường viền xuống 1px cho tinh tế */
+  
+  /* Dải màu kim cương tấm phản chiếu */
+  background: conic-gradient(
+    #ffffff, 
+    #C9A96E, 
+    #ffffff, 
+    #EAE6DF, 
+    #C9A96E, 
+    #ffffff
+  ) !important;
+  
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  
+  animation: glitterRotate 4s linear infinite;
+  transition: all 0.3s ease;
+}
+
+/* PHẦN LÒNG NÚT BẤM NẰM KHÍT BÊN TRONG */
+.diamond-btn::after {
+  content: '';
+  position: absolute;
+  inset: 1px; /* Khít theo đường viền 1px */
+  border-radius: 5px !important;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+/* Nút Giỏ hàng */
+.add-to-cart-btn::after {
+  background: rgba(10, 10, 10, 0.95) !important;
+}
+.add-to-cart-btn svg { color: #FFFFFF !important; }
+
+/* Nút Yêu thích */
+.toggle-wishlist-btn::after {
+  background: rgba(250, 248, 245, 0.95) !important;
+}
+.toggle-wishlist-btn svg { color: #0A0A0A !important; }
+
+
+/* --- HIỆU ỨNG TƯƠNG TÁC HOVER --- */
+.diamond-btn:hover {
+  transform: translateY(-2px) scale(1.03); /* Giảm độ nảy để mượt hơn với size nhỏ */
+  filter: drop-shadow(0 2px 8px rgba(201, 169, 110, 0.3)); 
+}
+
+/* Khi di chuột vào viền xoay nhanh hơn */
+.diamond-btn:hover::before {
+  animation-duration: 1.5s; 
+}
+
+/* Lòng nút đổi sang màu vàng Gold mượt mà */
+.diamond-btn:hover::after {
+  background: #C9A96E !important;
+}
+.diamond-btn:hover svg {
+  color: #FFFFFF !important;
+}
+
+/* Keyframes giữ nguyên tốc độ xoay */
+@keyframes glitterRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ĐIỀU CHỈNH ICON SVG NHỎ LẠI ĐỂ VỪA VỚI NÚT */
+.diamond-btn svg {
+  width: 10px !important;  /* Thu nhỏ icon từ 13px xuống 10px cho vừa vặn */
+  height: 10px !important;
+  transition: all 0.3s ease;
+  z-index: 2;
 }
