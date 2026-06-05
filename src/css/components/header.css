@@ -61,6 +61,7 @@
   visibility: visible;
 }
 
+/* --- Menu Overlay (Sidebar) --- */
 #menu-overlay {
   pointer-events: none;
 }
@@ -69,6 +70,10 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+#menu-overlay.active #menu-sidebar {
+  transform: translateX(0);
 }
 
 /* --- Breadcrumb --- */
