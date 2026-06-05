@@ -30,11 +30,13 @@ $(function () {
     var $overlay = $("#menu-overlay");
     if (!$overlay.length) return;
     $overlay.addClass("active");
+    $("#main-header").css("visibility", "hidden");
     $("body").css("overflow", "hidden");
   }
 
   function closeMenu() {
     $("#menu-overlay").removeClass("active");
+    $("#main-header").css("visibility", "");
     $("body").css("overflow", "");
   }
 

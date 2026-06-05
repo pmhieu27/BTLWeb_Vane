@@ -1365,6 +1365,19 @@ video {
   background-color: rgb(255 255 255 / 0.95);
 }
 
+.bg-gold-light {
+  --tw-bg-opacity: 1;
+  background-color: rgb(232 213 176 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gold-light\/\[0\.5\] {
+  background-color: rgb(232 213 176 / 0.5);
+}
+
+.bg-white\/\[0\.90\] {
+  background-color: rgb(255 255 255 / 0.90);
+}
+
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
@@ -1812,6 +1825,14 @@ video {
 
 .text-white\/70 {
   color: rgb(255 255 255 / 0.7);
+}
+
+.text-primary\/50 {
+  color: rgb(10 10 10 / 0.5);
+}
+
+.text-primary\/30 {
+  color: rgb(10 10 10 / 0.3);
 }
 
 .line-through {

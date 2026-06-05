@@ -61,6 +61,10 @@
   visibility: visible;
 }
 
+#menu-overlay {
+  pointer-events: none;
+}
+
 #menu-overlay.active {
   opacity: 1;
   visibility: visible;

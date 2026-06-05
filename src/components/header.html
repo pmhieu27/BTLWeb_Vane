@@ -40,27 +40,27 @@
       <div class="flex-1 flex justify-end items-center gap-4 md:gap-7">
         <!-- Search -->
         <button id="search-btn" class="cursor-pointer hover:text-gold-light transition-transform hover:scale-110" aria-label="Tìm kiếm">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M11 3a8 8 0 1 0 0 16 8 8 0 0 0 0-16z"></path>
             <path d="M21 21l-4.35-4.35"></path>
           </svg>
         </button>
         <!-- Wishlist (ẩn mobile nhỏ) -->
         <a href="wishlist.html" class="hidden md:block hover:text-gold-light transition-transform hover:scale-110" aria-label="Yêu thích">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
         </a>
         <!-- Account (ẩn mobile nhỏ) -->
         <a href="account.html" class="hidden md:block hover:text-gold-light transition-transform hover:scale-110" aria-label="Tài khoản">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <path d="M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
           </svg>
         </a>
         <!-- Cart -->
         <button id="cart-btn" class="relative hover:text-gold-light transition-transform hover:scale-110 cursor-pointer" aria-label="Giỏ hàng">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <path d="M3 6h18"></path>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
@@ -69,7 +69,7 @@
         </button>
         <!-- Logout -->
         <button id="logout-btn" class="hidden md:block hover:text-gold-light transition-transform hover:scale-110 cursor-pointer" aria-label="Đăng xuất">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
             <path d="M16 17l5-5-5-5"></path>
             <path d="M21 12H9"></path>
@@ -118,13 +118,13 @@
 <!-- ═══════════════════════════════════════════════════════════
      MOBILE MENU OVERLAY (Full-screen)
      ═══════════════════════════════════════════════════════════ -->
-<div id="menu-overlay" class="fixed inset-0 z-[100] pointer-events-none opacity-0 invisible transition-all duration-500">
+<div id="menu-overlay" class="fixed inset-0 z-[100] opacity-0 invisible transition-all duration-500">
 
   <!-- Backdrop tối -->
-  <div id="menu-overlay-backdrop" class="absolute inset-0 bg-primary/[0.98]"></div>
+  <div id="menu-overlay-backdrop" class="absolute inset-0 bg-white/[0.90]"></div>
 
   <!-- Nút đóng -->
-  <button id="menu-overlay-close" class="absolute top-6 right-8 z-10 text-white/40 hover:text-white transition-colors text-3xl font-light cursor-pointer" aria-label="Đóng menu">&times;</button>
+  <button id="menu-overlay-close" class="absolute top-6 right-8 z-100 text-primary hover:text-gold transition-colors text-3xl font-light cursor-pointer" aria-label="Đóng menu">&times;</button>
 
   <!-- Nội dung menu -->
   <div class="relative z-10 h-full flex">
@@ -134,50 +134,43 @@
         <a href="index.html"
            class="menu-overlay-link group flex items-center gap-4 py-3 transition-all duration-300"
            data-menu-img="https://placehold.co/800x1000/1a1a1a/C9A96E?text=Trang+Chủ">
-          <span class="font-ui text-[10px] text-gold/50 w-6 text-right tabular-nums group-hover:text-gold transition-colors">01</span>
-          <span class="font-serif text-3xl md:text-5xl text-white/30 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">Trang Chủ</span>
+          <span class="font-serif text-xl text-primary group-hover:translate-x-2 transition-all duration-300">Trang Chủ</span>
         </a>
 
         <a href="collections.html"
            class="menu-overlay-link group flex items-center gap-4 py-3 transition-all duration-300"
            data-menu-img="https://placehold.co/800x1000/2a2420/C9A96E?text=Bộ+Sưu+Tập">
-          <span class="font-ui text-[10px] text-gold/50 w-6 text-right tabular-nums group-hover:text-gold transition-colors">02</span>
-          <span class="font-serif text-3xl md:text-5xl text-white/30 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">Bộ Sưu Tập</span>
+          <span class="font-serif text-xl text-primary group-hover:translate-x-2 transition-all duration-300">Bộ Sưu Tập</span>
         </a>
 
         <a href="collections.html?category=rings"
            class="menu-overlay-link group flex items-center gap-4 py-3 transition-all duration-300"
            data-menu-img="https://placehold.co/800x1000/1e1e1e/C9A96E?text=Nhẫn">
-          <span class="font-ui text-[10px] text-gold/50 w-6 text-right tabular-nums group-hover:text-gold transition-colors">03</span>
-          <span class="font-serif text-3xl md:text-5xl text-white/30 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">Nhẫn</span>
+          <span class="font-serif text-xl text-primary group-hover:translate-x-2 transition-all duration-300">Nhẫn</span>
         </a>
 
         <a href="collections.html?category=necklaces"
            class="menu-overlay-link group flex items-center gap-4 py-3 transition-all duration-300"
            data-menu-img="https://placehold.co/800x1000/25201b/C9A96E?text=Dây+Chuyền">
-          <span class="font-ui text-[10px] text-gold/50 w-6 text-right tabular-nums group-hover:text-gold transition-colors">04</span>
-          <span class="font-serif text-3xl md:text-5xl text-white/30 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">Dây Chuyền</span>
+          <span class="font-serif text-xl text-primary group-hover:translate-x-2 transition-all duration-300">Dây Chuyền</span>
         </a>
 
         <a href="collections.html?category=bracelets"
            class="menu-overlay-link group flex items-center gap-4 py-3 transition-all duration-300"
            data-menu-img="https://placehold.co/800x1000/1c1c1c/C9A96E?text=Vòng+Tay">
-          <span class="font-ui text-[10px] text-gold/50 w-6 text-right tabular-nums group-hover:text-gold transition-colors">05</span>
-          <span class="font-serif text-3xl md:text-5xl text-white/30 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">Vòng Tay</span>
+          <span class="font-serif text-xl text-primary group-hover:translate-x-2 transition-all duration-300">Vòng Tay</span>
         </a>
 
         <a href="about.html"
            class="menu-overlay-link group flex items-center gap-4 py-3 transition-all duration-300"
            data-menu-img="https://placehold.co/800x1000/201d18/C9A96E?text=Về+Chúng+Tôi">
-          <span class="font-ui text-[10px] text-gold/50 w-6 text-right tabular-nums group-hover:text-gold transition-colors">06</span>
-          <span class="font-serif text-3xl md:text-5xl text-white/30 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">Về Chúng Tôi</span>
+          <span class="font-serif text-xl text-primary group-hover:translate-x-2 transition-all duration-300">Về Chúng Tôi</span>
         </a>
 
         <a href="contact.html"
            class="menu-overlay-link group flex items-center gap-4 py-3 transition-all duration-300"
            data-menu-img="https://placehold.co/800x1000/1a1816/C9A96E?text=Liên+Hệ">
-          <span class="font-ui text-[10px] text-gold/50 w-6 text-right tabular-nums group-hover:text-gold transition-colors">07</span>
-          <span class="font-serif text-3xl md:text-5xl text-white/30 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">Liên Hệ</span>
+          <span class="font-serif text-xl text-primary group-hover:translate-x-2 transition-all duration-300">Liên Hệ</span>
         </a>
       </nav>
 
