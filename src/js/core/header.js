@@ -87,7 +87,59 @@ $(function () {
   $(document).on("keydown", function (e) {
     if (e.key === "Escape") { closeSearch(); closeMenu(); }
   });
+  //--Logout---//
+ 
+  $(function () {
+    "use strict";
 
+    const CURRENT_USER_KEY = "currentUser";
+    const $logoutBtn = $("#logout-btn");
+
+    // ==========================================
+    // 1. KIỂM TRA TRẠNG THÁI ĐỂ ẨN/HIỆN NÚT
+    // ==========================================
+    function checkLoginStatus() {
+        const currentUser = localStorage.getItem(CURRENT_USER_KEY);
+
+        if (currentUser) {
+            // Trường hợp 1: Đã đăng nhập
+            // Hiện nút Đăng xuất
+            $logoutBtn.show(); 
+            
+            // Đảm bảo icon Tài khoản trỏ đúng về trang cá nhân
+            $("a[href='login.html']").attr("href", "account.html");
+        } else {
+            // Trường hợp 2: Chưa đăng nhập
+            // Ẩn hoàn toàn nút Đăng xuất
+            $logoutBtn.hide(); 
+            
+            // MẸO: Đổi link của icon Tài khoản sang trang Login 
+            // (Vì chưa đăng nhập thì không thể vào xem account.html được)
+            $("a[href='account.html']").attr("href", "login.html");
+        }
+    }
+
+    // Chạy kiểm tra ngay khi header vừa load xong
+    checkLoginStatus();
+
+    // ==========================================
+    // 2. BẮT SỰ KIỆN KHI ẤN ĐĂNG XUẤT
+    // ==========================================
+    $logoutBtn.on("click", function (e) {
+        e.preventDefault();
+
+        // Xóa "thẻ bài" khỏi hệ thống
+        localStorage.removeItem(CURRENT_USER_KEY);
+
+        // Tùy chọn: Xóa luôn SĐT khôi phục mật khẩu nếu họ đang làm dở
+        localStorage.removeItem("resetPhone");
+
+        alert("Bạn đã đăng xuất thành công!");
+
+        // Đẩy khách hàng về lại trang chủ để làm mới lại toàn bộ giao diện
+        window.location.href = "index.html";
+    });
+});
   // --- Init ---
   updateHeaderState();
   $(window).on("scroll", updateHeaderState);
