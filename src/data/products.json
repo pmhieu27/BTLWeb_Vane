@@ -66,7 +66,7 @@
     "category": "rings",
     "subcategory": "wedding",
     "price": 18000000,
-    "originalPrice": null,
+    "originalPrice": 20000000,
     "material": "Vàng 18K",
     "gemstone": null,
     "images": ["src/images/product-ring-50.png", "src/images/product-ring-51.png"],

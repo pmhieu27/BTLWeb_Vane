@@ -291,3 +291,22 @@
 .btn-shine:hover::after {
   left: 100%;
 }
+/* Trạng thái mặc định: Giấu sợi dây nét vẽ uốn lượn */
+.vane-zigzag-btn .zigzag-line {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  /* Thay đổi cubic-bezier thành LINEAR để tốc độ đều tăm tắp, mượt mà, KHÔNG bị khựng ở góc cua */
+  transition: stroke-dashoffset 1.2s linear;
+}
+
+/* KHI HOVER: Nét vẽ lướt mượt mà, liên tục từ Trái -> Phải -> Trái -> Phải */
+.vane-zigzag-btn:hover .zigzag-line {
+  stroke-dashoffset: 0;
+}
+
+/* Khi nhả chuột: Nét vẽ rụt về gọn gàng */
+.vane-zigzag-btn:not(:hover) .zigzag-line {
+  stroke-dashoffset: 600;
+  /* Khi nhả chuột cũng dùng linear để nó rụt về êm ái */
+  transition: stroke-dashoffset 0.4s linear; 
+}
