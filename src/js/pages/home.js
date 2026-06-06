@@ -38,3 +38,24 @@ $(function () {
     }
   });
 });
+
+
+//-- POPUP JS ----
+const popup = document.getElementById('collectionPopup');
+const closeBtn = document.getElementById('closePopup');
+
+closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+});
+//--Đóng popup khi bấm ra ngoài
+window.addEventListener('click', (e) => {
+    if(e.target === popup){
+        popup.style.display = 'none';
+    }
+});
+//--Đóng popup bằng phím ESC
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){
+        popup.style.display = 'none';
+    }
+});

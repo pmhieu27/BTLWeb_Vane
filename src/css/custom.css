@@ -27,6 +27,17 @@
     background: rgba(193, 154, 107, 0.7);
 }
 
+/* Khoảng cách bù cho HERO để không bị Header che mất */
+.hero-wrapper {
+    margin-top: 80px; /* Bằng đúng chiều cao header */
+    height: calc(70vh - 80px); /* Nếu muốn giữ tổng chiều cao là 70vh */
+}
+
+.hero-title {
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Tạo lớp bóng mờ sang trọng */
+    font-weight: 300; /* Nếu font mảnh quá thì để 400 */
+}
+
 /* ==========================================================================
    VANE VIETNAM - LUXURY REFINEMENT (BRAND TOKEN COMPLIANT)
    ========================================================================== */
@@ -48,38 +59,63 @@
 }
 
 /* Thống nhất tỷ lệ khung ảnh ngang và bọc viền khung chữ phần VANA Chồng Lớp */
+/* Container cha */
 .vana-container {
   display: flex;
-  align-items: center;
+  flex-direction: column; /* Mặc định mobile: Xếp chồng */
   position: relative;
   width: 100%;
+  margin-bottom: 4rem;
 }
+
+/* Khối ảnh chiếm ưu thế */
 .vana-img-block {
-  width: 60%;
+  width: 100%; /* Trên mobile chiếm full */
+  aspect-ratio: 16 / 10;
   overflow: hidden;
-  position: relative;
-  aspect-ratio: 16 / 9; /* Ép tất cả ảnh phần này về cùng một tỷ lệ khung ngang chuẩn nghệ thuật */
+  border-radius: 0.5rem;
 }
-.vana-img-block img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
+/* Khối chữ (Card) */
 .vana-card-block {
-  width: 45%;
-  position: absolute;
-  right: 0;
+  width: 90%; /* Mobile hơi nhỏ hơn chiều rộng container */
+  margin: -2rem auto 0 auto; /* Đẩy lên đè nhẹ lên ảnh */
+  position: relative;
   z-index: 10;
-  background-color: #FFFFFF !important; /* Đổi sang nền trắng tinh khôi theo yêu cầu */
-  border: 1px solid #C9A96E; /* Bo viền vàng gold tinh tế */
+  background-color: #FFFFFF !important;
+  border: 1px solid #C9A96E;
+  padding: 2rem;
+  text-align: justify;
 }
-.vana-container.reverse .vana-img-block {
-  order: 2;
-  margin-left: auto;
-}
-.vana-container.reverse .vana-card-block {
-  left: 0;
-  right: auto;
+
+/* Responsive cho Desktop */
+@media (min-width: 768px) {
+  .vana-container {
+    flex-direction: row; /* Chuyển sang ngang */
+    align-items: center;
+  }
+  
+  .vana-img-block {
+    width: 70%; /* Ảnh chiếm 70% */
+    aspect-ratio: 3 / 2;
+  }
+
+  .vana-card-block {
+    width: 40%; /* Card chiếm 40% */
+    margin: 0; /* Bỏ margin âm */
+    position: absolute; /* Định vị đè lên */
+    right: 5%; /* Căn lệch phải */
+    padding: 3rem;
+  }
+
+  /* Xử lý logic đảo ngược (Reverse) */
+  .vana-container.reverse {
+    flex-direction: row-reverse;
+  }
+  .vana-container.reverse .vana-card-block {
+    right: auto;
+    left: 5%; /* Căn lệch trái */
+  }
 }
 
 /* Cập nhật màu nền Card Timeline vàng đậm hơn để tăng độ nổi bật */
@@ -362,4 +398,305 @@
   font-style: italic;
   margin-top: 10px;
   letter-spacing: 0.02em;
+}
+
+/*-- Popup Component Styles (popup.css) */
+/* ==========================================
+   popup overlay
+========================================== */
+
+#collectionPopup{
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(6px);
+
+    z-index: 999999;
+}
+
+/* ==========================================
+   popup container
+========================================== */
+
+.popup-box{
+    position: relative;
+
+    width: 960px;
+    height: 500px;
+
+    display: flex;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: #f8f6f2;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.22);
+
+    animation: popupFade .35s ease;
+}
+
+/* ==========================================
+   left content
+========================================== */
+
+.popup-content{
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 50px;
+}
+
+.popup-logo{
+    margin-bottom: 20px;
+}
+
+.popup-logo h1{
+    font-family: "Cormorant Garamond", serif;
+    font-size: 60px;
+    line-height: .9;
+    font-weight: 500;
+    color: #111;
+}
+
+.popup-logo p{
+    margin-top: 8px;
+
+    color: #c6a267;
+
+    font-size: 12px;
+
+    letter-spacing: .45em;
+
+    text-transform: uppercase;
+}
+
+.popup-tag{
+    margin-bottom: 30px;
+
+    padding: 12px 28px;
+
+    border: 1px solid #d4b37a;
+    border-radius: 999px;
+
+    color: #c29c5d;
+
+    font-size: 12px;
+    letter-spacing: .25em;
+
+    text-transform: uppercase;
+}
+
+.popup-subtitle{
+    margin-bottom: 12px;
+
+    color: #7f7f7f;
+
+    font-size: 14px;
+
+    letter-spacing: .35em;
+
+    text-transform: uppercase;
+}
+
+.popup-title{
+    margin-bottom: 18px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 42px;
+    line-height: 1.1;
+
+    color: #111;
+}
+
+.popup-description{
+    max-width: 420px;
+
+    color: #666;
+
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.popup-description strong{
+    color: #333;
+    font-weight: 600;
+}
+
+.popup-btn{
+    margin-top: 25px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 36px;
+
+    border-radius: 999px;
+
+    background: #d3ad68;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: .3s ease;
+}
+
+.popup-btn:hover{
+    background: #c59d57;
+    transform: translateY(-2px);
+}
+
+.popup-note{
+    margin-top: 18px;
+
+    color: #9d9d9d;
+
+    font-size: 13px;
+}
+
+/* ==========================================
+   image section
+========================================== */
+
+.popup-image{
+    width: 50%;
+    height: 100%;
+}
+
+.popup-image img{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+/* ==========================================
+   close button
+========================================== */
+
+.popup-close{
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.95);
+
+    color: #111;
+
+    font-size: 28px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,.12);
+
+    transition: .3s ease;
+}
+
+.popup-close:hover{
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   animation
+========================================== */
+
+@keyframes popupFade{
+
+    from{
+        opacity: 0;
+        transform: translateY(20px) scale(.96);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+/* ==========================================
+   tablet
+========================================== */
+
+@media (max-width: 1024px){
+
+    .popup-box{
+        width: 90vw;
+        height: auto;
+
+        flex-direction: column;
+    }
+
+    .popup-content{
+        width: 100%;
+        padding: 40px 30px;
+    }
+
+    .popup-image{
+        width: 100%;
+        height: 320px;
+    }
+
+}
+
+/* ==========================================
+   mobile
+========================================== */
+
+@media (max-width: 768px){
+
+    .popup-logo h1{
+        font-size: 48px;
+    }
+
+    .popup-title{
+        font-size: 34px;
+    }
+
+    .popup-description{
+        font-size: 13px;
+    }
+
+    .popup-btn{
+        font-size: 14px;
+        padding: 12px 28px;
+    }
+
+    .popup-image{
+        height: 250px;
+    }
+
 }

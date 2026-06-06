@@ -43,7 +43,7 @@
         </nav>
         
         <span id="detail-tag" class="font-ui text-[10px] uppercase tracking-[0.2em] text-gold font-semibold mb-3 block">Tạp chí</span>
-        <h1 id="detail-title" class="font-serif text-3xl md:text-5xl text-primary tracking-wide leading-tight mb-6">
+        <h1 id="detail-title" class="font-serif text-2xl sm:text-3xl md:text-5xl text-primary tracking-wide leading-tight mb-6">
           Đang kết nối câu chuyện di sản...
         </h1>
         
@@ -63,7 +63,7 @@
     </section>
 
     <!-- PHẦN 3: NỘI DUNG CHI TIẾT BÀI BÁO (Khóa khung đọc tối ưu thị giác) -->
-    <section class="bg-white pb-20 px-6">
+    <section class="bg-white pb-20 px-4 md:px-6">
       <div class="max-w-3xl mx-auto">
         
         <div id="detail-content" class="detail-article-content text-justify space-y-6">
@@ -72,19 +72,62 @@
 
         <!-- KHỐI CHIA SẺ MẠNG XÃ HỘI & ĐƯỜNG LINK TRỞ VỀ TRANG NEWS -->
         <div class="flex items-center justify-between border-y border-gray-100 py-6 mt-12 font-ui text-xs w-full">
-          <div class="flex items-center gap-3">
-            <span class="text-muted uppercase tracking-wider font-semibold">Chia sẻ:</span>
-            <a href="#" class="w-8 h-8 rounded-full border border-charcoal/10 flex items-center justify-center text-muted hover:text-primary hover:border-charcoal transition-all"><i class="fa-brands fa-facebook-f text-[11px]"></i></a>
-            <a href="#" class="w-8 h-8 rounded-full border border-charcoal/10 flex items-center justify-center text-muted hover:text-primary hover:border-charcoal transition-all"><i class="fa-brands fa-pinterest-p text-[11px]"></i></a>
-            <a href="#" class="w-8 h-8 rounded-full border border-charcoal/10 flex items-center justify-center text-muted hover:text-primary hover:border-charcoal transition-all"><i class="fa-solid fa-link text-[11px]"></i></a>
-          </div>
-          <!-- ĐƯỜNG LINK QUAY LẠI MỤC LỤC TẠP CHÍ -->
-          <a href="news.html" class="text-gold hover:text-primary font-bold uppercase tracking-widest flex items-center gap-1.5 transition-colors">
-            <i class="fa-solid fa-arrow-left text-[9px]"></i> Trở về tạp chí
-          </a>
-        </div>
 
-      </div>
+    <!-- Bên trái -->
+    <a href="news.html"
+       class="text-gold hover:text-primary font-bold uppercase tracking-widest flex items-center gap-1.5 transition-colors">
+        <i class="fa-solid fa-arrow-left text-[9px]"></i>
+        Trở về tạp chí
+    </a>
+
+    <!-- Bên phải -->
+    <div class="flex items-center gap-3">
+        <span class="text-muted uppercase tracking-wider font-semibold">
+            Chia sẻ:
+        </span>
+
+        <a id="share-facebook" target="_blank"
+           class="w-8 h-8 rounded-full border border-charcoal/10 flex items-center justify-center text-muted hover:text-primary hover:border-charcoal transition-all">
+            <i class="fa-brands fa-facebook-f text-[11px]"></i>
+        </a>
+
+        <a id="share-pinterest" target="_blank"
+           class="w-8 h-8 rounded-full border border-charcoal/10 flex items-center justify-center text-muted hover:text-primary hover:border-charcoal transition-all">
+            <i class="fa-brands fa-pinterest-p text-[11px]"></i>
+        </a>
+
+        <button id="copy-link"
+                class="w-8 h-8 rounded-full border border-charcoal/10 flex items-center justify-center text-muted hover:text-primary hover:border-charcoal transition-all">
+            <i class="fa-solid fa-link text-[11px]"></i>
+        </button>
+    </div>
+</div>
+
+      <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const currentUrl = encodeURIComponent(window.location.href);
+          const pageTitle = encodeURIComponent(document.title);
+
+          // Facebook
+          document.getElementById("share-facebook").href =
+              `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+          // Pinterest
+          document.getElementById("share-pinterest").href =
+              `https://pinterest.com/pin/create/button/?url=${currentUrl}&description=${pageTitle}`;
+
+          // Copy link
+          document.getElementById("copy-link").addEventListener("click", async () => {
+              try {
+                  await navigator.clipboard.writeText(window.location.href);
+                  alert("Đã sao chép liên kết!");
+              } catch (err) {
+                  console.error(err);
+                  alert("Không thể sao chép liên kết.");
+              }
+          });
+      });
+      </script>
     </section>
 
     <!-- PHẦN 4: GỢI Ý BÀI VIẾT LIÊN QUAN ĐỘNG (Tự động liên kết mượt mà sang các bài khác) -->

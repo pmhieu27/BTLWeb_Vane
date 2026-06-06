@@ -16,10 +16,23 @@
   <link rel="stylesheet" href="src/css/output.css?v=7" />
   <link rel="stylesheet" href="src/css/custom.css?v=7" />
   
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400;1,600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <style>
     .transition-all-slow { transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
     .reveal-hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
     .reveal-visible { opacity: 1; transform: translateY(0); }
+
+  .hero-custom-font {
+    font-family: 'Playfair Display', serif; /* Hoặc font bạn chọn */
+    font-style: italic;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: #ffffff;
+  }
+
+  .hero-title {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
   </style>
 </head>
 <body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500 antialiased">
@@ -35,23 +48,33 @@
   <main class="overflow-x-hidden">
 
     <!-- HERO SECTION -->
-    <section class="relative h-[70vh] flex items-center justify-center overflow-hidden">
+    <section class="hero-wrapper relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
       <div class="absolute inset-0">
-        <img src="https://i.pinimg.com/736x/e1/5b/3b/e15b3b4c07139fc7594d5cccbb27d496.jpg" alt="Vane Vietnam Craftsmanship" class="w-full h-full object-cover opacity-40">
+        <img src="https://i.pinimg.com/736x/71/64/60/716460ae08b5beef79df2822522248b6.jpg" alt="Vane Vietnam Craftsmanship" class="w-full h-full object-cover opacity-40">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/30"></div>
       </div>
-      <div class="relative z-10 text-center px-6 flex flex-col items-center justify-center h-full w-full">
-        <p class="font-ui text-[10px] tracking-[0.5em] uppercase text-gold/80 mb-6" data-reveal="scale">KỂ TỪ NĂM 2005</p>
-        <h1 class="font-serif text-5xl md:text-7xl text-white mb-12" data-reveal="scale" data-reveal-delay="1">Chào mừng bạn đến với Vane Vietnam</h1>
-        
-        <!-- NÚT TRÒN ĐỘNG MŨI TÊN CHỈ XUỐNG - CUỘN TRANG TỰ ĐỘNG -->
-        <button id="scrollToContent" class="hero-scroll-btn w-12 h-12 rounded-full flex items-center justify-center text-gold cursor-pointer focus:outline-none" aria-label="Cuộn xuống nội dung">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <polyline points="19 12 12 19 5 12"></polyline>
-          </svg>
-        </button>
-      </div>
+      <!-- Cập nhật HERO SECTION trong about_2.html -->
+<div class="relative z-10 text-center px-6 flex flex-col items-center justify-center h-full w-full">
+  <!-- Slogan -->
+  <p class="font-ui text-[12px] tracking-[0.5em] uppercase text-[#C9A96E] mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" data-reveal="scale">
+  VANE VIETNAM - GIAO THOA DI SẢN KIM HOÀN Á ĐÔNG
+</p>
+  
+  <!-- Tiêu đề phụ -->
+  <h1 class="font-serif italic text-3xl md:text-5xl text-white mb-12 tracking-wide leading-tight" 
+      style="font-family: 'Cormorant Garamond', serif; font-weight: 400;" 
+      data-reveal="scale" data-reveal-delay="1">
+    Nơi hồn cốt Vàng Bạc trở thành kiệt tác đương đại
+  </h1>
+  
+  <!-- NÚT CUỘN TRANG -->
+  <button id="scrollToContent" class="hero-scroll-btn w-12 h-12 rounded-full flex items-center justify-center text-gold cursor-pointer focus:outline-none" aria-label="Cuộn xuống nội dung">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <polyline points="19 12 12 19 5 12"></polyline>
+    </svg>
+  </button>
+</div>
     </section>
 
     <!-- PHẦN 1: CÂU CHUYỆN THƯƠNG HIỆU -->
@@ -62,10 +85,10 @@
           <h2 class="font-serif text-3xl md:text-4xl text-primary">Hai thập kỷ lặng lẽ</h2>
         </div>
         
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
           <!-- Card 1: Khởi nguồn -->
           <div class="reveal-item bg-white border border-gold/40 p-8 md:p-12 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 group transition-all-slow cursor-default">
-            <span class="font-serif text-s text-gold/60 block mb-4">01 / KHỞI NGUỒN</span>
+            <span class="font-serif text-xl text-gold/80 block mb-4">01 / KHỞI NGUỒN</span>
             <h3 class="font-serif text-xl md:text-2xl text-primary mb-6 group-hover:text-gold transition-colors duration-300">Khởi nguồn từ đất Tràng An</h3>
             <p class="font-sans text-muted text-sm leading-relaxed text-justify">
               Mùa thu năm 2005, giữa những giảng đường rợp bóng tại Hà Nội, Vane Vietnam lặng lẽ định hình từ giấc mơ thuần khiết của những tâm hồn trẻ yêu nghệ thuật. Không chọn sự phô trương of xu hướng thời thượng, chúng tôi chọn kim hoàn làm ngôn ngữ bản sắc để truyền tải hoài bão duy mỹ. Đó là hành trình dung hợp những tư duy đổi mới của thế hệ tri thức mới vào dòng chảy trầm mặc của di sản Phố cổ. Từng nét vẽ đầu tiên đều thấm đượm cốt cách thanh lịch, sự chỉn chu và lòng tôn kính sâu sắc đối với kỹ nghệ chế tác lâu đời của đất kinh kỳ nghìn năm văn hiến.
@@ -74,7 +97,7 @@
 
           <!-- Card 2: Kiên định -->
           <div class="reveal-item bg-white border border-gold/40 p-8 md:p-12 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 group transition-all-slow cursor-default">
-            <span class="font-serif text-s text-gold/60 block mb-4">02 / KIÊN ĐỊNH</span>
+            <span class="font-serif text-xl text-gold/80 block mb-4">02 / KIÊN ĐỊNH</span>
             <h3 class="font-serif text-xl md:text-2xl text-primary mb-6 group-hover:text-gold transition-colors duration-300">Trải qua hai thập kỷ</h3>
             <p class="font-sans text-muted text-sm leading-relaxed text-justify">
               Đi qua hai thập kỷ thăng trầm để chạm mốc năm 2026, Vane Vietnam vẫn kiên định bước đi bên lề những vội vã mang tính công nghiệp đại trà. Chúng tôi tôn thờ triết lý "chế tác chậm" - nơi mỗi tạo tác cần thời gian để tự hoàn thiện linh hồn và đạt đến độ chín của sự tinh tế. Thời gian có thể làm thay đổi những lăng kính nghệ thuật, nhưng chưa bao giờ dập tắt được ngọn lửa đam mê nguyên bản của những ngày đầu lập nghiệp. Thương hiệu trưởng thành bằng sự điềm đạm, định vị giá trị bằng chiều sâu và sự trung thực tuyệt đối với chiều dài lịch sử.
@@ -90,17 +113,17 @@
         
         <!-- Phân đoạn 1: Di sản chế tác -->
         <div class="reveal-item vana-container relative">
-          <div class="vana-img-block border border-gold/10 rounded-lg shadow-lg">
-            <img src="https://repossi.com/cdn/shop/files/REPOSSI3131781_1_9_1500x.jpg?v=1777379038" alt="Di sản chế tác">
+          <div class="vana-img-block border border-gold/10 rounded-lg shadow-lg overflow-hidden">
+            <img src="https://repossi.com/cdn/shop/files/REPOSSI3131781_1_9_1500x.jpg?v=1777379038" alt="Di sản chế tác" class="w-full h-auto md:h-full object-cover">
           </div>
-          <div class="vana-card-block p-8 md:p-10 shadow-md rounded-xl">
-            <p class="font-ui text-[16px] uppercase tracking-widest text-gold mb-3">TÔN KÍNH QUY CHUẨN VÀNG CỔ ĐIỂN</p>
+          <div class="vana-card-block p-6 md:p-10 shadow-md rounded-xl bg-white">
+           <p class="font-ui text-[13px] md:text-[16px] uppercase tracking-widest text-gold mb-3">TÔN KÍNH QUY CHUẨN VÀNG CỔ ĐIỂN</p>
             <p class="font-sans text-muted text-sm leading-relaxed text-justify">Tại Vane Vietnam, di sản không phải là một khái niệm trừu tượng, mà là sự tiếp nối sống động qua từng thế hệ. Chúng tôi gìn giữ và tuân thủ nghiêm ngặt những quy chuẩn vàng cổ điển, kết hợp hài hòa cùng kỹ nghệ thủ công bí truyền của những bậc thầy kim hoàn Phố cổ. Mỗi đường chạm khắc, mỗi mối hàn ẩn giấu đều là sự kết tinh của lòng kiên nhẫn và sự am tường sâu sắc về chất liệu, mang lại diện mạo trang nhã vững bền.</p>
           </div>
         </div>
 
         <!-- Điểm nhấn ở giữa: Brand Quote -->
-        <div class="reveal-item text-center py-12 max-w-2xl mx-auto border-y border-gold/20 my-10">
+        <div class="reveal-item text-center py-12 max-w-2xl mx-auto border-y border-gold/40 my-10">
           <p class="font-serif italic text-lg md:text-xl text-primary leading-relaxed">
             "Sự sang trọng đích thực không nằm ở tiếng vang ồn ã bên ngoài, mà ẩn hiện trong sự tĩnh lặng của những tạo tác mang linh hồn di sản."
           </p>
@@ -108,17 +131,17 @@
 
         <!-- Phân đoạn 2: Tinh hoa thủ công -->
         <div class="reveal-item vana-container reverse relative">
-          <div class="vana-img-block border border-gold/10 rounded-lg shadow-lg">
-            <img src="https://skymond.vn/uploads/57814/che_tac_trang_suc-large.webp" alt="Tinh hoa thủ công">
+          <div class="vana-img-block border border-gold/10 rounded-lg shadow-lg overflow-hidden">
+            <img src="https://skymond.vn/uploads/57814/che_tac_trang_suc-large.webp" alt="Tinh hoa thủ công" class="w-full h-auto md:h-full object-cover">
           </div>
-          <div class="vana-card-block p-8 md:p-10 shadow-md rounded-xl">
-            <p class="font-ui text-[16px] uppercase tracking-widest text-gold mb-3">NHỮNG GIỜ LAO ĐỘNG VÔ HÌNH</p>
+          <div class="vana-card-block p-6 md:p-10 shadow-md rounded-xl bg-white">
+            <p class="font-ui text-[13px] md:text-[16px] uppercase tracking-widest text-gold mb-3">NHỮNG GIỜ LAO ĐỘNG VÔ HÌNH</p>
             <p class="font-sans text-muted text-sm leading-relaxed text-justify">Phía sau mỗi ánh hào quang rực rỡ của một món trang sức là hàng trăm giờ lao động vô hình trong bóng tối của xưởng chế tác. Chúng tôi từ chối sự can thiệp thô bạo của máy móc công nghiệp để bảo toàn tính độc bản trong từng chi tiết. Đi đôi với sự tận tay tỉ mỉ là chuẩn mực khắt khe trong việc lựa chọn đá quý theo hệ thống chứng nhận GIA toàn cầu, bảo chứng cho một giá trị chân thực không thể suy chuyển theo thời gian.</p>
           </div>
         </div>
 
         <!-- Điểm nhấn ở giữa số 2 -->
-        <div class="reveal-item text-center py-12 max-w-2xl mx-auto border-y border-gold/20 my-10">
+        <div class="reveal-item text-center py-12 max-w-2xl mx-auto border-y border-gold/40 my-10">
           <p class="font-serif italic text-lg md:text-xl text-primary leading-relaxed">
             "Thời gian là thước đo vô hình của giá trị nghệ thuật nguyên bản."
           </p>
@@ -126,12 +149,12 @@
 
         <!-- Phân đoạn 3: Tương lai của Vane -->
         <div class="reveal-item vana-container relative">
-          <div class="vana-img-block border border-gold/10 rounded-lg shadow-lg">
-            <img src="https://repossi.com/cdn/shop/files/collage_stories_2_VF_1.jpg?v=1772025532&width=1920" alt="Tương lai Vane Vietnam">
+          <div class="vana-img-block border border-gold/10 rounded-lg shadow-lg overflow-hidden">
+            <img src="https://i.pinimg.com/736x/5a/24/73/5a2473c8218b1bcb4110617b6920fcd6.jpg" alt="Tương lai Vane Vietnam" class="w-full h-auto md:h-full object-cover">
           </div>
-          <div class="vana-card-block p-8 md:p-10 shadow-md rounded-xl">
-            <p class="font-ui text-[16px] uppercase tracking-widest text-gold mb-3">TẦM NHÌN VÀ KHÁT VỌNG VIỄN XỨ</p>
-            <p class="font-sans text-muted text-sm leading-relaxed text-justify">Hướng về tương lai, Vane Vietnam tiếp tục nâng tầm trải nghiệm cá nhân hóa thông qua dịch vụ thiết kế riêng Bespoke - nơi tâm sự của mỗi vị khách được chuyển hóa thành những kiệt tác độc bản. Không dừng lại ở ranh giới quốc gia, chúng tôi mang theo khát vọng lớn lao: gửi gắm nét thanh lịch, chiều sâu văn hóa và tâm hồn tinh tế của Hà Nội vào những tạo tác cao cấp, tự tin vươn mình ra thế giới.</p>
+            <div class="vana-card-block p-8 md:p-10 shadow-md rounded-xl">
+              <p class="font-ui text-[13px] md:text-[16px] uppercase tracking-widest text-gold mb-3">TẦM NHÌN VÀ KHÁT VỌNG VIỄN XỨ</p>
+             <p class="font-sans text-muted text-sm leading-relaxed text-justify">Hướng về tương lai, Vane Vietnam tiếp tục nâng tầm trải nghiệm cá nhân hóa thông qua dịch vụ thiết kế riêng Bespoke - nơi tâm sự của mỗi vị khách được chuyển hóa thành những kiệt tác độc bản. Không dừng lại ở ranh giới quốc gia, chúng tôi mang theo khát vọng lớn lao: gửi gắm nét thanh lịch, chiều sâu văn hóa và tâm hồn tinh tế của Hà Nội vào những tạo tác cao cấp, tự tin vươn mình ra thế giới.</p>
           </div>
         </div>
 
@@ -139,20 +162,20 @@
     </section>
 
     <!-- PHẦN 3: CHẶNG ĐƯỜNG PHÁT TRIỂN -->
-    <section class="bg-white py-16 px-6">
+    <section class="bg-white py-4 px-6">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-10">
           <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-3">DÒNG THỜI GIAN</p>
           <h2 class="font-serif text-3xl md:text-4xl text-primary">Hành trình kiến tạo</h2>
         </div>
 
-        <div class="timeline-wrapper">
+        <div class="timeline-wrapper space-y-4">
           <div class="timeline-line"></div>
 
           <!-- Mốc 2005 -->
           <div class="reveal-item timeline-row">
             <div class="timeline-col">
-              <div class="timeline-interactive-card p-6 rounded-xl shadow-sm">
+              <div class="timeline-interactive-card p-4 sm:p-6 rounded-xl shadow-sm">
                 <span class="font-serif text-xl text-primary block mb-2">2005 - Khởi nguyên ý niệm</span>
                 <p class="font-sans text-charcoal/80 text-xs leading-relaxed">Ý tưởng về Vane Vietnam chính thức được khai sinh từ một dự án đầy hoài bão của nhóm sinh viên yêu nghệ thuật tại Hà Nội, đặt những viên gạch đầu tiên cho một thương hiệu trang sức duy mỹ.</p>
               </div>
@@ -163,7 +186,7 @@
           <!-- Mốc 2010 -->
           <div class="reveal-item timeline-row">
             <div class="timeline-col">
-              <div class="timeline-interactive-card p-6 rounded-xl shadow-sm">
+              <div class="timeline-interactive-card p-4 sm:p-6 rounded-xl shadow-sm">
                 <span class="font-serif text-xl text-primary block mb-2">2010 - Điểm chạm không gian</span>
                 <p class="font-sans text-charcoal/80 text-xs leading-relaxed">Showroom đầu tiên được ra đời tại không gian xưa cổ của Hà Nội, đánh dấu cột mốc chuyển mình từ một xưởng chế tác kín tiếng thành một điểm hẹn của sự thanh lịch.</p>
               </div>
@@ -174,7 +197,7 @@
           <!-- Mốc 2015 -->
           <div class="reveal-item timeline-row">
             <div class="timeline-col">
-              <div class="timeline-interactive-card p-6 rounded-xl shadow-sm">
+              <div class="timeline-interactive-card p-4 sm:p-6 rounded-xl shadow-sm">
                 <span class="font-serif text-xl text-primary block mb-2">2015 - Định hình đẳng cấp</span>
                 <p class="font-sans text-charcoal/80 text-xs leading-relaxed">Ra mắt bộ sưu tập trang sức cao cấp mang dấu ấn Quiet Luxury, khẳng định tư duy thiết kế khác biệt và kỹ nghệ chế tác thủ công đạt độ chín.</p>
               </div>
@@ -185,7 +208,7 @@
           <!-- Mốc 2020 -->
           <div class="reveal-item timeline-row">
             <div class="timeline-col">
-              <div class="timeline-interactive-card p-6 rounded-xl shadow-sm">
+              <div class="timeline-interactive-card p-4 sm:p-6 rounded-xl shadow-sm">
                 <span class="font-serif text-xl text-primary block mb-2">2020 - Vươn mình lan tỏa</span>
                 <p class="font-sans text-charcoal/80 text-xs leading-relaxed">Mở rộng sự hiện diện trên toàn quốc, mang trải nghiệm xa xỉ thầm lặng đến gần hơn với những tri kỷ nghệ thuật tại các thành phố lớn.</p>
               </div>
@@ -196,7 +219,7 @@
           <!-- Mốc 2025 -->
           <div class="reveal-item timeline-row">
             <div class="timeline-col">
-              <div class="timeline-interactive-card p-6 bg-primary border border-gold/30 rounded-xl text-white shadow-2xl" style="background-color: #0A0A0A !important;">
+              <div class="timeline-interactive-card p-4 sm:p-6 bg-primary border border-gold/30 rounded-xl text-white shadow-2xl" style="background-color: #0A0A0A !important;">
                 <span class="font-serif text-xl text-gold block mb-2">2025 - Hai thập kỷ di sản</span>
                 <p class="font-sans text-gray-400 text-xs leading-relaxed">Kỷ niệm chặng đường 20 năm lập nghiệp và phát triển bền vững. Vane Vietnam vững vàng khẳng định vị thế một thương hiệu di sản, biểu tượng của sự tinh tế và chính trực.</p>
               </div>
@@ -216,44 +239,44 @@
           <h2 class="font-serif text-3xl md:text-4xl text-primary">Tâm hồn chế tác</h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
           <!-- Thành viên 1 -->
           <div class="reveal-item artisan-group">
-            <div class="artisan-image-container">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80" alt="Phạm Minh Hiếu" class="artisan-img">
+            <div class="artisan-image-container mb-6 overflow-hidden rounded-full w-40 h-40 mx-auto">
+              <img src="src/images/about_hieu.jpg" alt="Phạm Minh Hiếu" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
             </div>
             <h3 class="font-serif text-lg text-primary mb-1">Phạm Minh Hiếu</h3>
-            <p class="font-ui text-[9px] uppercase tracking-wider text-gold mb-3">Người sáng lập</p>
+            <p class="font-ui text-[10px] uppercase tracking-wider text-gold mb-3">Giám đốc điều hành</p>
             <p class="font-sans text-muted text-xs italic px-4">"Giữ ngọn lửa đam mê thuở ban đầu để soi sáng giá trị cốt lõi."</p>
           </div>
 
           <!-- Thành viên 2 -->
           <div class="reveal-item artisan-group" data-reveal-delay="1">
-            <div class="artisan-image-container">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&h=400&q=80" alt="Nguyễn Thị Mai Loan" class="artisan-img">
+            <div class="artisan-image-container mb-6 overflow-hidden rounded-full w-40 h-40 mx-auto">
+              <img src="src/images/about_loan.jpg" alt="Nguyễn Thị Mai Loan" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
             </div>
             <h3 class="font-serif text-lg text-primary mb-1">Nguyễn Thị Mai Loan</h3>
-            <p class="font-ui text-[9px] uppercase tracking-wider text-gold mb-3">Giám đốc sáng tạo</p>
+            <p class="font-ui text-[10px] uppercase tracking-wider text-gold mb-3">Giám đốc sáng tạo</p>
             <p class="font-sans text-muted text-xs italic px-4">"Thiết kế không phải để phô trương, thiết kế là để kể câu chuyện nội tâm."</p>
           </div>
 
           <!-- Thành viên 3 -->
           <div class="reveal-item artisan-group" data-reveal-delay="2">
-            <div class="artisan-image-container">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&h=400&q=80" alt="Nguyễn Thu Phương" class="artisan-img">
+            <div class="artisan-image-container mb-6 overflow-hidden rounded-full w-40 h-40 mx-auto">
+              <img src="src/images/about_phuong.jpg" alt="Nguyễn Thu Phương" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
             </div>
             <h3 class="font-serif text-lg text-primary mb-1">Nguyễn Thu Phương</h3>
-            <p class="font-ui text-[9px] uppercase tracking-wider text-gold mb-3">Thiết kế trưởng</p>
+            <p class="font-ui text-[10px] uppercase tracking-wider text-gold mb-3">Giám đốc thiết kế</p>
             <p class="font-sans text-muted text-xs italic px-4">"Mỗi đường nét phác thảo là một lời cam kết với sự duy mỹ trường tồn."</p>
           </div>
 
           <!-- Thành viên 4 -->
           <div class="reveal-item artisan-group" data-reveal-delay="3">
-            <div class="artisan-image-container">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80" alt="Lại Thùy Linh" class="artisan-img">
+            <div class="artisan-image-container mb-6 overflow-hidden rounded-full w-40 h-40 mx-auto">
+              <img src="src/images/about_linh.jpg" alt="Lại Thùy Linh" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
             </div>
             <h3 class="font-serif text-lg text-primary mb-1">Lại Thùy Linh</h3>
-            <p class="font-ui text-[9px] uppercase tracking-wider text-gold mb-3">Nghệ nhân trưởng</p>
+            <p class="font-ui text-[10px] uppercase tracking-wider text-gold mb-3">Giám đốc kỹ thuật</p>
             <p class="font-sans text-muted text-xs italic px-4">"Đôi bàn tay thầm lặng lay động linh hồn của đá quý và kim loại."</p>
           </div>
         </div>
@@ -278,25 +301,25 @@
           
           <!-- Ô 1 -->
           <div class="bg-primary p-8 text-center transition-all duration-500 hover:bg-white/[0.05] group cursor-default">
-            <p class="font-serif text-4xl md:text-5xl text-gold mb-3 transform transition-transform duration-300 group-hover:-translate-y-1">20+</p>
+            <p class="font-serif text-3xl md:text-5xl text-gold mb-3 transform transition-transform duration-300 group-hover:-translate-y-1">20+</p>
             <p class="font-ui text-[9px] uppercase tracking-[0.3em] text-white/40">Năm kiến tạo di sản</p>
           </div>
 
           <!-- Ô 2 -->
           <div class="bg-primary p-8 text-center transition-all duration-500 hover:bg-white/[0.05] group cursor-default">
-            <p class="font-serif text-4xl md:text-5xl text-gold mb-3 transform transition-transform duration-300 group-hover:-translate-y-1">5000+</p>
+            <p class="font-serif text-3xl md:text-5xl text-gold mb-3 transform transition-transform duration-300 group-hover:-translate-y-1">5000+</p>
             <p class="font-ui text-[9px] uppercase tracking-[0.3em] text-white/40">Tri kỷ đồng hành tin tưởng</p>
           </div>
 
           <!-- Ô 3 -->
           <div class="bg-primary p-8 text-center transition-all duration-500 hover:bg-white/[0.05] group cursor-default">
-            <p class="font-serif text-4xl md:text-5xl text-gold mb-3 transform transition-transform duration-300 group-hover:-translate-y-1">500+</p>
+            <p class="font-serif text-3xl md:text-5xl text-gold mb-3 transform transition-transform duration-300 group-hover:-translate-y-1">500+</p>
             <p class="font-ui text-[9px] uppercase tracking-[0.3em] text-white/40">Tạo tác độc bản tinh tế</p>
           </div>
 
           <!-- Ô 4 -->
           <div class="bg-primary p-8 text-center transition-all duration-500 hover:bg-white/[0.05] group cursor-default">
-            <p class="font-serif text-4xl md:text-5xl text-gold mb-3 transform transition-transform duration-300 group-hover:-translate-y-1">100%</p>
+            <p class="font-serif text-3xl md:text-5xl text-gold mb-3 transform transition-transform duration-300 group-hover:-translate-y-1">100%</p>
             <p class="font-ui text-[9px] uppercase tracking-[0.3em] text-white/40">Chế tác thủ công tuyệt đối</p>
           </div>
 
