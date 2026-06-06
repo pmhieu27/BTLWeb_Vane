@@ -1,302 +1,667 @@
 <!doctype html>
 <html lang="vi" class="scroll-smooth">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vane Offical Website</title>
-  <meta name="description" content="Vane Vietnam" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
-  <link rel="stylesheet" href="src/css/base.css?v=30" />
-  <link rel="stylesheet" href="src/css/output.css?v=30" />
-  <link rel="stylesheet" href="src/css/custom.css?v=30" />
-</head>
-<body class="bg-white text-charcoal font-sans opacity-0 transition-opacity duration-500">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vane Offical Website</title>
+    <meta name="description" content="Vane Vietnam" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>"
+    />
+    <link rel="stylesheet" href="src/css/base.css?v=30" />
+    <link rel="stylesheet" href="src/css/output.css?v=30" />
+    <link rel="stylesheet" href="src/css/custom.css?v=30" />
+  </head>
+  <body
+    class="bg-white text-charcoal font-sans opacity-0 transition-opacity duration-500"
+  >
+    <!-- Loader -->
+    <div
+      id="loader"
+      class="fixed inset-0 z-200 bg-white flex flex-col items-center justify-center gap-4"
+    >
+      <div class="font-logo text-3xl tracking-[0.5em] loader-text">VANE</div>
+      <div class="loader-line"></div>
+    </div>
 
-  <!-- Loader -->
-  <div id="loader" class="fixed inset-0 z-200 bg-white flex flex-col items-center justify-center gap-4">
-    <div class="font-logo text-3xl tracking-[0.5em] loader-text">VANE</div>
-    <div class="loader-line"></div>
-  </div>
+    <div id="component-header"></div>
 
-  <div id="component-header"></div>
+    <main>
+      <!-- ══════════ HERO ══════════ -->
+      <section
+        id="component-hero"
+        class="relative h-screen flex items-center justify-center overflow-hidden"
+      >
+        <div class="absolute inset-0">
+          <img
+            src="src/images/hero-jewelry.png"
+            alt="Vane Vietnam Luxury Jewelry"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/30"
+          ></div>
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-3xl">
+          <p
+            class="font-ui text-[10px] tracking-[0.5em] uppercase text-white/70 mb-8 hero-text-reveal"
+          >
+            Chế tác thủ công từ 2005
+          </p>
+          <h1
+            class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 hero-text-reveal hero-text-reveal-delay-1"
+          >
+            Vẻ Đẹp<br />Vượt Thời Gian
+          </h1>
+          <p
+            class="text-white/50 text-sm md:text-base max-w-md mx-auto mb-12 leading-relaxed hero-text-reveal hero-text-reveal-delay-2"
+          >
+            Những kiệt tác trang sức được chế tác từ nguyên liệu quý hiếm nhất,
+            dành cho những người trân trọng vẻ đẹp tinh tế.
+          </p>
+          <a
+            href="collections.html"
+            class="btn-white btn-shine hero-text-reveal hero-text-reveal-delay-3"
+            >Khám Phá Bộ Sưu Tập</a
+          >
+        </div>
+        <div
+          class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 scroll-indicator cursor-pointer"
+        >
+          <div class="w-px h-12 bg-white/20 mx-auto mb-2"></div>
+          <p
+            class="font-ui text-[8px] uppercase tracking-[0.3em] text-white/30"
+          >
+            Scroll
+          </p>
+        </div>
+      </section>
 
-  <main>
-
-    <!-- ══════════ HERO ══════════ -->
-    <section id="component-hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-      <div class="absolute inset-0">
-        <img src="src/images/hero-jewelry.png" alt="Vane Vietnam Luxury Jewelry" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/30"></div>
-      </div>
-      <div class="relative z-10 text-center px-6 max-w-3xl">
-        <p class="font-ui text-[10px] tracking-[0.5em] uppercase text-white/70 mb-8 hero-text-reveal">Chế tác thủ công từ 2005</p>
-        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 hero-text-reveal hero-text-reveal-delay-1">Vẻ Đẹp<br>Vượt Thời Gian</h1>
-        <p class="text-white/50 text-sm md:text-base max-w-md mx-auto mb-12 leading-relaxed hero-text-reveal hero-text-reveal-delay-2">Những kiệt tác trang sức được chế tác từ nguyên liệu quý hiếm nhất, dành cho những người trân trọng vẻ đẹp tinh tế.</p>
-        <a href="collections.html" class="btn-white btn-shine hero-text-reveal hero-text-reveal-delay-3">Khám Phá Bộ Sưu Tập</a>
-      </div>
-      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 scroll-indicator cursor-pointer">
-        <div class="w-px h-12 bg-white/20 mx-auto mb-2"></div>
-        <p class="font-ui text-[8px] uppercase tracking-[0.3em] text-white/30">Scroll</p>
-      </div>
-    </section>
-
-    <!-- ══════════ GIỚI THIỆU ══════════ -->
-    <section class="bg-ivory">
-      <div class="w-full px-8 md:px-16 lg:px-24 py-20 md:py-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <div data-reveal="left" class="overflow-hidden">
-            <img src="src/images/about-crafting.png" alt="Nghệ nhân Vane Vietnam" class="w-full aspect-square object-cover parallax-img" data-parallax data-parallax-speed="0.15">
-          </div>
-          <div data-reveal="right">
-            <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-6">Về Chúng Tôi</p>
-            <h2 class="font-serif text-4xl md:text-5xl text-primary leading-tight mb-8">Di Sản Của<br>Sự Tinh Tế</h2>
-            <div class="gold-divider mb-8" style="justify-content:flex-start;"><span class="diamond"></span><span style="flex:0;"></span></div>
-            <p class="text-muted text-sm leading-loose mb-6">Từ năm 2005, Vane Vietnam kiến tạo những kiệt tác trang sức — nơi nghệ thuật truyền thống giao thoa với thiết kế đương đại.</p>
-            <p class="text-muted text-sm leading-loose mb-10">Mỗi tác phẩm là kết tinh của hàng trăm giờ chế tác, sử dụng nguyên liệu quý hiếm được tuyển chọn kỹ lưỡng từ khắp nơi trên thế giới.</p>
-            <a href="about.html" class="btn-outline">Tìm Hiểu Thêm</a>
+      <!-- ══════════ GIỚI THIỆU ══════════ -->
+      <section class="bg-ivory">
+        <div class="w-full px-8 md:px-16 lg:px-24 py-20 md:py-20">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+          >
+            <div data-reveal="left" class="overflow-hidden">
+              <img
+                src="src/images/about-crafting.png"
+                alt="Nghệ nhân Vane Vietnam"
+                class="w-full aspect-square object-cover parallax-img"
+                data-parallax
+                data-parallax-speed="0.15"
+              />
+            </div>
+            <div data-reveal="right">
+              <p
+                class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-6"
+              >
+                Về Chúng Tôi
+              </p>
+              <h2
+                class="font-serif text-4xl md:text-5xl text-primary leading-tight mb-8"
+              >
+                Di Sản Của<br />Sự Tinh Tế
+              </h2>
+              <div
+                class="gold-divider mb-8"
+                style="justify-content: flex-start"
+              >
+                <span class="diamond"></span><span style="flex: 0"></span>
+              </div>
+              <p class="text-muted text-sm leading-loose mb-6">
+                Từ năm 2005, Vane Vietnam kiến tạo những kiệt tác trang sức —
+                nơi nghệ thuật truyền thống giao thoa với thiết kế đương đại.
+              </p>
+              <p class="text-muted text-sm leading-loose mb-10">
+                Mỗi tác phẩm là kết tinh của hàng trăm giờ chế tác, sử dụng
+                nguyên liệu quý hiếm được tuyển chọn kỹ lưỡng từ khắp nơi trên
+                thế giới.
+              </p>
+              <a href="about.html" class="btn-outline">Tìm Hiểu Thêm</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ══════════ BỘ SƯU TẬP MỚI ══════════ -->
+      <!-- ══════════ BỘ SƯU TẬP MỚI ══════════ -->
+      <section class="bg-white">
+        <div class="w-full px-8 md:px-16 lg:px-24 py-32 md:py-7">
+          <div class="text-center mb-20" data-reveal="blur">
+            <p
+              class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4"
+            >
+              Bộ Sưu Tập 2025
+            </p>
+            <h2 class="font-serif text-4xl md:text-5xl text-primary">
+              Kiệt Tác Mới Nhất
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10" data-stagger-grid>
+            <a
+              href="collections.html?category=rings"
+              class="group block"
+              data-stagger-item
+              data-reveal="scale"
+              data-reveal-delay="1"
+            >
+              <div class="product-image-luxury mb-6">
+                <img
+                  src="src/images/product-ring.png"
+                  alt="Nhẫn Kim Cương"
+                  class="w-full aspect-4/5 object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <p
+                class="font-ui text-[10px] tracking-[0.3em] uppercase text-muted mb-2"
+              >
+                Nhẫn
+              </p>
+              <p
+                class="font-serif text-xl text-primary group-hover:text-gold transition-colors duration-300"
+              >
+                Nhẫn Kim Cương Eternal
+              </p>
+            </a>
+            <a
+              href="collections.html?category=necklaces"
+              class="group block"
+              data-stagger-item
+              data-reveal="scale"
+              data-reveal-delay="2"
+            >
+              <div class="product-image-luxury mb-6">
+                <img
+                  src="src/images/product-necklace.png"
+                  alt="Dây Chuyền"
+                  class="w-full aspect-4/5 object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <p
+                class="font-ui text-[10px] tracking-[0.3em] uppercase text-muted mb-2"
+              >
+                Dây Chuyền
+              </p>
+              <p
+                class="font-serif text-xl text-primary group-hover:text-gold transition-colors duration-300"
+              >
+                Dây Chuyền Grace
+              </p>
+            </a>
+            <a
+              href="collections.html?category=bracelets"
+              class="group block"
+              data-stagger-item
+              data-reveal="scale"
+              data-reveal-delay="3"
+            >
+              <div class="product-image-luxury mb-6">
+                <img
+                  src="src/images/product-bracelet.png"
+                  alt="Vòng Tay"
+                  class="w-full aspect-4/5 object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <p
+                class="font-ui text-[10px] tracking-[0.3em] uppercase text-muted mb-2"
+              >
+                Vòng Tay
+              </p>
+              <p
+                class="font-serif text-xl text-primary group-hover:text-gold transition-colors duration-300"
+              >
+                Vòng Tay Lumière
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ SIGNATURE COLLECTION ══════════ -->
+      <section class="bg-primary text-white overflow-hidden">
+        <div class="w-full px-8 md:px-16 lg:px-24 py-32 md:py-20">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+          >
+            <div class="order-2 lg:order-1" data-reveal="left">
+              <p
+                class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-6"
+              >
+                Signature Collection
+              </p>
+              <h2 class="font-serif text-4xl md:text-6xl leading-tight mb-8">
+                Nhẫn Kim Cương<br />Eternal
+              </h2>
+              <div class="w-12 h-px bg-gold/30 mb-8"></div>
+              <p class="text-white/50 text-sm leading-loose mb-6 max-w-md">
+                Chế tác từ vàng trắng 18K cao cấp, đính viên kim cương chủ 1.5
+                carat cắt brilliant. Kiệt tác biểu tượng cho tình yêu vĩnh cửu.
+              </p>
+              <div class="flex items-center gap-6 mb-10">
+                <div class="text-center">
+                  <p
+                    class="font-serif text-2xl text-gold"
+                    data-count="18"
+                    data-suffix="K"
+                  >
+                    0K
+                  </p>
+                  <p
+                    class="font-ui text-[8px] uppercase tracking-[0.2em] text-white/30 mt-1"
+                  >
+                    Vàng
+                  </p>
+                </div>
+                <div class="w-px h-8 bg-white/10"></div>
+                <div class="text-center">
+                  <p
+                    class="font-serif text-2xl text-gold"
+                    data-count="1"
+                    data-suffix=".5 Ct"
+                  >
+                    0
+                  </p>
+                  <p
+                    class="font-ui text-[8px] uppercase tracking-[0.2em] text-white/30 mt-1"
+                  >
+                    Kim Cương
+                  </p>
+                </div>
+                <div class="w-px h-8 bg-white/10"></div>
+                <div class="text-center">
+                  <p class="font-serif text-2xl text-gold">GIA</p>
+                  <p
+                    class="font-ui text-[8px] uppercase tracking-[0.2em] text-white/30 mt-1"
+                  >
+                    Chứng Nhận
+                  </p>
+                </div>
+              </div>
+              <p class="font-serif text-3xl text-gold mb-10">45.000.000₫</p>
+              <a
+                href="product-detail.html?id=1"
+                class="btn-gold-outline btn-shine"
+                >Xem Chi Tiết</a
+              >
+            </div>
+            <div class="order-1 lg:order-2" data-reveal="right">
+              <div class="relative">
+                <img
+                  src="src/images/product-ring.png"
+                  alt="Nhẫn Eternal"
+                  class="w-full aspect-square object-cover"
+                />
+                <div
+                  class="absolute -bottom-4 -right-4 w-24 h-24 border border-gold/20"
+                ></div>
+                <div
+                  class="absolute -top-4 -left-4 w-24 h-24 border border-gold/20"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ SẢN PHẨM NỔI BẬT ══════════ -->
+      <section class="bg-ivory">
+        <div class="w-full px-8 md:px-16 lg:px-24 py-32 md:py-20">
+          <div
+            class="flex flex-col md:flex-row md:items-end justify-between mb-16"
+            data-reveal="blur"
+          >
+            <div>
+              <p
+                class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4"
+              >
+                Nổi Bật
+              </p>
+              <h2 class="font-serif text-4xl md:text-5xl text-primary">
+                Sản Phẩm Yêu Thích
+              </h2>
+            </div>
+            <a
+              href="collections.html"
+              class="hidden md:inline-block font-ui text-[10px] uppercase tracking-[0.2em] text-muted hover:text-gold transition-colors mt-4 md:mt-0 gold-underline"
+              >Xem tất cả →</a
+            >
+          </div>
+          <div
+            class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
+            data-stagger-grid
+          >
+            <!-- Product 1 -->
+            <div class="group hover-lift" data-stagger-item data-reveal="scale">
+              <a href="product-detail.html?id=1" class="block">
+                <div class="product-image-luxury shine-sweep mb-4 bg-white p-4">
+                  <img
+                    src="src/images/product-ring.png"
+                    alt="Nhẫn Eternal"
+                    class="w-full aspect-3/4 object-contain"
+                  />
+                </div>
+                <p
+                  class="font-ui text-[9px] tracking-[0.2em] uppercase text-muted mb-1"
+                >
+                  Nhẫn
+                </p>
+                <p
+                  class="font-serif text-base text-primary group-hover:text-gold transition-colors mb-2"
+                >
+                  Nhẫn Eternal
+                </p>
+                <p class="font-ui text-sm text-gold font-medium">45.000.000₫</p>
+              </a>
+            </div>
+            <!-- Product 2 -->
+            <div class="group hover-lift" data-stagger-item data-reveal="scale">
+              <a href="product-detail.html?id=2" class="block">
+                <div class="product-image-luxury shine-sweep mb-4 bg-white p-4">
+                  <img
+                    src="src/images/product-necklace.png"
+                    alt="Dây Chuyền Grace"
+                    class="w-full aspect-3/4 object-contain"
+                  />
+                </div>
+                <p
+                  class="font-ui text-[9px] tracking-[0.2em] uppercase text-muted mb-1"
+                >
+                  Dây Chuyền
+                </p>
+                <p
+                  class="font-serif text-base text-primary group-hover:text-gold transition-colors mb-2"
+                >
+                  Dây Chuyền Grace
+                </p>
+                <p class="font-ui text-sm text-gold font-medium">28.500.000₫</p>
+              </a>
+            </div>
+            <!-- Product 3 -->
+            <div
+              class="group hover-lift hidden md:block"
+              data-stagger-item
+              data-reveal="scale"
+            >
+              <a href="product-detail.html?id=3" class="block">
+                <div class="product-image-luxury shine-sweep mb-4 bg-white p-4">
+                  <img
+                    src="src/images/product-bracelet.png"
+                    alt="Vòng Tay Lumière"
+                    class="w-full aspect-3/4 object-contain"
+                  />
+                </div>
+                <p
+                  class="font-ui text-[9px] tracking-[0.2em] uppercase text-muted mb-1"
+                >
+                  Vòng Tay
+                </p>
+                <p
+                  class="font-serif text-base text-primary group-hover:text-gold transition-colors mb-2"
+                >
+                  Vòng Tay Lumière
+                </p>
+                <p class="font-ui text-sm text-gold font-medium">18.200.000₫</p>
+              </a>
+            </div>
+            <!-- Product 4 -->
+            <div
+              class="group hover-lift hidden md:block"
+              data-stagger-item
+              data-reveal="scale"
+            >
+              <a href="product-detail.html?id=4" class="block">
+                <div class="product-image-luxury shine-sweep mb-4 bg-white p-4">
+                  <img
+                    src="src/images/product-earrings.png"
+                    alt="Hoa Tai Serenity"
+                    class="w-full aspect-3/4 object-contain"
+                  />
+                </div>
+                <p
+                  class="font-ui text-[9px] tracking-[0.2em] uppercase text-muted mb-1"
+                >
+                  Hoa Tai
+                </p>
+                <p
+                  class="font-serif text-base text-primary group-hover:text-gold transition-colors mb-2"
+                >
+                  Hoa Tai Serenity
+                </p>
+                <p class="font-ui text-sm text-gold font-medium">22.800.000₫</p>
+              </a>
+            </div>
+          </div>
+          <div class="text-center mt-12 md:hidden">
+            <a
+              href="collections.html"
+              class="font-ui text-[10px] uppercase tracking-[0.2em] text-primary hover:text-gold transition-colors gold-underline"
+              >Xem tất cả →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ WHY ══════════ -->
+      <section class="bg-white">
+        <div class="w-full px-8 md:px-16 lg:px-24 py-20 md:py-20">
+          <div
+            class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center"
+            data-reveal="scale"
+          >
+            <div>
+              <p
+                class="font-serif text-4xl md:text-5xl text-gold mb-3"
+                data-count="20"
+                data-suffix="+"
+              >
+                0
+              </p>
+              <p
+                class="font-ui text-[9px] uppercase tracking-[0.3em] text-muted"
+              >
+                Năm Kinh Nghiệm
+              </p>
+            </div>
+            <div>
+              <p
+                class="font-serif text-4xl md:text-5xl text-gold mb-3"
+                data-count="5000"
+                data-suffix="+"
+              >
+                0
+              </p>
+              <p
+                class="font-ui text-[9px] uppercase tracking-[0.3em] text-muted"
+              >
+                Khách Hàng
+              </p>
+            </div>
+            <div>
+              <p
+                class="font-serif text-4xl md:text-5xl text-gold mb-3"
+                data-count="500"
+                data-suffix="+"
+              >
+                0
+              </p>
+              <p
+                class="font-ui text-[9px] uppercase tracking-[0.3em] text-muted"
+              >
+                Thiết Kế
+              </p>
+            </div>
+            <div>
+              <p
+                class="font-serif text-4xl md:text-5xl text-gold mb-3"
+                data-count="100"
+                data-suffix="%"
+              >
+                0
+              </p>
+              <p
+                class="font-ui text-[9px] uppercase tracking-[0.3em] text-muted"
+              >
+                Thủ Công
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ ĐẶT LỊCH HẸN ══════════ -->
+      <section class="bg-ivory">
+        <div class="w-full px-8 md:px-16 lg:px-24 py-32 md:py-20">
+          <div class="text-center mb-16" data-reveal="blur">
+            <p
+              class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4"
+            >
+              Trải Nghiệm
+            </p>
+            <h2 class="font-serif text-4xl md:text-5xl text-primary mb-6">
+              Đặt Lịch Hẹn
+            </h2>
+            <p class="text-muted text-sm max-w-lg mx-auto leading-relaxed">
+              Hãy đến showroom của chúng tôi để trải nghiệm trực tiếp những kiệt
+              tác trang sức và nhận tư vấn từ chuyên gia.
+            </p>
+          </div>
+          <div
+            class="glass-card-strong p-8 md:p-12"
+            data-reveal="scale"
+            data-reveal-delay="1"
+          >
+            <form
+              id="appointment-form"
+              class="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+              <div class="form-field">
+                <label class="form-label">Họ và Tên</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  placeholder="Nhập họ và tên"
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label">Số Điện Thoại</label>
+                <input
+                  type="tel"
+                  class="form-input"
+                  placeholder="Nhập số điện thoại"
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-input"
+                  placeholder="Nhập email"
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label">Ngày Hẹn</label>
+                <input type="date" class="form-input" required />
+              </div>
+              <div class="form-field md:col-span-2">
+                <label class="form-label">Dịch Vụ Quan Tâm</label>
+                <select class="form-select">
+                  <option value="">Chọn dịch vụ</option>
+                  <option>Tư Vấn Nhẫn Cưới</option>
+                  <option>Thiết Kế Riêng</option>
+                  <option>Bảo Dưỡng Trang Sức</option>
+                  <option>Tư Vấn Chung</option>
+                </select>
+              </div>
+              <div class="form-field md:col-span-2">
+                <label class="form-label">Ghi Chú</label>
+                <textarea
+                  class="form-input"
+                  rows="3"
+                  placeholder="Ghi chú thêm (không bắt buộc)"
+                ></textarea>
+              </div>
+              <div class="md:col-span-2 text-center pt-4">
+                <button type="submit" class="btn-primary btn-shine">
+                  Đặt Lịch Hẹn
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ══════════ NEWSLETTER ══════════ -->
     <section class="bg-white">
-      <div class="w-full px-8 md:px-16 lg:px-24 py-32 md:py-7">
-        <div class="text-center mb-20" data-reveal="blur">
-          <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4">Bộ Sưu Tập 2025</p>
-          <h2 class="font-serif text-4xl md:text-5xl text-primary">Kiệt Tác Mới Nhất</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10" data-stagger-grid>
-          <a href="collections.html?category=rings" class="group block" data-stagger-item data-reveal="scale" data-reveal-delay="1">
-            <div class="product-image-luxury mb-6">
-              <img src="src/images/product-ring.png" alt="Nhẫn Kim Cương" class="w-full aspect-4/5 object-cover transition-transform duration-700 group-hover:scale-105">
-            </div>
-            <p class="font-ui text-[10px] tracking-[0.3em] uppercase text-muted mb-2">Nhẫn</p>
-            <p class="font-serif text-xl text-primary group-hover:text-gold transition-colors duration-300">Nhẫn Kim Cương Eternal</p>
-          </a>
-          <a href="collections.html?category=necklaces" class="group block" data-stagger-item data-reveal="scale" data-reveal-delay="2">
-            <div class="product-image-luxury mb-6">
-              <img src="src/images/product-necklace.png" alt="Dây Chuyền" class="w-full aspect-4/5 object-cover transition-transform duration-700 group-hover:scale-105">
-            </div>
-            <p class="font-ui text-[10px] tracking-[0.3em] uppercase text-muted mb-2">Dây Chuyền</p>
-            <p class="font-serif text-xl text-primary group-hover:text-gold transition-colors duration-300">Dây Chuyền Grace</p>
-          </a>
-          <a href="collections.html?category=bracelets" class="group block" data-stagger-item data-reveal="scale" data-reveal-delay="3">
-            <div class="product-image-luxury mb-6">
-              <img src="src/images/product-bracelet.png" alt="Vòng Tay" class="w-full aspect-4/5 object-cover transition-transform duration-700 group-hover:scale-105">
-            </div>
-            <p class="font-ui text-[10px] tracking-[0.3em] uppercase text-muted mb-2">Vòng Tay</p>
-            <p class="font-serif text-xl text-primary group-hover:text-gold transition-colors duration-300">Vòng Tay Lumière</p>
-          </a>
-        </div>
+      <div
+        class="max-w-md mx-auto px-8 py-10 md:py-10 text-center"
+        data-reveal="scale"
+      >
+        <p
+          class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4"
+        >
+          Đăng Ký
+        </p>
+        <h2 class="font-serif text-3xl md:text-4xl text-primary mb-4">
+          Nhận Tin Ưu Đãi
+        </h2>
+        <p class="text-muted text-sm mb-10 leading-relaxed">
+          Thông tin bộ sưu tập mới và ưu đãi dành riêng cho bạn.
+        </p>
+        <form id="newsletter-form" class="relative">
+          <input
+            type="email"
+            required
+            placeholder="Email của bạn"
+            class="w-full bg-transparent border-b border-charcoal/15 text-charcoal font-ui text-sm px-0 py-3 pr-10 focus:outline-none focus:border-gold transition-colors placeholder:text-muted/40"
+          />
+          <button
+            type="submit"
+            class="absolute right-0 top-1/2 -translate-y-1/2 text-gold hover:text-primary transition-colors text-xl cursor-pointer"
+          >
+            →
+          </button>
+        </form>
       </div>
     </section>
 
-    <!-- ══════════ SIGNATURE COLLECTION ══════════ -->
-    <section class="bg-primary text-white overflow-hidden">
-      <div class="w-full px-8 md:px-16 lg:px-24 py-32 md:py-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <div class="order-2 lg:order-1" data-reveal="left">
-            <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-6">Signature Collection</p>
-            <h2 class="font-serif text-4xl md:text-6xl leading-tight mb-8">Nhẫn Kim Cương<br>Eternal</h2>
-            <div class="w-12 h-px bg-gold/30 mb-8"></div>
-            <p class="text-white/50 text-sm leading-loose mb-6 max-w-md">Chế tác từ vàng trắng 18K cao cấp, đính viên kim cương chủ 1.5 carat cắt brilliant. Kiệt tác biểu tượng cho tình yêu vĩnh cửu.</p>
-            <div class="flex items-center gap-6 mb-10">
-              <div class="text-center">
-                <p class="font-serif text-2xl text-gold" data-count="18" data-suffix="K">0K</p>
-                <p class="font-ui text-[8px] uppercase tracking-[0.2em] text-white/30 mt-1">Vàng</p>
-              </div>
-              <div class="w-px h-8 bg-white/10"></div>
-              <div class="text-center">
-                <p class="font-serif text-2xl text-gold" data-count="1" data-suffix=".5 Ct">0</p>
-                <p class="font-ui text-[8px] uppercase tracking-[0.2em] text-white/30 mt-1">Kim Cương</p>
-              </div>
-              <div class="w-px h-8 bg-white/10"></div>
-              <div class="text-center">
-                <p class="font-serif text-2xl text-gold">GIA</p>
-                <p class="font-ui text-[8px] uppercase tracking-[0.2em] text-white/30 mt-1">Chứng Nhận</p>
-              </div>
-            </div>
-            <p class="font-serif text-3xl text-gold mb-10">45.000.000₫</p>
-            <a href="product-detail.html?id=1" class="btn-gold-outline btn-shine">Xem Chi Tiết</a>
-          </div>
-          <div class="order-1 lg:order-2" data-reveal="right">
-            <div class="relative">
-              <img src="src/images/product-ring.png" alt="Nhẫn Eternal" class="w-full aspect-square object-cover">
-              <div class="absolute -bottom-4 -right-4 w-24 h-24 border border-gold/20"></div>
-              <div class="absolute -top-4 -left-4 w-24 h-24 border border-gold/20"></div>
-            </div>
-          </div>
+    <div id="component-footer"></div>
+
+    <!-- Sub Footer -->
+    <footer class="bg-primary">
+      <div
+        class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"
+      >
+        <p class="font-ui text-[9px] text-white/20 tracking-wide">
+          © 2025 Vane Vietnam
+        </p>
+        <div class="flex gap-6">
+          <a
+            href="#"
+            class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide"
+            >Bảo Mật</a
+          >
+          <a
+            href="#"
+            class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide"
+            >Điều Khoản</a
+          >
+          <a
+            href="#"
+            class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide"
+            >Đổi Trả</a
+          >
         </div>
       </div>
-    </section>
+    </footer>
 
-    <!-- ══════════ SẢN PHẨM NỔI BẬT ══════════ -->
-    <section class="bg-ivory">
-      <div class="w-full px-8 md:px-16 lg:px-24 py-32 md:py-20">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" data-reveal="blur">
-          <div>
-            <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4">Nổi Bật</p>
-            <h2 class="font-serif text-4xl md:text-5xl text-primary">Sản Phẩm Yêu Thích</h2>
-          </div>
-          <a href="collections.html" class="hidden md:inline-block font-ui text-[10px] uppercase tracking-[0.2em] text-muted hover:text-gold transition-colors mt-4 md:mt-0 gold-underline">Xem tất cả →</a>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8" data-stagger-grid>
-          <!-- Product 1 -->
-          <div class="group hover-lift" data-stagger-item data-reveal="scale">
-            <a href="product-detail.html?id=1" class="block">
-              <div class="product-image-luxury shine-sweep mb-4 bg-white p-4">
-                <img src="src/images/product-ring.png" alt="Nhẫn Eternal" class="w-full aspect-3/4 object-contain">
-              </div>
-              <p class="font-ui text-[9px] tracking-[0.2em] uppercase text-muted mb-1">Nhẫn</p>
-              <p class="font-serif text-base text-primary group-hover:text-gold transition-colors mb-2">Nhẫn Eternal</p>
-              <p class="font-ui text-sm text-gold font-medium">45.000.000₫</p>
-            </a>
-          </div>
-          <!-- Product 2 -->
-          <div class="group hover-lift" data-stagger-item data-reveal="scale">
-            <a href="product-detail.html?id=2" class="block">
-              <div class="product-image-luxury shine-sweep mb-4 bg-white p-4">
-                <img src="src/images/product-necklace.png" alt="Dây Chuyền Grace" class="w-full aspect-3/4 object-contain">
-              </div>
-              <p class="font-ui text-[9px] tracking-[0.2em] uppercase text-muted mb-1">Dây Chuyền</p>
-              <p class="font-serif text-base text-primary group-hover:text-gold transition-colors mb-2">Dây Chuyền Grace</p>
-              <p class="font-ui text-sm text-gold font-medium">28.500.000₫</p>
-            </a>
-          </div>
-          <!-- Product 3 -->
-          <div class="group hover-lift hidden md:block" data-stagger-item data-reveal="scale">
-            <a href="product-detail.html?id=3" class="block">
-              <div class="product-image-luxury shine-sweep mb-4 bg-white p-4">
-                <img src="src/images/product-bracelet.png" alt="Vòng Tay Lumière" class="w-full aspect-3/4 object-contain">
-              </div>
-              <p class="font-ui text-[9px] tracking-[0.2em] uppercase text-muted mb-1">Vòng Tay</p>
-              <p class="font-serif text-base text-primary group-hover:text-gold transition-colors mb-2">Vòng Tay Lumière</p>
-              <p class="font-ui text-sm text-gold font-medium">18.200.000₫</p>
-            </a>
-          </div>
-          <!-- Product 4 -->
-          <div class="group hover-lift hidden md:block" data-stagger-item data-reveal="scale">
-            <a href="product-detail.html?id=4" class="block">
-              <div class="product-image-luxury shine-sweep mb-4 bg-white p-4">
-                <img src="src/images/product-earrings.png" alt="Hoa Tai Serenity" class="w-full aspect-3/4 object-contain">
-              </div>
-              <p class="font-ui text-[9px] tracking-[0.2em] uppercase text-muted mb-1">Hoa Tai</p>
-              <p class="font-serif text-base text-primary group-hover:text-gold transition-colors mb-2">Hoa Tai Serenity</p>
-              <p class="font-ui text-sm text-gold font-medium">22.800.000₫</p>
-            </a>
-          </div>
-        </div>
-        <div class="text-center mt-12 md:hidden">
-          <a href="collections.html" class="font-ui text-[10px] uppercase tracking-[0.2em] text-primary hover:text-gold transition-colors gold-underline">Xem tất cả →</a>
-        </div>
-      </div>
-    </section>
+    <div id="component-cart-overlay"></div>
 
-    <!-- ══════════ THỐNG KÊ ══════════ -->
-    <!-- <section class="bg-white">
-      <div class="w-full px-8 md:px-16 lg:px-24 py-20 md:py-20">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center" data-reveal="scale">
-          <div>
-            <p class="font-serif text-4xl md:text-5xl text-gold mb-3" data-count="20" data-suffix="+">0</p>
-            <p class="font-ui text-[9px] uppercase tracking-[0.3em] text-muted">Năm Kinh Nghiệm</p>
-          </div>
-          <div>
-            <p class="font-serif text-4xl md:text-5xl text-gold mb-3" data-count="5000" data-suffix="+">0</p>
-            <p class="font-ui text-[9px] uppercase tracking-[0.3em] text-muted">Khách Hàng</p>
-          </div>
-          <div>
-            <p class="font-serif text-4xl md:text-5xl text-gold mb-3" data-count="500" data-suffix="+">0</p>
-            <p class="font-ui text-[9px] uppercase tracking-[0.3em] text-muted">Thiết Kế</p>
-          </div>
-          <div>
-            <p class="font-serif text-4xl md:text-5xl text-gold mb-3" data-count="100" data-suffix="%">0</p>
-            <p class="font-ui text-[9px] uppercase tracking-[0.3em] text-muted">Thủ Công</p>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- ══════════ ĐẶT LỊCH HẸN ══════════ -->
-    <section class="bg-ivory">
-      <div class="w-full px-8 md:px-16 lg:px-24 py-32 md:py-20">
-        <div class="text-center mb-16" data-reveal="blur">
-          <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4">Trải Nghiệm</p>
-          <h2 class="font-serif text-4xl md:text-5xl text-primary mb-6">Đặt Lịch Hẹn</h2>
-          <p class="text-muted text-sm max-w-lg mx-auto leading-relaxed">Hãy đến showroom của chúng tôi để trải nghiệm trực tiếp những kiệt tác trang sức và nhận tư vấn từ chuyên gia.</p>
-        </div>
-        <div class="glass-card-strong p-8 md:p-12" data-reveal="scale" data-reveal-delay="1">
-          <form id="appointment-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="form-field">
-              <label class="form-label">Họ và Tên</label>
-              <input type="text" class="form-input" placeholder="Nhập họ và tên" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label">Số Điện Thoại</label>
-              <input type="tel" class="form-input" placeholder="Nhập số điện thoại" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-input" placeholder="Nhập email" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label">Ngày Hẹn</label>
-              <input type="date" class="form-input" required>
-            </div>
-            <div class="form-field md:col-span-2">
-              <label class="form-label">Dịch Vụ Quan Tâm</label>
-              <select class="form-select">
-                <option value="">Chọn dịch vụ</option>
-                <option>Tư Vấn Nhẫn Cưới</option>
-                <option>Thiết Kế Riêng</option>
-                <option>Bảo Dưỡng Trang Sức</option>
-                <option>Tư Vấn Chung</option>
-              </select>
-            </div>
-            <div class="form-field md:col-span-2">
-              <label class="form-label">Ghi Chú</label>
-              <textarea class="form-input" rows="3" placeholder="Ghi chú thêm (không bắt buộc)"></textarea>
-            </div>
-            <div class="md:col-span-2 text-center pt-4">
-              <button type="submit" class="btn-primary btn-shine">Đặt Lịch Hẹn</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ══════════ NEWSLETTER ══════════ -->
-  <section class="bg-white">
-    <div class="max-w-md mx-auto px-8 py-10 md:py-10 text-center" data-reveal="scale">
-      <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4">Đăng Ký</p>
-      <h2 class="font-serif text-3xl md:text-4xl text-primary mb-4">Nhận Tin Ưu Đãi</h2>
-      <p class="text-muted text-sm mb-10 leading-relaxed">Thông tin bộ sưu tập mới và ưu đãi dành riêng cho bạn.</p>
-      <form id="newsletter-form" class="relative">
-        <input type="email" required placeholder="Email của bạn" class="w-full bg-transparent border-b border-charcoal/15 text-charcoal font-ui text-sm px-0 py-3 pr-10 focus:outline-none focus:border-gold transition-colors placeholder:text-muted/40">
-        <button type="submit" class="absolute right-0 top-1/2 -translate-y-1/2 text-gold hover:text-primary transition-colors text-xl cursor-pointer">→</button>
-      </form>
-    </div>
-  </section>
-
-  <div id="component-footer"></div>
-
-  <!-- Sub Footer -->
-  <footer class="bg-primary">
-    <div class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="font-ui text-[9px] text-white/20 tracking-wide">© 2025 Vane Vietnam</p>
-      <div class="flex gap-6">
-        <a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide">Bảo Mật</a>
-        <a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide">Điều Khoản</a>
-        <a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide">Đổi Trả</a>
-      </div>
-    </div>
-  </footer>
-
-  <div id="component-cart-overlay"></div>
-
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="src/js/app.js?v=30"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="src/js/app.js?v=30"></script>
+  </body>
 </html>
