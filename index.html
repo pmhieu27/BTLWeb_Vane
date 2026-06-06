@@ -12,66 +12,83 @@
 </head>
 <body class="bg-white text-charcoal font-sans opacity-0 transition-opacity duration-500">
 
-  <!-- =========================
-     POPUP BỘ SƯU TẬP MỚI
-========================= -->
-<div id="collectionPopup" class="popup-overlay">
 
-  <div class="popup-box">
+    <!-- =========================
+        POPUP NEW COLLECTION
+    ========================= -->
 
-    <!-- Nút đóng -->
-    <button id="closePopup" class="popup-close" aria-label="Đóng">
-      <i class="fas fa-times"></i>
-    </button>
+    <div id="collectionPopup">
+        <div class="popup-box">
+            <!-- Close -->
+            <button id="closePopup" class="popup-close">
+                ×
+            </button>
 
-    <!-- Logo -->
-    <div class="popup-logo">
-  <a href="index.html"
-     class="font-logo text-5xl md:text-6xl flex flex-col items-center tracking-widest text-center leading-none text-primary">
-    Vane
-    <span class="font-sans text-[11px] uppercase tracking-[0.5em] mt-2 text-gold">
-      VIETNAM
-    </span>
-  </a>
-</div>
+            <!-- Left Content -->
+            <div class="popup-content">
+                <!-- Logo -->
+                <div class="popup-logo">
+                    <h1>Vane</h1>
+                    <p>Vietnam</p>
+                </div>
 
-    <!-- Nội dung -->
-    <div class="popup-content">
+                <!-- Collection Tag -->
+                <div class="popup-tag">
+                    NEW COLLECTION 2026
+                </div>
 
-      <span class="popup-tag">
-        NEW COLLECTION 2026
-      </span>
+                <!-- Subtitle -->
+                <div class="popup-subtitle">
+                    BỘ SƯU TẬP MỚI
+                </div>
 
-      <p class="popup-subtitle">
-        BỘ SƯU TẬP MỚI
-      </p>
+                <!-- Title -->
+                <h2 class="popup-title">
+                    Timeless Elegance
+                </h2>
 
-      <h2 class="popup-title">
-        Timeless Elegance
-      </h2>
+                <!-- Description -->
+                <p class="popup-description">
+                    Khám phá những thiết kế trang sức cao cấp mới nhất từ
+                    <strong>Vane Vietnam</strong>, nơi vẻ đẹp thanh lịch hòa quyện
+                    cùng nghệ thuật chế tác tinh xảo để tạo nên những giá trị vượt
+                    thời gian.
+                </p>
 
-      <p class="popup-description">
-        Khám phá những thiết kế trang sức cao cấp mới nhất từ
-        <strong>Vane Vietnam</strong>, nơi vẻ đẹp thanh lịch hòa quyện cùng
-        nghệ thuật chế tác tinh xảo để tạo nên những giá trị vượt thời gian.
-      </p>
+                <!-- Button -->
+                <a href="collections.html" class="popup-btn">
+                    KHÁM PHÁ NGAY
+                </a>
 
-      <div class="popup-actions">
-        <a href="collections.html" class="popup-btn">
-          Khám Phá Ngay
-        </a>
-      </div>
+                <!-- Note -->
+                <div class="popup-note">
+                    ✨ Bộ sưu tập mới đã chính thức ra mắt
+                </div>
+            </div>
 
-      <p class="popup-note">
-        ✨ Bộ sưu tập mới đã chính thức ra mắt
-      </p>
-
-      <button id="closePopup" class="popup-close" aria-label="Đóng popup">
-         <i class="fas fa-times"></i>
-      </button>
+            <!-- Right Image -->
+            <div class="popup-image">
+                <img
+                    src="src/images/popup.jpg"
+                    alt="Vane Vietnam Collection">
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const popup = document.getElementById("collectionPopup");
+        const closeBtn = document.getElementById("closePopup");
+
+        setTimeout(() => {
+            popup.style.display = "flex";
+        }, 1000);
+
+        closeBtn.addEventListener("click", () => {
+            popup.style.display = "none";
+        });
+    });
+    </script>
 
   <!-- Loader -->
   <div id="loader" class="fixed inset-0 z-200 bg-white flex flex-col items-center justify-center gap-4">

@@ -16,10 +16,23 @@
   <link rel="stylesheet" href="src/css/output.css?v=7" />
   <link rel="stylesheet" href="src/css/custom.css?v=7" />
   
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400;1,600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <style>
     .transition-all-slow { transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
     .reveal-hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
     .reveal-visible { opacity: 1; transform: translateY(0); }
+
+  .hero-custom-font {
+    font-family: 'Playfair Display', serif; /* Hoặc font bạn chọn */
+    font-style: italic;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: #ffffff;
+  }
+
+  .hero-title {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
   </style>
 </head>
 <body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500 antialiased">
@@ -35,14 +48,18 @@
   <main class="overflow-x-hidden">
 
     <!-- HERO SECTION -->
-    <section class="relative h-[70vh] flex items-center justify-center overflow-hidden">
+    <section class="hero-wrapper relative h-[70vh] flex items-center justify-center overflow-hidden">
       <div class="absolute inset-0">
-        <img src="https://i.pinimg.com/736x/e1/5b/3b/e15b3b4c07139fc7594d5cccbb27d496.jpg" alt="Vane Vietnam Craftsmanship" class="w-full h-full object-cover opacity-40">
+        <img src="https://i.pinimg.com/736x/71/64/60/716460ae08b5beef79df2822522248b6.jpg" alt="Vane Vietnam Craftsmanship" class="w-full h-full object-cover opacity-40">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/30"></div>
       </div>
       <div class="relative z-10 text-center px-6 flex flex-col items-center justify-center h-full w-full">
-        <p class="font-ui text-[10px] tracking-[0.5em] uppercase text-gold/80 mb-6" data-reveal="scale">KỂ TỪ NĂM 2005</p>
-        <h1 class="font-serif text-5xl md:text-7xl text-white mb-12" data-reveal="scale" data-reveal-delay="1">Chào mừng bạn đến với Vane Vietnam</h1>
+        <p class="font-ui text-[12px] tracking-[0.5em] uppercase text-gold/80 mb-6" data-reveal="scale">DI SẢN KIM HOÀN VIỆT</p>
+        <h1 class="font-serif italic text-3xl md:text-5xl text-white mb-12 tracking-wide leading-tight" 
+    style="font-family: 'Cormorant Garamond', serif; font-weight: 400;" 
+    data-reveal="scale" data-reveal-delay="1">
+    Vane Vietnam ~ Nơi những câu chuyện cá nhân hóa thành kiệt tác
+</h1>
         
         <!-- NÚT TRÒN ĐỘNG MŨI TÊN CHỈ XUỐNG - CUỘN TRANG TỰ ĐỘNG -->
         <button id="scrollToContent" class="hero-scroll-btn w-12 h-12 rounded-full flex items-center justify-center text-gold cursor-pointer focus:outline-none" aria-label="Cuộn xuống nội dung">
