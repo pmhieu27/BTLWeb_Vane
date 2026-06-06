@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tài Khoản | Vane Vietnam</title>
+  <title>Tài khoản | Vane Vietnam</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
   <link rel="stylesheet" href="src/css/base.css?v=30" />
   <link rel="stylesheet" href="src/css/output.css?v=30" />
@@ -12,68 +12,70 @@
 <body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
 
   <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center"><div class="font-logo text-2xl tracking-[0.4em]">VANE</div></div>
-
+ <div id="component-header"></div>
   <main>
-    <section class="pt-40 pb-16 bg-white border-b border-silver-light/50">
-      <div class="max-w-6xl mx-auto px-8">
-        <nav class="mb-8"><ol class="flex items-center gap-2 font-ui text-[10px] tracking-wider text-muted"><li><a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a></li><li class="text-silver">/</li><li class="text-primary">Tài Khoản</li></ol></nav>
-        <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4">Tài Khoản</p>
-        <h1 class="font-serif text-4xl md:text-5xl text-primary">Đăng Nhập / Đăng Ký</h1>
+    <section class="pt-20 md:pt-32 lg:pt-40 pb-10 bg-white border-b border-silver-light/50">
+      <div class="px-3 md:px-3 lg:px-0 lg:max-w-5xl mx-auto">
+        <nav class="mb-8"><ol class="flex items-center gap-2 font-ui text-[13px] tracking-wider text-muted"><li><a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a></li><li class="text-silver">/</li><li class="text-primary">Tài khoản</li></ol></nav>
+        <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4">Tài khoản</p>
+        <h1 class="font-serif text-4xl md:text-5xl text-primary mb-4">Tài khoản của tôi</h1>
+        <p class="text-muted text-sm max-w-lg leading-relaxed">Quản lý thông tin tài khoản của bạn</p>
       </div>
     </section>
-
-    <section class="bg-ivory py-16 md:py-24">
-      <div class="max-w-4xl mx-auto px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-
-          <!-- LOGIN -->
-          <div class="bg-white p-8 md:p-10">
-            <h2 class="font-serif text-2xl text-primary mb-6">Đăng Nhập</h2>
-            <form class="space-y-5">
-              <div>
-                <label class="font-ui text-[10px] uppercase tracking-wider text-charcoal block mb-2">Email</label>
-                <input type="email" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
-              </div>
-              <div>
-                <label class="font-ui text-[10px] uppercase tracking-wider text-charcoal block mb-2">Mật Khẩu</label>
-                <input type="password" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
-              </div>
-              <div class="flex items-center justify-between">
-                <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" class="accent-gold">
-                  <span class="font-ui text-[11px] text-muted">Ghi nhớ</span>
-                </label>
-                <a href="#" class="font-ui text-[11px] text-gold hover:text-gold-dark transition-colors">Quên mật khẩu?</a>
-              </div>
-              <button type="submit" class="btn-primary w-full justify-center cursor-pointer">Đăng Nhập</button>
-            </form>
-          </div>
-
-          <!-- REGISTER -->
-          <div class="bg-white p-8 md:p-10">
-            <h2 class="font-serif text-2xl text-primary mb-6">Đăng Ký</h2>
-            <form class="space-y-5">
-              <div>
-                <label class="font-ui text-[10px] uppercase tracking-wider text-charcoal block mb-2">Họ và Tên</label>
-                <input type="text" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
-              </div>
-              <div>
-                <label class="font-ui text-[10px] uppercase tracking-wider text-charcoal block mb-2">Email</label>
-                <input type="email" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
-              </div>
-              <div>
-                <label class="font-ui text-[10px] uppercase tracking-wider text-charcoal block mb-2">Mật Khẩu</label>
-                <input type="password" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
-              </div>
-              <div>
-                <label class="font-ui text-[10px] uppercase tracking-wider text-charcoal block mb-2">Xác Nhận Mật Khẩu</label>
-                <input type="password" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
-              </div>
-              <button type="submit" class="btn-outline w-full justify-center cursor-pointer">Tạo Tài Khoản</button>
-            </form>
-          </div>
-
+    <section class="lg:max-w-5xl mx-auto rounded-xl py-5 md:py-8">
+            <!-- Sửa grid thành grid-cols-1 md:grid-cols-[4fr_6fr] để trên mobile không bị bóp méo form -->
+            <div class=" overflow-hidden grid grid-cols-1 md:grid-cols-2 md:[grid-template-columns:4fr_6fr] min-h-[400px] rounded-xl gap-2">
+          <!-- ẢNH -->
+        <div class="px-3 md:px-3 md:px-0 h-60 md:h-full relative">
+        <img
+          src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_paris_-_bo_messika_fiery_13240_w.webp"
+          alt="Đăng ký"
+          class="w-full h-full object-cover"
+        >
         </div>
+        <!-- FORM -->
+          <div class="bg-white p-3 md:p-5">
+            <h2 class="font-serif text-2xl text-primary mb-2">TÀI KHOẢN CỦA TÔI</h2>
+             <form  id="profileForm" class="space-y-5">
+              <div>
+                <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Họ và Tên</label>
+                <input  id="profileName" type="text" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
+              </div>
+              <div>
+                <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Số điện thoại</label>
+                <input id="profilePhone" type="tel" pattern="^\+?[0-9]{7,15}$" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
+              </div>
+              <div>
+                <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Email</label>
+                <input id="profileEmail" type="email" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
+              </div>
+             <div>
+            <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Mật Khẩu</label>
+            <div class="relative w-full">
+              <input 
+                id="profilePassword" 
+                type="password" 
+                class="w-full bg-ivory border border-silver-light pl-4 pr-12 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors"
+              >
+              <button 
+                type="button" 
+                id="togglePassword" 
+                class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer select-none focus:outline-none group"
+              >
+                <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-charcoal group-hover:text-gold transition-colors">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+
+                <svg id="eyeClose" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-charcoal group-hover:text-gold transition-colors hidden">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                </svg>
+              </button>
+            </div>
+            </div>
+              <button type="submit" class="btn-primary w-full justify-center cursor-pointer">CHỈNH SỬA</button>
+            </form>
+          </div>
       </div>
     </section>
   </main>
@@ -82,6 +84,7 @@
   <footer class="bg-primary"><div class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"><p class="font-ui text-[9px] text-white/20">© 2025 Vane Vietnam</p><div class="flex gap-6"><a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors">Bảo Mật</a><a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors">Điều Khoản</a></div></div></footer>
   <div id="component-cart-overlay"></div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="src/js/app.js?v=30"></script>
+  <script src="src/js/app.js?v=8"></script>
+  <script src="src/js/pages/auth.js?v=8"></script>
 </body>
 </html>

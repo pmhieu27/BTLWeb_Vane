@@ -1,69 +1,286 @@
 /**
- * pages/checkout.js — Checkout page logic
+ * pages/checkout.js
  */
+
 $(function () {
-  "use strict";
+    "use strict";
 
-  function formatPrice(n) {
-    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "₫";
-  }
+    // =================================
+    // FORMAT PRICE
+    // =================================
+    function formatPrice(n) {
+        return Number(n)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "₫";
+    }
+    // =================================
+    // RENDER ĐƠN HÀNG (Hỗ trợ Giỏ hàng & Mua ngay)
+    // =================================
+    function renderOrderSummary() {
+        let items = [];
+        const buyNowItem = sessionStorage.getItem("buyNowItem");
 
-  // Render order summary from cart
-  function renderOrderSummary() {
-    if (typeof window.VaneCart === "undefined") return;
+        if (buyNowItem) {
+            // Trường hợp 1: Mua ngay từ trang Chi tiết sản phẩm
+            items = [JSON.parse(buyNowItem)];
+        } else {
+            // Trường hợp 2: Mua từ Giỏ hàng tổng
+            if (typeof window.VaneCart !== "undefined") {
+                items = window.VaneCart.getCart();
+            }
+        }
 
-    var items = window.VaneCart.getAll();
-    var $container = $("#checkout-items");
+        const $container = $("#checkout-items");
 
-    if (!items || !items.length) {
-      $container.html('<p class="text-muted text-sm">Giỏ hàng trống</p>');
-      return;
+        if (!items || !items.length) {
+            $container.html(`
+                <p class="text-center text-muted py-4">
+                    Chưa có tác phẩm nào trong đơn hàng
+                </p>
+            `);
+            $("#checkout-subtotal").text("0₫");
+            $("#checkout-total").text("0₫");
+            return;
+        }
+
+        $.getJSON("src/data/products.json").done(function (products) {
+            let html = "";
+            let total = 0;
+
+            items.forEach(function (item) {
+                const product = products.find(p => p.id == item.id);
+                if (!product) return;
+
+                const qty = item.qty || 1;
+                const sizeText = item.size ? ` | Size: ${item.size}` : ""; // Lấy size từ giỏ hàng hoặc bộ nhớ tạm
+                const subtotal = product.price * qty;
+                total += subtotal;
+
+                html += `
+                    <div class="flex gap-3 py-4 border-b border-ivory">
+                        <img 
+                            src="${product.images[0]}" 
+                            alt="${product.name_vi}" 
+                            class="w-16 h-16 object-cover rounded-sm"
+                        >
+                        <div class="flex-1">
+                            <div class="font-serif text-[15px] text-charcoal font-bold tracking-wide">
+                                ${product.name_vi}
+                            </div>
+                            <div class="text-[11px] text-gold font-medium mt-1 uppercase tracking-wider">
+                                Số lượng: ${qty}${sizeText}
+                            </div>
+                            <div class="text-[11px] text-gold font-medium mt-1">
+                                Đơn giá: ${formatPrice(product.price)}
+                            </div>
+                        </div>
+                        <div class="font-sans text-[12px] font-medium tracking-wider text-charcoal">
+                            ${formatPrice(subtotal)}
+                        </div>
+                    </div>
+                `;
+            });
+
+            $container.html(html);
+            $("#checkout-subtotal").text(formatPrice(total));
+            $("#checkout-total").text(formatPrice(total));
+            $("#qrAmount").text(formatPrice(total));
+        });
     }
 
-    $.getJSON("src/data/products.json").done(function (products) {
-      var html = "";
-      var total = 0;
+    renderOrderSummary();
 
-      $.each(items, function (i, cartItem) {
-        var product = null;
-        $.each(products, function (j, p) {
-          if (p.id === cartItem.id) { product = p; return false; }
-        });
-        if (!product) return;
+    // =================================
+    // QUẢN LÝ THÔNG BÁO LỖI VALIDATION
+    // =================================
+    function hideErrors() {
+        $("#fullname-error, #phone-error, #email-error, #address-error, #city-error, #district-error, #ward-error").addClass("hidden");
+    }
 
-        var qty = cartItem.qty || 1;
-        var subtotal = product.price * qty;
-        total += subtotal;
+   function validateForm() {
+        hideErrors();
+        let isValid = true;
+        let $firstErrorElement = null; // Biến phụ để đánh dấu ô lỗi đầu tiên xuất hiện
 
-        html += '<div class="flex gap-3 pb-3 border-b border-silver-light/50">' +
-          '<img src="' + product.images[0] + '" alt="' + product.name_vi + '" class="w-14 h-14 object-cover bg-white shrink-0">' +
-          '<div class="flex-1 min-w-0">' +
-            '<p class="font-ui text-[11px] text-primary truncate">' + product.name_vi + '</p>' +
-            '<p class="font-ui text-[10px] text-muted">SL: ' + qty + '</p>' +
-          '</div>' +
-          '<p class="font-ui text-[11px] text-primary shrink-0">' + formatPrice(subtotal) + '</p>' +
-        '</div>';
-      });
+        const fullname = $("#fullname").val().trim();
+        const phone = $("#phone").val().trim();
+        const email = $("#email").val().trim();
+        const address = $("#address").val().trim();
+        const city = $("#city").val();
+        const district = $("#district").val();
+        const ward = $("#ward").val();
 
-      $container.html(html);
-      $("#checkout-subtotal").text(formatPrice(total));
-      $("#checkout-total").text(formatPrice(total));
+        // --- GIỮ NGUYÊN TOÀN BỘ LOGIC CHECK LỖI BAN ĐẦU CỦA BẠN ---
+        if (!fullname) { 
+            $("#fullname-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#fullname"); // Nhớ mặt ô lỗi đầu tiên
+        }
+        if (!/^0\d{9}$/.test(phone)) { 
+            $("#phone-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#phone");
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { 
+            $("#email-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#email");
+        }
+        if (!address) { 
+            $("#address-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#address");
+        }
+        if (!city) { 
+            $("#city-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#city");
+        }
+        if (!district) { 
+            $("#district-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#district");
+        }
+        if (!ward) { 
+            $("#ward-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#ward");
+        }
+
+        // --- THÊM LOGIC CUỘN TRÊN MOBILE (Khi có lỗi và màn hình < 1024px) ---
+        if (!isValid && $firstErrorElement && window.innerWidth < 1024) {
+            // Lấy vị trí của ô lỗi trừ đi 120px để tránh bị cái Header cố định đè lên chữ
+            const scrollTopPosition = $firstErrorElement.offset().top - 120;
+            
+            $("html, body").animate({
+                scrollTop: scrollTopPosition
+            }, 500); // Tốc độ cuộn 500ms mượt mà
+        }
+
+        return isValid;
+    }
+
+    // Gắn sự kiện xóa lỗi nhanh khi khách hàng tương tác nhập liệu
+    $("#fullname, #address").on("blur", function () {
+        if ($(this).val().trim()) {
+            $(`#${$(this).attr('id')}-error`).addClass("hidden");
+        }
     });
-  }
+    $("#phone").on("blur", function () {
+        if (/^0\d{9}$/.test($(this).val().trim())) { $("#phone-error").addClass("hidden"); }
+    });
+    $("#email").on("blur", function () {
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($(this).val().trim())) { $("#email-error").addClass("hidden"); }
+    });
+    $("#city, #district, #ward").on("change", function () {
+        if ($(this).val()) { $(`#${$(this).attr('id')}-error`).addClass("hidden"); }
+    });
 
-  renderOrderSummary();
+    function updateQrAmount() {
+        const total = $("#checkout-total").text();
+        $("#qrAmount").text(total);
+    }
 
-  // Form submit
-  $(document).on("submit", "#checkout-form", function (e) {
-    e.preventDefault();
-    var $btn = $(this).find("button[type='submit']");
-    $btn.prop("disabled", true).text("Đang xử lý...");
+    // =================================
+    // HOÀN THÀNH ĐƠN HÀNG & ĐIỀU HƯỚNG
+    // =================================
+    function completeOrder() {
+        // Lưu lại giá trị tổng đơn để hiển thị bên trang thành công nếu cần
+        sessionStorage.setItem("lastOrderTotal", $("#checkout-total").text());
 
-    setTimeout(function () {
-      if (typeof window.VaneToast !== "undefined") {
-        window.VaneToast.show("Đặt hàng thành công! Cảm ơn bạn.", "success");
-      }
-      $btn.prop("disabled", false).text("Tiếp Tục →");
-    }, 2000);
-  });
+        const isBuyNow = sessionStorage.getItem("buyNowItem") !== null;
+
+        if (isBuyNow) {
+            // Nếu mua ngay: Chỉ xóa token mua ngay, giữ nguyên giỏ hàng persistent
+            sessionStorage.removeItem("buyNowItem");
+        } else {
+            // SỬA LỖI 1: Bọc try-catch bảo hiểm, nếu xóa giỏ hàng lỗi thì vẫn bỏ qua để ưu tiên nhảy trang
+            try {
+                if (typeof window.VaneCart !== "undefined" && typeof window.VaneCart.clear === "function") {
+                    window.VaneCart.clearCart();
+                }
+            } catch (error) {
+                console.error("Lỗi xóa giỏ hàng ngầm đã được bỏ qua để chạy lệnh chuyển trang:", error);
+            }
+        }
+
+        // SỬA LỖI 2: Đổi từ dấu gạch dưới thành dấu gạch nối "payment-success.html" chuẩn xác theo file của bồ
+        window.location.href = "payment_success.html";
+    }
+
+    // =================================
+    // NÚT KÍCH HOẠT THANH TOÁN CHÍNH
+    // =================================
+    $("#checkout-btn").on("click", function (e) {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        const paymentMethod = $("input[name='payment']:checked").val();
+
+        // TRƯỜNG HỢP A: THANH TOÁN THẺ -> BẬT DIALOG THẺ KHÁCH HÀNG
+        if (paymentMethod === "card") {
+            const cardModal = document.getElementById("cardPaymentModal");
+            if (cardModal) cardModal.showModal();
+        } 
+        // TRƯỜNG HỢP B: THANH TOÁN QR -> ĐẾM NGƯỢC 5 GIÂY XỊN MỊN RỒI TỰ CHUYỂN TRANG
+        else {
+            updateQrAmount();
+            const qrModal = document.getElementById("qrPaymentModal");
+            
+            if (qrModal) {
+                qrModal.showModal();
+
+                let secondsLeft = 5;
+                // Nếu trong modal QR của bồ có thẻ <span id="countdownText"></span> thì nó sẽ tự nhảy số lùi cực pro
+                $("#countdownText").text(secondsLeft); 
+
+                const qrInterval = setInterval(function () {
+                    secondsLeft--;
+                    $("#countdownText").text(secondsLeft);
+
+                    if (secondsLeft <= 0) {
+                        clearInterval(qrInterval);
+                        qrModal.close();
+                        completeOrder();
+                    }
+                }, 1000);
+            }
+        }
+    });
+
+    // =================================
+    // XÁC NHẬN THANH TOÁN THẺ
+    // =================================
+    // SỬA LỖI 3: Thêm tham số (e) và e.preventDefault() để xích cổ hiện tượng tự reload trang ngầm của form
+    $("#confirmCardPayment").on("click", function (e) {
+        e.preventDefault(); 
+
+        const cardNumber = $("#cardNumber").val().trim();
+
+        if (!cardNumber) {
+            alert("Vui lòng nhập số tài khoản ngân hàng.");
+            return;
+        }
+
+        if (!/^\d{10,15}$/.test(cardNumber)) {
+            alert("Số tài khoản không hợp lệ (Phải từ 10 đến 15 chữ số).");
+            return;
+        }
+
+        const cardModal = document.getElementById("cardPaymentModal");
+        if (cardModal) cardModal.close();
+
+        // Ấn xác nhận thành công là bốc đầu qua trang success luôn
+        completeOrder();
+    });
+
+    // =================================
+    // ĐÓNG POPUP THỦ CÔNG
+    // =================================
+    $(".close-modal").on("click", function (e) {
+        e.preventDefault();
+        $(this).closest("dialog")[0].close();
+    });
+
 });
