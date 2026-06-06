@@ -16,21 +16,25 @@ $(function () {
   var lookbookData = {
     rings: {
       quote: '"Biểu tượng của tình yêu vĩnh cửu."',
-      img1: "src/images/product-ring-banner1.png",
-      img2: "src/images/product-ring-banner2.png",
+      subDesc: 'Mỗi chiếc nhẫn là một câu chuyện được gìn giữ, mang ngôn ngữ của sự gắn kết trọn đời.',
+      img1: "src/images/product-ring-banner2.png",
+      img2: "src/images/product-ring-banner1.png",
     },
     necklaces: {
       quote: '"Vẻ đẹp tỏa sáng trên xương quai xanh."',
+      subDesc: 'Tuyệt tác hòa quyện giữa kỹ nghệ tinh hoa và thiết kế đương đại, nâng tầm phong cách thượng lưu.',
       img1: "src/images/product-necklace-banner1.png",
       img2: "src/images/product-necklace-banner2.png"
     },
     bracelets: {
       quote: '"Điểm nhấn tinh tế cho mỗi cử động."',
+      subDesc: 'Ôm lấy cổ tay bằng ánh kim rực rỡ, khơi gợi nét duyên dáng thầm lặng trong từng cử chỉ nhỏ nhất.',
       img1: "src/images/product-bracelet-banner1.png",
       img2: "src/images/product-bracelet-banner2.png"
     },
     earrings: {
       quote: '"Điểm xuyết dịu dàng cho vẻ đẹp tinh khôi."',
+      subDesc: 'Ánh sáng tinh xảo lấp lánh theo từng bước đi, mỗi khoảnh khắc đều trở thành nghệ thuật.',
       img1: "src/images/product-earrings-banner1.png",
       img2: "src/images/product-earrings-banner2.png"
     }
@@ -51,7 +55,7 @@ $(function () {
       
       // Thay ruột dữ liệu chữ và ảnh tương ứng danh mục
       $("#lookbook-quote").text(data.quote);
-      $("#lookbook-bottom-desc").text(data.desc);
+      $("#lookbook-sub-desc").text(data.subDesc);
       $("#lookbook-img-1").attr("src", data.img1);
       $("#lookbook-img-2").attr("src", data.img2);
       
@@ -62,7 +66,7 @@ $(function () {
       // Nếu chọn "Tất Cả" hoặc trang "Sản Phẩm Mới" -> Ẩn banner ảnh, hiện hàng tiêu đề trơn gọn gàng
       $lookbookBanner.css("display", "none");
       $plainTitleRow.css("display", "flex");
-      $("#lookbook-bottom-desc").text("Khám phá những thiết kế tinh xảo của VANE, được chế tác tỉ mỉ để tôn vinh nét đẹp thanh lịch trường tồn.");
+      $("#lookbook-sub-desc").text("Khám phá những thiết kế tinh xảo của VANE, được chế tác tỉ mỉ để tôn vinh nét đẹp thanh lịch trường tồn.");
     }
   }
 
@@ -307,4 +311,20 @@ $(function () {
     .fail(function () {
       $("#products-grid").html('<p class="col-span-full text-center text-muted py-10">Không thể tải sản phẩm.</p>');
     });
+    //---Set thời gian chạy Kết nối cùng Vane!---
+  setTimeout(function () {
+    $('.vane-zigzag-btn .zigzag-line').css('stroke-dashoffset', '0');
+    
+    setTimeout(function () {
+      
+      $('.vane-zigzag-btn .zigzag-line').css('stroke-dashoffset', '600');
+    
+      setTimeout(function() {
+        $('.vane-zigzag-btn .zigzag-line').css('stroke-dashoffset', '');
+      }, 800); 
+      
+    }, 1300); 
+    
+  }, 3000); 
 });
+

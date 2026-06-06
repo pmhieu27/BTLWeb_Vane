@@ -4,10 +4,12 @@
 $(function () {
   "use strict";
 
+  // Lấy ID sản phẩm từ thanh địa chỉ (URL)
   var productId = new URLSearchParams(window.location.search).get("id");
+  
+  // --- MẸO TEST: Nếu chạy trực tiếp file HTML không có ID, tự động lấy sản phẩm đầu tiên (ID: 1) ---
   if (!productId) {
-    $("#product-name").text("Sản phẩm không tìm thấy");
-    return;
+    productId = "10"; // Cậu có thể đổi số này thành ID bất kỳ có trong file products.json của cậu để test
   }
 
   var categoryNames = {
@@ -167,8 +169,19 @@ $(function () {
     }
   });
 
-  // --- Accordion ---
-  $(document).on("click", ".accordion-trigger", function () {
-    $(this).closest(".accordion-item").toggleClass("active");
+  $(document).off("click", ".accordion-trigger").on("click", ".accordion-trigger", function (e) {
+    e.preventDefault();
+    
+    
+    var $item = $(this).closest(".accordion-item");
+    
+    if ($item.hasClass("active")) {
+      $item.removeClass("active");
+    } else {
+    
+      $(".accordion-item").removeClass("active"); 
+      
+      $item.addClass("active");
+    }
   });
 });
