@@ -13,7 +13,6 @@ $(function () {
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "₫";
     }
-
     // =================================
     // RENDER ĐƠN HÀNG (Hỗ trợ Giỏ hàng & Mua ngay)
     // =================================
@@ -27,7 +26,7 @@ $(function () {
         } else {
             // Trường hợp 2: Mua từ Giỏ hàng tổng
             if (typeof window.VaneCart !== "undefined") {
-                items = window.VaneCart.getAll();
+                items = window.VaneCart.getCart();
             }
         }
 
@@ -53,6 +52,7 @@ $(function () {
                 if (!product) return;
 
                 const qty = item.qty || 1;
+                const sizeText = item.size ? ` | Size: ${item.size}` : ""; // Lấy size từ giỏ hàng hoặc bộ nhớ tạm
                 const subtotal = product.price * qty;
                 total += subtotal;
 
@@ -64,17 +64,17 @@ $(function () {
                             class="w-16 h-16 object-cover rounded-sm"
                         >
                         <div class="flex-1">
-                            <div class="font-serif text-sm text-charcoal tracking-wide">
+                            <div class="font-serif text-[15px] text-charcoal font-bold tracking-wide">
                                 ${product.name_vi}
                             </div>
-                            <div class="text-[11px] text-silver mt-1 uppercase tracking-wider">
-                                Số lượng: ${qty}
+                            <div class="text-[11px] text-gold font-medium mt-1 uppercase tracking-wider">
+                                Số lượng: ${qty}${sizeText}
                             </div>
-                            <div class="text-[11px] text-silver">
+                            <div class="text-[11px] text-gold font-medium mt-1">
                                 Đơn giá: ${formatPrice(product.price)}
                             </div>
                         </div>
-                        <div class="font-sans text-xs font-medium tracking-wider text-charcoal">
+                        <div class="font-sans text-[12px] font-medium tracking-wider text-charcoal">
                             ${formatPrice(subtotal)}
                         </div>
                     </div>
@@ -97,9 +97,10 @@ $(function () {
         $("#fullname-error, #phone-error, #email-error, #address-error, #city-error, #district-error, #ward-error").addClass("hidden");
     }
 
-    function validateForm() {
+   function validateForm() {
         hideErrors();
         let isValid = true;
+        let $firstErrorElement = null; // Biến phụ để đánh dấu ô lỗi đầu tiên xuất hiện
 
         const fullname = $("#fullname").val().trim();
         const phone = $("#phone").val().trim();
@@ -109,13 +110,52 @@ $(function () {
         const district = $("#district").val();
         const ward = $("#ward").val();
 
-        if (!fullname) { $("#fullname-error").removeClass("hidden"); isValid = false; }
-        if (!/^0\d{9}$/.test(phone)) { $("#phone-error").removeClass("hidden"); isValid = false; }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $("#email-error").removeClass("hidden"); isValid = false; }
-        if (!address) { $("#address-error").removeClass("hidden"); isValid = false; }
-        if (!city) { $("#city-error").removeClass("hidden"); isValid = false; }
-        if (!district) { $("#district-error").removeClass("hidden"); isValid = false; }
-        if (!ward) { $("#ward-error").removeClass("hidden"); isValid = false; }
+        // --- GIỮ NGUYÊN TOÀN BỘ LOGIC CHECK LỖI BAN ĐẦU CỦA BẠN ---
+        if (!fullname) { 
+            $("#fullname-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#fullname"); // Nhớ mặt ô lỗi đầu tiên
+        }
+        if (!/^0\d{9}$/.test(phone)) { 
+            $("#phone-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#phone");
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { 
+            $("#email-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#email");
+        }
+        if (!address) { 
+            $("#address-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#address");
+        }
+        if (!city) { 
+            $("#city-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#city");
+        }
+        if (!district) { 
+            $("#district-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#district");
+        }
+        if (!ward) { 
+            $("#ward-error").removeClass("hidden"); 
+            isValid = false; 
+            if (!$firstErrorElement) $firstErrorElement = $("#ward");
+        }
+
+        // --- THÊM LOGIC CUỘN TRÊN MOBILE (Khi có lỗi và màn hình < 1024px) ---
+        if (!isValid && $firstErrorElement && window.innerWidth < 1024) {
+            // Lấy vị trí của ô lỗi trừ đi 120px để tránh bị cái Header cố định đè lên chữ
+            const scrollTopPosition = $firstErrorElement.offset().top - 120;
+            
+            $("html, body").animate({
+                scrollTop: scrollTopPosition
+            }, 500); // Tốc độ cuộn 500ms mượt mà
+        }
 
         return isValid;
     }

@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thanh Toán | Vane Vietnam</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
-  <link rel="stylesheet" href="src/css/base.css?v=7" />
-  <link rel="stylesheet" href="src/css/output.css?v=7" />
-  <link rel="stylesheet" href="src/css/custom.css?v=7" />
+  <link rel="stylesheet" href="src/css/base.css?v=30" />
+  <link rel="stylesheet" href="src/css/output.css?v=30" />
+  <link rel="stylesheet" href="src/css/custom.css?v=30" />
 </head>
 <body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
 
@@ -15,16 +15,16 @@
   <div id="component-header"></div>
 
   <main>
-    <section class="pt-40 pb-10 bg-white border-b border-silver-light/50">
-      <div class="max-w-8xl px-40 mx-auto">
-        <nav class="mb-8"><ol class="flex items-center gap-2 font-ui text-[10px] tracking-wider text-muted"><li><a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a></li><li class="text-silver">/</li><li class="text-primary">Thanh toán</li></ol></nav>
+    <section class="pt-20 md:pt-32 lg:pt-40 pb-10 bg-white border-b border-silver-light/50">
+      <div class="px-10 md:px-20 lg:px-40 ">
+        <nav class="mb-8"><ol class="flex items-center gap-2 font-ui text-[13px] tracking-wider text-muted"><li><a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a></li><li class="text-silver">/</li><li class="text-primary">Thanh toán</li></ol></nav>
         <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4">Thanh toán</p>
         <h1 class="font-serif text-4xl md:text-5xl text-primary mb-4">Đơn hàng của bạn</h1>
         <p class="text-muted text-sm max-w-lg leading-relaxed">Xem lại thông tin đơn hàng và tiến hành thanh toán</p>
       </div>
     </section>
-    <section class="bg-white pb-10">
-      <div class="max-w-8xl mx-auto px-40 py-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+    <section class="bg-white pb-5 md:pb-10">
+      <div class="px-5 md:px-20 lg:px-40 py-2 md:py-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
  
 
   <!-- I. THÔNG TIN NGƯỜI NHẬN -->
@@ -219,12 +219,12 @@
 
     <div class="space-y-3 mt-5">
 
-      <div class="flex justify-between text-[12px]">
+      <div class="flex justify-between font-bold text-[12px]">
         <span>Tạm tính</span>
         <span id="checkout-subtotal">0₫</span>
       </div>
 
-      <div class="flex justify-between text-[12px]">
+      <div class="flex justify-between font-bold text-[12px]">
         <span>Phí vận chuyển</span>
         <span>0₫</span>
       </div>
@@ -262,19 +262,19 @@
 
   <!--Popup thanh toán thẻ-->
   <dialog id="cardPaymentModal" class="p-0 border-0">
-  <div class="flex w-[800px] h-[350px]">
+  <div class="flex w-full h-50 md:w-[800px] md:h-[350px]">
 
-    <div class="w-2/5">
+    <div class="hidden md:block w-2/5">
       <img
         src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika-bague-diamant-or-rose-fiery-0.10ct-12086.webp"
         alt="Payment"
-        class="w-full h-full object-cover"
+        class="w- h-full object-cover"
       >
     </div>
 
     <div class="flex-1 flex flex-col justify-center items-center px-8">
 
-      <h2 class="font-serif text-2xl text-center mb-8">
+      <h2 class="font-serif text-xl md:text-2xl text-center mb:3 mt-2 md:mt-0 md:mb-8">
         Quý khách vui lòng điền
         <br>
         số thẻ thanh toán để hoàn thành thanh toán
@@ -305,9 +305,9 @@
 
   <!--Popup thanh toán QR-->
 <dialog id="qrPaymentModal" class="p-0 border-0">
-  <div class="flex w-[800px] h-[350px]">
+  <div class="flex w-full h-50 md:w-[800px] md:h-[350px]">
 
-    <div class="w-2/5">
+    <div class="hidden md:block w-2/5">
       <img
         src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika-bague-diamant-or-rose-fiery-0.10ct-12086.webp"
         alt="Payment"
@@ -317,7 +317,7 @@
 
     <div class="flex-1 flex flex-col justify-center items-center px-8">
 
-      <h2 class="font-serif text-2xl text-center mb-5">
+      <h2 class="font-serif text-xl md:text-2xl text-center mb-5">
         Quý khách vui lòng quét mã dưới đây
         <br>
         để hoàn thành thanh toán

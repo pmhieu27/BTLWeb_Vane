@@ -3,7 +3,7 @@
     "id": "wedding-rings",
     "name_vi": "Nhẫn Cưới & Đính Hôn",
     "name_en": "Wedding & Engagement",
-    "image": "https://placehold.co/800x1000/FAF8F5/C9A96E?text=Wedding+Rings",
+    "image": "src/images/product-ring.png",
     "description_vi": "Biểu tượng của tình yêu vĩnh cửu",
     "description_en": "A symbol of eternal love"
   },
@@ -11,7 +11,7 @@
     "id": "necklaces",
     "name_vi": "Dây Chuyền",
     "name_en": "Necklaces",
-    "image": "https://placehold.co/800x1000/f5f0eb/A68B5B?text=Necklaces",
+    "image": "src/images/product-necklace.png",
     "description_vi": "Vẻ đẹp tỏa sáng trên xương quai xanh",
     "description_en": "Radiant beauty on your collarbone"
   },
@@ -19,8 +19,16 @@
     "id": "bracelets",
     "name_vi": "Vòng Tay & Lắc Tay",
     "name_en": "Bracelets",
-    "image": "https://placehold.co/800x1000/FAF8F5/C9A96E?text=Bracelets",
+    "image": "src/images/product-bracelet.png",
     "description_vi": "Điểm nhấn tinh tế cho mỗi cử động",
     "description_en": "Exquisite highlight for every movement"
+  }
+  {
+    "id": "earrings",
+    "name_vi": "Hoa tai",
+    "name_en": "Earrings",
+    "image": "src/images/product-earrings.png",
+    "description_vi": "Điểm xuyết dịu dàng cho vẻ đẹp tinh khôi",
+    "description_en": "A delicate touch to your natural beauty"
   }
 ]

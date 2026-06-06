@@ -131,7 +131,10 @@ $(function () {
   });
   $(document).on("cart:updated", renderCart);
   $(document).on("keydown", function (e) { if (e.key === "Escape") closeCart(); });
-
+  $(document).on("click", "#cart-checkout-btn", function () {
+    sessionStorage.removeItem("buyNowItem");
+  });
   // Init
   renderCart();
+
 });

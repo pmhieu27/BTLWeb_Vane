@@ -28,6 +28,27 @@
   transition: opacity 0.5s ease;
 }
 
+.product-card .product-overlay .add-to-cart-btn,
+.product-card .product-overlay .buy-now-btn {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+  height: 40px;
+}
+
+.product-card .product-overlay .buy-now-btn {
+  background-color: #E7D9B5;
+  color: #0A0A0A;
+  border: 1px solid #E7D9B5;
+}
+
+.product-card .product-overlay .buy-now-btn:hover {
+  background-color: #C9A96E;
+  color: #FFFFFF;
+}
+
 .product-card:hover .product-img-secondary {
   opacity: 1;
 }

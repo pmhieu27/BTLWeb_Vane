@@ -29,6 +29,11 @@
   border-color: rgba(0, 0, 0, 0.05);
 }
 
+/* Header links: đổi màu ngay lập tức */
+#main-header a {
+  transition: color 0s;
+}
+
 /* --- Sidebar Menu Overlay --- */
 .sidebar-menu-overlay {
   opacity: 0;

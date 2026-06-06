@@ -21,6 +21,8 @@ $(function () {
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "₫";
   }
 
+  var currentProduct = null;
+
   // Fetch products
   $.getJSON("src/data/products.json")
     .done(function (products) {
@@ -33,6 +35,8 @@ $(function () {
         $("#product-name").text("Sản phẩm không tìm thấy");
         return;
       }
+
+      currentProduct = product;
 
       // --- Populate page ---
       document.title = product.name_vi + " | Vane Vietnam";
@@ -136,16 +140,39 @@ $(function () {
     if (val < 10) $input.val(val + 1);
   });
 
-  // --- Add to cart ---
-  $(document).on("click", "#add-to-cart-detail", function () {
-    var id = $(this).attr("data-id");
+  function addProductToCart() {
     var qty = parseInt($("#qty-input").val()) || 1;
     var size = $(".size-btn.border-primary").attr("data-size") || null;
-    if (typeof window.VaneCart !== "undefined") {
-      for (var i = 0; i < qty; i++) {
-        window.VaneCart.add(parseInt(id));
-      }
+    if (currentProduct && typeof window.VaneCart !== "undefined") {
+      window.VaneCart.addToCart(currentProduct, size, qty);
     }
+  }
+
+  // --- Add to cart ---
+  $(document).on("click", "#add-to-cart-detail", function () {
+    addProductToCart();
+  });
+
+  // --- Buy now ---
+  $(document).on("click", "#buy-now-detail", function () {
+    if (!currentProduct) return;
+
+    // 1. Lấy dữ liệu người dùng đang chọn trên UI
+    var qty = parseInt($("#qty-input").val()) || 1;
+    var size = $(".size-btn.border-primary").attr("data-size") || null;
+
+    // 2. Đóng gói thành Object đơn hàng
+    var itemToBuy = {
+        id: currentProduct.id,
+        qty: qty,
+        size: size
+    };
+
+    // 3. Lưu vào Session Storage (Tạo ra buyNowItem)
+    sessionStorage.setItem("buyNowItem", JSON.stringify(itemToBuy));
+
+    // 4. Chuyển sang trang Checkout mà không đưa vào Giỏ hàng tổng
+    window.location.href = "checkout.html";
   });
 
   // --- Wishlist ---
