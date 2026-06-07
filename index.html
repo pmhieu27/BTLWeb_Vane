@@ -1,87 +1,94 @@
 <!doctype html>
 <html lang="vi" class="scroll-smooth">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vane Vietnam | Trang Sức Cao Cấp</title>
-  <meta name="description" content="Vane Vietnam — Trang sức cao cấp, chế tác thủ công. Nhẫn, dây chuyền, vòng tay kim cương và vàng 18K." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
-  <link rel="stylesheet" href="src/css/base.css?v=20" />
-  <link rel="stylesheet" href="src/css/output.css?v=20" />
-  <link rel="stylesheet" href="src/css/custom.css?v=20" />
-</head>
-<body class="bg-white text-charcoal font-sans opacity-0 transition-opacity duration-500">
-
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vane Vietnam | Trang Sức Cao Cấp</title>
+    <meta
+      name="description"
+      content="Vane Vietnam — Trang sức cao cấp, chế tác thủ công. Nhẫn, dây chuyền, vòng tay kim cương và vàng 18K."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>"
+    />
+    <link rel="stylesheet" href="src/css/base.css?v=20" />
+    <link rel="stylesheet" href="src/css/output.css?v=20" />
+    <link rel="stylesheet" href="src/css/custom.css?v=20" />
+  </head>
+  <body
+    class="bg-white text-charcoal font-sans opacity-0 transition-opacity duration-500"
+  >
     <!-- =========================
         POPUP NEW COLLECTION
     ========================= -->
 
     <div id="collectionPopup">
-        <div class="popup-box">
-            <!-- Close -->
-            <button id="closePopup" class="popup-close">
-                ×
-            </button>
+      <div class="popup-box">
+        <!-- Close -->
+        <button id="closePopup" class="popup-close">×</button>
 
-            <!-- Left Content -->
-            <div class="popup-content">
-                <!-- Logo -->
-                <div class="popup-logo">
-                    <h1>Vane</h1>
-                    <p>Vietnam</p>
-                </div>
+        <!-- Left Content -->
+        <div class="popup-content">
+          <!-- Logo -->
+          <div class="popup-logo">
+            <h1>Vane</h1>
+            <p>Vietnam</p>
+          </div>
 
-                <!-- Collection Tag -->
-                <div class="popup-tag">NEW COLLECTION 2026</div>
+          <!-- Collection Tag -->
+          <div class="popup-tag">NEW COLLECTION 2026</div>
 
-                <!-- Subtitle -->
-                <div class="popup-subtitle"> BỘ SƯU TẬP MỚI</div>
+          <!-- Subtitle -->
+          <div class="popup-subtitle">BỘ SƯU TẬP MỚI</div>
 
-                <!-- Title -->
-                <h2 class="popup-title">Aquamarine Ocean</h2>
+          <!-- Title -->
+          <h2 class="popup-title">Aquamarine Ocean</h2>
 
-                <!-- Description -->
-                <p class="popup-description"> Khám phá những thiết kế trang sức cao cấp mới nhất từ
-                    <strong>Vane Vietnam</strong>, nơi vẻ đẹp thanh lịch hòa quyện cùng nghệ thuật chế tác tinh xảo để tạo nên những giá trị vượt thời gian.
-                </p>
+          <!-- Description -->
+          <p class="popup-description">
+            Khám phá những thiết kế trang sức cao cấp mới nhất từ
+            <strong>Vane Vietnam</strong>, nơi vẻ đẹp thanh lịch hòa quyện cùng
+            nghệ thuật chế tác tinh xảo để tạo nên những giá trị vượt thời gian.
+          </p>
 
-                <!-- Button -->
-                <a href="collections.html" class="popup-btn"> KHÁM PHÁ NGAY</a>
+          <!-- Button -->
+          <a href="collections.html" class="popup-btn"> KHÁM PHÁ NGAY</a>
 
-                <!-- Note -->
-                <div class="popup-note">✨ Bộ sưu tập mới đã chính thức ra mắt</div>
-            </div>
-
-            <!-- Right Image -->
-            <div class="popup-image">
-                <img
-                    src="src/images/popup.jpg"
-                    alt="Vane Vietnam Collection">
-            </div>
+          <!-- Note -->
+          <div class="popup-note">✨ Bộ sưu tập mới đã chính thức ra mắt</div>
         </div>
+
+        <!-- Right Image -->
+        <div class="popup-image">
+          <img src="src/images/popup.jpg" alt="Vane Vietnam Collection" />
+        </div>
+      </div>
     </div>
 
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", () => {
         const popup = document.getElementById("collectionPopup");
         const closeBtn = document.getElementById("closePopup");
 
         setTimeout(() => {
-            popup.style.display = "flex";
+          popup.style.display = "flex";
         }, 1000);
 
         closeBtn.addEventListener("click", () => {
-            popup.style.display = "none";
+          popup.style.display = "none";
         });
-    });
+      });
     </script>
 
-  <!-- Loader -->
-  <div id="loader" class="fixed inset-0 z-200 bg-white flex flex-col items-center justify-center gap-4">
-    <div class="font-logo text-3xl tracking-[0.5em] loader-text">VANE</div>
-    <div class="loader-line"></div>
-  </div>
+    <!-- Loader -->
+    <div
+      id="loader"
+      class="fixed inset-0 z-200 bg-white flex flex-col items-center justify-center gap-4"
+    >
+      <div class="font-logo text-3xl tracking-[0.5em] loader-text">VANE</div>
+      <div class="loader-line"></div>
+    </div>
 
     <div id="component-header"></div>
 
@@ -505,9 +512,22 @@
             data-reveal="scale"
           >
             <div>
-              <div class="mx-auto mb-4 w-10 h-10 text-gold flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full">
-                  <path d="M14 18H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8v16zM14 6h6l3 3v7h-9V6z" />
+              <div
+                class="mx-auto mb-4 w-10 h-10 text-gold flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-full h-full"
+                >
+                  <path
+                    d="M14 18H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8v16zM14 6h6l3 3v7h-9V6z"
+                  />
                   <path d="M7.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
                   <path d="M18.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
                 </svg>
@@ -515,14 +535,27 @@
               <p class="font-serif text-2xl text-primary mb-1">
                 Vận chuyển toàn quốc
               </p>
-              <p class="font-ui text-[12px] uppercase tracking-[0.15em] text-muted">
+              <p
+                class="font-ui text-[12px] uppercase tracking-[0.15em] text-muted"
+              >
                 Nhanh chóng & an toàn
               </p>
             </div>
 
             <div>
-              <div class="mx-auto mb-4 w-10 h-10 text-gold flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full">
+              <div
+                class="mx-auto mb-4 w-10 h-10 text-gold flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-full h-full"
+                >
                   <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
                   <path d="M3 3v5h5" />
                 </svg>
@@ -530,14 +563,27 @@
               <p class="font-serif text-2xl text-primary mb-1">
                 Đổi trả dễ dàng
               </p>
-              <p class="font-ui text-[12px] uppercase tracking-[0.15em] text-muted">
+              <p
+                class="font-ui text-[12px] uppercase tracking-[0.15em] text-muted"
+              >
                 Bảo vệ quyền lợi khách hàng
               </p>
             </div>
 
             <div>
-              <div class="mx-auto mb-4 w-10 h-10 text-gold flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full">
+              <div
+                class="mx-auto mb-4 w-10 h-10 text-gold flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-full h-full"
+                >
                   <path d="M20 12v10H4V12" />
                   <path d="M2 7h20v5H2z" />
                   <path d="M12 22V7" />
@@ -548,21 +594,38 @@
               <p class="font-serif text-2xl text-primary mb-1">
                 Quà tặng miễn phí
               </p>
-              <p class="font-ui text-[12px] uppercase tracking-[0.15em] text-muted">
+              <p
+                class="font-ui text-[12px] uppercase tracking-[0.15em] text-muted"
+              >
                 Hộp quà sang trọng đi kèm
               </p>
             </div>
 
             <div>
-              <div class="mx-auto mb-4 w-10 h-10 text-gold flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              <div
+                class="mx-auto mb-4 w-10 h-10 text-gold flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-full h-full"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
                 </svg>
               </div>
               <p class="font-serif text-2xl text-primary mb-1">
                 Dịch Vụ Tận Tâm
               </p>
-              <p class="font-ui text-[12px] uppercase tracking-[0.15em] text-muted">
+              <p
+                class="font-ui text-[12px] uppercase tracking-[0.15em] text-muted"
+              >
                 Hậu mãi & hỗ trợ chu đáo
               </p>
             </div>
@@ -691,34 +754,6 @@
     </section>
 
     <div id="component-footer"></div>
-
-    <!-- Sub Footer -->
-    <footer class="bg-primary">
-      <div
-        class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"
-      >
-        <p class="font-ui text-[9px] text-white/20 tracking-wide">
-          © 2025 Vane Vietnam
-        </p>
-        <div class="flex gap-6">
-          <a
-            href="#"
-            class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide"
-            >Bảo Mật</a
-          >
-          <a
-            href="#"
-            class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide"
-            >Điều Khoản</a
-          >
-          <a
-            href="#"
-            class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide"
-            >Đổi Trả</a
-          >
-        </div>
-      </div>
-    </footer>
 
     <div id="component-cart-overlay"></div>
 
