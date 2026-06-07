@@ -82,7 +82,7 @@ $(function () {
         $("#size-selector").removeClass("hidden");
         var sizeHtml = "";
         $.each(product.sizes, function (i, size) {
-          sizeHtml += '<button class="size-btn font-ui text-[11px] px-4 py-2 border border-silver-light hover:border-primary transition-colors cursor-pointer' + (i === 0 ? ' border-primary text-primary' : ' text-muted') + '" data-size="' + size + '">' + size + '</button>';
+          sizeHtml += '<button class="size-btn font-ui text-[11px] px-4 py-2 border border-silver-light hover:border-primary transition-colors cursor-pointer text-muted" data-size="' + size + '">' + size + '</button>';
         });
         $("#size-options").html(sizeHtml);
       }
@@ -126,8 +126,8 @@ $(function () {
 
   // --- Size selection ---
   $(document).on("click", ".size-btn", function () {
-    $(".size-btn").removeClass("border-primary text-primary").addClass("text-muted");
-    $(this).addClass("border-primary text-primary").removeClass("text-muted");
+    $(".size-btn").removeClass("border-primary text-primary error").addClass("text-muted");
+    $(this).addClass("border-primary text-primary").removeClass("text-muted error");
   });
 
   // --- Quantity ---
@@ -145,9 +145,18 @@ $(function () {
   function addProductToCart() {
     var qty = parseInt($("#qty-input").val()) || 1;
     var size = $(".size-btn.border-primary").attr("data-size") || null;
+
+    if ($("#size-selector").is(":visible") && !size) {
+      $(document).trigger("toast", ["Bạn chưa chọn size. Vui lòng chọn size trước khi thêm vào giỏ.", "error"]);
+      $(".size-btn").addClass("error");
+      return false;
+    }
+
     if (currentProduct && typeof window.VaneCart !== "undefined") {
       window.VaneCart.addToCart(currentProduct, size, qty);
+      $(document).trigger("toast", ["Đã thêm size " + size + " vào giỏ.", "success"]);
     }
+    return true;
   }
 
   // --- Add to cart ---
@@ -157,8 +166,9 @@ $(function () {
 
   // --- Buy now ---
   $(document).on("click", "#buy-now-detail", function () {
-    addProductToCart();
-    window.location.href = "checkout.html";
+    if (addProductToCart()) {
+      window.location.href = "checkout.html";
+    }
   });
 
   // --- Wishlist ---
@@ -184,4 +194,5 @@ $(function () {
       $item.addClass("active");
     }
   });
+  
 });

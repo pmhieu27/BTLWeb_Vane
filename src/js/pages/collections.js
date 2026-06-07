@@ -166,6 +166,7 @@ $(function () {
         else if (title.includes("Chất Liệu")) materials.push(val);
         else if (title.includes("Trạng Thái")) statuses.push(val);
       });
+      
     });
 
     return { categories: categories, materials: materials, statuses: statuses, maxPrice: maxPrice };
@@ -282,14 +283,75 @@ $(function () {
     $(this).closest(".filter-group").toggleClass("collapsed");
   });
 
+  var quickCartProduct = null;
+  var quickCartSelectedSize = null;
+
+  function openSizePicker(product) {
+    quickCartProduct = product;
+    quickCartSelectedSize = null;
+    $("#size-picker-title").text(product.name_vi || "Chọn size sản phẩm");
+
+    var optionsHtml = "";
+    if (product.sizes && product.sizes.length) {
+      $.each(product.sizes, function (i, size) {
+        optionsHtml += '<button type="button" class="size-picker-option" data-size="' + size + '">' + size + '</button>';
+      });
+    } else {
+      optionsHtml = '<p class="text-sm text-muted">Sản phẩm này không có tùy chọn size.</p>';
+    }
+
+    $("#size-picker-options").html(optionsHtml);
+    $("#size-picker-overlay").addClass("active").attr("aria-hidden", "false");
+  }
+
+  function closeSizePicker() {
+    quickCartProduct = null;
+    quickCartSelectedSize = null;
+    $("#size-picker-overlay").removeClass("active").attr("aria-hidden", "true");
+    $("#size-picker-options").empty();
+  }
+
+  $(document).off("click", ".size-picker-option").on("click", ".size-picker-option", function () {
+    $(".size-picker-option").removeClass("selected");
+    $(this).addClass("selected");
+    quickCartSelectedSize = $(this).attr("data-size");
+  });
+
+  $(document).off("click", "#size-picker-close").on("click", "#size-picker-close", function () {
+    closeSizePicker();
+  });
+
+  $(document).off("click", "#size-picker-overlay").on("click", "#size-picker-overlay", function (e) {
+    if (e.target.id === "size-picker-overlay") {
+      closeSizePicker();
+    }
+  });
+
+  $(document).off("click", "#size-picker-confirm").on("click", "#size-picker-confirm", function () {
+    if (!quickCartProduct) return;
+    if (!quickCartSelectedSize) {
+      $(document).trigger("toast", ["Bạn cần chọn size trước khi thêm vào giỏ.", "error"]);
+      return;
+    }
+    var selectedSize = quickCartSelectedSize;
+    window.VaneCart.addToCart(quickCartProduct, selectedSize, 1);
+    closeSizePicker();
+    $(document).trigger("toast", ["Đã thêm size " + selectedSize + " vào giỏ.", "success"]);
+  });
+
   // Product card actions
-  $(document).on("click", ".add-to-cart-btn", function (e) {
+  $(document).off("click", ".add-to-cart-btn").on("click", ".add-to-cart-btn", function (e) {
     e.preventDefault();
     e.stopPropagation();
 
     var id = parseInt($(this).attr("data-id"), 10);
     var product = allProducts.find(function (p) { return p.id === id; });
     if (!product || typeof window.VaneCart === "undefined") return;
+
+    if (product.sizes && product.sizes.length) {
+      openSizePicker(product);
+      return;
+    }
 
     window.VaneCart.addToCart(product, null, 1);
   });
@@ -344,5 +406,6 @@ $(function () {
     }, 1300); 
     
   }, 3000); 
+  
 });
 
