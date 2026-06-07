@@ -4,7 +4,31 @@
 
 $(function () {
     "use strict";
+    // Khởi tạo dữ liệu
+    const CURRENT_USER_KEY = "currentUser"; 
 
+    // =================================
+    // TỰ ĐỘNG ĐIỀN THÔNG TIN NẾU ĐÃ ĐĂNG NHẬP
+    // =================================
+    function autoFillUserInfo() {
+        let currentUser = JSON.parse(localStorage.getItem(CURRENT_USER_KEY));
+
+        if (currentUser) {
+            // Theo đúng cấu trúc: { id, fullname, phone, email, password }
+            if (currentUser.fullname) {
+                $("#fullname").val(currentUser.fullname);
+            }
+            if (currentUser.phone) {
+                $("#phone").val(currentUser.phone);
+            }
+            if (currentUser.email) {
+                $("#email").val(currentUser.email);
+            }
+        }
+    }
+
+    // Chạy hàm ngay khi load trang
+    autoFillUserInfo();
     // =================================
     // FORMAT PRICE
     // =================================

@@ -7,6 +7,7 @@
 @import "./components/header.css";
 @import "./components/products.css";
 @import "./components/cart.css";
+@import "./components/quick-view.css";
 @import "./components/filters.css";
 @import "./components/forms.css";
 @import "./components/ui.css";

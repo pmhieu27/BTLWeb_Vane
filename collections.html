@@ -1,247 +1,440 @@
 <!doctype html>
 <html lang="vi" class="scroll-smooth">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bộ Sưu Tập | Vane Vietnam</title>
-  <meta name="description" content="Khám phá bộ sưu tập trang sức cao cấp Vane Vietnam — nhẫn, dây chuyền, vòng tay, hoa tai." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
-  <link rel="stylesheet" href="src/css/base.css?v=30" />
-  <link rel="stylesheet" href="src/css/output.css?v=30" />
-  <link rel="stylesheet" href="src/css/custom.css?v=30" />
-</head>
-<body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bộ Sưu Tập | Vane Vietnam</title>
+    <meta name="description" content="Khám phá bộ sưu tập trang sức cao cấp Vane Vietnam — nhẫn, dây chuyền, vòng tay, hoa tai." />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>"
+    />
+    <link rel="stylesheet" href="src/css/base.css?v=30" />
+    <link rel="stylesheet" href="src/css/output.css?v=30" />
+    <link rel="stylesheet" href="src/css/custom.css?v=30" />
+  </head>
+  <body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
+    <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center">
+      <div class="font-logo text-2xl tracking-[0.4em]">VANE</div>
+    </div>
 
-  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center">
-    <div class="font-logo text-2xl tracking-[0.4em]">VANE</div>
-  </div>
+    <div id="component-header"></div>
 
-  <div id="component-header"></div>
+    <main>
+      <!-- ══════════ BREADCRUMB + PAGE TITLE ══════════ -->
+      <section class="border-silver-light/50 border-b bg-ivory pb-10 pt-40">
+        <div class="mx-auto max-w-[1440px] px-8">
+          <!-- Breadcrumb -->
+          <nav class="mb-8">
+            <ol class="font-ui text-muted flex items-center gap-2 text-[13px] tracking-wider">
+              <li>
+                <a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a>
+              </li>
+              <li class="text-primary">/</li>
+              <li id="breadcrumb-current" class="text-primary">Bộ Sưu Tập</li>
+            </ol>
+          </nav>
 
-  <main>
-    <!-- ══════════ BREADCRUMB + PAGE TITLE ══════════ -->
-    <section class="pt-40 pb-16 bg-white border-b border-silver-light/50">
-      <div class="max-w-6xl mx-auto px-8">
-        <!-- Breadcrumb -->
-        <nav class="mb-8">
-          <ol class="flex items-center gap-2 font-ui text-[13px] tracking-wider text-muted">
-            <li><a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a></li>
-            <li class="text-primary">/</li>
-            <li id="breadcrumb-current" class="text-primary">Bộ Sưu Tập</li>
-          </ol>
-        </nav>
-        <!-- Title row -->
-        <div id="dynamic-lookbook-banner" class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-10" style="display: none;">
-          <div class="space-y-6 max-w-md">
-            <div>
-              <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-3">Bộ Sưu Tập</p>
-              <h1 id="collection-title" class="font-serif text-4xl md:text-5xl text-primary">Tất Cả Sản Phẩm</h1>
+          <!-- Title row -->
+          <div id="dynamic-lookbook-banner" class="mb-10 grid grid-cols-1 items-center gap-10 md:grid-cols-2" style="display: none">
+            <div class="max-w-md space-y-6">
+              <div>
+                <p class="font-ui text-gold mb-3 text-[10px] uppercase tracking-[0.4em]">Bộ Sưu Tập</p>
+                <h1 id="collection-title" class="text-primary font-serif text-4xl md:text-5xl">Tất Cả Sản Phẩm</h1>
+              </div>
+
+              <p id="lookbook-quote" class="pt-2 font-serif text-lg italic leading-relaxed tracking-wide text-[#A38A5F] md:text-xl"></p>
+              <p id="lookbook-bottom-desc" class="text-muted/80 pt-1 font-serif text-sm leading-relaxed tracking-wide md:text-base"></p>
+              <div class="pt-8">
+                <!-- Chữ luôn giữ màu đen nguyên bản (text-primary) khi hover -->
+                <a
+                  href="contact.html"
+                  class="vane-zigzag-btn text-primary relative inline-block pb-4 font-serif text-xl font-medium uppercase tracking-[0.2em] transition-colors duration-300 md:text-2xl"
+                >
+                  Kết Nối Cùng Vane
+                  <!-- Khung SVG cao 12px để tạo không gian khít khao, tinh tế, đẩy dịch xuống chân chữ -->
+                  <span class="vane-stroke-wrapper pointer-events-none absolute bottom-0 left-0 h-[12px] w-full translate-y-3">
+                    <svg
+                      class="h-full w-full"
+                      viewBox="0 0 200 12"
+                      preserveAspectRatio="none"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <!-- Đường path duy nhất được uốn với 3 độ dài so le: Nét 1 dài tràn lề -> Nét 2 ngắn hơn -> Nét 3 ngắn nhất -->
+                      <path
+                        class="zigzag-line"
+                        d="M2 3C60 2 140 1.8 198 3.5C135 5 65 4.5 15 6C65 7.2 125 7.5 165 9"
+                        stroke="#C9A96E"
+                        stroke-width="1.3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </a>
+              </div>
             </div>
-            
-            <p id="lookbook-quote" class="font-serif italic text-sm md:text-base text-[#A38A5F] leading-relaxed tracking-wide pt-4">
-              </p>
-            
-          <div class="pt-8">
-  <!-- Chữ luôn giữ màu đen nguyên bản (text-primary) khi hover -->
-          <a href="contact.html" class="vane-zigzag-btn inline-block font-serif font-medium text-xl md:text-2xl tracking-[0.2em] text-primary uppercase relative pb-4 transition-colors duration-300">
-              Kết Nối Cùng Vane
-    
-            <!-- Khung SVG cao 12px để tạo không gian khít khao, tinh tế, đẩy dịch xuống chân chữ -->
-            <span class="vane-stroke-wrapper absolute left-0 bottom-0 w-full h-[12px] translate-y-3 pointer-events-none">
-              <svg class="w-full h-full" viewBox="0 0 200 12" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Đường path duy nhất được uốn với 3 độ dài so le: Nét 1 dài tràn lề -> Nét 2 ngắn hơn -> Nét 3 ngắn nhất -->
-            <path class="zigzag-line" d="M2 3C60 2 140 1.8 198 3.5C135 5 65 4.5 15 6C65 7.2 125 7.5 165 9" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <div class="grid h-[260px] w-full grid-cols-2 gap-6 sm:h-[300px] md:h-[320px]">
+              <div class="border-silver-light/50 flex h-full w-full items-center justify-center overflow-hidden border bg-gray-50">
+                <!-- ĐÃ SỬA DẤU NGOẶC KÉP Ở CLASS BÊN TRONG ONERROR -->
+                <img
+                  id="lookbook-img-1"
+                  src=""
+                  alt="Vane Concept 1"
+                  class="h-full w-full object-cover transition-transform duration-[800ms] hover:scale-105"
+                />
+              </div>
+              <div class="border-silver-light/50 flex h-full w-full items-center justify-center overflow-hidden border bg-gray-50">
+                <!-- ĐÃ SỬA DẤU NGOẶC KÉP Ở CLASS BÊN TRONG ONERROR -->
+                <img
+                  id="lookbook-img-2"
+                  src=""
+                  alt="Vane Concept 2"
+                  class="h-full w-full object-cover transition-transform duration-[800ms] hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- CHÈN VÀO NGAY TRÊN <div id="plain-title-row"> -->
+          <div id="shop-header-filter">
+            <div id="plain-title-row" class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+              <div>
+                <p class="font-ui text-gold mb-3 text-[10px] uppercase tracking-[0.4em]">Bộ Sưu Tập</p>
+                <h1 id="plain-collection-title" class="text-primary font-serif text-4xl md:text-5xl">Tất Cả Sản Phẩm</h1>
+              </div>
+            </div>
+
+            <div class="border-silver-light/60 mt-10 flex w-full justify-end border-t pt-6">
+              <p id="product-count" class="font-ui text-muted shrink-0 text-[11px]">Đang tải...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KHÔNG GIAN THIẾT KẾ BỘ SƯU TẬP CHÍNH -->
+      <div id="lookbook-design-space" class="mx-auto max-w-[1440px] bg-white px-8 py-20">
+        <div class="grid grid-cols-1 items-center gap-16 md:grid-cols-2">
+          <div class="space-y-8">
+            <div class="space-y-4">
+              <p class="font-ui text-primary/60 text-[10px] uppercase tracking-[0.3em]">Nét đẹp Tinh túy từ Sắc vàng</p>
+              <h2 class="text-primary font-serif text-3xl leading-tight md:text-4xl">
+                Sự ra mắt của <br />
+                <span class="font-bold">D'PRIVILEGE</span>
+              </h2>
+            </div>
+
+            <p class="max-w-md font-serif text-base italic leading-relaxed text-[#A38A5F]">
+              "Tựa như một bản giao hưởng được dệt nên từ những viên kim cương vàng lấp lánh, D'PRIVILEGE không chỉ là một thương hiệu, mà
+              là một trải nghiệm, nơi ánh sáng của sự xa hoa hòa quyện cùng nét đẹp tinh giản, tạo nên dấu ấn riêng biệt cho mỗi cá nhân.
+              Bước vào đây, mỗi quý cô đều có thể cảm nhận hào quang vĩnh cửu, tôn vinh vẻ đẹp đẳng cấp và phong thái tự tin, vốn là bản ngã
+              vốn có của mình."
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-silver-light/20 mx-auto aspect-[9/16] w-full max-w-[200px] overflow-hidden rounded-2xl shadow-sm">
+              <video class="h-full w-full object-cover" autoplay loop muted playsinline>
+                <source src="src/videos/video1.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="mt-12 border border-gray-300 bg-white p-1">
+              <img src="src/images/BST10.png" alt="Artisan" class="aspect-[3/4] w-full object-cover" />
+            </div>
+          </div>
+        </div>
+        <div class="mx-auto max-w-[1400px] px-4 py-12">
+          <!-- Phần tiêu đề và mô tả -->
+          <div class="mb-16 text-center">
+            <h2 class="mb-4 font-serif text-base font-light leading-relaxed text-gray-900 md:text-lg">
+              Mỗi bộ trang sức đều được chế tác tỉ mỉ bởi nó không chỉ là món phụ kiện mà còn là hiện thân của sự sang trọng, kiêu sa.
+            </h2>
+          </div>
+
+          <!-- Layout lưới 5 cột cho 5 ảnh -->
+          <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+            <div class="aspect-[3/4] overflow-hidden border border-gray-300">
+              <img src="src/images/BST5.png" class="h-full w-full object-cover" />
+            </div>
+
+            <div class="aspect-[3/4] overflow-hidden border border-gray-300">
+              <img src="src/images/BST6.png" class="h-full w-full object-cover" />
+            </div>
+
+            <div class="aspect-[3/4] overflow-hidden border border-gray-300">
+              <video src="src/videos/video2.mp4" class="h-full w-full object-cover" autoplay muted loop playsinline></video>
+            </div>
+
+            <div class="aspect-[3/4] overflow-hidden border border-gray-300">
+              <img src="src/images/BST7.png" class="h-full w-full object-cover" />
+            </div>
+
+            <div class="aspect-[3/4] overflow-hidden border border-gray-300">
+              <img src="src/images/BST8.png" class="h-full w-full object-cover" />
+            </div>
+          </div>
+
+          <!-- Dòng trích dẫn bên dưới -->
+          <div class="mt-16 text-center">
+            <p class="font-serif text-xl italic text-[#B8860B]">"Aquamarine Ocean - Lắng nghe hơi thở của đại dương."</p>
+          </div>
+          <div class="mb-16 mt-4 px-6 text-center">
+            <p class="mx-auto max-w-2xl font-serif text-base font-light leading-relaxed text-gray-600 md:text-lg">
+              Lấy cảm hứng từ sắc xanh huyền bí của đại dương sâu thẳm, bộ sưu tập <strong>Aquamarine Ocean</strong> gói gọn cả sự tĩnh lặng
+              của đại dương vào từng thiết kế.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════ TOOLBAR ══════════ -->
+      <section id="shop-toolbar-filter" class="border-silver-light/50 sticky top-[60px] z-30 border-b bg-white/90 backdrop-blur-md">
+        <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-8 py-3">
+          <!-- Filter toggle (mobile) -->
+          <button
+            id="filter-toggle-btn"
+            class="font-ui text-primary flex cursor-pointer items-center gap-2 text-[11px] uppercase tracking-wider md:hidden"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z" />
             </svg>
-            </span>
-          </a>
-        </div>
+            Bộ Lọc
+          </button>
+          <!-- Category pills (desktop) -->
+          <div class="hidden items-center gap-2 md:flex" id="category-pills">
+            <button class="filter-pill active" data-category="all">Tất Cả</button>
+            <button class="filter-pill" data-category="rings">Nhẫn</button>
+            <button class="filter-pill" data-category="necklaces">Dây Chuyền</button>
+            <button class="filter-pill" data-category="bracelets">Vòng Tay</button>
+            <button class="filter-pill" data-category="earrings">Hoa Tai</button>
           </div>
-
-          <div class="grid grid-cols-2 gap-6 h-[260px] sm:h-[300px] md:h-[320px] w-full">
-            
-            <div class="w-full h-full border border-silver-light/50 overflow-hidden bg-gray-50 flex items-center justify-center">
-              <!-- ĐÃ SỬA DẤU NGOẶC KÉP Ở CLASS BÊN TRONG ONERROR -->
-              <img id="lookbook-img-1" src="" alt="Vane Concept 1" class="w-full h-full object-cover transition-transform duration-[800ms] hover:scale-105" onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'text-[10px] text-muted/40\'>Ảnh 1 trống</span>'">
-            </div>
-            <div class="w-full h-full border border-silver-light/50 overflow-hidden bg-gray-50 flex items-center justify-center">
-              <!-- ĐÃ SỬA DẤU NGOẶC KÉP Ở CLASS BÊN TRONG ONERROR -->
-              <img id="lookbook-img-2" src="" alt="Vane Concept 2" class="w-full h-full object-cover transition-transform duration-[800ms] hover:scale-105" onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'text-[10px] text-muted/40\'>Ảnh 2 trống</span>'">
-            </div>
+          <!-- Sort -->
+          <div class="flex items-center gap-3">
+            <label class="font-ui text-muted hidden text-[10px] uppercase tracking-wider sm:block">Sắp xếp</label>
+            <select
+              id="sort-select"
+              class="border-silver-light/60 font-ui text-charcoal focus:border-gold cursor-pointer border bg-transparent px-3 py-2 text-[11px] transition-colors focus:outline-none"
+            >
+              <option value="default">Mặc định</option>
+              <option value="price-asc">Giá: Thấp → Cao</option>
+              <option value="price-desc">Giá: Cao → Thấp</option>
+              <option value="name">Tên A → Z</option>
+              <option value="new">Mới nhất</option>
+            </select>
           </div>
         </div>
+      </section>
 
-        <div id="plain-title-row" class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-3">Bộ Sưu Tập</p>
-            <h1 id="plain-collection-title" class="font-serif text-4xl md:text-5xl text-primary">Tất Cả Sản Phẩm</h1>
-          </div>
-        </div>
-
-        <div class="flex justify-end pt-6 border-t border-silver-light/60 w-full mt-10">
-          <p id="product-count" class="font-ui text-[11px] text-muted shrink-0">Đang tải...</p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- ══════════ TOOLBAR ══════════ -->
-    <section class="sticky top-[60px] z-30 bg-white/90 backdrop-blur-md border-b border-silver-light/50">
-      <div class="max-w-6xl mx-auto px-8 py-3 flex items-center justify-between gap-4">
-         <!-- Filter toggle (mobile) -->
-        <button id="filter-toggle-btn" class="md:hidden flex items-center gap-2 font-ui text-[11px] uppercase tracking-wider text-primary cursor-pointer">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
-          Bộ Lọc
-        </button>
-        <!-- Category pills (desktop) -->
-        <div class="hidden md:flex items-center gap-2" id="category-pills">
-          <button class="filter-pill active" data-category="all">Tất Cả</button>
-          <button class="filter-pill" data-category="rings">Nhẫn</button>
-          <button class="filter-pill" data-category="necklaces">Dây Chuyền</button>
-          <button class="filter-pill" data-category="bracelets">Vòng Tay</button>
-          <button class="filter-pill" data-category="earrings">Hoa Tai</button>
-        </div>
-        <!-- Sort -->
-        <div class="flex items-center gap-3">
-          <label class="font-ui text-[10px] text-muted uppercase tracking-wider hidden sm:block">Sắp xếp</label>
-          <select id="sort-select" class="bg-transparent border border-silver-light/60 font-ui text-[11px] px-3 py-2 text-charcoal cursor-pointer focus:outline-none focus:border-gold transition-colors">
-            <option value="default">Mặc định</option>
-            <option value="price-asc">Giá: Thấp → Cao</option>
-            <option value="price-desc">Giá: Cao → Thấp</option>
-            <option value="name">Tên A → Z</option>
-            <option value="new">Mới nhất</option>
-          </select>
-        </div>
-      </div>
-    </section>
-    
-    <!-- ══════════ PRODUCT GRID + SIDEBAR ══════════ -->
-    <section class="bg-ivory py-12 md:py-16">
-      <div class="max-w-6xl mx-auto px-8">
-        <div class="flex gap-10">
-          <!-- SIDEBAR FILTERS (desktop) -->
-          <aside id="filter-sidebar" class="hidden md:block w-56 shrink-0">
-            <div class="filter-panel">
-              <!-- Danh mục -->
-              <div class="filter-group">
-                <div class="filter-group-title">
-                  Danh Mục
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      <!-- ══════════ PRODUCT GRID + SIDEBAR ══════════ -->
+      <section id="shop-products-container" class="bg-white py-12 md:py-16">
+        <div class="mx-auto max-w-[1440px] px-8">
+          <div class="flex gap-10">
+            <!-- SIDEBAR FILTERS (desktop) -->
+            <aside id="filter-sidebar" class="hidden w-56 shrink-0 md:block">
+              <div class="filter-panel">
+                <!-- Danh mục -->
+                <div class="filter-group">
+                  <div class="filter-group-title">
+                    Danh Mục
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
+                  <div class="filter-group-content">
+                    <label class="filter-checkbox"><input type="checkbox" value="rings" /> Nhẫn</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="necklaces" /> Dây Chuyền</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="bracelets" /> Vòng Tay</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="earrings" /> Hoa Tai</label>
+                  </div>
                 </div>
-                <div class="filter-group-content">
-                  <label class="filter-checkbox"><input type="checkbox" value="rings"> Nhẫn</label>
-                  <label class="filter-checkbox"><input type="checkbox" value="necklaces"> Dây Chuyền</label>
-                  <label class="filter-checkbox"><input type="checkbox" value="bracelets"> Vòng Tay</label>
-                  <label class="filter-checkbox"><input type="checkbox" value="earrings"> Hoa Tai</label>
+                <!-- Chất liệu -->
+                <div class="filter-group">
+                  <div class="filter-group-title">
+                    Chất Liệu
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
+                  <div class="filter-group-content">
+                    <label class="filter-checkbox"><input type="checkbox" value="Vàng 18K" /> Vàng 18K</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="Vàng trắng 18K" /> Vàng trắng 18K</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="Bạc 925" /> Bạc 925</label>
+                  </div>
                 </div>
-              </div>
-              <!-- Chất liệu -->
-              <div class="filter-group">
-                <div class="filter-group-title">
-                  Chất Liệu
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-                <div class="filter-group-content">
-                  <label class="filter-checkbox"><input type="checkbox" value="Vàng 18K"> Vàng 18K</label>
-                  <label class="filter-checkbox"><input type="checkbox" value="Vàng trắng 18K"> Vàng trắng 18K</label>
-                  <label class="filter-checkbox"><input type="checkbox" value="Bạc 925"> Bạc 925</label>
-                </div>
-              </div>
-              <!-- Khoảng giá -->
-              <div class="filter-group">
-                <div class="filter-group-title">
-                  Khoảng Giá
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-                <div class="filter-group-content">
-                  <div class="price-range-slider">
-                    <input type="range" id="price-range" min="0" max="50000000" value="50000000" step="1000000">
-                    <div class="flex justify-between font-ui text-[10px] text-muted mt-2">
-                      <span>0₫</span>
-                      <span id="price-range-value">50.000.000₫</span>
+                <!-- Khoảng giá -->
+                <div class="filter-group">
+                  <div class="filter-group-title">
+                    Khoảng Giá
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
+                  <div class="filter-group-content">
+                    <div class="price-range-slider">
+                      <input type="range" id="price-range" min="0" max="50000000" value="50000000" step="1000000" />
+                      <div class="font-ui text-muted mt-2 flex justify-between text-[10px]">
+                        <span>0₫</span>
+                        <span id="price-range-value">50.000.000₫</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-               <!-- Trạng thái -->
-              <div class="filter-group">
-                <div class="filter-group-title">
-                  Trạng Thái
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                <!-- Trạng thái -->
+                <div class="filter-group">
+                  <div class="filter-group-title">
+                    Trạng Thái
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
+                  <div class="filter-group-content">
+                    <label class="filter-checkbox"><input type="checkbox" value="new" /> Hàng mới</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="sale" /> Đang giảm giá</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="bestseller" /> Bán chạy</label>
+                  </div>
                 </div>
-                <div class="filter-group-content">
-                  <label class="filter-checkbox"><input type="checkbox" value="new"> Hàng mới</label>
-                  <label class="filter-checkbox"><input type="checkbox" value="sale"> Đang giảm giá</label>
-                  <label class="filter-checkbox"><input type="checkbox" value="bestseller"> Bán chạy</label>
+                <!-- Reset -->
+                <button
+                  id="filter-reset"
+                  class="mt-6 w-full py-2.5 font-ui text-[10px] uppercase tracking-widest text-muted border border-silver-light hover:text-primary hover:border-charcoal transition-colors cursor-pointer"
+                >
+                  Xóa Bộ Lọc
+                </button>
+              </div>
+            </aside>
+            <!-- PRODUCT GRID -->
+            <div class="flex-1">
+              <div id="products-grid" class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
+                <!-- Skeleton loading (8 items: 2 rows of 4 on lg, 4 rows of 2 on mobile) -->
+                <!-- Item 1 (always visible) -->
+                <div class="flex flex-col gap-3">
+                  <div class="aspect-3/4 skeleton w-full"></div>
+                  <div class="skeleton h-3 w-3/4"></div>
+                  <div class="skeleton h-3 w-1/3"></div>
+                </div>
+                <!-- Item 2 (always visible) -->
+                <div class="flex flex-col gap-3">
+                  <div class="aspect-3/4 skeleton w-full"></div>
+                  <div class="skeleton h-3 w-3/4"></div>
+                  <div class="skeleton h-3 w-1/3"></div>
+                </div>
+                <!-- Item 3 (lg only) -->
+                <div class="hidden gap-3 lg:flex lg:flex-col">
+                  <div class="aspect-3/4 skeleton w-full"></div>
+                  <div class="skeleton h-3 w-3/4"></div>
+                  <div class="skeleton h-3 w-1/3"></div>
+                </div>
+                <!-- Item 4 (lg only) -->
+                <div class="hidden gap-3 lg:flex lg:flex-col">
+                  <div class="aspect-3/4 skeleton w-full"></div>
+                  <div class="skeleton h-3 w-3/4"></div>
+                  <div class="skeleton h-3 w-1/3"></div>
+                </div>
+                <!-- Item 5 (always visible) -->
+                <div class="flex flex-col gap-3">
+                  <div class="aspect-3/4 skeleton w-full"></div>
+                  <div class="skeleton h-3 w-3/4"></div>
+                  <div class="skeleton h-3 w-1/3"></div>
+                </div>
+                <!-- Item 6 (always visible) -->
+                <div class="flex flex-col gap-3">
+                  <div class="aspect-3/4 skeleton w-full"></div>
+                  <div class="skeleton h-3 w-3/4"></div>
+                  <div class="skeleton h-3 w-1/3"></div>
+                </div>
+                <!-- Item 7 (lg only) -->
+                <div class="hidden gap-3 lg:flex lg:flex-col">
+                  <div class="aspect-3/4 skeleton w-full"></div>
+                  <div class="skeleton h-3 w-3/4"></div>
+                  <div class="skeleton h-3 w-1/3"></div>
+                </div>
+                <!-- Item 8 (lg only) -->
+                <div class="hidden gap-3 lg:flex lg:flex-col">
+                  <div class="aspect-3/4 skeleton w-full"></div>
+                  <div class="skeleton h-3 w-3/4"></div>
+                  <div class="skeleton h-3 w-1/3"></div>
                 </div>
               </div>
-              <!-- Reset -->
-              <button id="filter-reset" class="mt-6 w-full py-2.5 font-ui text-[10px] uppercase tracking-widest text-muted border border-silver-light hover:text-primary hover:border-charcoal transition-colors cursor-pointer">
-                Xóa Bộ Lọc
-              </button>
+              <!-- Empty state -->
+              <div id="products-empty" class="hidden text-center py-20">
+                <p class="font-serif text-2xl text-muted mb-3">Không tìm thấy sản phẩm</p>
+                <p class="font-ui text-sm text-muted/60">Vui lòng thử lại với bộ lọc khác.</p>
+              </div>
+              <!-- Empty state -->
+              <div id="products-empty" class="hidden py-20 text-center">
+                <p class="text-muted mb-3 font-serif text-2xl">Không tìm thấy sản phẩm</p>
+                <p class="font-ui text-muted/60 text-sm">Vui lòng thử lại với bộ lọc khác.</p>
+              </div>
             </div>
-          </aside>
-          <!-- PRODUCT GRID -->
-          <div class="flex-1">
-            <div id="products-grid" class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              <!-- Skeleton loading (8 items) -->
-              <div class="flex flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
-              <div class="flex flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
-              <div class="hidden lg:flex lg:flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
-              <div class="flex flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
-              <div class="flex flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
-              <div class="hidden lg:flex lg:flex-col gap-3"><div class="w-full aspect-3/4 skeleton"></div><div class="h-3 skeleton w-3/4"></div><div class="h-3 skeleton w-1/3"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ MOBILE FILTER DRAWER ══════════ -->
+      <div
+        id="mobile-filter-overlay"
+        class="z-100 invisible fixed inset-0 bg-black/50 opacity-0 backdrop-blur-sm transition-all duration-300 md:hidden [&.active]:visible [&.active]:opacity-100"
+      >
+        <div
+          id="mobile-filter-panel"
+          class="duration-400 fixed bottom-0 left-0 right-0 max-h-[85vh] translate-y-full overflow-y-auto bg-white px-6 py-8 transition-transform [&.active]:translate-y-0"
+          style="border-radius: 1rem 1rem 0 0"
+        >
+          <div class="mb-8 flex items-center justify-between">
+            <h3 class="text-primary font-serif text-xl">Bộ Lọc</h3>
+            <button id="mobile-filter-close" class="text-muted hover:text-primary cursor-pointer text-2xl">&times;</button>
+          </div>
+          <!-- Same filter groups as sidebar -->
+          <div class="filter-group">
+            <div class="filter-group-title">
+              Danh Mục
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </div>
-            <!-- Empty state -->
-            <div id="products-empty" class="hidden text-center py-20">
-              <p class="font-serif text-2xl text-muted mb-3">Không tìm thấy sản phẩm</p>
-              <p class="font-ui text-sm text-muted/60">Vui lòng thử lại với bộ lọc khác.</p>
+            <div class="filter-group-content">
+              <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="rings" /> Nhẫn</label>
+              <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="necklaces" /> Dây Chuyền</label>
+              <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="bracelets" /> Vòng Tay</label>
+              <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="earrings" /> Hoa Tai</label>
             </div>
           </div>
 
+          <button
+            id="mobile-filter-apply"
+            class="bg-primary font-ui hover:bg-charcoal mt-8 w-full cursor-pointer py-3 text-[11px] uppercase tracking-widest text-white transition-colors"
+          >
+            Áp Dụng Bộ Lọc
+          </button>
         </div>
       </div>
-    </section>
-    
-    <!-- ══════════ MOBILE FILTER DRAWER ══════════ -->
-    <div id="mobile-filter-overlay" class="fixed inset-0 z-100 bg-black/50 backdrop-blur-sm opacity-0 invisible transition-all duration-300 [&.active]:opacity-100 [&.active]:visible md:hidden">
-      <div id="mobile-filter-panel" class="fixed bottom-0 left-0 right-0 bg-white max-h-[85vh] overflow-y-auto px-6 py-8 translate-y-full transition-transform duration-400 [&.active]:translate-y-0" style="border-radius:1rem 1rem 0 0;">
-        <div class="flex items-center justify-between mb-8">
-          <h3 class="font-serif text-xl text-primary">Bộ Lọc</h3>
-          <button id="mobile-filter-close" class="text-2xl text-muted hover:text-primary cursor-pointer">&times;</button>
-        </div>
-        <!-- Same filter groups as sidebar -->
-        <div class="filter-group">
-          <div class="filter-group-title">Danh Mục <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-          <div class="filter-group-content">
-            <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="rings"> Nhẫn</label>
-            <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="necklaces"> Dây Chuyền</label>
-            <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="bracelets"> Vòng Tay</label>
-            <label class="filter-checkbox"><input type="checkbox" data-filter="category" value="earrings"> Hoa Tai</label>
+    </main>
+
+    <div id="size-picker-overlay" class="size-picker-overlay" aria-hidden="true">
+      <div id="size-picker-modal" class="size-picker-modal" role="dialog" aria-modal="true" aria-labelledby="size-picker-title">
+        <div id="size-picker-header">
+          <div>
+            <p class="font-ui text-gold mb-2 text-[10px] uppercase tracking-[0.4em]">Chọn kích cỡ</p>
+            <h2 id="size-picker-title" class="text-primary font-serif text-2xl">Chọn size sản phẩm</h2>
+            <p id="size-picker-subtitle">Vui lòng chọn size trước khi thêm vào giỏ hàng.</p>
           </div>
+          <button id="size-picker-close" type="button" aria-label="Đóng">&times;</button>
         </div>
-
-        <button id="mobile-filter-apply" class="mt-8 w-full py-3 bg-primary text-white font-ui text-[11px] uppercase tracking-widest hover:bg-charcoal transition-colors cursor-pointer">
-          Áp Dụng Bộ Lọc
-        </button>
+        <div id="size-picker-body" class="size-picker-body">
+          <div id="size-picker-options" class="size-picker-options"></div>
+        </div>
+        <div id="size-picker-actions" class="size-picker-actions">
+          <button id="size-picker-confirm" type="button" class="btn-primary">Thêm vào giỏ hàng</button>
+        </div>
       </div>
     </div>
 
-  </main>
+    <div id="component-footer"></div>
 
-  <div id="component-footer"></div>
+    <div id="component-cart-overlay"></div>
 
-  <footer class="bg-primary">
-    <div class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="font-ui text-[9px] text-white/20 tracking-wide">© 2025 Vane Vietnam</p>
-      <div class="flex gap-6">
-        <a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide">Bảo Mật</a>
-        <a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors tracking-wide">Điều Khoản</a>
-      </div>
-    </div>
-  </footer>
-
-  <div id="component-cart-overlay"></div>
-
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="src/js/app.js?v=8"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="src/js/app.js?v=8"></script>
+  </body>
 </html>
