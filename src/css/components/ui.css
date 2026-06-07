@@ -304,7 +304,22 @@
 .vane-zigzag-btn:not(:hover) .zigzag-line {
   stroke-dashoffset: 600;
   transition: stroke-dashoffset 0.4s linear; 
+}.vane-zigzag-btn .zigzag-line {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  transition: stroke-dashoffset 0.8s ease-in-out; 
 }
+
+.vane-zigzag-btn:hover .zigzag-line {
+  stroke-dashoffset: 0;
+}
+
+.vane-zigzag-btn:not(:hover) .zigzag-line {
+  stroke-dashoffset: 600;
+  transition: stroke-dashoffset 0.8s ease-in-out; 
+}
+
+
 /* --- PHOM NÚT BẤM HÌNH THOI --- */
 .diamond-btn {
   width: 24px !important;
@@ -394,3 +409,4 @@
   z-index: 2;
   transform: rotate(-45deg);
 }
+

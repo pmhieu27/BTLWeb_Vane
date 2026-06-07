@@ -5,10 +5,7 @@ $(function () {
   "use strict";
 
   var productId = new URLSearchParams(window.location.search).get("id");
-  if (!productId) {
-    $("#product-name").text("Sản phẩm không tìm thấy");
-    return;
-  }
+  var currentProduct = null;
 
   var categoryNames = {
     rings: "Nhẫn",
@@ -17,168 +14,253 @@ $(function () {
     earrings: "Hoa Tai",
   };
 
-  function formatPrice(n) {
-    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "₫";
+  function formatPrice(value) {
+    return Number(value || 0).toLocaleString("vi-VN") + "₫";
   }
 
-  var currentProduct = null;
+  function getSelectedSize() {
+    return $(".size-btn.border-primary").attr("data-size") || null;
+  }
 
-  // Fetch products
-  $.getJSON("src/data/products.json")
-    .done(function (products) {
-      var product = null;
-      $.each(products, function (i, p) {
-        if (p.id == productId) { product = p; return false; }
-      });
+  function getSelectedQty() {
+    var value = parseInt($("#qty-input").val(), 10) || 1;
+    return Math.min(10, Math.max(1, value));
+  }
 
-      if (!product) {
-        $("#product-name").text("Sản phẩm không tìm thấy");
-        return;
-      }
+  function syncQtyInput() {
+    $("#qty-input").val(getSelectedQty());
+  }
 
-      currentProduct = product;
+  function validateSizeSelection() {
+    var size = getSelectedSize();
 
-      // --- Populate page ---
-      document.title = product.name_vi + " | Vane Vietnam";
-      $("#breadcrumb-product").text(product.name_vi);
-      $("#product-name").text(product.name_vi);
-      $("#product-category").text(categoryNames[product.category] || product.category);
-      $("#product-material").text(product.material || "—");
-      $("#product-gemstone").text(product.gemstone || "Không có");
-      $("#product-description").text(
-        "Sản phẩm " + product.name_vi + " được chế tác từ " +
+    if ($("#size-selector").is(":visible") && !size) {
+      $(document).trigger("toast", [
+        "Bạn chưa chọn size. Vui lòng chọn size trước khi tiếp tục.",
+        "error",
+      ]);
+      $(".size-btn").addClass("error");
+      return false;
+    }
+
+    return true;
+  }
+
+  function renderProduct(product, products) {
+    var priceHtml =
+      '<span class="font-serif text-2xl text-primary">' +
+      formatPrice(product.price) +
+      "</span>";
+
+    currentProduct = product;
+    document.title = product.name_vi + " | Vane Vietnam";
+    $("#breadcrumb-product").text(product.name_vi);
+    $("#product-name").text(product.name_vi);
+    $("#product-category").text(
+      categoryNames[product.category] || product.category,
+    );
+    $("#product-material").text(product.material || "—");
+    $("#product-gemstone").text(product.gemstone || "Không có");
+    $("#product-description").text(
+      "Sản phẩm " +
+        product.name_vi +
+        " được chế tác từ " +
         (product.material || "chất liệu cao cấp") +
         (product.gemstone ? ", đính " + product.gemstone + " tuyển chọn" : "") +
-        ". Thiết kế tinh xảo, phù hợp cho mọi dịp đặc biệt."
+        ". Thiết kế tinh xảo, phù hợp cho mọi dịp đặc biệt.",
+    );
+
+    if (product.originalPrice) {
+      var percent = Math.round(
+        (1 - product.price / product.originalPrice) * 100,
       );
+      priceHtml +=
+        ' <span class="font-ui text-sm text-muted line-through ml-2">' +
+        formatPrice(product.originalPrice) +
+        '</span><span class="font-ui text-[10px] text-gold ml-2">-' +
+        percent +
+        "%</span>";
+    }
 
-      // Price
-      var priceHtml = '<span class="font-serif text-2xl text-primary">' + formatPrice(product.price) + '</span>';
-      if (product.originalPrice) {
-        priceHtml += ' <span class="font-ui text-sm text-muted line-through ml-2">' + formatPrice(product.originalPrice) + '</span>';
-        var percent = Math.round((1 - product.price / product.originalPrice) * 100);
-        priceHtml += ' <span class="font-ui text-[10px] text-gold ml-2">-' + percent + '%</span>';
-      }
-      $("#product-price").html(priceHtml);
+    $("#product-price").html(priceHtml);
 
-      // Main image
-      if (product.images && product.images.length) {
-        $("#main-product-img").attr("src", product.images[0]).attr("alt", product.name_vi);
+    if (product.images && product.images.length) {
+      var thumbnailsHtml = "";
 
-        // Thumbnails
-        var thumbHtml = "";
-        $.each(product.images, function (i, src) {
-          thumbHtml += '<button class="product-thumb overflow-hidden border-2 ' + (i === 0 ? 'border-gold' : 'border-transparent') + ' cursor-pointer transition-all hover:border-gold/50" data-index="' + i + '">' +
-            '<img src="' + src + '" alt="' + product.name_vi + ' ' + (i + 1) + '" class="w-full aspect-square object-cover">' +
-          '</button>';
-        });
-        $("#product-thumbnails").html(thumbHtml);
-      }
+      $("#main-product-img")
+        .attr("src", product.images[0])
+        .attr("alt", product.name_vi);
 
-      // Sizes
-      if (product.sizes && product.sizes.length) {
-        $("#size-selector").removeClass("hidden");
-        var sizeHtml = "";
-        $.each(product.sizes, function (i, size) {
-          sizeHtml += '<button class="size-btn font-ui text-[11px] px-4 py-2 border border-silver-light hover:border-primary transition-colors cursor-pointer' + (i === 0 ? ' border-primary text-primary' : ' text-muted') + '" data-size="' + size + '">' + size + '</button>';
-        });
-        $("#size-options").html(sizeHtml);
-      }
+      $.each(product.images, function (index, source) {
+        thumbnailsHtml +=
+          '<button type="button" class="product-thumb overflow-hidden border-2 ' +
+          (index === 0 ? "border-gold" : "border-transparent") +
+          ' cursor-pointer transition-all hover:border-gold/50" data-index="' +
+          index +
+          '">' +
+          '<img src="' +
+          source +
+          '" alt="' +
+          product.name_vi +
+          " " +
+          (index + 1) +
+          '" class="w-full aspect-square object-cover">' +
+          "</button>";
+      });
 
-      // --- Related products ---
-      var related = products.filter(function (p) {
-        return p.category === product.category && p.id !== product.id;
-      }).slice(0, 4);
+      $("#product-thumbnails").html(thumbnailsHtml);
+    }
 
-      if (related.length) {
-        var relHtml = "";
-        $.each(related, function (i, p) {
-          relHtml += '<a href="product-detail.html?id=' + p.id + '" class="group block" data-reveal="scale">' +
-            '<div class="overflow-hidden bg-white mb-3">' +
-              '<img src="' + p.images[0] + '" alt="' + p.name_vi + '" class="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105">' +
-            '</div>' +
-            '<p class="font-ui text-[10px] uppercase tracking-wider text-gold mb-1">' + (categoryNames[p.category] || "") + '</p>' +
-            '<h3 class="font-serif text-base text-primary group-hover:text-gold transition-colors mb-1">' + p.name_vi + '</h3>' +
-            '<p class="font-ui text-[11px] text-charcoal">' + formatPrice(p.price) + '</p>' +
-          '</a>';
-        });
-        $("#related-products").html(relHtml);
-      }
+    if (product.sizes && product.sizes.length) {
+      var sizeHtml = "";
 
-      // Store product data for cart
-      $("#add-to-cart-detail").attr("data-id", product.id);
-      $("#toggle-wishlist-detail").attr("data-id", product.id);
-    })
-    .fail(function () {
-      $("#product-name").text("Không thể tải sản phẩm");
-    });
+      $("#size-selector").removeClass("hidden");
 
-  // --- Thumbnail click ---
-  $(document).on("click", ".product-thumb", function () {
-    var idx = $(this).attr("data-index");
-    var src = $(this).find("img").attr("src");
-    $("#main-product-img").attr("src", src);
-    $(".product-thumb").removeClass("border-gold").addClass("border-transparent");
-    $(this).removeClass("border-transparent").addClass("border-gold");
-  });
+      $.each(product.sizes, function (_, size) {
+        sizeHtml +=
+          '<button type="button" class="size-btn font-ui text-[11px] px-4 py-2 border border-silver-light hover:border-primary transition-colors cursor-pointer text-muted" data-size="' +
+          size +
+          '">' +
+          size +
+          "</button>";
+      });
 
-  // --- Size selection ---
-  $(document).on("click", ".size-btn", function () {
-    $(".size-btn").removeClass("border-primary text-primary").addClass("text-muted");
-    $(this).addClass("border-primary text-primary").removeClass("text-muted");
-  });
+      $("#size-options").html(sizeHtml);
+    }
 
-  // --- Quantity ---
-  $(document).on("click", "#qty-minus", function () {
-    var $input = $("#qty-input");
-    var val = parseInt($input.val()) || 1;
-    if (val > 1) $input.val(val - 1);
-  });
-  $(document).on("click", "#qty-plus", function () {
-    var $input = $("#qty-input");
-    var val = parseInt($input.val()) || 1;
-    if (val < 10) $input.val(val + 1);
-  });
+    $("#add-to-cart-detail").attr("data-id", product.id);
+    $("#toggle-wishlist-detail").attr("data-id", product.id);
 
-  function addProductToCart() {
-    var qty = parseInt($("#qty-input").val()) || 1;
-    var size = $(".size-btn.border-primary").attr("data-size") || null;
-    if (currentProduct && typeof window.VaneCart !== "undefined") {
-      window.VaneCart.addToCart(currentProduct, size, qty);
+    var related = products
+      .filter(function (item) {
+        return item.category === product.category && item.id !== product.id;
+      })
+      .slice(0, 4);
+
+    if (related.length) {
+      var relatedHtml = "";
+
+      $.each(related, function (_, item) {
+        relatedHtml +=
+          '<a href="product-detail.html?id=' +
+          item.id +
+          '" class="group block" data-reveal="scale">' +
+          '<div class="overflow-hidden bg-white mb-3">' +
+          '<img src="' +
+          item.images[0] +
+          '" alt="' +
+          item.name_vi +
+          '" class="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105">' +
+          "</div>" +
+          '<p class="font-ui text-[10px] uppercase tracking-wider text-gold mb-1">' +
+          (categoryNames[item.category] || "") +
+          "</p>" +
+          '<h3 class="font-serif text-base text-primary group-hover:text-gold transition-colors mb-1">' +
+          item.name_vi +
+          "</h3>" +
+          '<p class="font-ui text-[11px] text-charcoal">' +
+          formatPrice(item.price) +
+          "</p>" +
+          "</a>";
+      });
+
+      $("#related-products").html(relatedHtml);
     }
   }
 
-  // --- Add to cart ---
+  function addProductToCart() {
+    if (!currentProduct || typeof window.VaneCart === "undefined") {
+      return false;
+    }
+
+    if (!validateSizeSelection()) {
+      return false;
+    }
+
+    window.VaneCart.addToCart(
+      currentProduct,
+      getSelectedSize(),
+      getSelectedQty(),
+    );
+    return true;
+  }
+
+  $.getJSON("src/data/products.json")
+    .done(function (products) {
+      var product = null;
+
+      $.each(products, function (_, item) {
+        if (String(item.id) === String(productId)) {
+          product = item;
+          return false;
+        }
+      });
+
+      if (!product) {
+        document.title = "Sản phẩm không tìm thấy | Vane Vietnam";
+        $("#product-name").text("Sản phẩm không tìm thấy");
+        $("#product-description").text(
+          "Liên kết này không còn hợp lệ hoặc sản phẩm đã được cập nhật.",
+        );
+        return;
+      }
+
+      renderProduct(product, products);
+    })
+    .fail(function () {
+      document.title = "Không thể tải sản phẩm | Vane Vietnam";
+      $("#product-name").text("Không thể tải sản phẩm");
+    });
+
+  $(document).on("click", ".product-thumb", function () {
+    var source = $(this).find("img").attr("src");
+
+    $("#main-product-img").attr("src", source);
+    $(".product-thumb")
+      .removeClass("border-gold")
+      .addClass("border-transparent");
+    $(this).removeClass("border-transparent").addClass("border-gold");
+  });
+
+  $(document).on("click", ".size-btn", function () {
+    $(".size-btn")
+      .removeClass("border-primary text-primary error")
+      .addClass("text-muted");
+    $(this)
+      .addClass("border-primary text-primary")
+      .removeClass("text-muted error");
+  });
+
+  $(document).on("click", "#qty-minus", function () {
+    $("#qty-input").val(Math.max(1, getSelectedQty() - 1));
+  });
+
+  $(document).on("click", "#qty-plus", function () {
+    $("#qty-input").val(Math.min(10, getSelectedQty() + 1));
+  });
+
+  $(document).on("input change", "#qty-input", syncQtyInput);
+
   $(document).on("click", "#add-to-cart-detail", function () {
     addProductToCart();
   });
 
-  // --- Buy now ---
   $(document).on("click", "#buy-now-detail", function () {
     if (!currentProduct) return;
+    if (!validateSizeSelection()) return;
 
-    // 1. Lấy dữ liệu người dùng đang chọn trên UI
-    var qty = parseInt($("#qty-input").val()) || 1;
-    var size = $(".size-btn.border-primary").attr("data-size") || null;
-
-    // 2. Đóng gói thành Object đơn hàng
-    var itemToBuy = {
+    sessionStorage.setItem(
+      "buyNowItem",
+      JSON.stringify({
         id: currentProduct.id,
-        qty: qty,
-        size: size
-    };
+        qty: getSelectedQty(),
+        size: getSelectedSize(),
+      }),
+    );
 
-    // 3. Lưu vào Session Storage (Tạo ra buyNowItem)
-    sessionStorage.setItem("buyNowItem", JSON.stringify(itemToBuy));
-
-    // 4. Chuyển sang trang Checkout mà không đưa vào Giỏ hàng tổng
     window.location.href = "checkout.html";
-  });
-
-
-
-  // --- Accordion ---
-  $(document).on("click", ".accordion-trigger", function () {
-    $(this).closest(".accordion-item").toggleClass("active");
+    if (addProductToCart()) {
+      window.location.href = "checkout.html";
+    }
   });
 });
