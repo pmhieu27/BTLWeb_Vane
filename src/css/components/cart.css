@@ -4,8 +4,8 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 420px;
-  max-width: 90vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
   background-color: #FFFFFF;
   z-index: 110;
@@ -14,6 +14,18 @@
   display: flex;
   flex-direction: column;
   box-shadow: -8px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 640px) {
+  .cart-overlay {
+    width: 420px;
+    max-width: 90vw;
+  }
+  .cart-overlay-header,
+  .cart-overlay-body,
+  .cart-overlay-footer {
+    padding: 1.5rem 2rem;
+  }
 }
 
 .cart-overlay.active {
@@ -37,7 +49,7 @@
 }
 
 .cart-overlay-header {
-  padding: 1.5rem 2rem;
+  padding: 1rem 1.25rem;
   border-bottom: 1px solid #F0F0F0;
   display: flex;
   justify-content: space-between;
@@ -47,11 +59,11 @@
 .cart-overlay-body {
   flex: 1;
   overflow-y: auto;
-  padding: 1.5rem 2rem;
+  padding: 1rem 1.25rem;
 }
 
 .cart-overlay-footer {
-  padding: 1.5rem 2rem;
+  padding: 1rem 1.25rem;
   border-top: 1px solid #F0F0F0;
 }
 

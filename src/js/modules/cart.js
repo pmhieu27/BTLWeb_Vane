@@ -28,10 +28,13 @@ $(function () {
         cart.push({ id: product.id, name: product.name_vi, price: product.price, image: (product.images && product.images[0]) || "", size: size, qty: qty });
       }
       this.saveCart(cart);
+      $(document).trigger("toast", ["Đã thêm vào giỏ hàng thành công!", "success"]);
+      this.openCart();
     },
     removeFromCart: function (id, size) {
       var cart = $.grep(this.getCart(), function (item) { return !(item.id === id && item.size === size); });
       this.saveCart(cart);
+      $(document).trigger("toast", ["Đã xóa sản phẩm khỏi giỏ hàng", "info"]);
     },
     updateQty: function (id, size, qty) {
       var cart = this.getCart();
@@ -50,6 +53,12 @@ $(function () {
       var total = 0;
       $.each(this.getCart(), function (i, item) { total += item.price * item.qty; });
       return total;
+    },
+    openCart: function () {
+      openCart();
+    },
+    closeCart: function () {
+      closeCart();
     }
   };
 
@@ -63,14 +72,18 @@ $(function () {
     var count = VaneCart.getCartCount();
 
     // Badge
-    if (count > 0) { $badge.text(count).removeClass("hidden"); }
-    else { $badge.addClass("hidden"); }
+    if (count > 0) { $badge.text(count).show(); }
+    else { $badge.hide(); }
 
     if (!cart.length) {
-      $empty.removeClass("hidden"); $list.addClass("hidden"); $footer.addClass("hidden");
+      $empty.show();
+      $list.hide();
+      $footer.hide();
       return;
     }
-    $empty.addClass("hidden"); $list.removeClass("hidden"); $footer.removeClass("hidden");
+    $empty.hide();
+    $list.show();
+    $footer.show();
 
     var html = "";
     $.each(cart, function (i, item) {

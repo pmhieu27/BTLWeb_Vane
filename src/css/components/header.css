@@ -35,24 +35,29 @@
 }
 
 /* --- Sidebar Menu Overlay --- */
-.sidebar-menu-overlay {
+#menu-overlay {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity 0.4s ease, visibility 0.4s;
 }
 
-.sidebar-menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
+#menu-overlay.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto;
 }
 
-.sidebar-menu-content {
-  transform: translateX(-100%);
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* --- Sửa lại Menu Sidebar (Khối trắng chứa nội dung) --- */
+#menu-sidebar {
+  /* Ép trình duyệt thiết lập hiệu ứng trượt từ CSS thuần, đè Tailwind */
+  transform: translateX(-100%) !important; 
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
-.sidebar-menu-overlay.active .sidebar-menu-content {
-  transform: translateX(0);
+/* Khi cha có active, kích hoạt con trượt ra */
+#menu-overlay.active #menu-sidebar {
+  transform: translateX(0) !important;
 }
 
 #search-dropdown.active {
@@ -67,14 +72,14 @@
 }
 
 #menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
+  opacity: 1 !important;
+  visibility: visible !important;
   pointer-events: auto;
 }
 
-#menu-overlay.active #menu-sidebar {
-  transform: translateX(0);
-}
+/* #menu-overlay.active #menu-sidebar {
+  transform: translateX(0) !important;
+} */
 
 /* --- Breadcrumb --- */
 .breadcrumb {

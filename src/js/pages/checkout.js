@@ -262,7 +262,7 @@ $(function () {
         } else {
             // SỬA LỖI 1: Bọc try-catch bảo hiểm, nếu xóa giỏ hàng lỗi thì vẫn bỏ qua để ưu tiên nhảy trang
             try {
-                if (typeof window.VaneCart !== "undefined" && typeof window.VaneCart.clear === "function") {
+                if (typeof window.VaneCart !== "undefined" && typeof window.VaneCart.clearCart === "function") {
                     window.VaneCart.clearCart();
                 }
             } catch (error) {
