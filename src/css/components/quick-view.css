@@ -1,0 +1,88 @@
+/* ===== QUICK SIZE PICKER OVERLAY ===== */
+#size-picker-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.45);
+}
+#size-picker-overlay.active {
+  display: flex;
+}
+#size-picker-modal {
+  width: min(560px, 100%);
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+#size-picker-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.5rem 0.75rem;
+}
+#size-picker-header h2 {
+  margin: 0;
+}
+#size-picker-body {
+  padding: 0 1.5rem 1.5rem;
+}
+#size-picker-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.size-picker-option {
+  min-width: 4.5rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  background: #fff;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.size-picker-option:hover {
+  border-color: #b8860b;
+  color: #b8860b;
+}
+.size-picker-option.selected {
+  border-color: #b8860b;
+  background: #fef7ed;
+  color: #b8860b;
+}
+.size-btn.error {
+  border-color: #dc2626 !important;
+  color: #b91c1c !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+#size-picker-actions {
+  padding: 0 1.5rem 1.5rem;
+}
+#size-picker-close {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 9999px;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+#size-picker-close:hover {
+  background: #e5e7eb;
+}
+#size-picker-subtitle {
+  margin-top: 0.25rem;
+  color: #6b7280;
+}
+#size-picker-overlay .btn-primary {
+  width: 100%;
+}
