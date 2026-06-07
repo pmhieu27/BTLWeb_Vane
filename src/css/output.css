@@ -1176,6 +1176,10 @@ video {
   max-width: 28rem;
 }
 
+.max-w-xs {
+  max-width: 20rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1752,6 +1756,16 @@ video {
   background-color: rgb(255 255 255 / 0.95);
 }
 
+.bg-gold-light {
+  --tw-bg-opacity: 1;
+  background-color: rgb(232 213 176 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gold-dark {
+  --tw-bg-opacity: 1;
+  background-color: rgb(166 139 91 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
@@ -2045,6 +2059,10 @@ video {
   padding-top: 10rem;
 }
 
+.pt-5 {
+  padding-top: 1.25rem;
+}
+
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -2178,6 +2196,10 @@ video {
   line-height: 1rem;
 }
 
+.text-\[16px\] {
+  font-size: 16px;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2232,6 +2254,10 @@ video {
 
 .tracking-\[0\.15em\] {
   letter-spacing: 0.15em;
+}
+
+.tracking-\[0\.28em\] {
+  letter-spacing: 0.28em;
 }
 
 .tracking-\[0\.2em\] {
@@ -2392,6 +2418,10 @@ video {
   color: rgb(255 255 255 / 0.7);
 }
 
+.text-\[14\] {
+  color: 14;
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -2423,10 +2453,6 @@ video {
 
 .opacity-40 {
   opacity: 0.4;
-}
-
-.opacity-60 {
-  opacity: 0.6;
 }
 
 .shadow-2xl {
@@ -2919,6 +2945,12 @@ video {
     gap: 2rem;
   }
 
+  .md\:space-y-10 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
+  }
+
   .md\:self-start {
     align-self: flex-start;
   }
@@ -2999,6 +3031,11 @@ video {
     padding-bottom: 2rem;
   }
 
+  .md\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   .md\:pb-10 {
     padding-bottom: 2.5rem;
   }
@@ -3070,6 +3107,23 @@ video {
   .md\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .md\:text-\[13px\] {
+    font-size: 13px;
+  }
+
+  .md\:text-\[17px\] {
+    font-size: 17px;
+  }
+
+  .md\:text-\[15px\] {
+    font-size: 15px;
   }
 
   .md\:\[grid-template-columns\:4fr_6fr\] {
@@ -3229,6 +3283,10 @@ video {
 
   .lg\:pt-40 {
     padding-top: 10rem;
+  }
+
+  .lg\:pt-0 {
+    padding-top: 0px;
   }
 
   .lg\:text-left {
