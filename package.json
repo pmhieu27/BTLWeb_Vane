@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tailwindcss -c config/tailwind.config.js -i src/css/input.css -o src/css/output.css --watch",
     "build": "tailwindcss -c config/tailwind.config.js -i src/css/input.css -o src/css/output.css --minify",
-    "start": "echo Server running at http://localhost:3005 && http-server . -p 3005 -c-1 --cors -s"
+    "start": "browser-sync start --server --port 3005 --files \"**/*.html,src/css/**/*.css,src/js/**/*.js\" --no-notify --no-inject-changes"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
   "type": "commonjs",
   "devDependencies": {
     "autoprefixer": "^10.5.0",
+    "browser-sync": "^3.0.4",
     "http-server": "^14.1.1",
     "postcss": "^8.5.15",
     "prettier-plugin-tailwindcss": "^0.8.0",

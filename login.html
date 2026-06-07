@@ -12,7 +12,7 @@
 <body class="bg-ivory text-charcoal font-sans opacity-0 transition-opacity duration-500">
 
   <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center"><div class="font-logo text-2xl tracking-[0.4em]">VANE</div></div>
- <div id="component-header"></div>
+  <div id="component-header"></div>
   <main>
     <section class="pt-20 md:pt-32 lg:pt-40 pb-10 bg-white border-b border-silver-light/50">
       <div class="px-3 md:px-3 lg:px-0 lg:max-w-5xl mx-auto">
@@ -22,32 +22,33 @@
         <p class="text-muted text-sm max-w-lg leading-relaxed">Trải nghiệm hoàn mỹ cùng VANE</p>
       </div>
     </section>
-    </section>
+    
     <section class="lg:max-w-5xl mx-auto rounded-xl py-5 md:py-8">
-            <!-- Sửa grid thành grid-cols-1 md:grid-cols-[4fr_6fr] để trên mobile không bị bóp méo form -->
-            <div class=" overflow-hidden grid grid-cols-1 md:grid-cols-2 md:[grid-template-columns:4fr_6fr] min-h-[400px] rounded-xl gap-2">
-          <!-- ẢNH -->
-        <div class="px-3 md:px-3 md:px-0 h-60 md:h-full relative">
-        <img
-          src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_collection_shoot_-_2026_-_collection_moderniste_-_boucles_d_oreilles_14682_-_yg_-_outfit_femme_-_1_1_mathieu_rainaud.webp"
-          alt="Đăng nhập"
-          class="w-full h-full object-cover"
-        >
+      <!-- Sửa grid thành grid-cols-1 md:grid-cols-[4fr_6fr] để trên mobile không bị bóp méo form -->
+      <div class="overflow-hidden grid grid-cols-1 md:[grid-template-columns:4fr_6fr] min-h-[400px] rounded-xl gap-2">
+        <!-- ẢNH -->
+        <div class="px-3 md:px-0 h-60 md:h-full relative">
+          <img
+            src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_collection_shoot_-_2026_-_collection_moderniste_-_boucles_d_oreilles_14682_-_yg_-_outfit_femme_-_1_1_mathieu_rainaud.webp"
+            alt="Đăng nhập"
+            class="w-full h-full object-cover"
+          >
         </div>
         <!-- FORM -->
-          <div class="bg-white p-8 md:p-10">
-            <h2 class="font-serif text-2xl text-primary mb-6">ĐĂNG NHẬP</h2>
-            <form  id="loginForm" class="space-y-5">
-              <div>
-                <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Số điện thoại</label>
-                <input id="loginPhone" type="tel" pattern="^\+?[0-9]{7,15}$" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
-              </div>
-              <div>
+        <div class="bg-white p-8 md:p-10 flex flex-col justify-center">
+          <h2 class="font-serif text-2xl text-primary mb-6">ĐĂNG NHẬP</h2>
+          <form id="loginForm" class="space-y-5">
+            <div>
+              <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Số điện thoại</label>
+              <input id="loginPhone" type="tel" pattern="^\+?[0-9]{7,15}$" required class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
+            </div>
+            <div>
               <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Mật Khẩu</label>
               <div class="relative w-full">
                 <input 
                   id="loginPassword" 
                   type="password" 
+                  required
                   class="w-full bg-ivory border border-silver-light pl-4 pr-12 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors"
                 >
                 <button type="button" id="toggleLoginPassword" class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer select-none focus:outline-none group">
@@ -61,17 +62,17 @@
                 </button>
               </div>
             </div>
-              <div class="flex items-center justify-between">
-                <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" class="accent-gold">
-                  <span class="font-ui text-[12px] text-charcoal">Ghi nhớ</span>
-                </label>
-                <a href="resetpw1.html" class="font-ui text-[12px] text-gold hover:text-black transition-colors">Quên mật khẩu?</a>
-              </div>
-              <button type="submit" class="btn-primary w-full justify-center cursor-pointer">Đăng Nhập</button>
-              <p class="font-ui text-[12px] italic tracking-wider text-charcoal block text-center"> Bạn chưa có tài khoản?<a href="signup.html" class="underline"> Tạo tài khoản ngay</a></p>
-            </form>
-          </div>
+            <div class="flex items-center justify-between">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" class="accent-gold">
+                <span class="font-ui text-[12px] text-charcoal">Ghi nhớ</span>
+              </label>
+              <a href="resetpw1.html" class="font-ui text-[12px] text-gold hover:text-black transition-colors">Quên mật khẩu?</a>
+            </div>
+            <button type="submit" class="btn-primary w-full justify-center cursor-pointer">Đăng Nhập</button>
+            <p class="font-ui text-[12px] italic tracking-wider text-charcoal block text-center"> Bạn chưa có tài khoản?<a href="signup.html" class="underline"> Tạo tài khoản ngay</a></p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -79,6 +80,7 @@
   <div id="component-footer"></div>
   <footer class="bg-primary"><div class="max-w-6xl mx-auto px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"><p class="font-ui text-[9px] text-white/20">© 2025 Vane Vietnam</p><div class="flex gap-6"><a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors">Bảo Mật</a><a href="#" class="font-ui text-[9px] text-white/20 hover:text-gold transition-colors">Điều Khoản</a></div></div></footer>
   <div id="component-cart-overlay"></div>
+  
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="src/js/app.js?v=8"></script>
   <script src="src/js/pages/auth.js?v=8"></script>

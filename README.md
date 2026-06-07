@@ -18,6 +18,15 @@ npm install
 
 ## Chạy trong quá trình phát triển
 
+Mở **2 terminal** và chạy song song:
+
+**Terminal 1** — Khởi động web server (tự động reload khi sửa file):
+```bash
+npm start
+```
+> Server chạy tại **http://localhost:3005** — tự động refresh browser khi bạn sửa file HTML/CSS/JS.
+
+**Terminal 2** — Tailwind CSS watch mode (tự rebuild CSS):
 ```bash
 npm run dev
 ```
@@ -46,8 +55,8 @@ Build minified CSS cho production.
 ├── account.html              # Đăng nhập / Đăng ký
 ├── wishlist.html             # Sản phẩm yêu thích
 ├── checkout.html             # Thanh toán
-├── tailwind.config.js        # Cấu hình Tailwind (fonts, colors, shadows...)
-├── postcss.config.js         # Cấu hình PostCSS
+├── config/
+│   └── tailwind.config.js    # Cấu hình Tailwind (fonts, colors, shadows...)
 └── src/
     ├── css/
     │   ├── input.css          # Entry point CSS (@tailwind directives + import base)

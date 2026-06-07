@@ -21,7 +21,7 @@ function isValidEmail(email) {
 }
 
 function isValidPhone(phone) {
-    const phoneRegex = /^\d{7,15}$/; // Chỉ chứa số, độ dài từ 10 đến 11 ký tự số
+    const phoneRegex = /^\d{7,15}$/; // Chỉ chứa số, độ dài từ 7 đến 15 ký tự số
     return phoneRegex.test(phone);
 }
 

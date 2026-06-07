@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="detail-meta-title">Chi tiết bài viết | Vane Vietnam</title>
+  <meta name="description" content="Khám phá hành trình di sản, câu chuyện chế tác và xu hướng trang sức cao cấp tại Vane Vietnam." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+  
+  <!-- GIẢI QUYẾT TRIỆT ĐỂ LỖI PHÔNG TIẾNG VIỆT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <!-- LINK LIÊN KẾT HỆ THỐNG CSS CHUẨN MỰC ĐỒNG BỘ -->
+  <link rel="stylesheet" href="src/css/base.css?v=7" />
+  <link rel="stylesheet" href="src/css/output.css?v=7" />
+  <link rel="stylesheet" href="src/css/custom.css?v=7" /> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="bg-white text-charcoal font-sans opacity-0 transition-opacity duration-500 antialiased">
+
+  <!-- LOADER BLOCK -->
+  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center">
+    <div class="font-logo text-2xl tracking-[0.4em]">VANE</div>
+  </div>
+
+  <!-- HEADER CỐ ĐỊNH (DYNAMIC GLOBAL INJECTED) -->
+  <div id="component-header"></div>
+
+  <main>
+
+<section class="pt-40 pb-8 bg-white">
+      <div class="max-w-6xl mx-auto px-8 flex flex-col items-start w-full">
+        <nav class="mb-6">
+          <ol class="flex items-center gap-2 font-ui text-[13px] tracking-wider text-muted">
+            <li><a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a></li>
+            <li class="text-silver">/</li>
+            <li><a href="news.html" class="hover:text-primary transition-colors font-semibold">Tin Tức</a></li>
+            <li class="text-silver">/</li>
+            <li id="detail-crumb" class="text-primary line-clamp-1">Chi tiết bài viết</li>
+          </ol>
+        </nav>
+        
+        <span id="detail-tag" class="font-ui text-[10px] uppercase tracking-[0.2em] text-gold font-semibold mb-3 block">Tạp chí</span>
+        <h1 id="detail-title" class="font-serif text-2xl sm:text-3xl md:text-5xl text-primary tracking-wide leading-tight mb-6">
+          Đang kết nối câu chuyện di sản...
+        </h1>
+        
+        <div class="flex items-center gap-4 border-t border-gray-100 pt-4 w-full font-ui text-[11px] text-muted tracking-wider">
+          <span><i class="fa-regular fa-user mr-1.5"></i>Bởi Ban biên tập Vane</span>
+          <span>•</span>
+          <span><i class="fa-regular fa-calendar mr-1.5"></i><span id="detail-date">--/--/----</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHẦN 2: ẢNH BANNER ĐẠI DIỆN ĐỘNG (Tỷ lệ khung hình 21:10 tạp chí cao cấp) -->
+    <section class="max-w-5xl mx-auto px-6 mb-12">
+      <div class="w-full aspect-[21/10] overflow-hidden bg-charcoal/5 border border-gray-100">
+        <img id="detail-main-img" src="" alt="" class="w-full h-full object-cover">
+      </div>
+    </section>
+
+    <!-- PHẦN 3: NỘI DUNG CHI TIẾT BÀI BÁO (Khóa khung đọc tối ưu thị giác) -->
+    <section class="bg-white pb-20 px-4 md:px-6">
+      <div class="max-w-3xl mx-auto">
+        
+        <div id="detail-content" class="detail-article-content text-justify space-y-6">
+          <!-- Văn bản chi tiết giàu định dạng sẽ tự động đổ ra tại đây -->
+        </div>
+
+        <!-- KHỐI CHIA SẺ MẠNG XÃ HỘI & ĐƯỜNG LINK TRỞ VỀ TRANG NEWS -->
+        <div class="flex items-center justify-between border-y border-gray-100 py-6 mt-12 font-ui text-xs w-full">
+
+    <!-- Bên trái -->
+    <a href="news.html"
+       class="text-gold hover:text-primary font-bold uppercase tracking-widest flex items-center gap-1.5 transition-colors">
+        <i class="fa-solid fa-arrow-left text-[9px]"></i>
+        Trở về tạp chí
+    </a>
+
+    <!-- Bên phải -->
+    <div class="flex items-center gap-3">
+        <span class="text-muted uppercase tracking-wider font-semibold">
+            Chia sẻ:
+        </span>
+
+        <a id="share-facebook" target="_blank"
+           class="w-8 h-8 rounded-full border border-charcoal/10 flex items-center justify-center text-muted hover:text-primary hover:border-charcoal transition-all">
+            <i class="fa-brands fa-facebook-f text-[11px]"></i>
+        </a>
+
+        <a id="share-pinterest" target="_blank"
+           class="w-8 h-8 rounded-full border border-charcoal/10 flex items-center justify-center text-muted hover:text-primary hover:border-charcoal transition-all">
+            <i class="fa-brands fa-pinterest-p text-[11px]"></i>
+        </a>
+
+        <button id="copy-link"
+                class="w-8 h-8 rounded-full border border-charcoal/10 flex items-center justify-center text-muted hover:text-primary hover:border-charcoal transition-all">
+            <i class="fa-solid fa-link text-[11px]"></i>
+        </button>
+    </div>
+</div>
+
+      <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const currentUrl = encodeURIComponent(window.location.href);
+          const pageTitle = encodeURIComponent(document.title);
+
+          // Facebook
+          document.getElementById("share-facebook").href =
+              `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+          // Pinterest
+          document.getElementById("share-pinterest").href =
+              `https://pinterest.com/pin/create/button/?url=${currentUrl}&description=${pageTitle}`;
+
+          // Copy link
+          document.getElementById("copy-link").addEventListener("click", async () => {
+              try {
+                  await navigator.clipboard.writeText(window.location.href);
+                  alert("Đã sao chép liên kết!");
+              } catch (err) {
+                  console.error(err);
+                  alert("Không thể sao chép liên kết.");
+              }
+          });
+      });
+      </script>
+    </section>
+
+    <!-- PHẦN 4: GỢI Ý BÀI VIẾT LIÊN QUAN ĐỘNG (Tự động liên kết mượt mà sang các bài khác) -->
+    <section class="bg-ivory py-16 px-6 border-t border-gray-100">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="font-serif text-2xl text-primary mb-8 text-center md:text-left tracking-wide">Bài viết liên quan</h2>
+        
+        <div id="related-posts-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Các thẻ bài viết liên quan kèm link động sẽ tự sinh ra ở đây -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER CỐ ĐỊNH (DYNAMIC GLOBAL INJECTED) -->
+  <div id="component-footer"></div>
+  <div id="component-cart-overlay"></div>
+
+  <!-- HỆ THỐNG SCRIPT VẬN HÀNH ĐỘNG CƠ ĐỔ DỮ LIỆU ĐỘNG -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="src/js/app.js?v=8"></script>
+  
+  <script>
+    $(document).ready(function() {
+      // Cơ sở dữ liệu 20 bài viết thực tế đồng bộ 100% theo file mẫu news.html của bạn
+      const articlesDatabase = {
+0: {
+          id: 0,
+          type: "promo",
+          tag: "Tin Khuyến Mãi",
+          title: "Độc bản mùa yêu: Đặc quyền quà tặng tinh tế dịp lễ kết hôn 2026",
+          date: "02/06/2026",
+          img: "https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_outfit_1_1_-_bague_move_uno_pav_e_05630_wg.webp",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Đón chào mùa chung đôi tràn ngập cảm hứng duy mỹ, Vane Vietnam trân trọng gửi tặng chương trình đặc quyền lớn nhất năm dành riêng cho ngày trọng đại của các cặp đôi.</p>
+            
+            <p>Mùa cưới năm 2026 chứng kiến sự lên ngôi mạnh mẽ của những giá trị Bespoke cá nhân hóa sâu sắc. Từ ngày 02/06 đến hết ngày 30/06/2026, Vane trân trọng gửi tới các cặp đôi đặc quyền <span class="highlight-badge">Ưu dẫn 10%</span> áp dụng trực tiếp cho toàn bộ các gói đặt thiết kế và chế tác nhẫn cưới Bespoke độc bản.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">1. Kiệt tác kim hoàn kết tinh từ lòng kiên nhẫn</h2>
+            <p>Tại xưởng chế tác trung tâm của Vane, một chiếc nhẫn cưới không bao giờ được tạo ra từ dây chuyền công nghiệp đại trà. Mỗi phôi vàng nguyên khối đều phải trải qua hàng chục giờ mài dũa, nung chảy và định hình hoàn toàn bằng đôi bàn tay của các nghệ nhân trưởng lão.</p>
+            
+            <div class="article-inner-img">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_packshot_-_bague_move_uno_pav_e_vue_3_05630_wg_1.webp" alt="Quy trình chế tác nhẫn cưới Bespoke tại Vane">
+              <span class="img-caption">Mỗi tạo tác nhẫn cưới Bespoke tại Vane đều trải qua hơn 80 giờ mài dũa thủ công nghiêm ngặt trước khi bàn giao.</span>
+            </div>
+
+            <p>Bên cạnh mức chiết khấu <span class="highlight-text">Đặc Quyền 10%</span>, Vane Vietnam còn dành tặng một chương trình nghệ thuật cá nhân hóa đi kèm: <span class="highlight-badge">Miễn Phí 100%</span> chi phí chạm khắc thủ công các ký tự mật mã, ngày kỷ niệm lên mặt trong của lòng nhẫn.</p>
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Tín vật trăm năm của một tình yêu chính trực xứng đáng nhận được sự nâng niu và bảo bọc trong những tạo tác duy mỹ tuyệt đối."</blockquote>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">2. Quà tặng da thuộc di sản – Nâng niu giá trị vĩnh cửu</h2>
+            <p>Để nối dài trải nghiệm thượng lưu, mọi đơn hàng hoàn thiện trong tháng 6 này sẽ nhận kèm một món quà tri kỷ: Khay đựng trang sức tư gia cao cấp chế tác từ chất liệu da thuộc Ý nguyên tấm.</p>
+
+            <div class="article-inner-img">
+              <img src="https://flexhouse.vn/wp-content/uploads/2023/05/YS07-2-1-800x800.jpg" alt="Khay trang sức da thuộc cao cấp tặng kèm">
+              <span class="img-caption">Khay da thuộc cao cấp mang sắc màu Ivory đồng điệu, một mảnh ghép hoàn hảo cho không gian tư gia của quý khách.</span>
+            </div>
+
+            <p>Chương trình tri ân mùa kết hôn với mức <span class="highlight-text">Ưu đãi 10% và Gift Set Da Thuộc</span> sẽ giới hạn lượt tiếp đón để đảm bảo tính chu đáo tối đa. Quý khách có thể liên hệ đặt lịch hẹn trước với các đại sứ không gian của Vane.</p>
+          `
+        },
+
+       1: {
+          id: 1, 
+          type: "promo", 
+          tag: "Tin Khuyến Mãi",
+          title: "Private Sales: Chương trình tri ân đặc quyền dành cho khách hàng thân thiết", 
+          date: "15/05/2026", 
+          img: "https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_outfit_1_1_-_bracelet_baby_move_classique_pav_04325_-_collier_baby_move_classique_pav_wg_1.webp",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Chương trình Private Sales kín đáo – lời tri ân đặc biệt dành riêng cho những tri kỷ đã luôn đồng hành và thấu hiểu giá trị di sản của Vane Vietnam.</p>
+            
+            <p>Để gửi lời cảm ơn sâu sắc đến quý thượng khách, Vane trân trọng tổ chức tuần lễ trải nghiệm không gian đóng Private Sales. Đây là dịp để quý khách sở hữu những tạo tác kim hoàn thuộc bộ sưu tập di sản cổ điển với mức đặc quyền <span class="highlight-badge">Ưu đãi lên tới 15%</span>.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Không gian thưởng lãm xa xỉ thầm lặng</h2>
+            <p>Sự kiện được thiết kế riêng tư tại showroom, nơi quý khách có thể thoải mái chiêm ngưỡng và thử các dòng trang sức cao cấp nhất mà không bị làm phiền. Mỗi món quà tri ân đều được các nghệ nhân chọn lọc kỹ lưỡng, đảm bảo tính thẩm mỹ và sự sang trọng điềm đạm đúng tinh thần thương hiệu.</p>
+
+            <div class="article-inner-img my-8">
+              <img src="https://i.pinimg.com/736x/c6/d2/59/c6d2594ac075476a4816ea769bd554f6.jpg" alt="Không gian Private Sales VIP">
+              <span class="img-caption">Không gian tiếp đón riêng tư mang đậm tinh thần nghệ thuật Indochine trầm mặc và quý phái.</span>
+            </div>
+
+            <p>Đặc biệt, trong khuôn khổ chương trình, quý khách sẽ nhận thêm ưu đãi <span class="highlight-text">Giảm 15% Toàn Bộ Tạo Tác</span> sẵn có. Đây là cơ hội hiếm hoi để sưu tầm những món trang sức di sản vốn thường xuyên trong tình trạng cháy hàng hoặc chỉ được sản xuất với số lượng giới hạn.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Private Sales không đơn thuần là mua sắm, đó là sự tôn vinh mối giao hảo giữa những người cùng yêu cái đẹp bền vững."</blockquote>
+            
+            <p>Sự kiện chỉ áp dụng cho khách hàng sở hữu thư mời định danh từ ban điều hành. Hãy kiểm tra hộp thư hoặc liên hệ trực tiếp với đại sứ tư vấn của bạn để nhận mã xác nhận tham dự.</p>
+          `
+        },
+
+        2: {
+          id: 2, 
+          type: "promo", 
+          tag: "Tin Khuyến Mãi",
+          title: "The Art of Gifting: Chạm khắc ký tự độc bản miễn phí tri ân ngày của Mẹ",
+          date: "05/05/2026", 
+          img: "https://www.messika.com/media/opti_image/webp/catalog/product/cache/52f8d614d5bbd2d588afa5e471fce85a/m/e/messika_paris_-_collier_messika_fiery_13239_p.webp",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Món quà thiêng liêng lưu giữ ký ức, kính dâng những người Mẹ tôn quý bằng ngôn ngữ của kim hoàn di sản.</p>
+            
+            <p>Tôn vinh tình mẫu tử thiêng liêng trong tháng 5, Vane Vietnam trân trọng ra mắt chương trình "The Art of Gifting". Đây là dịp để quý khách gửi trao yêu thương qua những tạo tác độc bản, với đặc quyền <span class="highlight-badge">Miễn Phí 100%</span> chi phí chạm khắc thủ công các ký tự chữ ký, ngày kỷ niệm hoặc thông điệp gia đình lên mặt trong của mọi dây chuyền vàng cao cấp.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Nét chạm khắc tinh hoa từ đôi tay nghệ nhân</h2>
+            <p>Mỗi món trang sức dành tặng Mẹ không chỉ là một món quà, đó là một kỷ vật lưu giữ thời gian. Nghệ nhân của Vane thực hiện việc chạm khắc thủ công với sự tập trung cao độ, đảm bảo từng nét chữ đều mảnh mai nhưng sắc sảo, bền bỉ cùng năm tháng.</p>
+
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_packshot_-_bague_move_noa_cisel_e_gm_vue_3_14499_pg.webp" alt="Nghệ nhân chạm khắc thủ công">
+              <span class="img-caption">Quy trình khắc thủ công đòi hỏi sự tỉ mỉ để không ảnh hưởng đến bề mặt vàng nguyên khối.</span>
+            </div>
+
+            <p>Chương trình tài trợ <span class="highlight-text">Miễn Phí Toàn Bộ Chi Phí Khắc Chữ</span> là lời tri ân chân thành mà Vane muốn cùng quý khách viết nên câu chuyện tình thân vĩnh cửu. Dù đó là một lời nhắn nhủ yêu thương, hay ngày sinh nhật của Mẹ, chúng tôi đều hiện thực hóa nó thành một tác phẩm nghệ thuật có linh hồn.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Có những lời yêu thương khó nói thành lời, hãy để nghệ thuật kim hoàn thay bạn thì thầm cùng Mẹ."</blockquote>
+            
+            <p>Đây là cơ hội để biến món quà thông thường thành một báu vật độc bản. Quý khách vui lòng ghé thăm các không gian trải nghiệm của Vane để được tư vấn thiết kế thông điệp ý nghĩa nhất trước khi nghệ nhân bắt đầu thực hiện.</p>
+          `
+        },
+
+        3: {
+          id: 3, 
+          type: "promo", 
+          tag: "Tin Khuyến Mãi",
+          title: "Ưu đãi thẻ đặc quyền di sản khi sở hữu BST Vàng Trắng Đông Dương", 
+          date: "20/04/2026", 
+          img: "https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_outfit_1_1_-_mono_boucles_d_oreille_clip_move_uno_pampille_pav_11162_-_mono_boucles_d_oreille_puce_move_uno_12957_wg.webp",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Tôn vinh những giá trị văn hóa bất hủ qua hơi thở của kim hoàn hiện đại, bộ sưu tập Vàng Trắng Đông Dương là lời tri ân gửi tới những tâm hồn trân quý di sản.</p>
+            
+            <p>Để đánh dấu cột mốc kỷ niệm 20 năm hình thành và phát triển, Vane Vietnam trân trọng mang đến chương trình đặc quyền dành riêng cho chủ nhân sở hữu các tác phẩm thuộc BST Vàng Trắng Đông Dương. Quý khách hàng sẽ được nâng hạng trực tiếp lên thẻ VIP Vane Heritage, mở ra thế giới đặc quyền đẳng cấp với gói bảo dưỡng và xi mạ bạch kim <span class="highlight-badge">Miễn Phí Trọn Đời</span>.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Vàng trắng 18K – Ánh sáng vĩnh cửu của thời gian</h2>
+            <p>Chất liệu vàng trắng trong bộ sưu tập Đông Dương được tinh chế từ những kim loại quý hiếm, mang sắc trắng lạnh sang trọng và độ bền vượt trội. Chúng tôi hiểu rằng, những tạo tác mang giá trị lịch sử cần được bảo quản bằng kỹ thuật chuyên sâu để giữ trọn vẻ đẹp như ngày đầu.</p>
+
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_packshot_-_boucles_d_oreilles_puces_move_uno_vue_4_12305_wg_1.webp" alt="BST Vàng Trắng Đông Dương">
+              <span class="img-caption">Những thiết kế trong BST Đông Dương là sự giao thoa hoàn hảo giữa nét cổ điển Á Đông và sự sắc sảo của hình khối đương đại.</span>
+            </div>
+
+            <p>Đặc quyền <span class="highlight-text">Miễn Phí Xi Mạ Bạch Kim Vô Điều Kiện</span> không chỉ là một dịch vụ, mà là cam kết của Vane trong việc duy trì vẻ đẹp nguyên bản của tín vật. Dù sau bao nhiêu năm tháng, tạo tác của quý khách vẫn sẽ luôn sáng bóng, phản chiếu ánh hào quang của những giá trị trường tồn.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Chúng tôi bảo tồn di sản bằng cả đôi bàn tay, để những câu chuyện Đông Dương tiếp tục tỏa sáng cùng quý chủ nhân."</blockquote>
+            
+            <p>Quý khách vui lòng mang theo thẻ chứng nhận di sản khi đến bất kỳ showroom nào của Vane để kích hoạt gói đặc quyền này. Đây là cơ hội để quý khách an tâm tận hưởng vẻ đẹp của bộ sưu tập mà không phải lo lắng về những tác động của thời gian lên bề mặt kim loại quý.</p>
+          `
+        },
+
+        4: {
+          id: 4, 
+          type: "promo", 
+          tag: "Tin Khuyến Mãi",
+          title: "Đoán mùa viễn xứ: Quà tặng thẻ hành lý da và hộp trang sức du lịch", 
+          date: "08/04/2026", 
+          img: "https://i.pinimg.com/736x/cf/7a/19/cf7a1931971b49676c3773ec7a99c095.jpg",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Chào đón mùa hè bằng những chuyến viễn du đầy kiêu hãnh, Vane Vietnam mang đến món quà tri kỷ đồng hành cùng mọi hành trình của quý thượng khách.</p>
+            
+            <p>Mùa hạ là thời điểm lý tưởng để bắt đầu những chuyến đi xa. Để mỗi chuyến hành trình của quý khách trở nên hoàn hảo và tinh tế hơn, Vane trân trọng dành tặng bộ quà tặng du lịch đặc quyền trị giá <span class="highlight-badge">4.000.000 VNĐ</span> cho mọi hóa đơn sở hữu trang sức đính đá quý đạt hộ chiếu GIA quốc tế.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Đồng hành cùng sự an yên trên mọi nẻo đường</h2>
+            <p>Bộ quà tặng bao gồm một thẻ hành lý bằng da thuộc cao cấp và một hộp bảo quản trang sức du lịch mini được thiết kế riêng biệt. Với lớp lót nhung mịn và kết cấu chống va đập, hộp trang sức này đảm bảo những tạo tác quý giá của quý khách luôn được giữ gìn vẹn nguyên dù ở bất cứ đâu trên thế giới.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.cartier.com/on/demandware.static/-/Library-Sites-CartierSharedLibrary-BGTJ/default/dwe0ee5d26/homepage/2026/June/W1/04_FULLWIDTH_DESKTOP_JEWELRY_2048x864.jpg" alt="Bộ quà tặng du lịch da thuộc cao cấp">
+              <span class="img-caption">Sự kết hợp tinh tế giữa chất liệu da thuộc và nghệ thuật kim hoàn trong từng món phụ kiện du lịch.</span>
+            </div>
+
+            <p>Đặc quyền <span class="highlight-text">Tặng Bộ Gift Set Du Lịch 4 Triệu Đồng</span> được áp dụng khi quý khách sở hữu các viên đá quý hoặc trang sức có giấy kiểm định uy tín từ GIA (Viện Ngọc học Hoa Kỳ). Đây không chỉ là món quà, mà là lời khẳng định về đẳng cấp của người sở hữu.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Hành trang của quý khách cũng quan trọng như cách quý khách chọn lựa những viên đá quý đồng hành cùng mình."</blockquote>
+            
+            <p>Chương trình là lời chúc cho những hành trình tràn đầy cảm hứng. Hãy để Vane đồng hành cùng quý khách tạo nên những ký ức rực rỡ nhất trong mùa hè này. Liên hệ với đại sứ thương hiệu để kiểm tra điều kiện áp dụng và sở hữu ngay bộ quà tặng độc quyền này.</p>
+          `
+        },
+
+        5: {
+          id: 5,
+          type: "blog",
+          tag: "Blog Trang Sức",
+          title: "Như một buổi hẹn đầu: Tìm lại cảm giác duy mỹ dịu dàng cùng Vane",
+          date: "12/05/2026",
+          img: "https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_outfit_1_1_-_bague_move_link_multi_12078_pg.webp",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Lấy cảm hứng từ những rung động tinh khôi của buổi hẹn đầu, bản thiết kế mới nhất của Vane mở ra không gian dịu dàng, nơi vẻ đẹp được định nghĩa lại bằng sự tối giản tuyệt đối.</p>
+            
+            <p>Trang sức tại Vane không chỉ đơn thuần là những phụ kiện để tô điểm vẻ bề ngoài; đó là ngôn ngữ của tâm hồn, là những câu chuyện được kể bằng kim loại quý và đá tự nhiên. Bản phác thảo lần này lật mở những trăn trở của đội ngũ thiết kế trong việc tìm kiếm sự thanh mảnh tối giản – nơi mỗi ổ đá được tính toán để lay động mọi ánh nhìn bằng sự điềm tĩnh và nhẹ nhàng.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Sapphire – Bản tình ca từ đại dương xanh</h2>
+            <p>Tâm điểm của bộ thiết kế là những viên Sapphire được tuyển chọn kỹ lưỡng. Chúng tôi tin rằng mỗi viên đá đều mang một linh hồn riêng, và nhiệm vụ của nghệ nhân là tạo ra một "khung cửa" hoàn hảo để viên đá đó có thể khoe trọn sắc xanh huyền bí.</p>
+            
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_packshot_-_bague_move_link_multi_vue_2_12078_pg.webp" alt="Hoa tai Sapphire tinh tế">
+              <span class="img-caption">Những đường nét chế tác thanh mảnh tôn vinh vẻ đẹp tự nhiên của Sapphire xanh biếc.</span>
+            </div>
+
+            <p>Với độ trong suốt đạt mức <span class="highlight-text">Tinh Khiết Tuyệt Đối</span>, những đôi hoa tai này không cần sự ồn ào của kim cương để trở nên nổi bật. Sự kết hợp giữa sắc vàng 18K và vẻ dịu dàng của Sapphire mang đến cho quý cô diện mạo của một quý cô thanh lịch, đài các nhưng vẫn đầy tự nhiên.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Vẻ đẹp thực sự không nằm ở sự phô trương, mà nằm ở cảm giác bình yên khi nhìn thấy chính mình trong từng tạo tác."</blockquote>
+            
+            <p>Đừng ngần ngại tìm lại bản ngã của chính mình thông qua những thiết kế mang hơi thở thanh xuân này. Tại Vane, chúng tôi trân trọng mỗi rung động nhỏ nhất và biến chúng thành những kỷ vật đi cùng năm tháng. Hãy đến và trải nghiệm cảm giác <span class="highlight-badge">Duy Mỹ Tinh Tế</span> cùng chúng tôi tại không gian riêng tư của Vane Vietnam.</p>
+          `
+        },
+
+        6: {
+          id: 6,
+          type: "blog",
+          tag: "Blog Trang Sức",
+          title: "Hiểu về giác cắt Emerald: Đỉnh cao của sự trung thực trong thế giới kim cương",
+          date: "28/04/2026",
+          img: "https://www.messika.com/media/opti_image/webp/catalog/product/cache/52f8d614d5bbd2d588afa5e471fce85a/m/e/messika_paris_-_bague_d-vibes_pm_12990_p_1.webp",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Trong thế giới kim cương muôn hình vạn trạng, giác cắt Emerald (bậc thang) được coi là "bài kiểm tra" khắt khe nhất đối với sự thuần khiết của viên đá.</p>
+            
+            <p>Không ồn ã phản chiếu ánh sáng lấp lánh như giác cắt tròn Round Brilliant, viên kim cương cắt kiểu Emerald (hình bậc thang) tựa một mặt hồ phẳng lặng, khoe trọn vẹn độ trong suốt tinh khiết nguyên bản. Đây là sự lựa chọn dành cho những tâm hồn sở hữu cốt cách chính trực, ưu tiên sự trung thực thay vì những ánh hào quang rực rỡ có phần che đậy.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Kỹ nghệ hình học đỉnh cao</h2>
+            <p>Tại Vane, chúng tôi chỉ lựa chọn những viên kim cương có độ sạch từ <span class="highlight-badge">VVS1 trở lên</span> cho các thiết kế Emerald. Bởi với giác cắt này, mọi tì vết nhỏ nhất nếu có đều bị phơi bày dưới ánh sáng. Việc chế tác đòi hỏi nghệ nhân phải tính toán tỷ lệ các mặt bậc thang (facets) cực kỳ chính xác, tạo nên hiệu ứng chiều sâu vô tận đầy mê hoặc.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika-bague-diamant-or-rose-d-vibes-pm-12990-vue-1.webp" alt="Giác cắt kim cương Emerald">
+              <span class="img-caption">Những mặt cắt bậc thang xếp tầng tạo nên vẻ đẹp sang trọng, cổ điển và đầy quyền uy.</span>
+            </div>
+
+            <p>Sự tinh tế của Emerald nằm ở cách nó tán xạ ánh sáng theo từng lớp một, tạo nên nét đẹp quý phái, đài các không lẫn vào đâu được. Khi sở hữu một tác phẩm Emerald, quý khách không chỉ sở hữu một viên đá quý, mà là sở hữu <span class="highlight-text">Đỉnh Cao Của Sự Trung Thực</span> trong kỹ nghệ chế tác kim cương.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Emerald không cần lên tiếng để được chú ý, sự tĩnh lặng và trong suốt của nó đã đủ để định nghĩa giá trị vĩnh cửu."</blockquote>
+            
+            <p>Nếu quý khách đang tìm kiếm một thiết kế khẳng định cá tính độc bản và tư duy thẩm mỹ khác biệt, bộ sưu tập Emerald tại Vane chính là đích đến cuối cùng. Hãy đến showroom để chiêm ngưỡng tận mắt sự kỳ diệu của ánh sáng dưới từng tầng cắt bậc thang.</p>
+          `
+        },
+
+        7: {
+          id: 7, 
+          type: "blog", 
+          tag: "Blog Trang Sức",
+          title: "Xu hướng phối trang sức đa tầng (Layering) theo phong cách Xa xỉ thầm lặng", 
+          date: "15/04/2026", 
+          img: "https://www.messika.com/media/opti_image/webp/catalog/product/cache/52f8d614d5bbd2d588afa5e471fce85a/m/e/messika_-_outfit_1_1_-_collier_move_uno_2_rangs_08852_pg.webp",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Nghệ thuật phối trang sức đa tầng (Layering) không đơn thuần là đeo nhiều món trang sức cùng lúc; đó là một bản hòa tấu nhịp điệu giữa ánh sáng, chất liệu và phom dáng.</p>
+            
+            <p>Trong kỷ nguyên của "Quiet Luxury" (Xa xỉ thầm lặng), vẻ đẹp không còn nằm ở sự phô trương ồn ào mà trú ngụ trong sự tinh tế của cách phối hợp. Bí quyết để làm chủ nghệ thuật này chính là việc kết hợp các sợi dây chuyền thanh mảnh với nhiều sắc độ vàng <span class="highlight-badge">18K</span> khác nhau, tạo nên một tổng thể nhã nhặn, sang trọng nhưng vẫn đầy lôi cuốn.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Nguyên tắc "Tỷ lệ vàng" trong Layering</h2>
+            <p>Để tránh sự rườm rà, quý cô nên tuân thủ quy tắc về khoảng cách. Một sợi dây chuyền choker ôm sát kết hợp cùng một sợi dây mảnh có mặt đá tạo điểm nhấn ở khoảng cách <span class="highlight-text">2cm đến 3cm</span> là tỷ lệ lý tưởng để kéo dài thanh cổ kiêu sa, tạo hiệu ứng thị giác hài hòa nhất.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_packshot_-_collier_2_rangs_move_uno_vue_3_08852_pg_1.webp" alt="Phối trang sức đa tầng tinh tế">
+              <span class="img-caption">Sự hài hòa giữa các sắc độ vàng khác nhau tạo nên bản phối trang sức cá tính mà không kém phần sang trọng.</span>
+            </div>
+
+            <p>Sự tinh tế trong phong cách "Xa xỉ thầm lặng" còn nằm ở chỗ lựa chọn những thiết kế có chi tiết nhỏ nhưng sắc nét. Việc phối hợp một sợi dây chuyền dạng mắt xích mảnh cùng một sợi dây có đính đá quý điểm xuyết sẽ tạo nên sự chuyển động duyên dáng theo từng nhịp bước của quý chủ nhân.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Layering là cách quý khách kể câu chuyện cá nhân hóa thông qua những mảnh ghép trang sức đầy tinh tế."</blockquote>
+            
+            <p>Hãy tự tin thử nghiệm những tổ hợp trang sức riêng biệt tại không gian của Vane. Với sự tư vấn từ các chuyên gia phong cách, quý khách sẽ dễ dàng tìm thấy công thức phối đa tầng phù hợp với sắc da và trang phục thường ngày của mình, khẳng định đẳng cấp <span class="highlight-badge">Tinh Tế Độc Bản</span>.</p>
+          `
+        },
+
+        8: {
+          id: 8, 
+          type: "blog", 
+          tag: "Blog Trang Sức",
+          title: "Triết lý 'Chế tác chậm' – Nơi thời gian kết tinh thành linh hồn tạo tác", 
+          date: "03/04/2026", 
+          img: "https://www.messika.com/media-cms/messika-midnight-sun-2025-video-poster-1440x807.jpg?2025-07-23T21:14:45.338Z",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Giữa kỷ nguyên công nghiệp tăng tốc, Vane Vietnam vẫn kiên định lựa chọn con đường "Chế tác chậm" – nơi thời gian không còn là áp lực, mà trở thành nguyên liệu quý giá nhất để tạo nên linh hồn cho từng tạo tác.</p>
+            
+            <p>Tại xưởng kim hoàn của Vane, chúng tôi luôn tự vấn: Tại sao nghệ nhân trưởng vẫn kiên nhẫn dành hơn <span class="highlight-badge">100 Giờ</span> thủ công chỉ để mài dũa những mối nối ổ đá khuất tầm mắt dưới đáy ổ kim cương di sản? Câu trả lời không nằm ở sự phô diễn kỹ thuật, mà nằm ở niềm tin rằng sự hoàn mỹ đích thực phải khởi nguồn từ những chi tiết nhỏ nhất mà chỉ người nghệ nhân mới thấu hiểu.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Sự xa xỉ ẩn giấu sau những chi tiết vô hình</h2>
+            <p>Triết lý "Chế tác chậm" (Slow Craftsmanship) chính là nền tảng cốt lõi giúp Vane giữ vững giá trị độc bản. Chúng tôi từ chối sự can thiệp thô bạo của máy móc hàng loạt để bảo toàn sự sống động cho từng khối kim loại quý. Mỗi đường gọt giũa đều là một nốt trầm trong bản hòa tấu nghệ thuật, đòi hỏi sự tập trung tối thượng.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80" alt="Nghệ nhân tập trung chế tác thủ công">
+              <span class="img-caption">Sự kiên nhẫn và lòng tận tụy chính là "chất xúc tác" để kim loại quý hóa thân thành linh hồn nghệ thuật.</span>
+            </div>
+
+            <p>Việc dành hàng trăm giờ lao động cho những góc khuất không người nhìn thấy chính là cách chúng tôi khẳng định cam kết về sự chính trực. Khi một vị khách sở hữu món trang sức từ Vane, họ không chỉ mua một vật phẩm; họ đang sở hữu một phần <span class="highlight-text">Di Sản Chế Tác Trường Tồn</span> được kết tinh qua những đêm trắng miệt mài.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Chậm lại để hoàn hảo hơn – đó là cách chúng tôi tôn trọng nghệ thuật và trân trọng niềm tin của quý khách hàng."</blockquote>
+            
+            <p>Trong thế giới hiện đại đầy rẫy sự sao chép, Vane Vietnam chọn cách đi riêng. Mỗi tác phẩm khi hoàn thiện không chỉ mang vẻ đẹp lấp lánh bên ngoài mà còn ẩn chứa chiều sâu văn hóa và sự trân trọng tuyệt đối dành cho kỹ nghệ kim hoàn di sản.</p>
+          `
+        },
+
+        9: {
+          id: 9, 
+          type: "blog", 
+          tag: "Blog Trang Sức",
+          title: "Cẩm nang phân biệt các sắc độ Vàng: Rose Gold, Yellow Gold và White Gold", 
+          date: "19/03/2026", 
+          img: "https://www.messika.com/media/opti_image/webp/catalog/product/cache/52f8d614d5bbd2d588afa5e471fce85a/m/e/messika_-_outfit_1_1_-_bracelet_bangle_move_romane_06514_wg.webp",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Sắc độ của vàng không chỉ là sự lựa chọn về thẩm mỹ, mà là nghệ thuật cân bằng giữa tông da và phong cách cá nhân của mỗi quý chủ nhân.</p>
+            
+            <p>Trong thế giới kim hoàn tại Vane, tất cả các tác phẩm đều tuân thủ hàm lượng vàng <span class="highlight-badge">75%</span> nguyên khối chuẩn quốc tế (Vàng 18K). Sự khác biệt về sắc độ như Rose Gold (Vàng hồng), Yellow Gold (Vàng vàng) hay White Gold (Vàng trắng) đến từ tỷ lệ các loại hợp kim quý được phối trộn cùng vàng nguyên chất trong quá trình tinh luyện.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Ba sắc độ - Ba câu chuyện riêng biệt</h2>
+            <p>Hiểu về bản chất của hợp kim giúp quý khách dễ dàng nhận diện đâu là "người bạn đồng hành" tôn vinh làn da của mình tốt nhất:</p>
+            <ul class="list-disc pl-6 space-y-2 text-primary/90">
+              <li><strong>Yellow Gold:</strong> Sắc vàng truyền thống, tôn vinh nét vương giả và ấm áp. Đây là lựa chọn hoàn hảo cho những tông da ấm hoặc những ai ưa chuộng phong cách cổ điển.</li>
+              <li><strong>White Gold:</strong> Sắc trắng lạnh, mang lại vẻ đẹp hiện đại, thanh thoát và kiêu kỳ. Rất phù hợp với làn da trắng sáng hoặc các thiết kế đính đá quý.</li>
+              <li><strong>Rose Gold:</strong> Sắc hồng lãng mạn, mang đến vẻ ngoài tươi mới, trẻ trung và đặc biệt tôn da, phù hợp với hầu hết các tông da khác nhau.</li>
+            </ul>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/_/m/_messika_paris_-_bracelet_bangle_move_romane_fulll_pav_13914_p.webp" alt="Các sắc độ vàng 18K tại Vane">
+              <span class="img-caption">Sự hài hòa giữa ba sắc độ vàng tạo nên bảng màu đa dạng, đáp ứng mọi gu thẩm mỹ tinh tế nhất.</span>
+            </div>
+
+            <p>Việc thấu hiểu tông da tự nhiên thông qua sắc độ ánh kim không chỉ giúp món trang sức trở thành điểm nhấn, mà còn là cách để quý khách khẳng định <span class="highlight-text">Thần Thái Quý Phái Nguyên Bản</span> của chính mình.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Trang sức không chỉ nằm trên da, nó cộng hưởng cùng làn da để viết nên câu chuyện của sự sang trọng."</blockquote>
+            
+            <p>Tại Vane Vietnam, các chuyên gia của chúng tôi luôn sẵn sàng hỗ trợ quý khách đo lường tông da và thử nghiệm các sắc độ ánh kim khác nhau. Hãy ghé thăm không gian tư gia của chúng tôi để tìm thấy thiết kế <span class="highlight-badge">Đồng Điệu Tuyệt Đối</span> với bản ngã cá nhân của quý khách.</p>
+          `
+        },
+
+        10: {
+          id: 10,
+          type: "press",
+          tag: "Báo Chí Nói Gì Về Chúng Tôi",
+          title: "Tạp chí Vogue Vietnam: 'Vane Vietnam và định nghĩa mới về Quiet Luxury nội địa'",
+          date: "25/05/2026",
+          img: "https://i.pinimg.com/736x/77/ec/02/77ec0290b87e01b0a77cd389f25ec76e.jpg",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Tạp chí thời trang danh giá Vogue Vietnam vừa có bài viết trang trọng, tôn vinh tầm nhìn và định nghĩa mới về khái niệm "Quiet Luxury" mà Vane Vietnam đang theo đuổi.</p>
+            
+            <p>Trong chuyên đề đặc biệt về xu hướng kim hoàn cao cấp, Vogue đã dành những dòng viết đầy trân trọng ca ngợi tư duy thiết kế của Vane. Theo Vogue, thương hiệu đã xuất sắc trong việc gìn giữ các kỹ nghệ thủ công chạm vàng của nghệ nhân cổ xưa, hòa quyện uyển chuyển vào nhịp thở của hình khối đương đại Tây Phương, từ đó định hình phong cách <span class="highlight-badge">Xa Xỉ Thầm Lặng</span> thực thụ trên bản đồ trang sức nội địa.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Tầm nhìn dẫn dắt xu hướng trang sức di sản</h2>
+            <p>Vogue đặc biệt nhấn mạnh vào sự kiên định của Vane trong việc sử dụng vàng nguyên khối chuẩn <span class="highlight-badge">75%</span> và kim cương đạt chuẩn GIA. Sự công nhận từ Vogue không chỉ là minh chứng cho chất lượng sản phẩm, mà còn khẳng định vị thế của Vane như một lá cờ đầu trong việc hiện đại hóa các giá trị di sản.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_packshot_-_bague_move_link_multi_vue_2_12078_pg.webp" alt="Vane Vietnam xuất hiện trên Vogue">
+              <span class="img-caption">Trang sức của Vane được Vogue đánh giá cao bởi sự tinh tế, bền vững và đầy chiều sâu nghệ thuật.</span>
+            </div>
+
+            <p>Bài viết của Vogue kết luận rằng, sự thành công của Vane Vietnam không đến từ sự ồn ào truyền thông, mà đến từ sự <span class="highlight-text">Tận Tâm Tuyệt Đối</span> trong từng đường nét chạm khắc. Đây là định nghĩa mới về sự sang trọng: đẳng cấp không nằm ở logo, mà nằm ở kỹ thuật chế tác bậc thầy và tư duy thẩm mỹ trường tồn.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Vane Vietnam không chỉ bán trang sức, họ đang bán những tác phẩm nghệ thuật mang hơi thở của thời đại và tinh hoa của di sản."</blockquote>
+            
+            <p>Cảm ơn tạp chí Vogue Vietnam đã dành sự ưu ái và những lời đánh giá công tâm cho hành trình duy mỹ của chúng tôi. Chúng tôi tự hào khi được tiếp tục đồng hành cùng quý thượng khách trên con đường khẳng định giá trị <span class="highlight-text">Di Sản Đương Đại</span>.</p>
+          `
+        },
+
+        11: {
+          id: 11,
+          type: "press",
+          tag: "Báo Chí Nói Gì Về Chúng Tôi",
+          title: "Báo VnExpress: 'Hành trình hai thập kỷ lặng lẽ kiến tạo di sản trang sức cao cấp'",
+          date: "10/05/2026",
+          img: "https://i.pinimg.com/736x/b4/24/23/b424231df753947986f4a4c3a98c3e85.jpg",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">VnExpress vừa đăng tải bài viết nhìn lại chặng đường 20 năm phát triển bền bỉ, ghi dấu ấn của một thương hiệu trang sức nội địa chọn lối đi riêng: âm thầm kiến tạo di sản.</p>
+            
+            <p>Bài báo ghi chép chân thực về chặng đường từ những ngày đầu nhen nhóm ý niệm của nhóm sinh viên yêu nghệ thuật năm 2005 đến vị thế một thương hiệu trang sức di sản đầy điềm đạm, chính trực vào năm 2026. VnExpress khẳng định, Vane Vietnam đã chọn cách đi khó – không chạy theo xu hướng nhất thời mà kiên trì phục hồi các kỹ nghệ kim hoàn tinh xảo – để khẳng định giá trị <span class="highlight-badge">Di Sản Trường Tồn</span>.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Từ niềm đam mê sinh viên đến biểu tượng kim hoàn</h2>
+            <p>Hành trình hai thập kỷ của Vane là minh chứng cho thấy sự tử tế trong nghề nghiệp sẽ luôn được đền đáp. Từ một xưởng chế tác nhỏ, đến nay Vane đã sở hữu hệ thống không gian tư gia cao cấp, nơi mỗi tác phẩm ra đời đều là kết tinh của hàng ngàn giờ lao động nghiêm túc và niềm tự hào dân tộc.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_packshot_-_bague_move_noa_cisel_e_gm_vue_3_14499_pg.webp" alt="VnExpress viết về Vane Vietnam">
+              <span class="img-caption">Những tư liệu quý giá về chặng đường 20 năm phát triển bền bỉ của Vane Vietnam.</span>
+            </div>
+
+            <p>VnExpress nhấn mạnh, sự thành công của thương hiệu nằm ở việc giữ gìn được sự <span class="highlight-text">Chính Trực Trong Chế Tác</span> – cam kết sử dụng 100% nguyên liệu quý đạt chuẩn và tuyệt đối không thỏa hiệp với chất lượng. Chính triết lý này đã giúp Vane chiếm trọn niềm tin của những khách hàng khó tính nhất.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Vane Vietnam là một ví dụ điển hình về việc xây dựng thương hiệu dựa trên nền tảng tri thức, kỹ nghệ và sự tận tụy bền bỉ."</blockquote>
+            
+            <p>Cảm ơn VnExpress đã ghi nhận những nỗ lực thầm lặng của đội ngũ Vane. Chúng tôi xem bài viết này là một cột mốc quan trọng, nhắc nhở về sứ mệnh <span class="highlight-badge">Kiến Tạo Giá Trị</span> mà thương hiệu sẽ tiếp tục theo đuổi trong nhiều thập kỷ tới.</p>
+          `
+        },
+
+        12: {
+          id: 12,
+          type: "press",
+          tag: "Báo Chí Nói Gì Về Chúng Tôi",
+          title: "Tạp chí Harper's Bazaar: 'Khi câu chuyện cá nhân hóa thành kiệt tác Bespoke'",
+          date: "02/05/2026",
+          img: "https://i.pinimg.com/736x/bc/5a/ca/bc5aca6b766218fd38f04fb3bbf911ca.jpg",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Harper's Bazaar – ấn phẩm thời trang hàng đầu thế giới – vừa dành những lời khen ngợi cho mô hình dịch vụ tư vấn độc quyền tại không gian Vane Vietnam.</p>
+            
+            <p>Tạp chí đã đặc biệt ấn tượng với mô hình không gian đóng tư gia (Private Salon) của Vane, nơi mọi rào cản giữa nghệ nhân và khách hàng được xóa bỏ. Tại đây, những câu chuyện, ký ức và lăng kính thẩm mỹ riêng biệt của mỗi cá nhân được Vane lắng nghe, chắt lọc và dịch chuyển trọn vẹn thành những tạo tác trang sức <span class="highlight-badge">Bespoke Duy Nhất</span> trên đời.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Nghệ thuật hiện thực hóa giấc mơ cá nhân</h2>
+            <p>Harper's Bazaar nhận định: Trong thế giới xa xỉ hiện nay, sự cá nhân hóa chính là đỉnh cao của sự sang trọng. Tại Vane, quy trình Bespoke không chỉ dừng lại ở việc chọn đá quý hay kiểu dáng, mà là cả một quá trình đồng sáng tạo, nơi nghệ nhân và chủ nhân cùng hòa quyện tư duy thẩm mỹ để tạo nên di sản cho riêng mình.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://i.pinimg.com/736x/22/14/1e/22141ed6d68c74bd8fe84734d26fc9bf.jpg" alt="Không gian tư vấn Bespoke tại Vane">
+              <span class="img-caption">Không gian tư gia riêng tư giúp khách hàng đắm chìm vào quy trình thiết kế Bespoke đầy cảm xúc.</span>
+            </div>
+
+            <p>Theo tạp chí, Vane đã thành công trong việc xây dựng một <span class="highlight-text">Hệ Sinh Thái Sáng Tạo</span>, nơi tâm hồn và cảm xúc của khách hàng được tôn trọng tuyệt đối. Mỗi món trang sức được tạo ra đều mang một câu chuyện riêng, một dấu ấn cá nhân không thể sao chép, chính xác như cách mà một kiệt tác thời trang cao cấp (Haute Couture) được hình thành.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Vane Vietnam đã biến khái niệm trang sức từ những món đồ trang trí trở thành những người bạn đồng hành mang linh hồn và ký ức của chủ nhân."</blockquote>
+            
+            <p>Harper's Bazaar khẳng định rằng sự tận tâm và tính chuyên sâu trong từng dịch vụ chính là lý do khiến Vane trở thành địa chỉ tin cậy của giới mộ điệu. Chúng tôi tự hào khi được tiếp tục khẳng định giá trị <span class="highlight-badge">Di Sản Cá Nhân Hóa</span> thông qua từng kiệt tác Bespoke được trao gửi tới quý khách hàng.</p>
+          `
+        },
+
+        13: {
+          id: 13,
+          type: "press",
+          tag: "Báo Chí Nói Gì Về Chúng Tôi",
+          title: "Báo Dân Trí: 'Vane Vietnam đồng hành cùng quỹ nhân ái thắp sáng ước mơ trẻ em'",
+          date: "18/04/2026",
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjFNr7YsaYHTcmDbtv_P0_PSsGz4uVi_-Oww&s",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Báo Dân Trí vừa có bài viết tường thuật sâu sắc về hành trình lan tỏa yêu thương của Vane Vietnam thông qua chương trình đấu giá từ thiện gây quỹ xây trường cho trẻ em vùng cao.</p>
+            
+            <p>Trong khuôn khổ sự kiện "Ánh sáng di sản", Vane Vietnam đã chính thức đấu giá thành công tác phẩm trâm cài áo đính kết ngọc trai biển sâu quý hiếm – một kiệt tác thủ công độc bản. Với lòng tự nguyện cùng sự chung tay của cộng đồng, toàn bộ doanh thu từ tác phẩm, đạt giá trị <span class="highlight-badge">1.2 Tỷ Đồng</span>, đã được chuyển thẳng tới quỹ xây dựng điểm trường kiên cố cho trẻ em tại các bản làng vùng cao phía Bắc.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Giá trị nhân văn của trang sức cao cấp</h2>
+            <p>Đại diện của Vane Vietnam chia sẻ trên Dân Trí: "Trang sức cao cấp không chỉ mang vẻ đẹp lấp lánh bên ngoài, mà còn là phương tiện để chúng tôi kết nối những tấm lòng nhân ái. Chúng tôi tin rằng mỗi viên ngọc trai, mỗi sợi vàng đều có thể trở thành nền móng vững chắc cho những ngôi trường, nơi những ước mơ của trẻ thơ được nuôi dưỡng".</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80" alt="Sự kiện đấu giá thiện nguyện của Vane Vietnam">
+              <span class="img-caption">Khoảnh khắc trao tặng quỹ từ thiện, hiện thực hóa cam kết vì cộng đồng của Vane Vietnam.</span>
+            </div>
+
+            <p>Hành động ý nghĩa này đã nhận được sự ủng hộ nhiệt tình từ giới mộ điệu. Dân Trí nhấn mạnh, Vane đã thành công trong việc xây dựng hình ảnh một thương hiệu không chỉ <span class="highlight-text">Tận Tâm Trong Chế Tác</span> mà còn thể hiện <span class="highlight-text">Trách Nhiệm Với Cộng Đồng</span> một cách đầy chân thành.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Chúng tôi hạnh phúc khi thấy vẻ đẹp của tạo tác kim hoàn nay đã hóa thân thành ánh sáng tri thức cho trẻ em vùng cao."</blockquote>
+            
+            <p>Cảm ơn báo Dân Trí đã ghi lại hành trình nhân ái này. Chúng tôi tin rằng, những giá trị tốt đẹp sẽ còn lan tỏa xa hơn nữa, tiếp nối sứ mệnh <span class="highlight-badge">Thắp Sáng Ước Mơ</span> mà Vane Vietnam luôn kiên định theo đuổi.</p>
+          `
+        },
+
+        14: {
+          id: 14,
+          type: "press",
+          tag: "Báo Chí Nói Gì Về Chúng Tôi",
+          title: "Tạp chí Elle Vietnam: 'Nguyễn Thu Phương – Người thổi hồn đương đại vào di sản'",
+          date: "29/03/2026",
+          img: "https://yt3.googleusercontent.com/ytc/AIdro_kfsV2YnJnppPUtn0rsvvHnv1CfEur4UGfOSrRjV8xHY-4=s900-c-k-c0x00ffffff-no-rj",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Elle Vietnam vừa có cuộc đối thoại chuyên sâu cùng Giám đốc Sáng tạo Nguyễn Thu Phương về triết lý định hình bản sắc trang sức Việt trong kỷ nguyên mới.</p>
+            
+            <p>Trong bài phỏng vấn độc quyền, chị Nguyễn Thu Phương đã chia sẻ về hành trình đầy cảm hứng khi thổi hồn đương đại vào những giá trị văn hóa ngàn năm. Chị khẳng định: "Tại Vane, chúng tôi giữ tỷ lệ vàng nguyên khối <span class="highlight-badge">100%</span> chuẩn mực quốc tế, kết hợp cùng tư duy hình học tối giản, nhằm tôn vinh trọn vẹn thần thái đài các tự nhiên của phụ nữ Việt Nam hiện đại."</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Nguồn cảm hứng từ những vết tích thời gian</h2>
+            <p>Với Giám đốc Sáng tạo Nguyễn Thu Phương, mỗi họa tiết cổ điển tìm thấy tại các di tích kinh thành không chỉ là những nét vẽ cũ, mà là một kho báu cảm xúc. Chị cho biết đội ngũ thiết kế của Vane luôn dành thời gian đắm mình trong lịch sử, nghiên cứu hoa văn để dịch chuyển chúng một cách tinh tế thành ngôn ngữ trang sức thời đại mới.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika-collectionshoot-2026-collectionmoderniste-name17-outfit-1_1_mathieu_rainaud_r.webp" alt="Giám đốc sáng tạo Nguyễn Thu Phương làm việc">
+              <span class="img-caption">Giám đốc sáng tạo Nguyễn Thu Phương tỉ mỉ nghiên cứu các bản thảo phác thảo thiết kế tại studio Vane.</span>
+            </div>
+
+            <p>Elle nhấn mạnh rằng chính sự kết hợp giữa tư duy nghệ thuật sắc sảo và kỹ nghệ chế tác thủ công đã giúp Vane định hình phong cách <span class="highlight-text">Xa Xỉ Thầm Lặng</span> đầy thuyết phục. Đây là minh chứng cho việc văn hóa không đứng yên, mà liên tục được tái sinh thông qua bàn tay của những người trẻ đầy bản lĩnh như Nguyễn Thu Phương.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Chúng tôi không chỉ chế tác trang sức, chúng tôi đang lưu giữ những mảnh ghép ký ức của dân tộc để chúng mãi kiêu hãnh trên đôi tay của thế hệ tương lai."</blockquote>
+            
+            <p>Bài phỏng vấn trên Elle Vietnam một lần nữa khẳng định vị thế của Vane Vietnam trên con đường trở thành thương hiệu trang sức di sản hàng đầu, nơi mỗi tạo tác đều mang theo dấu ấn <span class="highlight-badge">Sáng Tạo Không Giới Hạn</span> của người dẫn dắt.</p>
+          `
+        },
+
+        15: {
+          id: 15,
+          type: "career",
+          tag: "Tuyển Dụng",
+          title: "Tuyển dụng: Thiết kế trưởng Trang sức cao cấp (Senior Jewelry Designer)",
+          date: "01/06/2026",
+          img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Vane Vietnam mở rộng cánh cửa chào đón những bậc thầy sáng tạo gia nhập hàng ngũ nghệ sĩ, cùng chúng tôi định hình tương lai của trang sức di sản.</p>
+            
+            <p>Chúng tôi đang tìm kiếm vị trí Thiết kế trưởng Trang sức cao cấp (Senior Jewelry Designer) – những tâm hồn sáng tạo sở hữu tư duy duy mỹ đỉnh cao, am tường sâu sắc về tỷ lệ hình khối đương đại. Đây là cơ hội để quý nhân tài chuyển hóa những ý niệm chiều sâu trừu tượng thành các bản vẽ kỹ thuật kim hoàn hoàn mỹ với mức thu nhập cam kết lên tới <span class="highlight-badge">50.000.000 VNĐ/tháng</span> cùng lộ trình thăng tiến bền vững.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Môi trường ươm mầm nghệ thuật đích thực</h2>
+            <p>Gia nhập Vane, bạn sẽ làm việc trong không gian studio ngập tràn cảm hứng tại trung tâm, nơi được trang bị các công cụ dựng hình 3D tối tân bậc nhất. Tại đây, mỗi nét phác thảo của bạn không chỉ là công việc, mà là bước khởi đầu của một tác phẩm nghệ thuật sẽ lưu truyền hàng thập kỷ.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media-cms/06%20Messika%20-%20Collection%20Shoot%20-%202026%20-%20Collection%20Moderniste%20-%20Still%20Life%20-%201%EF%80%A21%20-%20No%20Logo%20%C2%A9%EF%B8%8FOlivia%20Haudry-1200x1200.jpg?2026-02-11T10:52:38.071Z" alt="Studio thiết kế chuyên nghiệp tại Vane">
+              <span class="img-caption">Studio sáng tạo Vane Vietnam – Nơi những ý tưởng đột phá được tôn trọng và nuôi dưỡng thành tác phẩm.</span>
+            </div>
+
+            <p>Chúng tôi yêu cầu ứng viên không chỉ có kỹ thuật giỏi mà còn cần một <span class="highlight-text">Tư Duy Thẩm Mỹ Sâu Sắc</span>. Bạn sẽ chịu trách nhiệm chính trong việc dẫn dắt đội ngũ phác thảo, đảm bảo mỗi thiết kế đều phản ánh đúng tinh thần "Xa xỉ thầm lặng" (Quiet Luxury) của thương hiệu.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Chúng tôi không tìm kiếm người thợ vẽ, chúng tôi tìm kiếm những nhà thiết kế biết kể câu chuyện di sản qua từng góc cạnh kim cương."</blockquote>
+            
+            <p>Hồ sơ ứng tuyển (bao gồm Portfolio các bản vẽ tay hoặc 3D) vui lòng gửi trực tiếp về cổng thông tin nhân sự chính thức của Vane. Hãy sẵn sàng cho một chương mới trong sự nghiệp, nơi bạn sẽ cùng chúng tôi khẳng định vị thế <span class="highlight-badge">Thiết Kế Đỉnh Cao</span> trên bản đồ kim hoàn quốc tế.</p>
+          `
+        },
+
+       16: {
+          id: 16,
+          type: "career",
+          tag: "Tuyển Dụng",
+          title: "Tuyển dụng: Chuyên viên Tư vấn Trải nghiệm Khách hàng VIP (Showroom Advisor)",
+          date: "20/05/2026",
+          img: "https://i.pinimg.com/736x/39/68/fd/3968fd8e70ebcd440a482a309db6de96.jpg",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Vane Vietnam tìm kiếm những đại sứ thương hiệu sở hữu phong thái lịch duyệt, giọng nói truyền cảm nhẹ nhàng cùng vốn hiểu biết sâu rộng về phong cách sống xa xỉ điềm đạm để đón tiếp những thượng khách tôn quý.</p>
+            
+            <p>Vị trí Chuyên viên Tư vấn Trải nghiệm Khách hàng VIP không chỉ là người giới thiệu sản phẩm, mà là người kết nối tâm hồn của khách hàng với những kiệt tác kim hoàn. Chúng tôi tìm kiếm những cá nhân có ngoại hình chỉn chu, phong thái sang trọng cùng tư duy am hiểu lối sống thượng lưu. Đây là cơ hội để bạn đạt được mức thu nhập đột phá với các khoản thưởng doanh số đặc quyền, đạt <span class="highlight-badge">Top 5% thị trường</span> hiện nay.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Đặc quyền đào tạo chuẩn mực quốc tế</h2>
+            <p>Tại Vane, mỗi nhân viên đều được trang bị kiến thức chuyên sâu về phân định kim cương và ngọc học quốc tế. Bạn sẽ không chỉ làm việc tại không gian trưng bày sang trọng, mà còn được đào tạo bài bản về nghệ thuật tiếp đón, cách thức khơi gợi cảm xúc và xây dựng mối quan hệ bền chặt với những thượng khách khó tính nhất.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Đào tạo nhân sự showroom cao cấp">
+              <span class="img-caption">Quy trình đào tạo chuyên nghiệp giúp bạn trở thành chuyên gia trong ngành kim hoàn cao cấp.</span>
+            </div>
+
+            <p>Chúng tôi đề cao những ứng viên có <span class="highlight-text">Tư Duy Hiếu Khách Chân Thành</span>, người có thể biến mỗi buổi tư vấn trở thành một kỷ niệm đáng nhớ. Bạn sẽ là mảnh ghép quan trọng giúp Vane lan tỏa triết lý "Xa xỉ thầm lặng" đến với công chúng.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Trong không gian của Vane, khách hàng không đến để tìm mua trang sức, họ đến để tìm kiếm sự đồng điệu về thẩm mỹ và phong cách sống."</blockquote>
+            
+            <p>Nếu bạn tự tin với phong thái của mình, hãy gia nhập đội ngũ đại sứ của Vane Vietnam. Đây không chỉ là một công việc, mà là hành trình khẳng định <span class="highlight-badge">Đẳng Cấp Chuyên Gia</span> trong lĩnh vực dịch vụ khách hàng cao cấp.</p>
+          `
+        },
+
+        17: {
+          id: 17,
+          type: "career",
+          tag: "Tuyển Dụng",
+          title: "Tuyển dụng: Học viên Nghệ nhân Kim hoàn Thủ công (Artisan Apprentice)",
+          date: "12/05/2026",
+          img: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1000&q=80",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Vane Vietnam mở ra chương trình đào tạo "Người truyền thừa", chào đón những đôi tay kiên nhẫn và lòng đam mê cháy bỏng với kỹ nghệ kim hoàn di sản gia nhập đội ngũ nghệ nhân tại xưởng chế tác.</p>
+            
+            <p>Đây là cơ hội hiếm có để học việc trực tiếp dưới sự dẫn dắt "cầm tay chỉ việc" của các nghệ nhân trưởng lão tại xưởng chế tác Vane. Chúng tôi không chỉ dạy bạn cách chế tác trang sức, chúng tôi truyền dạy cách bạn thổi hồn vào kim loại quý. Trong suốt lộ trình học việc <span class="highlight-badge">12 Tháng</span>, bạn sẽ được hỗ trợ mức sinh hoạt phí thực tập cạnh tranh cùng cơ hội trở thành nghệ nhân chính thức với lộ trình thăng tiến rõ ràng.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Rèn giũa bản lĩnh trong "trường học" di sản</h2>
+            <p>Tại Vane, sự hoàn mỹ là yêu cầu tối thượng. Học viên sẽ được rèn luyện từ những bước cơ bản nhất của kỹ thuật chạm khắc, mài dũa đến việc hiểu thấu cấu trúc hình học của kim cương. Bạn sẽ được làm việc trong môi trường đề cao tính kỷ luật, sự tập trung và sự tỉ mỉ đến từng micro-mét.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_packshot_-_bague_move_uno_pampille_pav_e_vue_3_11163_wg.webp" alt="Nghệ nhân truyền nghề tại xưởng">
+              <span class="img-caption">Sự truyền dạy tận tâm từ những nghệ nhân trưởng lão là nền tảng để bạn kế thừa kỹ nghệ kim hoàn đỉnh cao.</span>
+            </div>
+
+            <p>Chúng tôi tìm kiếm những cá nhân có <span class="highlight-text">Sự Kiên Nhẫn Tuyệt Đối</span> và khao khát khẳng định bản thân trong lĩnh vực thủ công mỹ nghệ. Nếu bạn tin rằng đôi tay của mình có khả năng kiến tạo vẻ đẹp vĩnh cửu, đây chính là nơi dành cho bạn.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Nghề kim hoàn không dành cho những người vội vã. Đó là cuộc đối thoại lặng lẽ giữa nghệ nhân và thời gian để tạo ra những kiệt tác trường tồn."</blockquote>
+            
+            <p>Hồ sơ ứng tuyển vui lòng gửi kèm ảnh chụp các sản phẩm thủ công (nếu có) để chúng tôi hiểu thêm về sự khéo léo của bạn. Hãy gia nhập Vane Vietnam để cùng chúng tôi viết tiếp hành trình <span class="highlight-badge">Kế Thừa Di Sản</span> kim hoàn Việt.</p>
+          `
+        },
+
+        18: {
+          id: 18,
+          type: "career",
+          tag: "Tuyển Dụng",
+          title: "Tuyển dụng: Trưởng phòng Truyền thông Thương hiệu (Communications Manager)",
+          date: "02/05/2026",
+          img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Vane Vietnam tìm kiếm một chiến lược gia ngôn từ sắc sảo, người có khả năng định hình và quản trị hình ảnh thương hiệu trong một hành trình truyền tải đầy cảm hứng về giá trị di sản.</p>
+            
+            <p>Vị trí Trưởng phòng Truyền thông Thương hiệu (Communications Manager) là người sẽ chịu trách nhiệm chính trong việc xây dựng chiến lược đồng bộ đa phương tiện, đảm bảo mỗi thông điệp gửi đi đều phản ánh sự điềm tĩnh và trung thực vốn có của Vane. Đây là vai trò dành cho những cá nhân sở hữu tư duy chiến lược nhạy bén, có khả năng biến những giá trị văn hóa thuần túy thành các chiến dịch truyền thông cao cấp với mức đãi ngộ hấp dẫn cùng thưởng hiệu quả đạt <span class="highlight-badge">Top đầu thị trường</span>.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Người giữ lửa cho câu chuyện thương hiệu</h2>
+            <p>Tại Vane, truyền thông không phải là sự ồn ào. Đó là nghệ thuật kể chuyện. Bạn sẽ là người cầm lái trong việc định hướng, sáng tạo nội dung và kết nối thương hiệu với những cộng đồng khách hàng thượng lưu. Sự tinh tế trong cách lựa chọn từ ngữ và tư duy thẩm mỹ đồng bộ là yếu tố tiên quyết để đảm bảo hình ảnh Vane luôn sang trọng và nhất quán.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media-cms/01%20Messika%20-%20Collection%20Shoot%20-%202026%20-%20Collection%20Moderniste%20-%20Still%20Life%20-%204%EF%80%A25%20-%20No%20Logo%20%C2%A9%EF%B8%8FOlivia%20Haudry-800x1000.jpg?2026-02-11T10:53:06.384Z" alt="Không gian quản lý truyền thông chuyên nghiệp">
+              <span class="img-caption">Môi trường làm việc đề cao tư duy sáng tạo chiến lược và sự chuyên nghiệp tuyệt đối.</span>
+            </div>
+
+            <p>Chúng tôi tìm kiếm một người có <span class="highlight-text">Tư Duy Ngôn Từ Sắc Sảo</span>, người có thể cảm thụ trọn vẹn những giá trị di sản cổ kính và chuyển hóa chúng thành ngôn ngữ hiện đại thuyết phục. Bạn sẽ làm việc cùng đội ngũ sáng tạo tài năng nhất để đưa Vane trở thành biểu tượng của sự sang trọng bền vững.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Truyền thông cho di sản là nghệ thuật làm cho những giá trị cũ trở nên sống động và trường tồn trong dòng chảy hiện đại."</blockquote>
+            
+            <p>Nếu bạn tự tin có thể quản trị hình ảnh thương hiệu của chúng tôi bằng sự tinh tế và bản lĩnh, hãy gửi hồ sơ năng lực về ban điều hành Vane Vietnam. Đây là cơ hội để bạn ghi dấu ấn cá nhân trong hành trình phát triển <span class="highlight-badge">Giá Trị Thương Hiệu Vĩnh Cửu</span> của chúng tôi.</p>
+          `
+        },
+
+        19: {
+          id: 19,
+          type: "career",
+          tag: "Tuyển Dụng",
+          title: "Tuyển dụng: Chuyên viên Quản lý Nguồn cung ứng Đá quý & Kim cương",
+          date: "15/04/2026",
+          img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80",
+          content: `
+            <p class="article-lead font-serif italic text-lg text-primary/80 mb-6">Vane Vietnam tìm kiếm những chuyên gia giàu kinh nghiệm trong lĩnh vực đá quý, người sẽ đảm nhận vai trò trọng yếu trong việc duy trì cam kết chất lượng tuyệt đối của thương hiệu.</p>
+            
+            <p>Vị trí Chuyên viên Quản lý Nguồn cung ứng Đá quý & Kim cương là mắt xích quan trọng nhất, chịu trách nhiệm thẩm định chuyên môn và liên kết trực tiếp tới các sàn cung ứng uy tín toàn cầu. Đây là cơ hội dành cho các chuyên gia có năng lực quản trị rủi ro và am hiểu thị trường đá quý quốc tế, đảm bảo 100% kim cương của Vane đều sở hữu hộ chiếu kiểm định khắt khe từ <span class="highlight-badge">Viện Ngọc học Hoa Kỳ (GIA)</span>.</p>
+            
+            <h2 class="font-serif text-2xl text-primary pt-4 pb-2">Người gác cổng cho giá trị di sản</h2>
+            <p>Tại Vane, niềm tin của khách hàng được xây dựng trên sự trung thực. Bạn sẽ là người trực tiếp kiểm soát quy trình nhập khẩu, đảm bảo mọi viên đá quý đều đáp ứng các tiêu chuẩn khắt khe nhất về nguồn gốc và chất lượng. Sự chuyên nghiệp của bạn là chìa khóa để bảo vệ uy tín thương hiệu trong mắt giới mộ điệu.</p>
+
+            <!-- ẢNH THỨ 2 TRONG BÀI VIẾT (TỶ LỆ 16:10 ĐỒNG BỘ) -->
+            <div class="article-inner-img my-8">
+              <img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_packshot_-_bague_move_noa_cisel_e_gm_vue_3_14499_pg.webp" alt="Kiểm định đá quý chuyên sâu">
+              <span class="img-caption">Quy trình thẩm định nghiêm ngặt tại Vane đảm bảo mỗi viên kim cương đều đạt chuẩn quốc tế.</span>
+            </div>
+
+            <p>Chúng tôi đề cao những ứng viên có <span class="highlight-text">Năng Lực Thẩm Định Chuyên Sâu</span> và tư duy đạo đức nghề nghiệp cao. Bạn sẽ làm việc trong một môi trường chuyên nghiệp, nơi sự chính xác và tính minh bạch luôn được đặt lên hàng đầu trong mọi hoạt động cung ứng.</p>
+            
+            <blockquote class="article-quote font-serif italic text-xl text-gold pl-6 border-l-2 border-gold my-6">"Chất lượng của một viên kim cương không chỉ nằm ở độ sáng, mà còn nằm ở sự minh bạch về nguồn gốc và hành trình mà nó đã trải qua."</blockquote>
+            
+            <p>Nếu bạn tự tin với khả năng kết nối và quản trị nguồn cung cấp đá quý toàn cầu, hãy gia nhập đội ngũ của Vane Vietnam. Đây là cơ hội để bạn khẳng định uy tín cá nhân và cùng chúng tôi xác lập tiêu chuẩn <span class="highlight-badge">Minh Bạch Tuyệt Đối</span> trong ngành công nghiệp kim hoàn.</p>
+          `
+        },
+
+      };
+
+      // 1. Phân tích tham số ID từ đường link URL truyền sang (?id=...)
+      const urlParams = new URLSearchParams(window.location.search);
+      let articleId = parseInt(urlParams.get('id'));
+      
+      // Kiểm tra an toàn, nếu ID lỗi hoặc trống, ép về bài viết đầu tiên (ID = 0)
+      if (isNaN(articleId) || articleId < 0 || articleId > 19) {
+        articleId = 0;
+      }
+
+      let activeArticle = articlesDatabase[articleId];
+
+      // 2. Điền thông tin bài viết hiện tại lên giao diện
+      $('#detail-meta-title').text(activeArticle.title + " | Vane Vietnam");
+      $('#detail-crumb').text(activeArticle.title);
+      $('#detail-tag').text(activeArticle.tag);
+      $('#detail-title').text(activeArticle.title);
+      $('#detail-date').text(activeArticle.date);
+      $('#detail-main-img').attr('src', activeArticle.img).attr('alt', activeArticle.title);
+      $('#detail-content').html(activeArticle.content);
+
+      // 3. THUẬT TOÁN ĐỘNG: Tự chọn bài liên quan cùng chuyên mục và tạo link kết nối
+      let rCount = 0;
+      let $relContainer = $('#related-posts-container');
+      $relContainer.empty();
+
+      // Duyệt mảng để lấy tối đa 2 bài cùng danh mục (tag) nhưng loại trừ bài đang xem
+      Object.keys(articlesDatabase).forEach(function(k) {
+        let currentItem = articlesDatabase[k];
+        if (currentItem.tag === activeArticle.tag && currentItem.id !== activeArticle.id && rCount < 2) {
+          $relContainer.append(`
+            <div class="bg-white p-5 border border-gray-100 hover:shadow-md transition-all duration-500 flex flex-col justify-between">
+              <div class="flex gap-4 items-start">
+                <div class="w-24 h-24 shrink-0 overflow-hidden bg-charcoal/5 border border-gray-50 rounded-md">
+                  <img src="${currentItem.img}" alt="${currentItem.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-ui text-[9px] uppercase tracking-wider text-gold font-semibold block mb-1">${currentItem.tag}</span>
+                  <h4 class="font-serif text-base text-primary leading-snug hover:text-gold transition-colors line-clamp-2">
+                    <!-- LINK ĐỘNG DẪN SANG BÀI LIÊN QUAN KHÁC -->
+                    <a href="news-detail.html?id=${currentItem.id}">${currentItem.title}</a>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          `);
+          rCount++;
+        }
+      });
+
+      // Nếu không đủ 2 bài cùng chuyên mục (trường hợp bài đang xem nằm trong mục ít bài), tự động lấy bài khác bù vào layout
+      if (rCount < 2) {
+        Object.keys(articlesDatabase).forEach(function(k) {
+          let currentItem = articlesDatabase[k];
+          if (currentItem.id !== activeArticle.id && rCount < 2) {
+            // Kiểm tra xem bài này đã được chèn trước đó chưa
+            if ($relContainer.find(`a[href="news-detail.html?id=${currentItem.id}"]`).length === 0) {
+              $relContainer.append(`
+                <div class="bg-white p-5 border border-gray-100 hover:shadow-md transition-all duration-500 flex flex-col justify-between">
+                  <div class="flex gap-4 items-start">
+                    <div class="w-24 h-24 shrink-0 overflow-hidden bg-charcoal/5 border border-gray-50 rounded-md">
+                      <img src="${currentItem.img}" alt="${currentItem.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="font-ui text-[9px] uppercase tracking-wider text-gold font-semibold block mb-1">${currentItem.tag}</span>
+                      <h4 class="font-serif text-base text-primary leading-snug hover:text-gold transition-colors line-clamp-2">
+                        <a href="news-detail.html?id=${currentItem.id}">${currentItem.title}</a>
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              `);
+              rCount++;
+            }
+          }
+        });
+      }
+
+      // Tắt loader giải phóng giao diện mượt mà
+      setTimeout(function() {
+        $('#loader').addClass('opacity-0 pointer-events-none');
+        $('body').removeClass('opacity-0');
+      }, 300);
+    });
+  </script>
+</body>
+</html>

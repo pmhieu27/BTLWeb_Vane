@@ -90,6 +90,72 @@ $(function () {
 
     renderOrderSummary();
 
+  // =================================
+    // QUẢN LÝ CÁC TRƯỜNG THÔNG TIN PHÂN CẤP
+    // =================================
+
+   $(document).ready(function() {
+    let administrativeData = [];
+
+    // 1. Tải dữ liệu từ file JSON
+    $.getJSON("src/data/dvhcvn.json", function(res) {
+        // Trong file của bạn, cục dữ liệu nằm trong res.data
+        administrativeData = res.data; 
+        
+        let $city = $("#city");
+        administrativeData.forEach(function(city) {
+            // Dùng cú pháp này để tạo thẻ option an toàn tuyệt đối
+            $city.append($('<option>', {
+                value: city.level1_id,
+                text: city.name
+            }));
+        });
+    });
+
+    // 2. Khi chọn Tỉnh -> Load Quận
+    $("#city").on("change", function() {
+        let cityId = $(this).val();
+        let city = administrativeData.find(c => c.level1_id === cityId);
+        
+        let $district = $("#district");
+        let $ward = $("#ward");
+
+        // Xóa sạch option cũ và reset lại
+        $district.empty().append('<option value="" selected disabled>Chọn Quận/Huyện</option>').prop("disabled", false);
+        $ward.empty().append('<option value="" selected disabled>Chọn Phường/Xã</option>').prop("disabled", true);
+
+        if (city && city.level2s) {
+            city.level2s.forEach(function(d) {
+                $district.append($('<option>', {
+                    value: d.level2_id,
+                    text: d.name
+                }));
+            });
+        }
+    });
+
+    // 3. Khi chọn Quận -> Load Phường
+    $("#district").on("change", function() {
+        let cityId = $("#city").val();
+        let districtId = $(this).val();
+        
+        let city = administrativeData.find(c => c.level1_id === cityId);
+        let district = city ? city.level2s.find(d => d.level2_id === districtId) : null;
+        
+        let $ward = $("#ward");
+        
+        $ward.empty().append('<option value="" selected disabled>Chọn Phường/Xã</option>').prop("disabled", false);
+
+        if (district && district.level3s) {
+            district.level3s.forEach(function(w) {
+                $ward.append($('<option>', {
+                    value: w.level3_id,
+                    text: w.name
+                }));
+            });
+        }
+    });
+});
     // =================================
     // QUẢN LÝ THÔNG BÁO LỖI VALIDATION
     // =================================

@@ -24,9 +24,9 @@
     </section>
     <section class="lg:max-w-5xl mx-auto rounded-xl py-5 md:py-8">
             <!-- Sửa grid thành grid-cols-1 md:grid-cols-[4fr_6fr] để trên mobile không bị bóp méo form -->
-            <div class=" overflow-hidden grid grid-cols-1 md:grid-cols-2 md:[grid-template-columns:4fr_6fr] min-h-[400px] rounded-xl gap-2">
+            <div class=" overflow-hidden grid grid-cols-1 md:[grid-template-columns:4fr_6fr] min-h-[400px] rounded-xl gap-2">
           <!-- ẢNH -->
-        <div class="px-3 md:px-3 md:px-0 h-60 md:h-full relative">
+        <div class="px-3 md:px-0 h-60 md:h-full relative">
         <img
           src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/52f8d614d5bbd2d588afa5e471fce85a/m/e/messika_paris_-_puces_joy_diamant_rond_pm_06954_p.webp"
           alt="Đăng ký"
@@ -36,14 +36,14 @@
         <!-- FORM -->
           <div class="bg-white p-3 md:p-5">
             <h2 class="font-serif text-2xl text-primary mb-2">ĐĂNG KÝ</h2>
-             <form id="registerForm" class="space-y-5">
+             <form id="registerForm" class="space-y-5" novalidate>
               <div>
                 <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Họ và Tên</label>
                 <input id="registerName" type="text" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
               </div>
               <div>
                 <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Số điện thoại</label>
-                <input id="registerPhone" type="tel" pattern="^\+?[0-9]{7,15}$" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
+                <input id="registerPhone" type="tel" class="w-full bg-ivory border border-silver-light px-4 py-3 font-ui text-sm focus:outline-none focus:border-gold transition-colors">
               </div>
               <div>
                 <label class="font-ui text-[12px] uppercase tracking-wider text-charcoal block mb-2">Email</label>
