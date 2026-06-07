@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hệ thống cửa hàng | Vane Vietnam</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+  <link rel="stylesheet" href="src/css/base.css?v=7" />
+  <link rel="stylesheet" href="src/css/output.css?v=7" />
+  <link rel="stylesheet" href="src/css/custom.css?v=7" />
+</head>
+<body class="bg-white text-charcoal font-sans opacity-0 transition-opacity duration-500 min-h-screen flex flex-col">
+
+  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center">
+    <div class="font-logo text-2xl tracking-[0.4em]">VANE</div>
+  </div>
+
+  <div id="component-header"></div>
+    
+  <header class="pt-40 md:pt-44 pb-6 bg-white flex-shrink-0 border-b border-charcoal/5 w-full">
+  <div class="max-w-6xl mx-auto px-8 flex flex-col items-start w-full">
+    
+    <section class="pb-10 bg-white w-full">
+      <div class="w-full">
+        <nav class="mb-8">
+          <ol class="flex items-center gap-2 font-ui text-[13px] tracking-wider text-muted">
+            <li><a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a></li>
+            <li class="text-silver">/</li>
+            <li class="text-primary">Cửa Hàng</li>
+          </ol>
+        </nav>
+        <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-4">Cửa Hàng</p>
+        <h1 class="font-serif text-4xl md:text-5xl text-primary">Hệ thống cửa hàng của Vane</h1>
+      </div>
+    </section>
+    
+    <div class="flex flex-row gap-2 overflow-x-auto max-w-full pb-1 justify-start scrollbar-none w-full">
+      <button class="btn-filter bg-ivory text-primary border border-charcoal/10 px-6 py-2.5 font-ui text-[10px] md:text-xs uppercase tracking-widest font-semibold transition-all hover:border-gold rounded-none" data-target="all">
+        Tất Cả
+      </button>
+      <button class="btn-filter bg-white text-muted border border-charcoal/10 px-6 py-2.5 font-ui text-[10px] md:text-xs uppercase tracking-widest font-semibold transition-all hover:border-gold rounded-none" data-target="hanoi">
+        Hà Nội
+      </button>
+      <button class="btn-filter bg-white text-muted border border-charcoal/10 px-6 py-2.5 font-ui text-[10px] md:text-xs uppercase tracking-widest font-semibold transition-all hover:border-gold rounded-none" data-target="danang">
+        Đà Nẵng
+      </button>
+      <button class="btn-filter bg-white text-muted border border-charcoal/10 px-6 py-2.5 font-ui text-[10px] md:text-xs uppercase tracking-widest font-semibold transition-all hover:border-gold rounded-none" data-target="saigon">
+        TP. HCM
+      </button>
+    </div>
+
+  </div> </header>
+
+<main class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12 py-4 mb-16">
+    
+    <!-- BÊN TRÁI: DANH SÁCH CHI TIẾT CỬA HÀNG (CHIẾM 2 CỘT = 2/3) -->
+   <section
+  id="store-section"
+  class="w-full md:col-span-2 flex flex-col min-h-0">
+      
+      <!-- Tiêu đề phân vùng phụ và đếm cơ sở (chiếm 40px chiều cao) -->
+      <div class="flex justify-between items-center pb-2 mb-4 border-b border-charcoal/5 flex-shrink-0 h-[40px]">
+        <h2 id="region-title" class="font-serif text-sm text-primary uppercase tracking-wider font-semibold">Tất Cả Chi Nhánh</h2>
+        <span id="store-count" class="bg-gold/10 text-gold font-ui text-[9px] uppercase tracking-widest px-3 py-1 font-semibold">17 Cơ sở</span>
+      </div>
+
+      <!-- KHỐI SCROLL CỬA HÀNG: Khóa chặt không gian, chỉ hiển thị đúng 3 thẻ đầu tiên, muốn xem thêm bắt buộc phải scroll lên -->
+      <div id="store-list" class="flex-1 min-h-0 overflow-y-auto pr-2 space-y-3">
+        
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="hanoi" data-query="12 Chua Boc, Quang Trung, Dong Da, Hanoi">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Chùa Bộc Boutique</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:00 - 22:00  •  Hotline: 0978887282</p>
+            <p>📍 Số 12 Chùa Bộc, Phường Quang Trung, Quận Đống Đa, Hà Nội.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="hanoi" data-query="Trang Tien Plaza, Hanoi">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Tràng Tiền Plaza</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:30 - 21:30  •  Hotline: 0123 999 888</p>
+            <p>📍 Tầng 2, Tràng Tiền Plaza, 24 Hai Bà Trưng, quận Hoàn Kiếm, Hà Nội.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="hanoi" data-query="Lotte Center Hanoi, 54 Lieu Giai">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Lotte Center Liễu Giai</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:00 - 22:00  •  Hotline: 0123 111 222</p>
+            <p>📍 Tầng 1, Lotte Department Store, 54 Liễu Giai, Q. Ba Đình, Hà Nội.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="hanoi" data-query="Aeon Mall Long Bien, Hanoi">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Aeon Mall Long Biên</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 10:00 - 22:00  •  Hotline: 0123 222 333</p>
+            <p>📍 Tầng 1, Aeon Mall Long Biên, số 27 đường Cổ Linh, Q. Long Biên, Hà Nội.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="hanoi" data-query="Vincom Mega Mall Royal City, Hanoi">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Vincom Royal City</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:30 - 22:00  •  Hotline: 0123 333 444</p>
+            <p>📍 Tầng B1, Vincom Mega Mall Royal City, 72A Nguyễn Trãi, Q. Thanh Xuân, Hà Nội.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="hanoi" data-query="Vincom Mega Mall Times City, Hanoi">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Vincom Times City</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:30 - 22:00  •  Hotline: 0123 444 555</p>
+            <p>📍 Tầng B1, Vincom Mega Mall Times City, 458 Minh Khai, Q. Hai Bà Trưng, Hà Nội.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="hanoi" data-query="TTTM The Garden Me Tri, Hanoi">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE The Garden Mễ Trì</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 10:00 - 22:00  •  Hotline: 0123 555 666</p>
+            <p>📍 Tầng G, TTTM The Garden, Khu đô thị The Manor, đường Mễ Trì, Q. Nam Từ Liêm, Hà Nội.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="hanoi" data-query="Aeon Mall Ha Dong, Hanoi">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Aeon Mall Hà Đông</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 10:00 - 22:00  •  Hotline: 0123 666 777</p>
+            <p>📍 Tầng 1, Aeon Mall Hà Đông, Phường Dương Nội, Q. Hà Đông, Hà Nội.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="hanoi" data-query="Vincom Plaza Tran Duy Hung, Hanoi">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Vincom Trần Duy Hưng</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:30 - 22:00  •  Hotline: 0123 777 888</p>
+            <p>📍 Tầng L1, Vincom Plaza Trần Duy Hưng, Đường Trần Duy Hưng, Q. Cầu Giấy, Hà Nội.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="hanoi" data-query="Vincom Mega Mall Pham Ngoc Thach, Hanoi">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Vincom Phạm Ngọc Thạch</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:30 - 22:00  •  Hotline: 0123 888 999</p>
+            <p>📍 Tầng 1, Vincom Mega Mall Phạm Ngọc Thạch, 02 Phạm Ngọc Thạch, Q. Đống Đa, Hà Nội.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="danang" data-query="Vincom Plaza Ngo Quyen, Da Nang">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Vincom Ngô Quyền</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:30 - 22:00  •  Hotline: 0511 333 444</p>
+            <p>📍 Tầng L1, Vincom Plaza Ngô Quyền, 910A Ngô Quyền, Q. Sơn Trà, Đà Nẵng.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="danang" data-query="235 Hung Vuong, Hai Chau, Da Nang">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Hùng Vương Boutique</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:00 - 21:30  •  Hotline: 0511 444 555</p>
+            <p>📍 235 Hùng Vương, Q. Hải Châu, Đà Nẵng.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="saigon" data-query="88 Dong Khoi, Ben Nghe, Quan 1, Ho Chi Minh">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Đồng Khởi Flagship</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:30 - 21:30  •  Hotline: 028 3822 2005</p>
+            <p>📍 Lầu 1, 88 Đồng Khởi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="saigon" data-query="Takashimaya Vietnam, Nam Ky Khoi Nghia, Quan 1">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Takashimaya (Saigon Centre)</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:30 - 22:00  •  Hotline: 028 444 555</p>
+            <p>📍 Tầng 1, TTTM Takashimaya, 92-94 Nam Kỳ Khởi Nghĩa, Quận 1, TP. Hồ Chí Minh.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="saigon" data-query="Crescent Mall, Ton Dat Tien, Tan Phu, Quan 7">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Crescent Mall</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 10:00 - 22:00  •  Hotline: 028 555 666</p>
+            <p>📍 Tầng G, TTTM Crescent Mall, 101 Tôn Dật Tiên, Quận 7, TP. Hồ Chí Minh.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="saigon" data-query="Vincom Center Dong Khoi, Le Thanh Ton, Quan 1">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Vincom Đồng Khởi</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 09:30 - 22:00  •  Hotline: 028 666 777</p>
+            <p>📍 72 Lê Thánh Tôn, Bến Nghé, Quận 1, TP. Hồ Chí Minh.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+        <div class="store-item border-l-2 border-transparent bg-silver-light/20 p-5 transition-all cursor-pointer hover:shadow-sm" data-region="saigon" data-query="Aeon Mall Tan Phu Celadon, Ho Chi Minh">
+          <h3 class="font-serif text-sm font-semibold text-primary mb-2 uppercase tracking-wide">VANE Aeon Mall Tân Phú</h3>
+          <div class="font-ui text-[11px] text-muted space-y-1.5 leading-relaxed pl-1 mb-3">
+            <p>T2 - CN | 10:00 - 22:00  •  Hotline: 028 777 888</p>
+            <p>📍 30 Bờ Bao Tân Thắng, Sơn Kỳ, Tân Phú, TP. Hồ Chí Minh.</p>
+          </div>
+          <div class="pt-2 border-t border-charcoal/5">
+            <button class="btn-guide font-ui text-[10px] font-bold text-gold uppercase tracking-wider hover:text-primary transition-colors flex items-center gap-1">Chỉ đường +</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+ <section id="map-section" class="w-full md:col-span-1 md:sticky md:top-4 md:self-start bg-ivory border border-charcoal/10 relative shadow-sm overflow-hidden" style="height: 520px;">
+      <iframe 
+        id="google-maps-frame"
+        class="w-full h-full border-none"
+        src="https://maps.google.com/maps?saddr=My+Location&daddr=Vincom+Center+Ba+Trieu,Hanoi&output=embed"
+        allowfullscreen>
+      </iframe>
+      <div class="absolute bottom-3 left-3 right-3 bg-primary/95 text-white p-2.5 text-center shadow-md backdrop-blur-sm z-20">
+        <p class="font-ui text-[8px] uppercase tracking-widest text-gold font-semibold">📍 Hướng dẫn tuyến đường GPS trực tuyến</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="component-footer"></div>
+  <div id="component-cart-overlay"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="src/js/app.js?v=8"></script>
+  
+  <script>
+    $(document).ready(function() {
+
+      // === LAYOUT: Đồng bộ chiều cao store-list với map bằng CSS-first approach ===
+      function syncLayout() {
+        if ($(window).width() < 768) {
+          // Mobile: bỏ height cứng, để tự nhiên
+          $('#store-list').css({ height: '', maxHeight: '80vw' });
+          return;
+        }
+        // Desktop: lấy chiều cao map section (fixed 520px), trừ header title bar
+        const mapH = $('#map-section').outerHeight(true);
+        const titleBarH = $('#store-section .flex.justify-between').outerHeight(true) || 56;
+        const listH = mapH - titleBarH - 8; // 8px spacing buffer
+        $('#store-list').css({ height: listH + 'px', maxHeight: listH + 'px' });
+      }
+
+      $(window).on('load resize', syncLayout);
+      syncLayout();
+
+      
+      // Hàm cập nhật bản đồ iFrame
+      function updateMapToStore(storeAddressQuery) {
+    const mapUrl =
+      `https://www.google.com/maps?q=${encodeURIComponent(storeAddressQuery)}&output=embed`;
+
+    $('#google-maps-frame').attr('src', mapUrl);
+}
+
+      // Khởi tạo mặc định load map cho cửa hàng đầu tiên
+      updateMapToStore("Vincom Center Ba Trieu, Hanoi");
+
+      // Sự kiện click chọn showroom
+      $(document).on('click', '.store-item', function() {
+        $('.store-item').removeClass('bg-ivory border-gold active').addClass('bg-silver-light/20 border-transparent');
+        $(this).addClass('bg-ivory border-gold active').removeClass('border-transparent');
+        
+        const storeQuery = $(this).data('query');
+        updateMapToStore(storeQuery);
+      });
+
+      $(document).on('click', '.btn-guide', function(e) {
+          e.stopPropagation();
+
+          const query = $(this)
+            .closest('.store-item')
+            .data('query');
+
+          window.open(
+            `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}`,
+            '_blank'
+          );
+      });
+
+      // Điều hướng Tab lọc miền bằng jQuery
+$('.btn-filter').on('click', function () {
+
+    $('.btn-filter')
+        .removeClass('bg-ivory text-primary')
+        .addClass('bg-white text-muted');
+
+    $(this)
+        .addClass('bg-ivory text-primary')
+        .removeClass('bg-white text-muted');
+
+    const currentFilter = $(this).data('target');
+
+    if (currentFilter === 'all') {
+
+        const totalStores = $('.store-item').length;
+
+        $('.store-item').show();
+
+        $('#region-title').text('Tất Cả Chi Nhánh');
+        $('#store-count').text(`${totalStores} Cơ sở`);
+
+        $('.store-item:visible').first().click();
+        $('#store-list').scrollTop(0);
+
+    } else {
+
+        $('.store-item').hide();
+
+        const targetStores = $(`.store-item[data-region="${currentFilter}"]`);
+
+        targetStores.show();
+
+        const storeCount = targetStores.length;
+
+        let strTitle = '';
+
+        switch (currentFilter) {
+            case 'hanoi':
+                strTitle = 'Chi Nhánh Hà Nội';
+                break;
+
+            case 'danang':
+                strTitle = 'Chi Nhánh Đà Nẵng';
+                break;
+
+            case 'saigon':
+                strTitle = 'Chi Nhánh TP. Hồ Chí Minh';
+                break;
+        }
+
+        $('#region-title').text(strTitle);
+        $('#store-count').text(`${storeCount} Cơ sở`);
+
+        targetStores.first().click();
+        $('#store-list').scrollTop(0);
+    }
+});
+
+    });
+  </script>
+</body>
+</html>

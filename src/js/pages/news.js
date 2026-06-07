@@ -1,0 +1,113 @@
+/**
+ * VANE VIETNAM - ARCHITECTURE NEWS SYSTEM
+ * Thuật toán phân trang và bộ lọc chuẩn hóa Class .hidden (Sửa lỗi trơ nút bấm)
+ */
+
+$(document).ready(function() {
+  const itemsPerPage = 6; // Đảm bảo khóa cứng tối đa hiển thị 6 bài viết/trang
+  let currentPage = 1;
+  let currentType = 'all';
+
+  function renderNewsEngine() {
+    // 1. Sàng lọc danh sách các khối bài viết khớp với danh mục đang chọn
+    let $validItems = $('.blog-item-wrapper').filter(function() {
+      if (currentType === 'all') return true;
+      return $(this).attr('data-type') === currentType;
+    });
+
+    const totalItems = $validItems.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    // Kiểm soát an toàn chỉ mục trang
+    if (currentPage > totalPages && totalPages > 0) {
+      currentPage = totalPages;
+    }
+
+    // 2. Ẩn toàn bộ 20 bài viết bằng cách thêm class 'hidden' của Tailwind
+    $('.blog-item-wrapper').addClass('hidden');
+
+    // Xác định vùng dữ liệu được phép hiển thị của trang hiện tại
+    const startIdx = (currentPage - 1) * itemsPerPage;
+    const endIdx = startIdx + itemsPerPage;
+
+    // Loại bỏ class 'hidden' để hiện đúng tối đa 6 bài viết
+    $validItems.slice(startIdx, endIdx).removeClass('hidden');
+
+    // 3. Tiến hành vẽ các nút số trang động
+    buildPaginationUI(totalPages);
+  }
+
+  function buildPaginationUI(totalPages) {
+    let $paginationBox = $('#pagination-container');
+    $paginationBox.empty(); // Xóa sạch các nút cũ
+
+    // Nếu tổng số bài sau khi lọc từ 6 bài trở xuống, ẩn hoàn toàn thanh phân trang
+    if (totalPages <= 1) return;
+
+    // Vẽ nút Mũi tên trái (Lùi trang)
+    let hasPrev = currentPage > 1;
+    $paginationBox.append(`
+      <button class="news-prev-btn w-9 h-9 flex items-center justify-center border border-charcoal/10 bg-white font-ui text-xs text-primary font-semibold hover:border-gold transition-colors ${!hasPrev ? 'opacity-20 pointer-events-none' : ''}" data-target="${currentPage - 1}">
+        <i class="fa-solid fa-angle-left text-[10px]"></i>
+      </button>
+    `);
+
+    // Vẽ chuỗi nút số 1, 2, 3...
+    for (let i = 1; i <= totalPages; i++) {
+      if (i === currentPage) {
+        $paginationBox.append(`
+          <button class="w-9 h-9 flex items-center justify-center border border-gold bg-primary font-ui text-xs text-gold font-semibold cursor-default">
+            ${i}
+          </button>
+        `);
+      } else {
+        $paginationBox.append(`
+          <button class="news-num-btn w-9 h-9 flex items-center justify-center border border-charcoal/10 bg-white font-ui text-xs text-muted hover:border-gold hover:text-primary transition-all" data-target="${i}">
+            ${i}
+          </button>
+        `);
+      }
+    }
+
+    // Vẽ nút Mũi tên phải (Tiến trang)
+    let hasNext = currentPage < totalPages;
+    $paginationBox.append(`
+      <button class="news-next-btn w-9 h-9 flex items-center justify-center border border-charcoal/10 bg-white font-ui text-xs text-primary font-semibold hover:border-gold transition-colors ${!hasNext ? 'opacity-20 pointer-events-none' : ''}" data-target="${currentPage + 1}">
+        <i class="fa-solid fa-angle-right text-[10px]"></i>
+      </button>
+    `);
+  }
+
+  // SỬA LỖI TRƠ NÚT BẰNG ĐỊNH VỊ TOÀN CỤC (Kể cả khi component nạp chậm vẫn bấm được)
+  $(document).on('click', '.btn-blog-filter', function(e) {
+    e.preventDefault();
+    
+    $('.btn-blog-filter').removeClass('filter-active');
+    $(this).addClass('filter-active');
+    
+    currentType = $(this).attr('data-type');
+    currentPage = 1; // Đổi mục thì ép về trang 1
+    
+    renderNewsEngine();
+    
+    // Cuộn nhẹ màn hình lên đầu lưới bài viết
+    $('html, body').animate({
+      scrollTop: $('#blog-grid').offset().top - 160
+    }, 300);
+  });
+
+  // Bắt sự kiện click chuyển số trang
+  $(document).on('click', '.news-num-btn, .news-prev-btn, .news-next-btn', function(e) {
+    e.preventDefault();
+    currentPage = parseInt($(this).attr('data-target'));
+    
+    renderNewsEngine();
+    
+    $('html, body').animate({
+      scrollTop: $('#blog-grid').offset().top - 160
+    }, 400);
+  });
+
+  // Chạy kích hoạt hệ thống lần đầu tiên
+  renderNewsEngine();
+});

@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tin tức & Sự kiện | Vane Vietnam</title>
+  <meta name="description" content="Khám phá những câu chuyện chế tác, xu hướng trang sức cao cấp và hành trình di sản tại Vane Vietnam." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💎</text></svg>">
+  
+  <!-- GIẢI QUYẾT TRIỆT ĐỂ LỖI PHÔNG TIẾNG VIỆT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <!-- LINK LIÊN KẾT HỆ THỐNG CSS CHUẨN MỰC -->
+  <link rel="stylesheet" href="src/css/base.css?v=7" />
+  <link rel="stylesheet" href="src/css/output.css?v=7" />
+  <link rel="stylesheet" href="src/css/custom.css?v=7" /> <!-- Tệp chứa CSS bóc tách riêng -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="bg-white text-charcoal font-sans opacity-0 transition-opacity duration-500 antialiased">
+
+  <!-- LOADER BLOCK -->
+  <div id="loader" class="fixed inset-0 z-200 bg-ivory flex items-center justify-center">
+    <div class="font-logo text-2xl tracking-[0.4em]">VANE</div>
+  </div>
+
+  <!-- HEADER CỐ ĐỊNH (DYNAMIC GLOBAL INJECTED) -->
+  <div id="component-header"></div>
+
+  <main>
+
+    <!-- PHẦN 1: BREADCRUMBS & TIÊU ĐỀ TRANG -->
+    <section class="pt-40 pb-10 bg-white">
+      <div class="max-w-6xl mx-auto px-8 flex flex-col items-start w-full">
+        <nav class="mb-6">
+          <ol class="flex items-center gap-2 font-ui text-[13px] tracking-wider text-muted">
+            <li><a href="index.html" class="hover:text-primary transition-colors">Trang Chủ</a></li>
+            <li class="text-silver">/</li>
+            <li class="text-primary">Tin Tức</li>
+          </ol>
+        </nav>
+        <p class="font-ui text-[10px] tracking-[0.4em] uppercase text-gold mb-3">TẠP CHÍ VANE</p>
+        <h1 class="font-serif text-4xl md:text-5xl text-primary tracking-wide">Hành trình duy mỹ & Di sản</h1>
+      </div>
+    </section>
+
+    <!-- PHẦN 2: DANH MỤC BỘ LỌC (Chuẩn hóa data-type đồng bộ 100% với JS) -->
+    <section class="bg-white pb-12 border-b border-charcoal/5">
+      <div class="max-w-6xl mx-auto px-8 flex flex-row gap-6 md:gap-10 overflow-x-auto pb-4 justify-start sm:justify-center scrollbar-none w-full border-t border-gray-100 pt-6">
+        <button class="btn-blog-filter filter-active font-ui text-[11px] uppercase tracking-[0.2em]" data-type="all">Tất Cả</button>
+        <button class="btn-blog-filter font-ui text-[11px] uppercase tracking-[0.2em]" data-type="promo">Tin Khuyến Mãi</button>
+        <button class="btn-blog-filter font-ui text-[11px] uppercase tracking-[0.2em]" data-type="blog">Blog Trang Sức</button>
+        <button class="btn-blog-filter font-ui text-[11px] uppercase tracking-[0.2em]" data-type="press">Báo Chí Nói Gì Về Chúng Tôi</button>
+        <button class="btn-blog-filter font-ui text-[11px] uppercase tracking-[0.2em]" data-type="career">Tuyển Dụng</button>
+      </div>
+    </section>
+
+    <!-- PHẦN 3: LƯỚI BÀI VIẾT TỔNG HỢP CÂN BẰNG -->
+    <section class="bg-white py-12 px-6">
+      <div class="max-w-6xl mx-auto px-8">
+        
+        <!-- Khung lưới chứa các wrapper cha để JS can thiệp class hiển thị an toàn -->
+        <div id="blog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 items-stretch">
+          
+          <!-- ==================== CHUYÊN MỤC: TIN KHUYẾN MÃI (5 BÀI) ==================== -->
+          <div class="blog-item-wrapper" data-type="promo">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_outfit_1_1_-_bague_move_uno_pav_e_05630_wg.webp" alt="Promo 1"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Tin Khuyến Mãi</span>
+                  <h3 class="blog-title">Độc bản mùa yêu: Đặc quyền quà tặng tinh tế dịp lễ kết hôn 2026</h3>
+                  <p class="blog-excerpt">Đón chào mùa chung đôi, Vane Vietnam trân trọng gửi tặng đặc quyền ưu đãi 10% cho các cặp đôi khi đặt thiết kế nhẫn cưới Bespoke, cùng quà tặng khay đựng trang sức bằng da cao cấp khâu tay tinh xảo.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">02/06/2026</span><a href="news-detail.html?id=0" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="promo">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_outfit_1_1_-_bracelet_baby_move_classique_pav_04325_-_collier_baby_move_classique_pav_wg_1.webp" alt="Promo 2"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Tin Khuyến Mãi</span>
+                  <h3 class="blog-title">Private Sales: Chương trình tri ân đặc quyền dành cho khách hàng thân thiết</h3>
+                  <p class="blog-excerpt">Gửi lời tri ân sâu sắc đến những tri kỷ đã đồng hành, Vane dành tặng tuần lễ trải nghiệm đóng tư gia với ưu đãi lên đến 15% cho các tạo tác kim hoàn thuộc bộ sưu tập di sản cổ điển.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">15/05/2026</span><a href="news-detail.html?id=1" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="promo">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/52f8d614d5bbd2d588afa5e471fce85a/m/e/messika_paris_-_collier_messika_fiery_13239_p.webp" alt="Promo 3"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Tin Khuyến Mãi</span>
+                  <h3 class="blog-title">The Art of Gifting: Chạm khắc ký tự độc bản miễn phí tri ân ngày của Mẹ</h3>
+                  <p class="blog-excerpt">Tôn vinh tình mẫu tử thiêng liêng, Vane Vietnam tài trợ toàn bộ chi phí chạm khắc thủ công chữ ký, ngày kỷ niệm hoặc thông điệp cá nhân lên mặt trong của tạo tác dây chuyền cao cấp.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">05/05/2026</span><a href="news-detail.html?id=2" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="promo">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_outfit_1_1_-_mono_boucles_d_oreille_clip_move_uno_pampille_pav_11162_-_mono_boucles_d_oreille_puce_move_uno_12957_wg.webp" alt="Promo 4"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Tin Khuyến Mãi</span>
+                  <h3 class="blog-title">Ưu đãi thẻ đặc quyền di sản khi sở hữu BST Vàng Trắng Đông Dương</h3>
+                  <p class="blog-excerpt">Khi sở hữu bất kỳ tạo tác nào thuộc bộ sưu tập kỷ niệm 20 năm, quý khách sẽ được nâng hạng thẻ VIP Vane Heritage với đặc quyền làm mới, xi mạ bạch kim miễn phí trọn đời.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">20/04/2026</span><a href="news-detail.html?id=3" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="promo">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://i.pinimg.com/736x/cf/7a/19/cf7a1931971b49676c3773ec7a99c095.jpg" alt="Promo 5"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Tin Khuyến Mãi</span>
+                  <h3 class="blog-title">Đoán mùa viễn xứ: Quà tặng thẻ hành lý da và hộp trang sức du lịch</h3>
+                  <p class="blog-excerpt">Đồng hành cùng những chuyến viễn du mùa hạ của quý thượng khách, Vane dành tặng hộp đựng trang sức mini bằng da cao cấp cho mọi hóa đơn sở hữu trang sức đá quý hộ chiếu GIA.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">08/04/2026</span><a href="news-detail.html?id=4" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+
+          <!-- ==================== CHUYÊN MỤC: BLOG TRANG SỨC (5 BÀI) ==================== -->
+          <div class="blog-item-wrapper" data-type="blog">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/c55b1599846e2e4d518f44ada8803512/m/e/messika_-_outfit_1_1_-_bague_move_link_multi_12078_pg.webp" alt="Blog 1"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Blog Trang Sức</span>
+                  <h3 class="blog-title">Như một buổi hẹn đầu: Tìm lại cảm giác duy mỹ dịu dàng cùng Vane</h3>
+                  <p class="blog-excerpt">Lấy cảm hứng từ những rung động thuần khiết của tình yêu thời đại mới, bài viết lật mở câu chuyện phác thảo đằng sau những mẫu hoa tai đính đá sapphire mảnh dẻ, lay động mọi ánh nhìn điềm đạm.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">12/05/2026</span><a href="news-detail.html?id=5" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="blog">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/52f8d614d5bbd2d588afa5e471fce85a/m/e/messika_paris_-_bague_d-vibes_pm_12990_p_1.webp" alt="Blog 2"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Blog Trang Sức</span>
+                  <h3 class="blog-title">Hiểu về giác cắt Emerald: Đỉnh cao của sự trung thực trong thế giới kim cương</h3>
+                  <p class="blog-excerpt">Không lấp lánh ồn ã như giác cắt Round, viên kim cương cắt kiểu Emerald như một tấm gương phẳng lặng phô diễn trọn vẹn độ trong suốt tuyệt đối, đại diện cho cốt cách chính trực.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">28/04/2026</span><a href="news-detail.html?id=6" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="blog">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/52f8d614d5bbd2d588afa5e471fce85a/m/e/messika_-_outfit_1_1_-_collier_move_uno_2_rangs_08852_pg.webp" alt="Blog 3"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Blog Trang Sức</span>
+                  <h3 class="blog-title">Xu hướng phối trang sức đa tầng (Layering) theo phong cách Xa xỉ thầm lặng</h3>
+                  <p class="blog-excerpt">Bí quyết kết hợp nhiều sợi dây chuyền mảnh, nhẫn xếp lớp mang các sắc độ vàng 18K khác nhau mà vẫn giữ được sự tinh tế, sang trọng, không phô trương của một quý cô thanh lịch.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">15/04/2026</span><a href="news-detail.html?id=7" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="blog">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://www.messika.com/media-cms/messika-midnight-sun-2025-video-poster-1440x807.jpg?2025-07-23T21:14:45.338Z" alt="Blog 4"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Blog Trang Sức</span>
+                  <h3 class="blog-title">Triết lý "Chế tác chậm" – Nơi thời gian kết tinh thành linh hồn tạo tác</h3>
+                  <p class="blog-excerpt">Giữa kỷ nguyên công nghiệp đại trà, tại sao các nghệ nhân trưởng tại xưởng kim hoàn Vane vẫn kiên trì dành hàng trăm giờ chỉ để mài dũa thủ công một mối nối vô hình ẩn giấu dưới đáy ổ đá?</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">03/04/2026</span><a href="news-detail.html?id=8" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="blog">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://www.messika.com/media/opti_image/webp/catalog/product/cache/52f8d614d5bbd2d588afa5e471fce85a/m/e/messika_-_outfit_1_1_-_bracelet_bangle_move_romane_06514_wg.webp" alt="Blog 5"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Blog Trang Sức</span>
+                  <h3 class="blog-title">Cẩm nang phân biệt các sắc độ Vàng: Rose Gold, Yellow Gold và White Gold</h3>
+                  <p class="blog-excerpt">Phân tích chuyên sâu về tỷ lệ hợp kim chuẩn quốc tế giúp quý khách thấu hiểu sắc da của mình phù hợp nhất với ánh kim nào, tôn vinh nét đẹp tự nhiên nguyên bản một cách hoàn hảo.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">19/03/2026</span><a href="news-detail.html?id=9" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+
+          <!-- ==================== CHUYÊN MỤC: BÁO CHÍ NÓI GÌ (5 BÀI) ==================== -->
+          <div class="blog-item-wrapper" data-type="press">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://i.pinimg.com/736x/77/ec/02/77ec0290b87e01b0a77cd389f25ec76e.jpg" alt="Press 1"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Báo Chí Nói Gì Về Chúng Tôi</span>
+                  <h3 class="blog-title">Tạp chí Vogue Vietnam: "Vane Vietnam và định nghĩa mới về Quiet Luxury nội địa"</h3>
+                  <p class="blog-excerpt">Chuyên trang thời trang uy tín dành những lời khen tặng quý giá cho Vane trong việc gìn giữ kỹ nghệ thủ công Phố cổ hòa quyện cùng tư duy hình khối đương đại, tạo nên bước chuyển mình đầy kiêu hãnh.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">25/05/2026</span><a href="news-detail.html?id=10" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="press">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://i.pinimg.com/736x/b4/24/23/b424231df753947986f4a4c3a98c3e85.jpg" alt="Press 2"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Báo Chí Nói Gì Về Chúng Tôi</span>
+                  <h3 class="blog-title">Báo VnExpress: "Hành trình hai thập kỷ lặng lẽ kiến tạo di sản trang sức cao cấp"</h3>
+                  <p class="blog-excerpt">Bài báo ghi lại chặng đường từ những ngày đầu nhen nhóm ý niệm của nhóm sinh viên yêu nghệ thuật năm 2005 đến vị thế một thương hiệu trang sức di sản đầy điềm đạm, chính trực vào năm 2026.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">10/05/2026</span><a href="news-detail.html?id=11" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="press">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://i.pinimg.com/736x/bc/5a/ca/bc5aca6b766218fd38f04fb3bbf911ca.jpg" alt="Press 3"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Báo Chí Nói Gì Về Chúng Tôi</span>
+                  <h3 class="blog-title">Tạp chí Harper's Bazaar: "Khi câu chuyện cá nhân hóa thành kiệt tác Bespoke"</h3>
+                  <p class="blog-excerpt">Bài viết đánh giá cao dịch vụ tư vấn chuyên sâu độc quyền tại không gian Vane, nơi tâm sự và lăng kính nghệ thuật của khách hàng được chuyển hóa trọn vẹn thành những tạo tác kim hoàn.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">02/05/2026</span><a href="news-detail.html?id=12" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="press">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjFNr7YsaYHTcmDbtv_P0_PSsGz4uVi_-Oww&s" alt="Press 4"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Báo Chí Nói Gì Về Chúng Tôi</span>
+                  <h3 class="blog-title">Báo Dân Trí: "Vane Vietnam đồng hành cùng quỹ nhân ái thắp sáng ước mơ trẻ em"</h3>
+                  <p class="blog-excerpt">Ghi nhận từ buổi đấu giá thiện nguyện tạo tác trâm cài áo đính ngọc trai biển sâu độc bản của Vane, toàn bộ số tiền đã được chuyển thẳng vào quỹ xây dựng trường học cho trẻ em nghèo.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">18/04/2026</span><a href="news-detail.html?id=13" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="press">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://yt3.googleusercontent.com/ytc/AIdro_kfsV2YnJnppPUtn0rsvvHnv1CfEur4UGfOSrRjV8xHY-4=s900-c-k-c0x00ffffff-no-rj" alt="Press 5"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Báo Chí Nói Gì Về Chúng Tôi</span>
+                  <h3 class="blog-title">Tạp chí Elle Vietnam: "Nguyễn Thu Phương – Người thổi hồn đương đại vào di sản"</h3>
+                  <p class="blog-excerpt">Cuộc phỏng vấn độc quyền với Thiết kế trưởng Nguyễn Thu Phương về cảm hứng duy mỹ trường tồn từ lòng tôn kính sâu sắc đối với văn hóa nghìn năm văn hiến của đất kinh kỳ.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">29/03/2026</span><a href="news-detail.html?id=14" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+
+          <!-- ==================== CHUYÊN MỤC: TUYỂN DỤNG (5 BÀI) ==================== -->
+          <div class="blog-item-wrapper" data-type="career">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Career 1"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Tuyển Dụng</span>
+                  <h3 class="blog-title">Tuyển dụng: Thiết kế trưởng Trang sức cao cấp (Senior Jewelry Designer)</h3>
+                  <p class="blog-excerpt">Vane tìm kiếm người đồng hành sở hữu tư duy mỹ thuật tinh tế, am tường về tỷ lệ hình học đương đại và có khả năng chuyển hóa những câu chuyện triết lý sâu sắc thành các bản phác thảo kim hoàn.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">01/06/2026</span><a href="news-detail.html?id=15" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="career">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://i.pinimg.com/736x/39/68/fd/3968fd8e70ebcd440a482a309db6de96.jpg" alt="Career 2"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Tuyển Dụng</span>
+                  <h3 class="blog-title">Tuyển dụng: Chuyên viên Tư vấn Trải nghiệm Khách hàng VIP (Showroom Advisor)</h3>
+                  <p class="blog-excerpt">Tìm kiếm những đại sứ thương hiệu có giọng nói truyền cảm, phong thái điềm đạm và sự am hiểu sâu sắc về phong cách sống xa xỉ thầm lặng để đón tiếp những thượng khách tại showroom.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">20/05/2026</span><a href="news-detail.html?id=16" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="career">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=600&q=80" alt="Career 3"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Tuyển Dụng</span>
+                  <h3 class="blog-title">Tuyển dụng: Học viên Nghệ nhân Kim hoàn Thủ công (Artisan Apprentice)</h3>
+                  <p class="blog-excerpt">Cơ hội làm việc trực tiếp dưới sự dẫn dắt của Nghệ nhân trưởng tại xưởng chế tác Vane, dành cho những đôi bàn tay kiên nhẫn, chỉn chu muốn nối dài kỹ nghệ kim hoàn di sản.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">12/05/2026</span><a href="news-detail.html?id=17" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="career">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Career 4"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Tuyển Dụng</span>
+                  <h3 class="blog-title">Tuyển dụng: Trưởng phòng Truyền thông Thương hiệu (Communications Manager)</h3>
+                  <p class="blog-excerpt">Chúng tôi tìm kiếm một tư duy chiến lược có khả năng định vị ngôn từ tinh tế, quản trị hình ảnh thương hiệu nhất quán, kể câu chuyện di sản của Vane bằng sự điềm tĩnh và trung thực.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">02/05/2026</span><a href="news-detail.html?id=18" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+          <div class="blog-item-wrapper" data-type="career">
+            <div class="blog-card reveal-item">
+              <div class="blog-card-top">
+                <div class="blog-img-wrap"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Career 5"></div>
+                <div class="p-5">
+                  <span class="blog-meta-tag">Tuyển Dụng</span>
+                  <h3 class="blog-title">Tuyển dụng: Chuyên viên Quản lý Nguồn cung ứng Đá quý & Kim cương</h3>
+                  <p class="blog-excerpt">Vai trò chịu trách nhiệm thẩm định, làm việc trực tiếp với các nguồn cung ứng đá quý toàn cầu, đảm bảo 100% nguyên liệu đầu vào của Vane đạt chứng nhận khắt khe của GIA.</p>
+                </div>
+              </div>
+              <div class="blog-card-bottom"><span class="blog-date">15/04/2026</span><a href="news-detail.html?id=19" class="blog-link">Đọc thêm +</a></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- KHỐI PHÂN TRANG TỰ ĐỘNG -->
+        <div id="pagination-container" class="flex items-center justify-center gap-2 mt-16">
+          <!-- JS sẽ tự tính toán số trang và tự vẽ các nút 1, 2, 3 tại đây -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="component-footer"></div>
+  <div id="component-cart-overlay"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="src/js/app.js?v=8"></script> 
+
+  <script>
+    $(document).ready(function() {
+      const itemsPerPage = 6; 
+      let currentPage = 1;
+      let currentType = 'all';
+
+      function renderNewsEngine() {
+        let $validItems = $('.blog-item-wrapper').filter(function() {
+          if (currentType === 'all') return true;
+          return $(this).attr('data-type') === currentType;
+        });
+
+        const totalItems = $validItems.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+        if (currentPage > totalPages && totalPages > 0) {
+          currentPage = totalPages;
+        }
+
+        // Ép ẩn bằng class ẩn cứng của Tailwind
+        $('.blog-item-wrapper').addClass('hidden');
+
+        const startIdx = (currentPage - 1) * itemsPerPage;
+        const endIdx = startIdx + itemsPerPage;
+
+        $validItems.slice(startIdx, endIdx).removeClass('hidden');
+
+        buildPaginationUI(totalPages);
+      }
+
+      function buildPaginationUI(totalPages) {
+        let $paginationBox = $('#pagination-container');
+        $paginationBox.empty(); 
+
+        if (totalPages <= 1) return;
+
+        let hasPrev = currentPage > 1;
+        $paginationBox.append(`
+          <button class="news-prev-btn w-9 h-9 flex items-center justify-center border border-charcoal/10 bg-white font-ui text-xs text-primary font-semibold hover:border-gold transition-colors ${!hasPrev ? 'opacity-20 pointer-events-none' : ''}" data-target="${currentPage - 1}">
+            <i class="fa-solid fa-angle-left text-[10px]"></i>
+          </button>
+        `);
+
+        for (let i = 1; i <= totalPages; i++) {
+          if (i === currentPage) {
+            $paginationBox.append(`
+              <button class="w-9 h-9 flex items-center justify-center border border-gold bg-primary font-ui text-xs text-gold font-semibold cursor-default">
+                ${i}
+              </button>
+            `);
+          } else {
+            $paginationBox.append(`
+              <button class="news-num-btn w-9 h-9 flex items-center justify-center border border-charcoal/10 bg-white font-ui text-xs text-muted hover:border-gold hover:text-primary transition-all" data-target="${i}">
+                ${i}
+              </button>
+            `);
+          }
+        }
+
+        let hasNext = currentPage < totalPages;
+        $paginationBox.append(`
+          <button class="news-next-btn w-9 h-9 flex items-center justify-center border border-charcoal/10 bg-white font-ui text-xs text-primary font-semibold hover:border-gold transition-colors ${!hasNext ? 'opacity-20 pointer-events-none' : ''}" data-target="${currentPage + 1}">
+            <i class="fa-solid fa-angle-right text-[10px]"></i>
+          </button>
+        `);
+      }
+
+      // Ủy quyền sự kiện click bộ lọc toàn cục
+      $(document).on('click', '.btn-blog-filter', function(e) {
+        e.preventDefault();
+        $('.btn-blog-filter').removeClass('filter-active');
+        $(this).addClass('filter-active');
+        
+        currentType = $(this).attr('data-type');
+        currentPage = 1; 
+        
+        renderNewsEngine();
+        
+        $('html, body').animate({
+          scrollTop: $('#blog-grid').offset().top - 160
+        }, 300);
+      });
+
+      // Ủy quyền sự kiện click chuyển trang
+      $(document).on('click', '.news-num-btn, .news-prev-btn, .news-next-btn', function(e) {
+        e.preventDefault();
+        currentPage = parseInt($(this).attr('data-target'));
+        
+        renderNewsEngine();
+        
+        $('html, body').animate({
+          scrollTop: $('#blog-grid').offset().top - 160
+        }, 400);
+      });
+
+      // Kích hoạt vận hành hệ thống
+      renderNewsEngine();
+    });
+  </script>
+</body>
+</html>
