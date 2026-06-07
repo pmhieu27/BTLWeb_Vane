@@ -90,10 +90,10 @@
 .marquee-dot { width: 4px; height: 4px; border-radius: 50%; background-color: #C9A96E; flex-shrink: 0; }
 
 /* --- Accordion / FAQ --- */
-.accordion-item { border-bottom: 1px solid #F0F0F0; }
+.accordion-item { border-bottom: 2px solid rgb(201 169 110 / 1); }
 .accordion-trigger {
   display: flex; justify-content: space-between; align-items: center; width: 100%;
-  padding: 1.25rem 0; font-family: "Montserrat", sans-serif; font-size: 0.875rem;
+  padding: 1.25rem 0; font-family: "Montserrat", sans-serif; font-size: 1rem;
   font-weight: 500; color: #0A0A0A; text-align: left; cursor: pointer; transition: color 0.2s ease;
 }
 .accordion-trigger:hover { color: #C9A96E; }
@@ -101,7 +101,7 @@
 .accordion-item.active .accordion-trigger svg { transform: rotate(180deg); }
 .accordion-content {
   display: none; padding-bottom: 1.25rem; font-family: "Inter", sans-serif;
-  font-size: 0.875rem; line-height: 1.7; color: #888888;
+  font-size: 1rem; line-height: 1.7; color: #888888;
 }
 .accordion-item.active .accordion-content { display: block; }
 

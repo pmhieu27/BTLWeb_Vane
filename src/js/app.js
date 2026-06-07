@@ -27,7 +27,7 @@ $(async function () {
 
   // Load a single JS file (cached)
   var loadScript = function (src) {
-    return $.getScript({ url: src, cache: true });
+    return $.ajax({ url: src, dataType: "script", cache: true });
   };
 
   // Load multiple scripts in sequence
@@ -70,7 +70,7 @@ $(async function () {
       page: "product-detail",
     },
     "checkout.html": {
-      modules: ["cart", "toast"],
+      modules: ["cart", "wishlist", "toast"],
       page: "checkout",
     },
     "wishlist.html": {
@@ -78,19 +78,19 @@ $(async function () {
       page: "wishlist-page",
     },
     "about.html": {
-      modules: ["parallax", "luxury-scroll"],
+      modules: ["parallax", "luxury-scroll", "cart", "wishlist", "toast"],
       page: "about",
     },
     "services.html": {
-      modules: ["parallax", "accordion"],
+      modules: ["parallax", "accordion", "cart", "wishlist", "toast"],
       page: null,
     },
     "contact.html": {
-      modules: ["accordion", "toast"],
+      modules: ["accordion", "toast", "cart", "wishlist"],
       page: "contact",
     },
     "account.html": {
-      modules: ["tabs"],
+      modules: ["tabs", "cart", "wishlist", "toast"],
       page: null,
     },
   };
@@ -103,8 +103,10 @@ $(async function () {
         if (!$mountNode.length) return;
 
         try {
-          var html = await $.ajax({ url: comp.url, cache: false, dataType: "html" });
-          $mountNode.html(html);
+          var resp = await fetch(comp.url + "?t=" + Date.now());
+          var buf = await resp.arrayBuffer();
+          var html = new TextDecoder("utf-8").decode(buf);
+          $mountNode[0].innerHTML = html;
         } catch (err) {
           console.error("Failed to load: " + comp.url, err);
         }
@@ -137,4 +139,5 @@ $(async function () {
   } finally {
     hideLoader();
   }
+
 });

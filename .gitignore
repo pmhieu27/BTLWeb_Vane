@@ -2,4 +2,6 @@ venv/
 __pyscache__/
 
 .ipynb_checkpoints/
-node_modules/
+node_modules/
+
+crawl/

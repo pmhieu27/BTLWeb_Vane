@@ -1,8 +1,11 @@
+const path = require('path');
+const root = path.resolve(__dirname, '..');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./*.html",
-    "./src/**/*.{html,js}",
+    path.join(root, '*.html'),
+    path.join(root, 'src/**/*.{html,js,txt}'),
   ],
   theme: {
     extend: {
@@ -48,6 +51,13 @@ module.exports = {
         '130': '130',
         '200': '200',
         '9999': '9999',
+      },
+      aspectRatio: {
+        '3/4': '3 / 4',
+        '4/5': '4 / 5',
+      },
+      transitionDuration: {
+        '400': '400ms',
       },
       transitionTimingFunction: {
         'out-quart': 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',

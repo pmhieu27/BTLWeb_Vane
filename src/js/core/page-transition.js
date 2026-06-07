@@ -35,4 +35,13 @@ $(function () {
       $("html, body").stop().animate({ scrollTop: topPosition }, 600);
     }
   });
+
+  // Handle back button (bfcache) - remove fade-out so page is not blank on back navigation
+  $(window).on("pageshow", function (e) {
+    $("body").removeClass("fade-out opacity-0");
+    var $loader = $("#loader");
+    if ($loader.length && $loader.css("opacity") === "0") {
+      $loader.hide();
+    }
+  });
 });

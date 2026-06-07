@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container-navbar {
+  width: 90%;
+  margin: auto;
+}
+
+/* ===== HEADER TOP ===== */
+.header-top {
+  background: linear-gradient(to right, #1e4ea1, #2a7de1);
+  color: white;
+  padding: 15px 0;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.logo img {
+  height: 30px;
+  width: auto;
+}
+
+/* SEARCH */
+.search-box {
+  background: white;
+  border-radius: 30px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  width: 400px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+.search-box i {
+  color: #2a7de1;
+}
+
+/* RIGHT */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.item { 
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.item i {
+  font-size: 18px;
+}
+
+.cart {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+/* ===== MENU ===== */
+.menu-bar {
+  background: #fffefe;
+  padding: 10px 0;
+  border-bottom: solid #2a7de1;
+}
+
+.menu {
+  list-style: none;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu li {
+  position: relative;
+  cursor: pointer;
+}
+.menu i {
+  font-size: 18px;
+  margin-right: 6px;
+  color: #2a7de1;
+}
+.emoji {
+  font-size: 18px;
+  margin-right: 6px;
+}
+a {
+  color: black; /* bỏ màu xanh */
+  text-decoration: none; /* bỏ gạch chân */
+}
+/* HOVER */
+.menu li:hover {
+  color: #2a7de1;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown input {
+  display: none;
+}
+
+.submenu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: white;
+  list-style: none;
+  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+.submenu li {
+  padding: 10px;
+}
+
+.submenu li:hover {
+  background: #f5f5f5;
+}
+
+/* CLICK HIỆN */
+#book-toggle:checked + .submenu,
+#news-toggle:checked + .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}

@@ -4,56 +4,114 @@
  */
 $(function () {
   "use strict";
+
   var STORAGE_KEY = "vane_cart";
 
-  // --- Data Layer ---
+  function normalizeCartSize(size) {
+    if (size === "null" || size === "undefined" || size == null || size === "") {
+      return null;
+    }
+
+    return String(size);
+  }
+
+  function getCartItemKey(id, size) {
+    return String(id) + "::" + (normalizeCartSize(size) || "");
+  }
+
   window.VaneCart = {
     getCart: function () {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
-      catch (e) { return []; }
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch (e) {
+        return [];
+      }
     },
     saveCart: function (cart) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
       $(document).trigger("cart:updated");
     },
     addToCart: function (product, size, qty) {
+      var normSize = normalizeCartSize(size);
       var cart = this.getCart();
+      var itemKey = getCartItemKey(product.id, normSize);
       var existing = null;
+
       $.each(cart, function (i, item) {
-        if (item.id === product.id && item.size === size) { existing = i; return false; }
+        if (getCartItemKey(item.id, item.size) === itemKey) {
+          existing = i;
+          return false;
+        }
       });
+
       if (existing !== null) {
         cart[existing].qty += qty;
       } else {
-        cart.push({ id: product.id, name: product.name_vi, price: product.price, image: (product.images && product.images[0]) || "", size: size, qty: qty });
+        cart.push({
+          id: product.id,
+          name: product.name_vi,
+          price: product.price,
+          image: (product.images && product.images[0]) || "",
+          size: normSize,
+          qty: qty,
+        });
       }
+
       this.saveCart(cart);
+      $(document).trigger("toast", ["Đã thêm vào giỏ hàng thành công!", "success"]);
+      this.openCart();
     },
     removeFromCart: function (id, size) {
-      var cart = $.grep(this.getCart(), function (item) { return !(item.id === id && item.size === size); });
+      var itemKey = getCartItemKey(id, size);
+      var cart = $.grep(this.getCart(), function (item) {
+        return getCartItemKey(item.id, item.size) !== itemKey;
+      });
+
       this.saveCart(cart);
+      $(document).trigger("toast", ["Đã xóa sản phẩm khỏi giỏ hàng", "info"]);
     },
     updateQty: function (id, size, qty) {
+      var itemKey = getCartItemKey(id, size);
       var cart = this.getCart();
+
       $.each(cart, function (i, item) {
-        if (item.id === id && item.size === size) { item.qty = Math.max(1, qty); return false; }
+        if (getCartItemKey(item.id, item.size) === itemKey) {
+          item.qty = Math.max(1, qty);
+          return false;
+        }
       });
+
       this.saveCart(cart);
     },
-    clearCart: function () { this.saveCart([]); },
+    clearCart: function () {
+      this.saveCart([]);
+    },
     getCartCount: function () {
       var count = 0;
-      $.each(this.getCart(), function (i, item) { count += item.qty; });
+
+      $.each(this.getCart(), function (i, item) {
+        count += item.qty;
+      });
+
       return count;
     },
     getCartTotal: function () {
       var total = 0;
-      $.each(this.getCart(), function (i, item) { total += item.price * item.qty; });
+
+      $.each(this.getCart(), function (i, item) {
+        total += item.price * item.qty;
+      });
+
       return total;
-    }
+    },
+    openCart: function () {
+      openCart();
+    },
+    closeCart: function () {
+      closeCart();
+    },
   };
 
-  // --- UI Layer ---
   function renderCart() {
     var cart = VaneCart.getCart();
     var $list = $("#cart-items-list");
@@ -62,37 +120,65 @@ $(function () {
     var $badge = $("#cart-badge");
     var count = VaneCart.getCartCount();
 
-    // Badge
-    if (count > 0) { $badge.text(count).removeClass("hidden"); }
-    else { $badge.addClass("hidden"); }
+    if (count > 0) {
+      $badge.text(count).show();
+    } else {
+      $badge.hide();
+    }
 
     if (!cart.length) {
-      $empty.removeClass("hidden"); $list.addClass("hidden"); $footer.addClass("hidden");
+      $empty.show();
+      $list.hide();
+      $footer.hide();
       return;
     }
-    $empty.addClass("hidden"); $list.removeClass("hidden"); $footer.removeClass("hidden");
+
+    $empty.hide();
+    $list.show();
+    $footer.show();
 
     var html = "";
+
     $.each(cart, function (i, item) {
-      html += '<div class="cart-item" data-id="' + item.id + '" data-size="' + item.size + '">' +
-        '<img src="' + item.image + '" alt="' + item.name + '" class="cart-item-img">' +
+      var size = normalizeCartSize(item.size);
+
+      html +=
+        '<div class="cart-item" data-id="' +
+        item.id +
+        '" data-size="' +
+        (size || "") +
+        '">' +
+        '<img src="' +
+        item.image +
+        '" alt="' +
+        item.name +
+        '" class="cart-item-img">' +
         '<div class="flex-1 flex flex-col justify-between">' +
-          '<div>' +
-            '<p class="font-ui text-sm font-medium text-primary">' + item.name + '</p>' +
-            '<p class="font-ui text-xs text-muted mt-1">Size: ' + (item.size || "—") + '</p>' +
-          '</div>' +
-          '<div class="flex justify-between items-center">' +
-            '<div class="qty-selector">' +
-              '<button class="qty-btn cart-qty-minus">−</button>' +
-              '<input type="text" class="qty-input" value="' + item.qty + '" readonly>' +
-              '<button class="qty-btn cart-qty-plus">+</button>' +
-            '</div>' +
-            '<span class="font-ui text-sm text-gold">' + Number(item.price * item.qty).toLocaleString("vi-VN") + '₫</span>' +
-          '</div>' +
-        '</div>' +
-        '<button class="cart-item-remove text-muted hover:text-primary text-lg leading-none self-start ml-2 cursor-pointer">&times;</button>' +
-      '</div>';
+        "<div>" +
+        '<p class="font-ui text-sm font-medium text-primary">' +
+        item.name +
+        "</p>" +
+        '<p class="font-ui text-xs text-muted mt-1">Size: ' +
+        (size || "—") +
+        "</p>" +
+        "</div>" +
+        '<div class="flex justify-between items-center">' +
+        '<div class="qty-selector">' +
+        '<button type="button" class="qty-btn cart-qty-minus">−</button>' +
+        '<input type="text" class="qty-input" value="' +
+        item.qty +
+        '" readonly>' +
+        '<button type="button" class="qty-btn cart-qty-plus">+</button>' +
+        "</div>" +
+        '<span class="font-ui text-sm text-gold">' +
+        Number(item.price * item.qty).toLocaleString("vi-VN") +
+        "₫</span>" +
+        "</div>" +
+        "</div>" +
+        '<button type="button" class="cart-item-remove text-muted hover:text-primary text-lg leading-none self-start ml-2 cursor-pointer">&times;</button>' +
+        "</div>";
     });
+
     $list.html(html);
 
     $("#cart-subtotal").text(Number(VaneCart.getCartTotal()).toLocaleString("vi-VN") + "₫");
@@ -112,26 +198,55 @@ $(function () {
     $("body").css("overflow", "");
   }
 
-  // Events
-  $(document).on("click", "#cart-btn", function (e) { e.preventDefault(); openCart(); });
-  $(document).on("click", "#cart-close, #cart-overlay-backdrop, #cart-continue-shopping", function () { closeCart(); });
-  $(document).on("click", ".cart-item-remove", function () {
-    var $item = $(this).closest(".cart-item");
-    VaneCart.removeFromCart(parseInt($item.data("id")), $item.data("size"));
+  $(document).on("click", "#cart-btn", function (e) {
+    e.preventDefault();
+    openCart();
   });
-  $(document).on("click", ".cart-qty-plus", function () {
-    var $item = $(this).closest(".cart-item");
-    var currentQty = parseInt($item.find(".qty-input").val());
-    VaneCart.updateQty(parseInt($item.data("id")), $item.data("size"), currentQty + 1);
-  });
-  $(document).on("click", ".cart-qty-minus", function () {
-    var $item = $(this).closest(".cart-item");
-    var currentQty = parseInt($item.find(".qty-input").val());
-    if (currentQty > 1) VaneCart.updateQty(parseInt($item.data("id")), $item.data("size"), currentQty - 1);
-  });
-  $(document).on("cart:updated", renderCart);
-  $(document).on("keydown", function (e) { if (e.key === "Escape") closeCart(); });
 
-  // Init
+  $(document).on("click", "#cart-close, #cart-overlay-backdrop, #cart-continue-shopping", function () {
+    closeCart();
+  });
+
+  $(document).on("click", ".cart-item-remove", function (e) {
+    var $item = $(this).closest(".cart-item");
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    VaneCart.removeFromCart(parseInt($item.attr("data-id"), 10), $item.attr("data-size"));
+  });
+
+  $(document).on("click", ".cart-qty-plus", function (e) {
+    var $item = $(this).closest(".cart-item");
+    var currentQty = parseInt($item.find(".qty-input").val(), 10) || 1;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    VaneCart.updateQty(parseInt($item.attr("data-id"), 10), $item.attr("data-size"), currentQty + 1);
+  });
+
+  $(document).on("click", ".cart-qty-minus", function (e) {
+    var $item = $(this).closest(".cart-item");
+    var currentQty = parseInt($item.find(".qty-input").val(), 10) || 1;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (currentQty > 1) {
+      VaneCart.updateQty(parseInt($item.attr("data-id"), 10), $item.attr("data-size"), currentQty - 1);
+    }
+  });
+
+  $(document).on("cart:updated", renderCart);
+  $(document).on("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeCart();
+    }
+  });
+  $(document).on("click", "#cart-checkout-btn", function () {
+    sessionStorage.removeItem("buyNowItem");
+  });
+
   renderCart();
 });

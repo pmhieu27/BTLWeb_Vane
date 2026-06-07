@@ -116,6 +116,22 @@
 
 /* Mobile Filter Drawer */
 @media (max-width: 768px) {
+  #mobile-filter-overlay {
+    pointer-events: none;
+  }
+
+  #mobile-filter-overlay.active {
+    pointer-events: auto;
+  }
+
+  #mobile-filter-panel {
+    transform: translateY(100%);
+  }
+
+  #mobile-filter-overlay.active #mobile-filter-panel {
+    transform: translateY(0);
+  }
+
   .filter-panel {
     position: fixed;
     top: 0;

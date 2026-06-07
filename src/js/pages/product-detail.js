@@ -166,33 +166,30 @@ $(function () {
 
   // --- Buy now ---
   $(document).on("click", "#buy-now-detail", function () {
-    if (addProductToCart()) {
-      window.location.href = "checkout.html";
-    }
+    if (!currentProduct) return;
+
+    // 1. Lấy dữ liệu người dùng đang chọn trên UI
+    var qty = parseInt($("#qty-input").val()) || 1;
+    var size = $(".size-btn.border-primary").attr("data-size") || null;
+
+    // 2. Đóng gói thành Object đơn hàng
+    var itemToBuy = {
+        id: currentProduct.id,
+        qty: qty,
+        size: size
+    };
+
+    // 3. Lưu vào Session Storage (Tạo ra buyNowItem)
+    sessionStorage.setItem("buyNowItem", JSON.stringify(itemToBuy));
+
+    // 4. Chuyển sang trang Checkout mà không đưa vào Giỏ hàng tổng
+    window.location.href = "checkout.html";
   });
 
-  // --- Wishlist ---
-  $(document).on("click", "#toggle-wishlist-detail", function () {
-    var id = $(this).attr("data-id");
-    if (typeof window.VaneWishlist !== "undefined") {
-      window.VaneWishlist.toggle(parseInt(id));
-    }
-  });
 
-  $(document).off("click", ".accordion-trigger").on("click", ".accordion-trigger", function (e) {
-    e.preventDefault();
-    
-    
-    var $item = $(this).closest(".accordion-item");
-    
-    if ($item.hasClass("active")) {
-      $item.removeClass("active");
-    } else {
-    
-      $(".accordion-item").removeClass("active"); 
-      
-      $item.addClass("active");
-    }
+
+  // --- Accordion ---
+  $(document).on("click", ".accordion-trigger", function () {
+    $(this).closest(".accordion-item").toggleClass("active");
   });
-  
 });
