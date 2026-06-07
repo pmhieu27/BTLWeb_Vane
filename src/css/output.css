@@ -982,14 +982,6 @@ video {
   height: 100vh;
 }
 
-.h-\[320px\] {
-  height: 320px;
-}
-
-.h-\[350px\] {
-  height: 350px;
-}
-
 .max-h-\[85vh\] {
   max-height: 85vh;
 }
