@@ -1,406 +1,133 @@
-/* ===== PRODUCT CARDS & COLLECTIONS ===== */
-
-
-
-/* --- Image Hover Zoom --- */
-
-.img-zoom {
-
-  overflow: hidden;
-
+/* ===== 1. BADGES:Nhãn dán đầu sản phẩm ===== */
+.badge {
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    font-family:     "Montserrat", sans-serif;
+    font-size:       0.625rem;
+    font-weight:     600;
+    text-transform:  uppercase;
+    letter-spacing:  0.05em;
+    padding:         0.25rem 0.625rem;
 }
+.badge-new        { background-color: #C9A96E; color: #FFFFFF; }
+.badge-sale       { background-color: #E53E3E; color: #FFFFFF; }
+.badge-bestseller { background-color: #0A0A0A; color: #FFFFFF; }
 
-
-
+/* ===== 2. PRODUCT CARDS ===== */
+.img-zoom { overflow: hidden; }
 .img-zoom img {
-
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-
-
-.img-zoom:hover img {
-
-  transform: scale(1.05);
-
-}
-
-
-
-/* --- Product Card Hover --- */
+.img-zoom:hover img { transform: scale(1.05); }
 
 .product-card .product-overlay {
-
-  opacity: 0;
-
-  transition: opacity 0.3s ease;
-
+    opacity:    0;
+    transition: opacity 0.3s ease;
 }
-
-
-
-.product-card:hover .product-overlay {
-
-  opacity: 1;
-
-}
-
-
+.product-card:hover .product-overlay { opacity: 1; }
 
 .product-card .product-img-secondary {
-
-  opacity: 0;
-
-  transition: opacity 0.5s ease;
-
+    opacity:    0;
+    transition: opacity 0.5s ease;
 }
-
-
+.product-card:hover .product-img-secondary { opacity: 1; }
 
 .product-card .product-overlay .add-to-cart-btn,
-
 .product-card .product-overlay .buy-now-btn {
-
-  flex: 1 1 0;
-
-  min-width: 0;
-
-  max-width: none;
-
-  padding-left: 0.9rem;
-
-  padding-right: 0.9rem;
-
-  height: 40px;
-
+    flex:        1 1 0;
+    min-width:   0;
+    max-width:   none;
+    padding:     0 0.9rem;
+    height:      40px;
 }
-
-
-
 .product-card .product-overlay .buy-now-btn {
-
-  background-color: #E7D9B5;
-
-  color: #0A0A0A;
-
-  border: 1px solid #E7D9B5;
-
+    background-color: #E7D9B5;
+    color:            #0A0A0A;
+    border:           1px solid #E7D9B5;
 }
-
-
-
 .product-card .product-overlay .buy-now-btn:hover {
-
-  background-color: #C9A96E;
-
-  color: #FFFFFF;
-
+    background-color: #C9A96E;
+    color:            #FFFFFF;
 }
 
-
-
+/* ===== 3. WISHLIST TOGGLE ===== */
 .product-card .product-overlay .wishlist-btn {
-
-  background-color: #FFFFFF;
-
-  color: #0A0A0A;
-
-  border-color: rgba(0, 0, 0, 0.08);
-
+    background-color: #FFFFFF;
+    color:            #0A0A0A;
+    border-color:     rgba(0, 0, 0, 0.08);
 }
-
-
-
 .product-card .product-overlay .wishlist-btn:hover {
-
-  background-color: #F9F7F2;
-
-  color: #C9A96E;
-
-  transform: translateY(-1px);
-
+    background-color: #F9F7F2;
+    color:            #C9A96E;
+    transform:        translateY(-1px);
 }
-
-
-
-.product-card .product-overlay .wishlist-btn.active svg {
-
-  fill: #C9A96E;
-
-  stroke: #C9A96E;
-
-}
-
-
-
-.product-card:hover .product-img-secondary {
-
-  opacity: 1;
-
-}
-
-
-
-/* --- Heart Wishlist Toggle --- */
-
 .wishlist-btn svg {
-
-  transition: transform 0.3s ease, fill 0.3s ease;
-
+    transition: transform 0.3s ease, fill 0.3s ease;
 }
+.wishlist-btn:hover svg   { transform: scale(1.15); }
+.wishlist-btn.active svg { fill: #C9A96E; stroke: #C9A96E; }
 
-
-
-.wishlist-btn:hover svg {
-
-  transform: scale(1.15);
-
-}
-
-
-
-.wishlist-btn.active svg {
-
-  fill: #C9A96E;
-
-  stroke: #C9A96E;
-
-}
-
-
-
-/* --- Collection Card Overlay --- */
-
+/* ===== 4. COLLECTION CARD ===== */
 .collection-card .collection-overlay {
-
-  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
-
-  transition: background 0.4s ease;
-
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+    transition: background 0.4s ease;
 }
-
-
-
 .collection-card:hover .collection-overlay {
-
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 80%);
-
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 80%);
 }
 
-
-
-/* --- Product Gallery Zoom --- */
-
+/* ===== 5. PRODUCT GALLERY ===== */
 .gallery-main {
-
-  position: relative;
-
-  overflow: hidden;
-
-  cursor: crosshair;
-
-  background-color: #FAF8F5;
-
+    position:         relative;
+    overflow:         hidden;
+    cursor:           crosshair;
+    background-color: #FAF8F5;
 }
-
-
-
 .gallery-main img {
-
-  transition: transform 0.1s ease-out;
-
-  transform-origin: center center;
-
+    transition:       transform 0.1s ease-out;
+    transform-origin: center center;
 }
+.gallery-main.zoomed img { transform: scale(2); }
 
-
-
-.gallery-main.zoomed img {
-
-  transform: scale(2);
-
-}
-
-
-
-.gallery-thumbs {
-
-  display: flex;
-
-  gap: 0.5rem;
-
-  margin-top: 0.75rem;
-
-}
-
-
-
+.gallery-thumbs { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
 .gallery-thumb {
-
-  width: 72px;
-
-  height: 90px;
-
-  object-fit: cover;
-
-  border: 2px solid transparent;
-
-  cursor: pointer;
-
-  opacity: 0.6;
-
-  transition: opacity 0.3s ease, border-color 0.3s ease;
-
-  background-color: #FAF8F5;
-
+    width:            72px;
+    height:           90px;
+    object-fit:       cover;
+    border:           2px solid transparent;
+    cursor:           pointer;
+    opacity:          0.6;
+    transition:       opacity 0.3s ease, border-color 0.3s ease;
+    background-color: #FAF8F5;
 }
+.gallery-thumb:hover        { opacity: 0.85; }
+.gallery-thumb.active       { border-color: #C9A96E; opacity: 1; }
 
-
-
-.gallery-thumb:hover {
-
-  opacity: 0.85;
-
-}
-
-
-
-.gallery-thumb.active {
-
-  border-color: #C9A96E;
-
-  opacity: 1;
-
-}
-
-
-
-/* --- Quantity Selector --- */
-
-.qty-selector {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  border: 1px solid #E0E0E0;
-
-}
-
-
-
+/* ===== 6. QUANTITY SELECTOR: chọn số lượng + - ===== */
+.qty-selector { display: inline-flex; align-items: center; border: 1px solid #E0E0E0; }
 .qty-btn {
-
-  width: 40px;
-
-  height: 40px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  font-size: 1rem;
-
-  color: #333333;
-
-  transition: background-color 0.2s ease, color 0.2s ease;
-
-  cursor: pointer;
-
-  user-select: none;
-
+    width:           40px;
+    height:          40px;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    font-size:       1rem;
+    color:           #333333;
+    transition:      background-color 0.2s ease, color 0.2s ease;
+    cursor:          pointer;
+    user-select:     none;
 }
-
-
-
-.qty-btn:hover {
-
-  background-color: #FAF8F5;
-
-  color: #C9A96E;
-
-}
-
-
-
+.qty-btn:hover { background-color: #FAF8F5; color: #C9A96E; }
 .qty-input {
-
-  width: 48px;
-
-  height: 40px;
-
-  text-align: center;
-
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 0.875rem;
-
-  color: #0A0A0A;
-
-  border: none;
-
-  border-left: 1px solid #E0E0E0;
-
-  border-right: 1px solid #E0E0E0;
-
+    width:        48px;
+    height:       40px;
+    text-align:   center;
+    font-family:  "Montserrat", sans-serif;
+    font-size:    0.875rem;
+    color:        #0A0A0A;
+    border:       none;
+    border-left:  1px solid #E0E0E0;
+    border-right: 1px solid #E0E0E0;
 }
-
-
-
-/* --- Badge --- */
-
-.badge {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 0.625rem;
-
-  font-weight: 600;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.05em;
-
-  padding: 0.25rem 0.625rem;
-
-}
-
-
-
-.badge-new {
-
-  background-color: #C9A96E;
-
-  color: #FFFFFF;
-
-}
-
-
-
-.badge-sale {
-
-  background-color: #E53E3E;
-
-  color: #FFFFFF;
-
-}
-
-
-
-.badge-bestseller {
-
-  background-color: #0A0A0A;
-
-  color: #FFFFFF;
-
-} 
 

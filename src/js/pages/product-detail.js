@@ -6,6 +6,16 @@ $(function () {
 
   var productId = new URLSearchParams(window.location.search).get("id");
   var currentProduct = null;
+  var galleryImages = [];
+  var activeImageIndex = 0;
+  var galleryZoom = 100;
+  var galleryPanX = 0;
+  var galleryPanY = 0;
+  var isGalleryDragging = false;
+  var galleryDragStartX = 0;
+  var galleryDragStartY = 0;
+  var galleryDragBaseX = 0;
+  var galleryDragBaseY = 0;
 
   var categoryNames = {
     rings: "Nhẫn",
@@ -44,6 +54,76 @@ $(function () {
     }
 
     return true;
+  }
+
+  function setGalleryZoom(value) {
+    galleryZoom = Math.min(260, Math.max(100, parseInt(value, 10) || 100));
+    $("#gallery-zoom-range").val(galleryZoom);
+
+    if (galleryZoom === 100) {
+      galleryPanX = 0;
+      galleryPanY = 0;
+    }
+
+    updateGalleryImageTransform();
+  }
+
+  function updateGalleryImageTransform() {
+    $("#gallery-modal-img")
+      .css("transform", "translate(" + galleryPanX + "px, " + galleryPanY + "px) scale(" + galleryZoom / 100 + ")")
+      .toggleClass("is-zoomed", galleryZoom > 100);
+  }
+
+  function renderGalleryThumbs() {
+    var thumbsHtml = "";
+
+    $.each(galleryImages, function (index, source) {
+      thumbsHtml +=
+        '<button type="button" class="gallery-modal-thumb ' +
+        (index === activeImageIndex ? "active" : "") +
+        '" data-index="' +
+        index +
+        '">' +
+        '<img src="' +
+        source +
+        '" alt="' +
+        (currentProduct ? currentProduct.name_vi : "San pham") +
+        " " +
+        (index + 1) +
+        '">' +
+        "</button>";
+    });
+
+    $("#gallery-modal-thumbs").html(thumbsHtml);
+  }
+
+  function setGalleryImage(index) {
+    if (!galleryImages.length) return;
+
+    activeImageIndex = (index + galleryImages.length) % galleryImages.length;
+    $("#gallery-modal-img")
+      .attr("src", galleryImages[activeImageIndex])
+      .attr("alt", currentProduct ? currentProduct.name_vi : "San pham");
+    $(".gallery-modal-thumb").removeClass("active");
+    $('.gallery-modal-thumb[data-index="' + activeImageIndex + '"]').addClass("active");
+    galleryPanX = 0;
+    galleryPanY = 0;
+    setGalleryZoom(100);
+  }
+
+  function openGallery(index) {
+    if (!galleryImages.length) return;
+
+    $("#product-gallery-modal").addClass("active").attr("aria-hidden", "false");
+    $("body").css("overflow", "hidden");
+    renderGalleryThumbs();
+    setGalleryImage(index || 0);
+  }
+
+  function closeGallery() {
+    $("#product-gallery-modal").removeClass("active").attr("aria-hidden", "true");
+    $("body").css("overflow", "");
+    setGalleryZoom(100);
   }
 
   function renderProduct(product, products) {
@@ -86,10 +166,13 @@ $(function () {
 
     if (product.images && product.images.length) {
       var thumbnailsHtml = "";
+      galleryImages = product.images.slice();
+      activeImageIndex = 0;
 
       $("#main-product-img")
         .attr("src", product.images[0])
-        .attr("alt", product.name_vi);
+        .attr("alt", product.name_vi)
+        .attr("data-index", 0);
 
       $.each(product.images, function (index, source) {
         thumbnailsHtml +=
@@ -144,13 +227,20 @@ $(function () {
         relatedHtml +=
           '<a href="product-detail.html?id=' +
           item.id +
-          '" class="group block" data-reveal="scale">' +
-          '<div class="overflow-hidden bg-white mb-3">' +
+          '" class="product-card group block" data-reveal="scale">' +
+          '<div class="relative overflow-hidden bg-white mb-3">' +
           '<img src="' +
           item.images[0] +
           '" alt="' +
           item.name_vi +
-          '" class="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105">' +
+          '" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">' +
+          (item.images[1]
+            ? '<img src="' +
+              item.images[1] +
+              '" alt="' +
+              item.name_vi +
+              '" class="product-img-secondary absolute inset-0 w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">'
+            : "") +
           "</div>" +
           '<p class="font-ui text-[10px] uppercase tracking-wider text-gold mb-1">' +
           (categoryNames[item.category] || "") +
@@ -214,12 +304,81 @@ $(function () {
 
   $(document).on("click", ".product-thumb", function () {
     var source = $(this).find("img").attr("src");
+    var index = parseInt($(this).attr("data-index"), 10) || 0;
 
+    activeImageIndex = index;
     $("#main-product-img").attr("src", source);
     $(".product-thumb")
       .removeClass("border-gold")
       .addClass("border-transparent");
     $(this).removeClass("border-transparent").addClass("border-gold");
+  });
+
+  $(document).on("click", "#main-product-img", function () {
+    openGallery(activeImageIndex);
+  });
+
+  $(document).on("click", "#gallery-modal-close", closeGallery);
+
+  $(document).on("click", "#product-gallery-modal", function (event) {
+    if ($(event.target).is("#product-gallery-modal")) {
+      closeGallery();
+    }
+  });
+
+  $(document).on("click", "#gallery-modal-prev", function () {
+    setGalleryImage(activeImageIndex - 1);
+  });
+
+  $(document).on("click", "#gallery-modal-next", function () {
+    setGalleryImage(activeImageIndex + 1);
+  });
+
+  $(document).on("click", ".gallery-modal-thumb", function () {
+    setGalleryImage(parseInt($(this).attr("data-index"), 10) || 0);
+  });
+
+  $(document).on("input change", "#gallery-zoom-range", function () {
+    setGalleryZoom($(this).val());
+  });
+
+  $(document).on("mousedown", "#gallery-modal-img", function (event) {
+    if (galleryZoom <= 100) return;
+
+    event.preventDefault();
+    isGalleryDragging = true;
+    galleryDragStartX = event.clientX;
+    galleryDragStartY = event.clientY;
+    galleryDragBaseX = galleryPanX;
+    galleryDragBaseY = galleryPanY;
+    $(this).addClass("is-dragging");
+  });
+
+  $(document).on("mousemove", function (event) {
+    if (!isGalleryDragging) return;
+
+    galleryPanX = galleryDragBaseX + event.clientX - galleryDragStartX;
+    galleryPanY = galleryDragBaseY + event.clientY - galleryDragStartY;
+    updateGalleryImageTransform();
+  });
+
+  $(document).on("mouseup mouseleave", function () {
+    if (!isGalleryDragging) return;
+
+    isGalleryDragging = false;
+    $("#gallery-modal-img").removeClass("is-dragging");
+  });
+
+  $(document).on("keydown", function (event) {
+    if (!$("#product-gallery-modal").hasClass("active")) return;
+
+    if (event.key === "Escape") {
+      closeGallery();
+    } else if (event.key === "ArrowLeft") {
+      setGalleryImage(activeImageIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      setGalleryImage(activeImageIndex + 1);
+    }
   });
 
   $(document).on("click", ".size-btn", function () {

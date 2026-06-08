@@ -185,6 +185,23 @@
       </section>
     </main>
 
+    <div id="product-gallery-modal" class="product-gallery-modal" aria-hidden="true">
+      <button id="gallery-modal-close" class="gallery-modal-close" type="button" aria-label="Dong thu vien anh">&times;</button>
+      <button id="gallery-modal-prev" class="gallery-modal-nav gallery-modal-prev" type="button" aria-label="Anh truoc">
+        <span aria-hidden="true">&#8249;</span>
+      </button>
+      <div class="gallery-modal-stage">
+        <img id="gallery-modal-img" src="" alt="" />
+      </div>
+      <button id="gallery-modal-next" class="gallery-modal-nav gallery-modal-next" type="button" aria-label="Anh sau">
+        <span aria-hidden="true">&#8250;</span>
+      </button>
+      <div class="gallery-modal-zoom">
+        <input id="gallery-zoom-range" type="range" min="100" max="260" value="100" step="5" aria-label="Zoom anh" />
+      </div>
+      <div id="gallery-modal-thumbs" class="gallery-modal-thumbs"></div>
+    </div>
+
     <div id="component-footer"></div>
 
     <div id="component-cart-overlay"></div>
