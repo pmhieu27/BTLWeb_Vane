@@ -9,22 +9,22 @@
     "originalPrice": null,
     "material": "Vàng trắng 18K",
     "gemstone": "Kim cương",
-    "images": ["src/images/product-ring.png", "src/images/product-ring.png"],
+    "images": ["src/images/product-ring.png", "src/images/product-ring-10.png"],
     "isNew": true,
     "isBestSeller": false,
     "sizes": ["6", "7", "8", "9", "10"]
   },
   {
     "id": 2,
-    "name_vi": "Dây Chuyền Ngọc Trai Lumière",
-    "name_en": "Lumière Pearl Necklace",
+    "name_vi": "Dây Chuyền Ánh Kim Lumière",
+    "name_en": "Lumière Diamond Necklace",
     "category": "necklaces",
-    "subcategory": "pearl",
+    "subcategory": "diamond",
     "price": 28000000,
     "originalPrice": null,
     "material": "Vàng 18K",
-    "gemstone": "Ngọc trai",
-    "images": ["src/images/product-necklace.png", "src/images/product-necklace.png"],
+    "gemstone": "Kim cương",
+    "images": ["src/images/product-necklace.png", "src/images/product-necklace-21.png"],
     "isNew": true,
     "isBestSeller": true,
     "sizes": ["42cm", "45cm", "50cm"]
@@ -39,7 +39,7 @@
     "originalPrice": 42000000,
     "material": "Vàng trắng 18K",
     "gemstone": "Sapphire",
-    "images": ["src/images/product-bracelet.png", "src/images/product-bracelet.png"],
+    "images": ["src/images/product-bracelet.png", "src/images/product-bracelet-30.png"],
     "isNew": true,
     "isBestSeller": false,
     "sizes": ["16cm", "18cm", "20cm"]
@@ -54,7 +54,7 @@
     "originalPrice": null,
     "material": "Vàng 18K",
     "gemstone": "Kim cương",
-    "images": ["src/images/product-earrings.png", "src/images/product-earrings.png"],
+    "images": ["src/images/product-earrings.png", "src/images/product-earrings-40.png"],
     "isNew": true,
     "isBestSeller": true,
     "sizes": []
@@ -1048,6 +1048,35 @@
   "isNew": true,
   "isBestSeller": true,
   "sizes": ["42cm","45cm","50cm"]
+},
+{
+  "id": 71,
+  "name_vi": "Bộ sưu tập D'PRIVILEGE",
+  "name_en": "D'PRIVILEGE Collection",
+  "category": "necklaces",
+  "subcategory": "dinamond",
+  "price": 59000000,
+  "originalPrice": null,
+  "material": "Bạc 925",
+  "gemstone": "Opal Thiên Hà",
+  "images": ["src/images/BST20.png", "src/images/BST4.png"],
+  "isNew": true,
+  "isBestSeller": false,
+  "sizes": ["42cm","45cm","50cm"]
+},
+{
+  "id": 72,
+  "name_vi": "Bộ sưu tập AQUAMARINE OCEAN",
+  "name_en": "AQUAMARINE OCEAN Collection",
+  "category": "bracelets",
+  "subcategory": "dinamond",
+  "price": 25000000,
+  "originalPrice": null,
+  "material": "Bạc 925",
+  "gemstone": "Blue Aquamarine",
+  "images": ["src/images/BST2.png", "src/images/BST5.png"],
+  "isNew": true,
+  "isBestSeller": false,
+  "sizes": ["16cm","18cm"]
 }
-
 ]

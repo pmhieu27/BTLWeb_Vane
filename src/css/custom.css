@@ -715,3 +715,21 @@
     margin-top: 5px;
     font-family: sans-serif;
 }
+
+.btn-discover {
+  padding: 12px 32px;
+  border: 1px solid black; 
+  background: white;
+  color: black;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: all 0.3s ease; 
+}
+
+.btn-discover:hover {
+  background: black;
+  color: white;
+  border-color: white; 
+}
