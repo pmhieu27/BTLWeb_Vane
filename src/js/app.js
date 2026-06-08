@@ -55,6 +55,7 @@ $(async function () {
     "src/js/core/header.js",
     "src/js/core/scroll-reveal.js",
     "src/js/core/page-transition.js",
+    "src/js/modules/toast.js",
   ];
 
   var pageConfig = {
@@ -134,6 +135,20 @@ $(async function () {
     // Load page-specific script
     if (config.page) {
       await loadScript("src/js/pages/" + config.page + ".js");
+    }
+
+    // Check for pending toast in sessionStorage
+    try {
+      var pendingToast = sessionStorage.getItem("pendingToast");
+      if (pendingToast) {
+        var toastData = JSON.parse(pendingToast);
+        setTimeout(function () {
+          $(document).trigger("toast", [toastData.message, toastData.type]);
+        }, 800);
+        sessionStorage.removeItem("pendingToast");
+      }
+    } catch (e) {
+      console.error("Pending toast error:", e);
     }
   } catch (err) {
     console.error("App loader error:", err);

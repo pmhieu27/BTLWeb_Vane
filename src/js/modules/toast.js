@@ -5,6 +5,9 @@
 $(function () {
   "use strict";
 
+  if (window.toastInitialized) return;
+  window.toastInitialized = true;
+
   var $container = $("#toast-container");
   if (!$container.length) {
     $container = $('<div id="toast-container" class="toast-container"></div>').appendTo("body");

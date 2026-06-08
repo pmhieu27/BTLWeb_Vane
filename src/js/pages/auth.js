@@ -89,27 +89,27 @@ if (registerForm) {
         const confirmPassword = document.getElementById("registerConfirmPassword").value;
 
         if (!fullname || !phone || !email || !password || !confirmPassword) {
-            alert("Vui lòng nhập đầy đủ thông tin");
+            $(document).trigger("toast", ["Vui lòng nhập đầy đủ thông tin", "error"]);
             return;
         }
 
         if (!isValidPhone(phone)) {
-            alert("Số điện thoại không hợp lệ: chỉ nhập số và có 7-15 chữ số");
+            $(document).trigger("toast", ["Số điện thoại không hợp lệ: chỉ nhập số và có 7-15 chữ số", "error"]);
             return;
         }
 
         if (!isValidEmail(email)) {
-            alert("Định dạng email không hợp lệ");
+            $(document).trigger("toast", ["Định dạng email không hợp lệ", "error"]);
             return;
         }
 
         if (password.length < 8) {
-            alert("Mật khẩu tối thiểu 8 ký tự");
+            $(document).trigger("toast", ["Mật khẩu tối thiểu 8 ký tự", "error"]);
             return;
         }
 
         if (password !== confirmPassword) {
-            alert("Xác nhận mật khẩu không khớp");
+            $(document).trigger("toast", ["Xác nhận mật khẩu không khớp", "error"]);
             return;
         }
 
@@ -117,7 +117,7 @@ if (registerForm) {
         const existed = users.find(u => u.phone === phone || u.email === email);
 
         if (existed) {
-            alert("Số điện thoại hoặc Email đã được đăng ký");
+            $(document).trigger("toast", ["Số điện thoại hoặc Email đã được đăng ký", "error"]);
             return;
         }
 
@@ -130,7 +130,7 @@ if (registerForm) {
         });
 
         saveUsers(users);
-        alert("Đăng ký thành công");
+        sessionStorage.setItem("pendingToast", JSON.stringify({ message: "Đăng ký tài khoản thành công!", type: "success" }));
         window.location.href = "login.html";
     });
 }
@@ -168,12 +168,12 @@ if (loginForm) {
         const user = users.find(u => u.phone === phone && u.password === password);
 
         if (!user) {
-            alert("Sai số điện thoại hoặc mật khẩu");
+            $(document).trigger("toast", ["Sai số điện thoại hoặc mật khẩu", "error"]);
             return;
         }
 
         localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
-        alert("Đăng nhập thành công");
+        sessionStorage.setItem("pendingToast", JSON.stringify({ message: "Đăng nhập thành công! Chào mừng quay trở lại.", type: "success" }));
         window.location.href = "index.html";
     });
 }
@@ -222,22 +222,22 @@ if (profileForm) {
         const password = document.getElementById("profilePassword").value;
 
         if (!name || !phone || !email || !password) {
-            alert("Vui lòng không để trống thông tin");
+            $(document).trigger("toast", ["Vui lòng không để trống thông tin", "error"]);
             return;
         }
 
         if (!isValidPhone(phone)) {
-            alert("Số điện thoại không hợp lệ chỉ nhập số và có 7-15 chữ số");
+            $(document).trigger("toast", ["Số điện thoại không hợp lệ: chỉ nhập số và có 7-15 chữ số", "error"]);
             return;
         }
 
         if (!isValidEmail(email)) {
-            alert("Định dạng email không hợp lệ");
+            $(document).trigger("toast", ["Định dạng email không hợp lệ", "error"]);
             return;
         }
 
         if (password.length < 8) {
-            alert("Mật khẩu tối thiểu 8 ký tự");
+            $(document).trigger("toast", ["Mật khẩu tối thiểu 8 ký tự", "error"]);
             return;
         }
 
@@ -249,7 +249,7 @@ if (profileForm) {
         );
 
         if (isDuplicate) {
-            alert("Số điện thoại hoặc Email này đã thuộc về tài khoản khác!");
+            $(document).trigger("toast", ["Số điện thoại hoặc Email này đã thuộc về tài khoản khác!", "error"]);
             return;
         }
 
@@ -268,9 +268,9 @@ if (profileForm) {
             currentUser = users[index];
             localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
 
-            alert("Cập nhật tài khoản thành công");
+            $(document).trigger("toast", ["Cập nhật tài khoản thành công", "success"]);
         } else {
-            alert("Có lỗi xảy ra, không tìm thấy tài khoản!");
+            $(document).trigger("toast", ["Có lỗi xảy ra, không tìm thấy tài khoản!", "error"]);
         }
     });
 }
@@ -288,7 +288,7 @@ if (forgotForm) {
         const phone = document.getElementById("forgotPhone").value.trim();
         
         if (!isValidPhone(phone)) {
-            alert("Số điện thoại không hợp lệ");
+            $(document).trigger("toast", ["Số điện thoại không hợp lệ", "error"]);
             return;
         }
 
@@ -296,7 +296,7 @@ if (forgotForm) {
         const user = users.find(u => u.phone === phone);
 
         if (!user) {
-            alert("Số điện thoại chưa được đăng ký trong hệ thống");
+            $(document).trigger("toast", ["Số điện thoại chưa được đăng ký trong hệ thống", "error"]);
             return;
         }
 
@@ -364,20 +364,22 @@ if (resetPasswordForm) {
         const confirm = document.getElementById("confirmPassword").value;
 
         if (password.length < 8) {
-            alert("Mật khẩu tối thiểu 8 ký tự");
+            $(document).trigger("toast", ["Mật khẩu tối thiểu 8 ký tự", "error"]);
             return;
         }
 
         if (password !== confirm) {
-            alert("Xác nhận mật khẩu không khớp");
+            $(document).trigger("toast", ["Xác nhận mật khẩu không khớp", "error"]);
             return;
         }
 
         const phone = localStorage.getItem(RESET_PHONE_KEY);
 
         if (!phone) {
-            alert("Phiên làm việc đã hết hạn. Vui lòng quay lại bước 1");
-            window.location.href = "forgotpw.html";
+            $(document).trigger("toast", ["Phiên làm việc đã hết hạn. Vui lòng quay lại bước 1", "error"]);
+            setTimeout(function () {
+                window.location.href = "forgotpw.html";
+            }, 1500);
             return;
         }
 
@@ -385,7 +387,7 @@ if (resetPasswordForm) {
         const userIndex = users.findIndex(u => u.phone === phone);
 
         if (userIndex === -1) {
-            alert("Không tìm thấy tài khoản");
+            $(document).trigger("toast", ["Không tìm thấy tài khoản", "error"]);
             return;
         }
 
@@ -395,7 +397,7 @@ if (resetPasswordForm) {
 
         localStorage.removeItem(RESET_PHONE_KEY);
 
-        alert("Đổi mật khẩu thành công");
+        sessionStorage.setItem("pendingToast", JSON.stringify({ message: "Đổi mật khẩu thành công!", type: "success" }));
         window.location.href = "login.html";
     });
 }
